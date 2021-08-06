@@ -5,19 +5,26 @@
 
 using namespace std;
 
+//Declaracion de metodos y funcioens
 int menu();
 void clear();
 void gotoxy(int, int);
+void cargarUsuarios();
 
+// Varialbles globales
+string pathUsers;
+
+//Programa principal
 int main()
 {
+    system("COLOR 71");
     int op;
     do
     {
         op = menu();
         switch (op)
         {
-            case 0: break;
+            case 0: cargarUsuarios(); break;
             case 1: break;
             case 2: break;
             case 3: break;
@@ -26,6 +33,7 @@ int main()
     } while (op != 4);
 }
 
+//Menu principal
 int menu(void)
 {
     char *m[5];
@@ -44,7 +52,7 @@ int menu(void)
             gotoxy(10, (c+5) * 2);
             if (pos == c)
             {
-                cout <<"--> ";
+                cout <<"==> ";
             }
             cout << m[c];
         }
@@ -90,4 +98,12 @@ void gotoxy(int x, int y)
     dwPos.X = x;
     dwPos.Y = y;
     SetConsoleCursorPosition(hCon, dwPos);
+}
+
+void cargarUsuarios()
+{
+    clear();
+    getline(cin,pathUsers);
+    cout<<pathUsers;
+    getch();
 }
