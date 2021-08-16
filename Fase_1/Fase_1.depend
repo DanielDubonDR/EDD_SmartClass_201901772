@@ -1,7 +1,11 @@
 # depslib dependency file v1.0
-1628114174 source:d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\main.cpp
+1629154750 source:d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\main.cpp
 	<iostream>
 	<conio.h>
 	<stdlib.h>
 	<windows.h>
+	"Funciones.h"
+
+1629155028 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\funciones.h
+	<iostream>
 
