@@ -4,12 +4,14 @@
 #include <windows.h>
 
 #include "Funciones.h"
+#include "LinkedListDC.h"
 
 using namespace std;
 
 //Declaracion de metodos y funcioens
 int menu();
 void cargarUsuarios();
+void prueba();
 
 // Varialbles globales
 string pathUsers;
@@ -25,7 +27,7 @@ int main()
         switch (op)
         {
             case 0: cargarUsuarios(); break;
-            case 1: break;
+            case 1: prueba(); break;
             case 2: break;
             case 3: break;
             case 4: break;
@@ -93,5 +95,33 @@ void cargarUsuarios()
     clear();
     getline(cin,pathUsers);
     cout<<pathUsers;
+    getch();
+}
+
+void prueba()
+{
+    clear();
+    ListDC *lista = new ListDC();
+    lista->append(1);
+    lista->append(2);
+    lista->append(3);
+    lista->append(4);
+    lista->append(5);
+    lista->showList();
+    cout<<endl;
+    lista->modificar(1,11);
+    lista->modificar(2,22);
+    lista->modificar(3,33);
+    lista->modificar(4,44);
+    lista->modificar(5,55);
+    lista->showList();
+    cout<<endl;
+    lista->borrar(33);
+    lista->borrar(44);
+    lista->showList();
+    lista->append(31);
+    cout<<endl;
+    lista->showList();
+
     getch();
 }
