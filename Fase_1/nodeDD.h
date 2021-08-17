@@ -2,73 +2,73 @@
 
 using namespace std;
 
-class NodeD
+class NodeDC
 {
     private:
         int dato;
-        NodeD *siguiente;
-        NodeD *anterior;
+        NodeDC *siguiente;
+        NodeDC *anterior;
     public:
-        NodeD();
-        NodeD(int);
-        NodeD(int, NodeD *, NodeD *);
+        NodeDC();
+        NodeDC(int);
+        NodeDC(int, NodeDC *, NodeDC *);
 
         int getDato();
         void setDato(int);
 
-        NodeD *getSiguiente();
-        void setSiguiente(NodeD *);
-        NodeD *getAnterior();
-        void setAnterior(NodeD *);
+        NodeDC *getSiguiente();
+        void setSiguiente(NodeDC *);
+        NodeDC *getAnterior();
+        void setAnterior(NodeDC *);
 };
 
-NodeD::NodeD()
+NodeDC::NodeDC()
 {
     this->dato = 0;
     this->siguiente = NULL;
     this->anterior = NULL;
 }
 
-NodeD::NodeD(int _dato)
+NodeDC::NodeDC(int _dato)
 {
     this->dato = _dato;
     this->siguiente = NULL;
     this->anterior = NULL;
 }
 
-NodeD::NodeD(int _dato, NodeD *_siguiente, NodeD *_anterior)
+NodeDC::NodeDC(int _dato, NodeDC *_siguiente, NodeDC *_anterior)
 {
     this->dato = _dato;
     this->siguiente = _siguiente;
     this->anterior = _anterior;
 }
 
-int NodeD::getDato()
+int NodeDC::getDato()
 {
     return this->dato;
 }
 
-NodeD *NodeD::getSiguiente()
+NodeDC *NodeDC::getSiguiente()
 {
     return this->siguiente;
 }
 
-NodeD *NodeD::getAnterior()
+NodeDC *NodeDC::getAnterior()
 {
     return this->anterior;
 }
 
-void NodeD::setDato(int _dato)
+void NodeDC::setDato(int _dato)
 {
     this->dato = _dato;
 }
 
-void NodeD::setSiguiente(NodeD *_siguiente)
+void NodeDC::setSiguiente(NodeDC *_siguiente)
 {
     this->siguiente = _siguiente;
 }
 
-void NodeD::setAnterior(NodeD *_anterior)
+void NodeDC::setAnterior(NodeDC *_anterior)
 {
     this->anterior = _anterior;
 }

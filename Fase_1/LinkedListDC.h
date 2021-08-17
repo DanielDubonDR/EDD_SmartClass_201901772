@@ -6,8 +6,8 @@ using namespace std;
 class ListDC
 {
     private:
-        NodeD *Cabeza;
-        NodeD *Cola;
+        NodeDC *Cabeza;
+        NodeDC *Cola;
 
     public:
         ListDC();
@@ -34,7 +34,7 @@ bool ListDC::isEmpty()
 
 int ListDC::size()
 {
-    NodeD *aux =  this->Cabeza;
+    NodeDC *aux =  this->Cabeza;
     int cont = 0;
     while(aux != NULL)
     {
@@ -46,7 +46,7 @@ int ListDC::size()
 
 void ListDC::showList()
 {
-    NodeD *aux =  this->Cabeza;
+    NodeDC *aux =  this->Cabeza;
     do
     {
         cout<<"Dato: [ "<<aux->getDato()<<" ]"<<endl;
@@ -57,7 +57,7 @@ void ListDC::showList()
 
 void ListDC::append(int _dato)
 {
-    NodeD *newNode = new NodeD(_dato);
+    NodeDC *newNode = new NodeDC(_dato);
     if(isEmpty())
     {
         this->Cabeza = newNode;
@@ -77,7 +77,7 @@ void ListDC::append(int _dato)
 
 void ListDC::eliminar(int _dato)
 {
-    NodeD *aux = this->Cabeza;
+    NodeDC *aux = this->Cabeza;
     while(this->Cabeza != NULL)
     {
         if (this->Cabeza->getDato() == _dato)
@@ -108,7 +108,7 @@ void ListDC::eliminar(int _dato)
 
 void ListDC::modificar(int id, int _dato)
 {
-    NodeD *aux = this->Cabeza;
+    NodeDC *aux = this->Cabeza;
     do
     {
         if (aux->getDato() == id)
@@ -123,7 +123,7 @@ void ListDC::modificar(int id, int _dato)
 
 void ListDC::borrar(int id)
 {
-    NodeD *aux = this->Cabeza;
+    NodeDC *aux = this->Cabeza;
     do
     {
         if (aux->getDato() == id)
