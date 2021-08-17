@@ -33,8 +33,9 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="Funciones.h" />
+		<Unit filename="LinkedListDC.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="nodeDC.h" />
+		<Unit filename="nodeDD.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

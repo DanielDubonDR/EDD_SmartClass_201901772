@@ -5,6 +5,7 @@
 
 #include "Funciones.h"
 #include "LinkedListDC.h"
+#include "cola.h"
 
 using namespace std;
 
@@ -101,10 +102,17 @@ void cargarUsuarios()
 void prueba()
 {
     clear();
-    ListDC *lista = new ListDC();
-    lista->append("201901772","3179425811504","Daniel Reginaldo Dubon Rodriguez","Sistemas","hola","120","22","danieldubon499@gmail.com");
-    lista->append("201901231","3112312333504","Pancho Francisco Doroteo","Industrial","Adios","100","32","danieldu99@gmail.com");
-    lista->showList();
+
+    Queue *cola = new Queue();
+    cola->Enqueue("Daniel",22);
+    cola->Enqueue("Reginaldo",23);
+    cola->Enqueue("Dubon",23);
+    cola->showQueue();
+
+    // ListDC *lista = new ListDC();
+    // lista->append("201901772","3179425811504","Daniel Reginaldo Dubon Rodriguez","Sistemas","hola","120","22","danieldubon499@gmail.com");
+    // lista->append("201901231","3112312333504","Pancho Francisco Doroteo","Industrial","Adios","100","32","danieldu99@gmail.com");
+    // lista->showList();
 
     getch();
 }
