@@ -31,8 +31,43 @@ void titulo()
 
 }
 
+void tituloEstudiantes()
+{                                                                                
+    gotoxy(17,4); cout<<",---.                             ,---.     |             |o          |              ";
+    gotoxy(17,5); cout<<"|    ,---.,---.,---.,---.,---.    |--- ,---.|--- .   .,---|.,---.,---.|--- ,---.,---.";
+    gotoxy(17,6); cout<<"|    ,---||    |   |,---||        |    `---.|    |   ||   ||,---||   ||    |---'`---.";
+    gotoxy(17,7); cout<<"`---'`---^`    `---|`---^`        `---'`---'`---'`---'`---'``---^`   '`---'`---'`---'";
+    gotoxy(17,8); cout<<"               `---'";
+}
+
 bool verificarEmail(string email)
 {
     regex patron("^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.)(com|es|org)$");
     return regex_match(email, patron);
+}
+
+bool verificarDPI(string dpi)
+{
+    int cantidad = dpi.length();
+    if(cantidad == 13)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool verificarCarnet(string carnet)
+{
+    int cantidad = carnet.length();
+    if(cantidad == 9)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

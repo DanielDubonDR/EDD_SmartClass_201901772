@@ -2,6 +2,8 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <sstream>
+#include <fstream>
 
 #include "Funciones.h"
 #include "LinkedListDC.h"
@@ -11,11 +13,11 @@ using namespace std;
 
 //Declaracion de metodos y funcioens
 int menu();
-void cargarUsuarios();
+void cargarEstudiantes();
 void prueba();
 
 // Varialbles globales
-string pathUsers;
+
 
 //Programa principal
 int main()
@@ -27,7 +29,7 @@ int main()
         op = menu();
         switch (op)
         {
-            case 0: cargarUsuarios(); break;
+            case 0: cargarEstudiantes(); break;
             case 1: prueba(); break;
             case 2: break;
             case 3: break;
@@ -91,11 +93,64 @@ int menu(void)
     return pos;
 }
 
-void cargarUsuarios()
+void cargarEstudiantes()
 {
     clear();
-    getline(cin,pathUsers);
-    cout<<pathUsers;
+    tituloEstudiantes();
+    string pathEstudiantes;
+    gotoxy(22, 11);   cout<<"- Ingrese la ruta del archivo";
+    gotoxy(25, 13);   cout<<"> ";
+    getline(cin, pathEstudiantes);
+    gotoxy(22, 15);   cout<<"- Logs:";
+    gotoxy(25, 17);
+
+    bool abierto;
+    ifstream archivo;
+    archivo.open(pathEstudiantes, ios::in);
+    if(archivo.fail())
+    {
+        abierto=false;
+    }
+    else
+    {
+        abierto=true;
+    }
+    archivo.close();
+
+    if(abierto)
+    {
+        ifstream file(pathEstudiantes);
+        string line;
+        getline(file, line);
+        while(getline(file, line))
+        {
+            stringstream data(line);
+            string carnet, dpi, nombre, carrera, password, creditos, edad, email;
+            getline(data, carnet, ',');
+            getline(data, dpi, ',');
+            getline(data, nombre, ',');
+            getline(data, carrera, ',');
+            getline(data, password, ',');
+            getline(data, creditos, ',');
+            getline(data, edad, ',');
+            getline(data, email, ',');
+
+            cout<<carnet<<endl;
+            cout<<dpi<<endl;
+            cout<<nombre<<endl;
+            cout<<carrera<<endl;
+            cout<<password<<endl;
+            cout<<creditos<<endl;
+            cout<<edad<<endl;
+            cout<<email<<endl;
+            cout<<endl<<endl;
+        }
+    }
+    else
+    {
+        cout<<"Ocurrion un error, por favor verifique la ruta y estructura del archivo sean validas";
+    }
+    cout<<pathEstudiantes;
     getch();
 }
 
@@ -114,6 +169,7 @@ void prueba()
     // lista->append("201901231","3112312333504","Pancho Francisco Doroteo","Industrial","Adios","100","32","danieldu99@gmail.com");
     // lista->showList();
 
+    /*
     cout<<(verificarEmail("nicols36@hotmail.com") ? "Valido" : "No valido")<<endl;
     cout<<(verificarEmail("jernimo.caballero@yahoo.es") ? "Valido" : "No valido")<<endl;
     cout<<(verificarEmail("carolinaelizondo85@yahoo.com") ? "Valido" : "No valido")<<endl;
@@ -127,6 +183,7 @@ void prueba()
     string nombre="DANIEL daniel daniel ...";
     int cantidad = nombre.length();
     cout<<cantidad;
+    */
 
     getch();
 }
