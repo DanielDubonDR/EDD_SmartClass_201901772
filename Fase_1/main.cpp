@@ -41,7 +41,7 @@ int main()
 //Menu principal
 int menu(void)
 {
-    char *m[5];
+    string m[5];
     m[0] = "   1. Carga de usuarios";
     m[1] = "   2. Carga de tareas";
     m[2] = "   3. Ingreso manual";
@@ -103,16 +103,30 @@ void prueba()
 {
     clear();
 
-    Queue *cola = new Queue();
-    cola->Enqueue(1, "Estudiante", "DPI");
-    cola->Enqueue(2, "Estudiante", "CARNE");
-    cola->Enqueue(3, "Tarea", "NI IDEA");
-    cola->showQueue();
+    // Queue *cola = new Queue();
+    // cola->Enqueue(1, "Estudiante", "DPI");
+    // cola->Enqueue(2, "Estudiante", "CARNE");
+    // cola->Enqueue(3, "Tarea", "NI IDEA");
+    // cola->showQueue();
 
     // ListDC *lista = new ListDC();
     // lista->append("201901772","3179425811504","Daniel Reginaldo Dubon Rodriguez","Sistemas","hola","120","22","danieldubon499@gmail.com");
     // lista->append("201901231","3112312333504","Pancho Francisco Doroteo","Industrial","Adios","100","32","danieldu99@gmail.com");
     // lista->showList();
+
+    cout<<(verificarEmail("nicols36@hotmail.com") ? "Valido" : "No valido")<<endl;
+    cout<<(verificarEmail("jernimo.caballero@yahoo.es") ? "Valido" : "No valido")<<endl;
+    cout<<(verificarEmail("carolinaelizondo85@yahoo.com") ? "Valido" : "No valido")<<endl;
+    cout<<(verificarEmail("alfonso03@hotmail..org") ? "Valido" : "No valido")<<endl;
+    cout<<(verificarEmail("benitoarmas92@gmail.se") ? "Valido" : "No valido")<<endl;
+    cout<<(verificarEmail("ngela.solorio86@yahoo.gt") ? "Valido" : "No valido")<<endl;
+    cout<<(verificarEmail("carmen.#montenegro@outlook.com") ? "Valido" : "No valido")<<endl;
+    cout<<(verificarEmail("adriana56@gmail.com") ? "Valido" : "No valido")<<endl;
+    cout<<(verificarEmail("esperanza.meza41@hotmail.edu") ? "Valido" : "No valido")<<endl;
+    cout<<(verificarEmail("horacio.tejada15@yahoo.org") ? "Valido" : "No valido")<<endl;
+    string nombre="DANIEL daniel daniel ...";
+    int cantidad = nombre.length();
+    cout<<cantidad;
 
     getch();
 }

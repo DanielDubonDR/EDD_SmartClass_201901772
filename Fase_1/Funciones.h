@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <regex>
 
 using namespace std;
 
@@ -27,4 +29,10 @@ void titulo()
     gotoxy(6,6); cout<<"d8'   .8P 88   88   88 88     88   88     88    88       Y8.   .88 88        88     88  d8'   .8P d8'   .8P";
     gotoxy(6,7); cout<<" Y88888P  dP   dP   dP 88     88   dP     dP    dP        Y88888P' 88888888P 88     88   Y88888P   Y88888P";
 
+}
+
+bool verificarEmail(string email)
+{
+    regex patron("^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.)(com|es|org)$");
+    return regex_match(email, patron);
 }

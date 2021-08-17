@@ -81,7 +81,7 @@ void Queue::Dequeue()
 {
     if(isEmpty())
     {
-        cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\                                      -  LA COLA ESTA VACIA";
+        cout<<"\n\n\n\n\n\n\n\n\n\n\n\n                                      -  LA COLA ESTA VACIA";
     }
     else
     {
