@@ -102,25 +102,8 @@ void prueba()
 {
     clear();
     ListDC *lista = new ListDC();
-    lista->append(1);
-    lista->append(2);
-    lista->append(3);
-    lista->append(4);
-    lista->append(5);
-    lista->showList();
-    cout<<endl;
-    lista->modificar(1,11);
-    lista->modificar(2,22);
-    lista->modificar(3,33);
-    lista->modificar(4,44);
-    lista->modificar(5,55);
-    lista->showList();
-    cout<<endl;
-    lista->borrar(33);
-    lista->borrar(44);
-    lista->showList();
-    lista->append(31);
-    cout<<endl;
+    lista->append("201901772","3179425811504","Daniel Reginaldo Dubon Rodriguez","Sistemas","hola","120","22","danieldubon499@gmail.com");
+    lista->append("201901231","3112312333504","Pancho Francisco Doroteo","Industrial","Adios","100","32","danieldu99@gmail.com");
     lista->showList();
 
     getch();

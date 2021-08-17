@@ -16,10 +16,9 @@ class ListDC
         int size();
 
         void showList();
-        void append(int dato);
-        void eliminar(int);
-        void borrar(int);
-        void modificar(int, int);
+        void append(string, string, string, string, string, string, string, string);
+        void eliminar(string);
+        void modificar(string, string);
 };
 
 ListDC::ListDC()
@@ -49,15 +48,15 @@ void ListDC::showList()
     NodeDC *aux =  this->Cabeza;
     do
     {
-        cout<<"Dato: [ "<<aux->getDato()<<" ]"<<endl;
+        cout<<"Alumno: [ "<<aux->getCarnet()<<" "<<aux->getDPI()<<" "<<aux->getNombre()<<" "<<aux->getCarrera()<<" "<<aux->getPassword()<<" "<<aux->getCreditos()<<" "<<aux->getEdad()<<" "<<aux->getEmail()<<" ]"<<endl;
         aux = aux->getSiguiente();
     }
     while(aux != this->Cabeza);
 }
 
-void ListDC::append(int _dato)
+void ListDC::append(string _carnet, string _dpi, string _nombre, string _carrera, string _password, string _creditos, string _edad, string _email)
 {
-    NodeDC *newNode = new NodeDC(_dato);
+    NodeDC *newNode = new NodeDC(_carnet, _dpi, _nombre, _carrera, _password, _creditos, _edad, _email);
     if(isEmpty())
     {
         this->Cabeza = newNode;
@@ -75,45 +74,14 @@ void ListDC::append(int _dato)
     }
 }
 
-void ListDC::eliminar(int _dato)
-{
-    NodeDC *aux = this->Cabeza;
-    while(this->Cabeza != NULL)
-    {
-        if (this->Cabeza->getDato() == _dato)
-        {
-            if(aux == this->Cabeza)
-            {
-                aux = this->Cabeza->getSiguiente();
-                aux->setAnterior(NULL);
-                break;
-            }
-            else if (this->Cabeza == this->Cola)
-            {
-                this->Cola = this->Cabeza->getAnterior();
-                this->Cola->setSiguiente(NULL);
-                break;
-            }
-            else
-            {
-                this->Cabeza->getSiguiente()->setAnterior(this->Cabeza->getAnterior());
-                this->Cabeza->getAnterior()->setSiguiente(this->Cabeza->getSiguiente());
-                break;
-            }
-        }
-        this->Cabeza = this->Cabeza->getSiguiente();
-    }
-    this->Cabeza = aux;
-}
-
-void ListDC::modificar(int id, int _dato)
+void ListDC::modificar(string dpi, string _dato)
 {
     NodeDC *aux = this->Cabeza;
     do
     {
-        if (aux->getDato() == id)
+        if (aux->getDPI() == dpi)
         {
-            aux->setDato(_dato);
+            aux->setDPI(_dato);
             break;
         }
         aux = aux->getSiguiente();
@@ -121,12 +89,12 @@ void ListDC::modificar(int id, int _dato)
     while(aux != this->Cabeza);
 }
 
-void ListDC::borrar(int id)
+void ListDC::eliminar(string dpi)
 {
     NodeDC *aux = this->Cabeza;
     do
     {
-        if (aux->getDato() == id)
+        if (aux->getDPI() == dpi)
         {
             if(aux == this->Cabeza)
             {
