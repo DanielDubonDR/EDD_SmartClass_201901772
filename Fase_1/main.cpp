@@ -104,9 +104,9 @@ void prueba()
     clear();
 
     Queue *cola = new Queue();
-    cola->Enqueue("Daniel",22);
-    cola->Enqueue("Reginaldo",23);
-    cola->Enqueue("Dubon",23);
+    cola->Enqueue(1, "Estudiante", "DPI");
+    cola->Enqueue(2, "Estudiante", "CARNE");
+    cola->Enqueue(3, "Tarea", "NI IDEA");
     cola->showQueue();
 
     // ListDC *lista = new ListDC();

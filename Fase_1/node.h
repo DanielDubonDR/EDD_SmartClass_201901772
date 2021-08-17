@@ -5,16 +5,22 @@ using namespace std;
 class Node
 {
     private:
-        string nombre;
-        int edad;
+        int id;
+        string tipo;
+        string descripcion;
         Node *siguiente;
 
     public:
         Node();
-        Node(string, int);
+        Node(int, string, string);
 
-        int getEdad();
-        string getNombre();
+        int getID();
+        string getTipo();
+        string getDescripcion();
+
+        void setID(int);
+        void setTipo(string);
+        void setDescripcion(string);
 
         Node *getSiguiente();
         void setSiguiente(Node *);
@@ -22,26 +28,33 @@ class Node
 
 Node::Node()
 {
-    this->nombre = "";
-    this->edad = 0;
+    this->id = 0;
+    this->tipo = "";
+    this->descripcion = "";
     this->siguiente = NULL;
 }
 
-Node::Node(string _nombre, int _edad)
+Node::Node(int _id, string _tipo, string _descripcion)
 {
-    this->nombre = _nombre;
-    this->edad= _edad;
+    this->id = _id;
+    this->tipo= _tipo;
+    this->descripcion= _descripcion;
     this->siguiente = NULL;
 }
 
-string Node::getNombre()
+int Node::getID()
 {
-    return this->nombre;
+    return this->id;
 }
 
-int Node::getEdad()
+string Node::getTipo()
 {
-    return this->edad;
+    return this->tipo;
+}
+
+string Node::getDescripcion()
+{
+    return this->descripcion;
 }
 
 Node *Node::getSiguiente()

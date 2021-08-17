@@ -15,10 +15,8 @@ class Queue
         int size();
 
         void showQueue();
-        void Enqueue(string,int);
-        void Enqueue2(string,int);
+        void Enqueue(int, string, string);
         void Dequeue();
-        void Dequeue2();
 };
 
 Queue::Queue()
@@ -51,20 +49,18 @@ void Queue::showQueue()
     }
     else
     {
-        int cont=1;
         Node *aux =  this->Cabeza;
         while(aux != NULL)
         {
-            cout<<" "<<cont<<".  Nombre: [ "<<aux->getNombre()<<" ]"<<endl<<"     Edad: [ "<<aux->getEdad()<<" ]"<<endl<<"             |"<<endl<<"             v"<<endl;
+            cout<<"    ID: [ "<<aux->getID()<<" ]"<<endl<<"    Tipo: [ "<<aux->getTipo()<<" ]"<<endl<<"    Descripcion: [ "<<aux->getDescripcion()<<" ]"<<endl<<"             |"<<endl<<"             v"<<endl;
             aux = aux->getSiguiente();
-            cont++;
         }
     }
 }
 
-void Queue::Enqueue(string _nombre, int _edad)
+void Queue::Enqueue(int _id, string _tipo, string _descripcion)
 {
-    Node *newNode = new Node(_nombre, _edad);
+    Node *newNode = new Node(_id, _tipo, _descripcion);
     if(isEmpty())
     {
         this->Cabeza=newNode;
@@ -90,41 +86,9 @@ void Queue::Dequeue()
     else
     {
         cout<<"\n\n\n\n\n\n\n\n\n\n                                  DATOS DESENCOLADOS:"<<endl<<endl;
-        cout<<"                    >  Nombre: [ "<<this->Cabeza->getNombre()<<" ]"<<endl<<"                    >  Edad: [ "<<this->Cabeza->getEdad()<<" ]";
+        cout<<"                    >  ID: [ "<<this->Cabeza->getID()<<" ]"<<endl<<"                    >  Tipo: [ "<<this->Cabeza->getTipo()<<" ]"<<endl<<"                    >  Tipo: [ "<<this->Cabeza->getDescripcion()<<" ]";
         Node *aux =  this->Cabeza->getSiguiente();
         this->Cabeza=aux;
         cout<<"\n\n                    -  Se ha desencolado con exito";
-    }
-}
-
-void Queue::Enqueue2(string _nombre, int _edad)
-{
-    Node *newNode = new Node(_nombre, _edad);
-    if(isEmpty())
-    {
-        this->Cabeza=newNode;
-    }
-    else
-    {
-        newNode->setSiguiente(this->Cabeza);
-        this->Cabeza=newNode;
-    }
-}
-
-void Queue::Dequeue2()
-{
-    if(isEmpty())
-    {
-        cout<<"La cola esta vacia"<<endl;
-    }
-    else
-    {
-        Node *aux =  this->Cabeza;
-        while(this->Cabeza->getSiguiente()->getSiguiente() != NULL)
-        {
-            this->Cabeza = this->Cabeza->getSiguiente();
-        }
-        this->Cabeza->setSiguiente(NULL);
-        this->Cabeza=aux;
     }
 }
