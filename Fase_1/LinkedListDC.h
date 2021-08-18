@@ -14,6 +14,7 @@ class ListDC
 
         bool isEmpty();
         int size();
+        bool buscar(string);
 
         void showList();
         void append(string, string, string, string, string, string, string, string);
@@ -87,6 +88,23 @@ void ListDC::modificar(string dpi, string _dato)
         aux = aux->getSiguiente();
     }
     while(aux != this->Cabeza);
+}
+
+bool ListDC::buscar(string dpi)
+{
+    bool encontrado=false;
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getDPI() == dpi)
+        {
+            encontrado=true;
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+    return encontrado;
 }
 
 void ListDC::eliminar(string dpi)

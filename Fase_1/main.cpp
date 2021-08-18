@@ -20,6 +20,8 @@ int menuManual();
 void opcionEstudiantes();
 int menuEstudiante();
 void ingresoEstudiantes();
+void opcionModificar();
+int menuModificarEstudiante();
 
 
 // Varialbles globales
@@ -38,7 +40,7 @@ int main()
         switch (op)
         {
             case 0: cargarEstudiantes(); break;
-            case 1: ingresoEstudiantes(); break;
+            case 1: break;
             case 2: ingresoManual(); break;
             case 3: Estudiantes->showList(); getch(); break;
             case 4: break;
@@ -175,8 +177,8 @@ void opcionEstudiantes()
         op = menuEstudiante();
         switch (op)
         {
-            case 0: break;
-            case 1: break;
+            case 0: ingresoEstudiantes(); break;
+            case 1: opcionModificar(); break;
             case 2: break;
             case 3: break;
         }
@@ -223,6 +225,97 @@ int menuEstudiante(void)
         if (aux == 80)
         {
             if (pos < 3)
+            {
+                pos = pos + 1;
+            }
+            else
+            {
+                pos = 0;
+            }
+        }
+    }
+    return pos;
+}
+
+void opcionModificar()
+{
+    string auxDPI;
+    clear();
+    cout<<"Ingrese el DPI acutal:";
+    getline(cin, auxDPI);
+
+    if(Estudiantes->buscar(auxDPI))
+    {
+        int op;
+        do
+        {
+            op = menuModificarEstudiante();
+            switch (op)
+            {
+                case 0: break;
+                case 1: break;
+                case 2: break;
+                case 3: break;
+                case 4: break;
+                case 5: break;
+                case 6: break;
+                case 7: break;
+                case 8: break;
+            }
+        } while (op != 8);
+    }
+    else
+    {
+        cout<<"El DPI ingresado, no se encuentra registrado";
+        getch();
+    }
+
+}
+
+int menuModificarEstudiante(void)
+{
+    string m[9];
+    m[0] = "   1. Modificar carnet";
+    m[1] = "   2. Modificar DPI";
+    m[2] = "   3. Modificar nombre";
+    m[3] = "   4. Modificar carrera";
+    m[4] = "   5. Modificar correo";
+    m[5] = "   6. Modificar password";
+    m[6] = "   7. Modificar creditos";
+    m[7] = "   8. Modificar edad";
+    m[8] = "   9. Regresar";
+    char lec;
+    int aux = 0, c, pos = 0;
+    while (aux != 13)
+    {
+        clear();
+        tituloModificar();
+        for (c = 0; c < 9; c++)
+        {
+            gotoxy(15, (c+5) * 2);
+            if (pos == c)
+            {
+                cout <<">>> ";
+            }
+            cout << m[c];
+        }
+
+        lec = getch();
+        aux = (int)lec;
+        if (aux == 72)
+        {
+            if (pos > 0)
+            {
+                pos = pos - 1;
+            }
+            else
+            {
+                pos = 8;
+            }
+        }
+        if (aux == 80)
+        {
+            if (pos < 8)
             {
                 pos = pos + 1;
             }

@@ -70,6 +70,16 @@ void tituloIngreso()
     gotoxy(36,7); cout<<"            |___/";
 }
 
+void tituloModificar()
+{
+    gotoxy(37,2);   cout<<"__  ___          _ _  __ _                ";
+    gotoxy(37,3);   cout<<"|  \\/  |         | (_)/ _(_)               ";
+    gotoxy(37,4);   cout<<"| .  . | ___   __| |_| |_ _  ___ __ _ _ __ ";
+    gotoxy(37,5);   cout<<"| |\\/| |/ _ \\ / _` | |  _| |/ __/ _` | '__|";
+    gotoxy(37,6);   cout<<"| |  | | (_) | (_| | | | | | (_| (_| | |   ";
+    gotoxy(37,7);   cout<<"\\_|  |_/\\___/ \\__,_|_|_| |_|\\___\\__,_|_|";
+}
+
 bool verificarEmail(string email)
 {
     regex patron("^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.)(com|es|org)$");
