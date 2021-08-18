@@ -241,7 +241,7 @@ void opcionModificar()
 {
     string auxDPI;
     clear();
-    cout<<"Ingrese el DPI acutal:";
+    gotoxy(36, 13); cout<<"Ingrese el DPI acutal: ";
     getline(cin, auxDPI);
 
     if(Estudiantes->buscar(auxDPI))
@@ -252,21 +252,115 @@ void opcionModificar()
             op = menuModificarEstudiante();
             switch (op)
             {
-                case 0: break;
-                case 1: break;
-                case 2: break;
-                case 3: break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
-                case 7: break;
+                case 0:
+                {
+                    clear();
+                    string nuevoCarne;
+                    gotoxy(36, 12); cout<<"Ingrese el nuevo carnet: ";
+                    getline(cin, nuevoCarne);
+                    if(verificarCarnet(nuevoCarne))
+                    {
+                        Estudiantes->modificarCarne(auxDPI, nuevoCarne);
+                        gotoxy(36, 14); cout<<" - Se ha modificado el carnet con exito";
+                    }
+                    else
+                    {
+                        gotoxy(36, 14); cout<<"- ERROR: El carnet ingresado no cumple con el fomrato debido";
+                    }
+                    getch();
+                } break;
+                case 1:
+                {
+                    clear();
+                    string nuevoDPI;
+                    gotoxy(36, 12); cout<<"Ingrese el nuevo DPI: ";
+                    getline(cin, nuevoDPI);
+                    if(verificarDPI(nuevoDPI))
+                    {
+                        Estudiantes->modificarDPI(auxDPI, nuevoDPI);
+                        gotoxy(36, 14); cout<<" - Se ha modificado el DPI con exito";
+                        op=8;
+                    }
+                    else
+                    {
+                        gotoxy(36, 14); cout<<"- ERROR: El DPI ingresado no cumple con el fomrato debido";
+                    }
+                    getch();
+                } break;
+                case 2:
+                {
+                    clear();
+                    string nuevoNombre;
+                    gotoxy(36, 12); cout<<"Ingrese el nuevo nombre: ";
+                    getline(cin, nuevoNombre);
+                    Estudiantes->modificarNombre(auxDPI, nuevoNombre);
+                    gotoxy(36, 14); cout<<" - Se ha modificado el nombre con exito";
+                    getch();
+                } break;
+                case 3:
+                {
+                    clear();
+                    string nuevoCarrera;
+                    gotoxy(36, 12); cout<<"Ingrese la carrera: ";
+                    getline(cin, nuevoCarrera);
+                    Estudiantes->modificarCarrera(auxDPI, nuevoCarrera);
+                    gotoxy(36, 14); cout<<" - Se ha modificado la carrera con exito";
+                    getch();
+                } break;
+                case 4:
+                {
+                    clear();
+                    string nuevoPassword;
+                    gotoxy(36, 12); cout<<"Ingrese el nuevo password: ";
+                    getline(cin, nuevoPassword);
+                    Estudiantes->modificarPassword(auxDPI, nuevoPassword);
+                    gotoxy(36, 14); cout<<" - Se ha modificado el password con exito";
+                    getch();
+                } break;
+                case 5:
+                {
+                    clear();
+                    string nuevoCredito;
+                    gotoxy(36, 12); cout<<"Ingrese los creditos: ";
+                    getline(cin, nuevoCredito);
+                    Estudiantes->modificarCreditos(auxDPI, nuevoCredito);
+                    gotoxy(36, 14); cout<<" - Se ha modificado los creditos con exito";
+                    getch();
+                } break;
+                case 6:
+                {
+                    clear();
+                    string nuevoEdad;
+                    gotoxy(36, 12); cout<<"Ingrese la edad: ";
+                    getline(cin, nuevoEdad);
+                    Estudiantes->modificarEdad(auxDPI, nuevoEdad);
+                    gotoxy(36, 14); cout<<" - Se ha modificado la edad con exito";
+                    getch();
+                } break;
+                case 7:
+                {
+                    clear();
+                    string nuevoEmail;
+                    gotoxy(36, 12); cout<<"Ingrese el correo: ";
+                    getline(cin, nuevoEmail);
+                    if(verificarEmail(nuevoEmail))
+                    {
+                        Estudiantes->modificarEmail(auxDPI, nuevoEmail);
+                        gotoxy(36, 14); cout<<" - Se ha modificado el correo con exito";
+                    }
+                    else
+                    {
+                        gotoxy(36, 14); cout<<"- ERROR: El correo ingresado no cumple con el fomrato debido";
+                    }
+                    getch();
+                } break;
                 case 8: break;
             }
         } while (op != 8);
     }
     else
     {
-        cout<<"El DPI ingresado, no se encuentra registrado";
+        gotoxy(30, 13); cout<<"INFORMACION: El DPI ingresado no se encuentra registrado";
         getch();
     }
 
@@ -275,14 +369,14 @@ void opcionModificar()
 int menuModificarEstudiante(void)
 {
     string m[9];
-    m[0] = "   1. Modificar carnet";
+    m[0] = "   1. Modificar Carnet";
     m[1] = "   2. Modificar DPI";
-    m[2] = "   3. Modificar nombre";
-    m[3] = "   4. Modificar carrera";
-    m[4] = "   5. Modificar correo";
-    m[5] = "   6. Modificar password";
-    m[6] = "   7. Modificar creditos";
-    m[7] = "   8. Modificar edad";
+    m[2] = "   3. Modificar Nombre";
+    m[3] = "   4. Modificar Carrera";
+    m[4] = "   5. Modificar Password";
+    m[5] = "   6. Modificar Creditos";
+    m[6] = "   7. Modificar Edad";
+    m[7] = "   8. Modificar Correo";
     m[8] = "   9. Regresar";
     char lec;
     int aux = 0, c, pos = 0;

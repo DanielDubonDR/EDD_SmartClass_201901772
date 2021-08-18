@@ -19,7 +19,14 @@ class ListDC
         void showList();
         void append(string, string, string, string, string, string, string, string);
         void eliminar(string);
-        void modificar(string, string);
+        void modificarDPI(string, string);
+        void modificarCarne(string, string);
+        void modificarNombre(string, string);
+        void modificarCarrera(string, string);
+        void modificarEmail(string, string);
+        void modificarPassword(string, string);
+        void modificarCreditos(string, string);
+        void modificarEdad(string, string);
 };
 
 ListDC::ListDC()
@@ -75,7 +82,7 @@ void ListDC::append(string _carnet, string _dpi, string _nombre, string _carrera
     }
 }
 
-void ListDC::modificar(string dpi, string _dato)
+void ListDC::modificarDPI(string dpi, string _dato)
 {
     NodeDC *aux = this->Cabeza;
     do
@@ -83,6 +90,111 @@ void ListDC::modificar(string dpi, string _dato)
         if (aux->getDPI() == dpi)
         {
             aux->setDPI(_dato);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+}
+
+void ListDC::modificarCarne(string dpi, string _dato)
+{
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getDPI() == dpi)
+        {
+            aux->setCarnet(_dato);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+}
+
+void ListDC::modificarNombre(string dpi, string _dato)
+{
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getDPI() == dpi)
+        {
+            aux->setNombre(_dato);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+}
+
+void ListDC::modificarCarrera(string dpi, string _dato)
+{
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getDPI() == dpi)
+        {
+            aux->setCarrera(_dato);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+}
+
+void ListDC::modificarPassword(string dpi, string _dato)
+{
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getDPI() == dpi)
+        {
+            aux->setPassword(_dato);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+}
+
+void ListDC::modificarCreditos(string dpi, string _dato)
+{
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getDPI() == dpi)
+        {
+            aux->setCreditos(_dato);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+}
+
+void ListDC::modificarEdad(string dpi, string _dato)
+{
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getDPI() == dpi)
+        {
+            aux->setEdad(_dato);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+}
+
+void ListDC::modificarEmail(string dpi, string _dato)
+{
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getDPI() == dpi)
+        {
+            aux->setEmail(_dato);
             break;
         }
         aux = aux->getSiguiente();
