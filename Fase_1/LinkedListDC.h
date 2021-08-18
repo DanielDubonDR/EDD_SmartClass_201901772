@@ -27,6 +27,7 @@ class ListDC
         void modificarPassword(string, string);
         void modificarCreditos(string, string);
         void modificarEdad(string, string);
+        void mostrarInfo(string);
 };
 
 ListDC::ListDC()
@@ -217,6 +218,28 @@ bool ListDC::buscar(string dpi)
     }
     while(aux != this->Cabeza);
     return encontrado;
+}
+
+void ListDC::mostrarInfo(string dpi)
+{
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getDPI() == dpi)
+        {
+            cout<<"                                 Carnet:   [ "<<aux->getCarnet()<<" ]\n";
+            cout<<"                                 DPI:      [ "<<aux->getDPI()<<" ]\n";
+            cout<<"                                 Nombre:   [ "<<aux->getNombre()<<" ]\n";
+            cout<<"                                 Carrera:  [ "<<aux->getCarrera()<<" ]\n";
+            cout<<"                                 Password: [ "<<aux->getPassword()<<" ]\n";
+            cout<<"                                 Creditos: [ "<<aux->getCreditos()<<" ]\n";
+            cout<<"                                 Edad:     [ "<<aux->getEdad()<<" ]\n";
+            cout<<"                                 Correo:   [ "<<aux->getEmail()<<" ]\n";
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
 }
 
 void ListDC::eliminar(string dpi)

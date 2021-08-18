@@ -80,6 +80,14 @@ void tituloModificar()
     gotoxy(37,7);   cout<<"\\_|  |_/\\___/ \\__,_|_|_| |_|\\___\\__,_|_|";
 }
 
+void tituloEliminar()
+{            
+    gotoxy(40,4); cout<<" _____ _ _       _             ";
+    gotoxy(40,5); cout<<"|   __| |_|_____|_|___ ___ ___ ";
+    gotoxy(40,6); cout<<"|   __| | |     | |   | .'|  _|";
+    gotoxy(40,7); cout<<"|_____|_|_|_|_|_|_|_|_|__,|_|";
+}
+
 bool verificarEmail(string email)
 {
     regex patron("^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.)(com|es|org)$");

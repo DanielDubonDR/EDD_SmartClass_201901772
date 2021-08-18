@@ -179,7 +179,42 @@ void opcionEstudiantes()
         {
             case 0: ingresoEstudiantes(); break;
             case 1: opcionModificar(); break;
-            case 2: break;
+            case 2:
+            {
+                string auxDPI;
+                clear();
+                tituloEliminar();
+                gotoxy(41, 10); cout<<"Ingrese el DPI: ";
+                getline(cin, auxDPI);
+
+                if(Estudiantes->buscar(auxDPI))
+                {
+                    int decision;
+                    cout<<endl;
+                    Estudiantes->mostrarInfo(auxDPI);
+                    cout<<"\n\n                                 - Esta seguro de eliminarlo? 1. Si 2. No : ";
+                    cin>>decision;
+                    if(decision==1)
+                    {   
+                        Estudiantes->eliminar(auxDPI);
+                        cout<<"\n\n                                 - Se ha eliminado con exito";
+                    }
+                    else if(decision==2)
+                    {
+                        cout<<"\n\n                                 - No se ha eliminado";
+                    }
+                    else
+                    {
+                        cout<<"\n\n                                 - Opcion incorrecta";
+                    }
+                    getch();
+                }
+                else
+                {
+                    gotoxy(36, 12); cout<<"INFORMACION: El DPI ingresado no se encuentra registrado";
+                    getch();
+                }
+            } break;
             case 3: break;
         }
     } while (op != 3);
