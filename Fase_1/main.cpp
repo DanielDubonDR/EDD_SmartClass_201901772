@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <string>
 #include <stdlib.h>
 #include <windows.h>
 #include <sstream>
@@ -17,7 +18,9 @@ void cargarEstudiantes();
 void prueba();
 
 // Varialbles globales
-
+ListDC *Estudiantes = new ListDC();
+Queue *cola = new Queue();
+int idCola=1;
 
 //Programa principal
 int main()
@@ -30,7 +33,7 @@ int main()
         switch (op)
         {
             case 0: cargarEstudiantes(); break;
-            case 1: prueba(); break;
+            case 1: cola->showQueue(); getch(); break;
             case 2: break;
             case 3: break;
             case 4: break;
@@ -102,7 +105,6 @@ void cargarEstudiantes()
     gotoxy(25, 13);   cout<<"> ";
     getline(cin, pathEstudiantes);
     gotoxy(22, 15);   cout<<"- Logs:";
-    gotoxy(25, 17);
 
     bool abierto;
     ifstream archivo;
@@ -119,13 +121,18 @@ void cargarEstudiantes()
 
     if(abierto)
     {
+        gotoxy(25, 17); cout<<"> Archivo encontrado";
+        int cont=2;
         ifstream file(pathEstudiantes);
         string line;
         getline(file, line);
+        bool errores=false;
+        gotoxy(25, 18); cout<<"> Leyendo archivo";
+        gotoxy(25, 19); cout<<"> Extrayendo datos";
         while(getline(file, line))
         {
             stringstream data(line);
-            string carnet, dpi, nombre, carrera, password, creditos, edad, email;
+            string carnet, dpi, nombre, carrera, password, creditos, edad, email, descripcion="";
             getline(data, carnet, ',');
             getline(data, dpi, ',');
             getline(data, nombre, ',');
@@ -135,23 +142,44 @@ void cargarEstudiantes()
             getline(data, edad, ',');
             getline(data, email, ',');
 
-            cout<<carnet<<endl;
-            cout<<dpi<<endl;
-            cout<<nombre<<endl;
-            cout<<carrera<<endl;
-            cout<<password<<endl;
-            cout<<creditos<<endl;
-            cout<<edad<<endl;
-            cout<<email<<endl;
-            cout<<endl<<endl;
+            if(!verificarCarnet(carnet))
+            {
+                descripcion+="[ El carnet no presenta el formato debido ] \n\t\t  ";
+            }
+            if(!verificarDPI(dpi))
+            {
+                descripcion+="[ El DPI no presenta el formato debido ] \n\t\t  ";
+            }
+            if(!verificarEmail(email))
+            {
+                descripcion+="[ El correo no presenta el formato debido ]\n\t\t  ";
+            }
+
+            if(!verificarCarnet(carnet) || !verificarDPI(dpi) || !verificarEmail(email))
+            {
+                descripcion+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
+                cola->Enqueue(idCola, "Estudiante", descripcion);
+                errores=true;
+                idCola++;
+            }
+            else
+            {
+                Estudiantes->append(carnet, dpi, nombre, carrera, password, creditos, edad, email);
+            }
+            cont++;
+        }
+        gotoxy(25, 20); cout<<"> Archivo leido";
+        if(errores==true)
+        {
+            gotoxy(25, 22); cout<<"- Se encontraron errores en el archivo, por favor revise la cola de errores";
         }
     }
     else
     {
         cout<<"Ocurrion un error, por favor verifique la ruta y estructura del archivo sean validas";
     }
-    cout<<pathEstudiantes;
-    getch();
+    gotoxy(25, 24);
+    system("pause");
 }
 
 void prueba()

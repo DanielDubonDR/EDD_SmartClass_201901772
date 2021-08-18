@@ -52,7 +52,7 @@ void Queue::showQueue()
         Node *aux =  this->Cabeza;
         while(aux != NULL)
         {
-            cout<<"    ID: [ "<<aux->getID()<<" ]"<<endl<<"    Tipo: [ "<<aux->getTipo()<<" ]"<<endl<<"    Descripcion: [ "<<aux->getDescripcion()<<" ]"<<endl<<"             |"<<endl<<"             v"<<endl;
+            cout<<"    ID: [ "<<aux->getID()<<" ]"<<endl<<"    Tipo: [ "<<aux->getTipo()<<" ]"<<endl<<"    Descripcion:  "<<aux->getDescripcion()<<endl<<"             |"<<endl<<"             v"<<endl;
             aux = aux->getSiguiente();
         }
     }

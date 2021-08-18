@@ -1,14 +1,17 @@
 # depslib dependency file v1.0
-1629230377 source:d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\main.cpp
+1629245851 source:d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\main.cpp
 	<iostream>
 	<conio.h>
+	<string>
 	<stdlib.h>
 	<windows.h>
+	<sstream>
+	<fstream>
 	"Funciones.h"
 	"LinkedListDC.h"
 	"cola.h"
 
-1629230565 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\funciones.h
+1629230601 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\funciones.h
 	<iostream>
 	<string>
 	<regex>
@@ -20,7 +23,7 @@
 1629167937 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\nodedd.h
 	<iostream>
 
-1629228051 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\cola.h
+1629245054 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\cola.h
 	<iostream>
 	"node.h"
 
