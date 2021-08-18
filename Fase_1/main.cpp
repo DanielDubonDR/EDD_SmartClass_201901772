@@ -15,7 +15,12 @@ using namespace std;
 //Declaracion de metodos y funcioens
 int menu();
 void cargarEstudiantes();
-void prueba();
+void ingresoManual();
+int menuManual();
+void opcionEstudiantes();
+int menuEstudiante();
+void ingresoEstudiantes();
+
 
 // Varialbles globales
 ListDC *Estudiantes = new ListDC();
@@ -33,9 +38,9 @@ int main()
         switch (op)
         {
             case 0: cargarEstudiantes(); break;
-            case 1: cola->showQueue(); getch(); break;
-            case 2: break;
-            case 3: break;
+            case 1: ingresoEstudiantes(); break;
+            case 2: ingresoManual(); break;
+            case 3: Estudiantes->showList(); getch(); break;
             case 4: break;
         }
     } while (op != 4);
@@ -84,6 +89,140 @@ int menu(void)
         if (aux == 80)
         {
             if (pos < 4)
+            {
+                pos = pos + 1;
+            }
+            else
+            {
+                pos = 0;
+            }
+        }
+    }
+    return pos;
+}
+
+void ingresoManual()
+{
+    int op;
+    do
+    {
+        op = menuManual();
+        switch (op)
+        {
+            case 0: opcionEstudiantes(); break;
+            case 1: break;
+            case 2: break;
+        }
+    } while (op != 2);
+
+}
+
+int menuManual(void)
+{
+    string m[3];
+    m[0] = "   1. Estudiantes";
+    m[1] = "   2. Tareas";
+    m[2] = "   3. Regresar";
+    char lec;
+    int aux = 0, c, pos = 0;
+    while (aux != 13)
+    {
+        clear();
+        tituloManual();
+        for (c = 0; c < 3; c++)
+        {
+            gotoxy(15, (c+6) * 2);
+            if (pos == c)
+            {
+                cout <<">>> ";
+            }
+            cout << m[c];
+        }
+
+        lec = getch();
+        aux = (int)lec;
+        if (aux == 72)
+        {
+            if (pos > 0)
+            {
+                pos = pos - 1;
+            }
+            else
+            {
+                pos = 2;
+            }
+        }
+        if (aux == 80)
+        {
+            if (pos < 2)
+            {
+                pos = pos + 1;
+            }
+            else
+            {
+                pos = 0;
+            }
+        }
+    }
+    return pos;
+}
+
+void opcionEstudiantes()
+{
+    int op;
+    do
+    {
+        op = menuEstudiante();
+        switch (op)
+        {
+            case 0: break;
+            case 1: break;
+            case 2: break;
+            case 3: break;
+        }
+    } while (op != 3);
+
+}
+
+int menuEstudiante(void)
+{
+    string m[4];
+    m[0] = "   1. Ingresar";
+    m[1] = "   2. Modificar";
+    m[2] = "   3. Eliminar";
+    m[3] = "   4. Regresar";
+    char lec;
+    int aux = 0, c, pos = 0;
+    while (aux != 13)
+    {
+        clear();
+        tituloEstudiantes2();
+        for (c = 0; c < 4; c++)
+        {
+            gotoxy(15, (c+6) * 2);
+            if (pos == c)
+            {
+                cout <<">>> ";
+            }
+            cout << m[c];
+        }
+
+        lec = getch();
+        aux = (int)lec;
+        if (aux == 72)
+        {
+            if (pos > 0)
+            {
+                pos = pos - 1;
+            }
+            else
+            {
+                pos = 3;
+            }
+        }
+        if (aux == 80)
+        {
+            if (pos < 3)
             {
                 pos = pos + 1;
             }
@@ -182,36 +321,49 @@ void cargarEstudiantes()
     system("pause");
 }
 
-void prueba()
+void ingresoEstudiantes()
 {
     clear();
-
-    // Queue *cola = new Queue();
-    // cola->Enqueue(1, "Estudiante", "DPI");
-    // cola->Enqueue(2, "Estudiante", "CARNE");
-    // cola->Enqueue(3, "Tarea", "NI IDEA");
-    // cola->showQueue();
-
-    // ListDC *lista = new ListDC();
-    // lista->append("201901772","3179425811504","Daniel Reginaldo Dubon Rodriguez","Sistemas","hola","120","22","danieldubon499@gmail.com");
-    // lista->append("201901231","3112312333504","Pancho Francisco Doroteo","Industrial","Adios","100","32","danieldu99@gmail.com");
-    // lista->showList();
-
-    /*
-    cout<<(verificarEmail("nicols36@hotmail.com") ? "Valido" : "No valido")<<endl;
-    cout<<(verificarEmail("jernimo.caballero@yahoo.es") ? "Valido" : "No valido")<<endl;
-    cout<<(verificarEmail("carolinaelizondo85@yahoo.com") ? "Valido" : "No valido")<<endl;
-    cout<<(verificarEmail("alfonso03@hotmail..org") ? "Valido" : "No valido")<<endl;
-    cout<<(verificarEmail("benitoarmas92@gmail.se") ? "Valido" : "No valido")<<endl;
-    cout<<(verificarEmail("ngela.solorio86@yahoo.gt") ? "Valido" : "No valido")<<endl;
-    cout<<(verificarEmail("carmen.#montenegro@outlook.com") ? "Valido" : "No valido")<<endl;
-    cout<<(verificarEmail("adriana56@gmail.com") ? "Valido" : "No valido")<<endl;
-    cout<<(verificarEmail("esperanza.meza41@hotmail.edu") ? "Valido" : "No valido")<<endl;
-    cout<<(verificarEmail("horacio.tejada15@yahoo.org") ? "Valido" : "No valido")<<endl;
-    string nombre="DANIEL daniel daniel ...";
-    int cantidad = nombre.length();
-    cout<<cantidad;
-    */
-
+    string carnet, dpi, nombre, carrera, password, creditos, edad, email;
+    tituloIngreso();
+    gotoxy(21, 10); cout<<"Carnet: ";
+    gotoxy(21, 12); cout<<"DPI: ";
+    gotoxy(21, 14); cout<<"Nombre: ";
+    gotoxy(21, 16); cout<<"Carrera: ";
+    gotoxy(21, 18); cout<<"Password: ";
+    gotoxy(21, 20); cout<<"Creditos: ";
+    gotoxy(21, 22); cout<<"Edad: ";
+    gotoxy(21, 24); cout<<"Correo: ";
+    gotoxy(33, 10); getline(cin, carnet);
+    if(verificarCarnet(carnet))
+    {
+        gotoxy(33, 12); getline(cin, dpi);
+        if(verificarDPI(dpi))
+        {
+            gotoxy(33, 14); getline(cin, nombre);
+            gotoxy(33, 16); getline(cin, carrera);
+            gotoxy(33, 18); getline(cin, password);
+            gotoxy(33, 20); getline(cin, creditos);
+            gotoxy(33, 22); getline(cin, edad);
+            gotoxy(33, 24); getline(cin, email);
+            if(verificarEmail(email))
+            {
+                Estudiantes->append(carnet, dpi, nombre, carrera, password, creditos, edad, email);
+                gotoxy(21, 26); cout<<"- Se han registrado los datos correctamente";
+            }
+            else
+            {
+                gotoxy(21, 26); cout<<"- ERROR: El correo no cumple con el formato debido";
+            }
+        }
+        else
+        {
+            gotoxy(21, 26); cout<<"- ERROR: El dpi no cumple con el formato debido";
+        }
+    }
+    else
+    {
+        gotoxy(21, 26); cout<<"- ERROR: El carnet no cumple con el formato debido";
+    }
     getch();
 }
