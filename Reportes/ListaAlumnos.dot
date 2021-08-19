@@ -1,0 +1,34 @@
+digraph Alumnos {
+ rankdir=LR;
+ label="LISTADO DE ESTUDIANTES";
+  node [shape = note, color="#187296", style=filled, fillcolor="#7ed6df"];
+N0[label="Carnet: 201700886 \lDPI: 3502451230508"];
+N1[label="Carnet: 201501786 \lDPI: 7249529279753"];
+N2[label="Carnet: 201822186 \lDPI: 9298434863898"];
+N3[label="Carnet: 201901425 \lDPI: 4131766125532"];
+N4[label="Carnet: 201503186 \lDPI: 8549191766348"];
+N5[label="Carnet: 201123146 \lDPI: 9616636196552"];
+N6[label="Carnet: 201704186 \lDPI: 4778315315575"];
+N7[label="Carnet: 202000786 \lDPI: 7382344774121"];
+N8[label="Carnet: 201611446 \lDPI: 2511893949443"];
+N9[label="Carnet: 201819852 \lDPI: 3423442386382"];
+N0->N1;
+N1->N0;
+N1->N2;
+N2->N1;
+N2->N3;
+N3->N2;
+N3->N4;
+N4->N3;
+N4->N5;
+N5->N4;
+N5->N6;
+N6->N5;
+N6->N7;
+N7->N6;
+N7->N8;
+N8->N7;
+N8->N9;
+N9->N8;
+
+}

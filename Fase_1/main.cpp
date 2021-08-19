@@ -40,7 +40,7 @@ int main()
         switch (op)
         {
             case 0: cargarEstudiantes(); break;
-            case 1: break;
+            case 1: Estudiantes->graficar(); getch(); break;
             case 2: ingresoManual(); break;
             case 3: Estudiantes->showList(); getch(); break;
             case 4: break;
@@ -195,7 +195,7 @@ void opcionEstudiantes()
                     cout<<"\n\n                                 - Esta seguro de eliminarlo? 1. Si 2. No : ";
                     cin>>decision;
                     if(decision==1)
-                    {   
+                    {
                         Estudiantes->eliminar(auxDPI);
                         cout<<"\n\n                                 - Se ha eliminado con exito";
                     }

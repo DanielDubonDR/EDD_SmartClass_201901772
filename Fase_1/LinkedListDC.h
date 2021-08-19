@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "nodeDD.h"
 
 using namespace std;
@@ -28,6 +29,7 @@ class ListDC
         void modificarCreditos(string, string);
         void modificarEdad(string, string);
         void mostrarInfo(string);
+        void graficar();
 };
 
 ListDC::ListDC()
@@ -273,4 +275,46 @@ void ListDC::eliminar(string dpi)
         aux = aux->getSiguiente();
     }
     while(aux != this->Cabeza);
+}
+
+void ListDC::graficar()
+{
+    NodeDC *aux =  this->Cabeza;
+    int cont=0;
+    string dataNode="", dataEdge="";
+    string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTADO DE ESTUDIANTES\";\n  node [shape = note, color=\"#187296\", style=filled, fillcolor=\"#7ed6df\"];\n";
+    do
+    {
+        dataNode+= "N"+to_string(cont)+"[label=\"Carnet: "+aux->getCarnet()+" \\lDPI: "+aux->getDPI()+"\"];\n";
+        if(aux != this->Cabeza)
+        {
+            dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
+            dataEdge += "N" + to_string(cont) + "->N" + to_string(cont-1) + ";\n";
+        }
+        aux = aux->getSiguiente();
+        cont++;
+    }
+    while(aux != this->Cabeza);
+
+    grafica += dataNode;
+    grafica += dataEdge;
+    grafica += "\n}";
+    //-------------------------------------
+    try{
+        //Esta variable debe ser modificada para agregar su path de creacion de la Grafica
+        string path = "..\\Reportes\\";
+
+        ofstream file;
+        file.open(path + "ListaAlumnos.dot",std::ios::out);
+
+        if(file.fail()){
+            exit(1);
+        }
+        file<<grafica;
+        file.close();
+        string command = "dot -Tpng " + path + "ListaAlumnos.dot -o  " + path + "ListaAlumnos.png";
+        system(command.c_str());
+    }catch(exception e){
+        cout<<"Fallo detectado"<<endl;
+    }
 }
