@@ -22,6 +22,8 @@ int menuEstudiante();
 void ingresoEstudiantes();
 void opcionModificar();
 int menuModificarEstudiante();
+void reportes();
+int menuReportes();
 
 
 // Varialbles globales
@@ -42,7 +44,7 @@ int main()
             case 0: cargarEstudiantes(); break;
             case 1: Estudiantes->graficar(); getch(); break;
             case 2: ingresoManual(); break;
-            case 3: Estudiantes->showList(); getch(); break;
+            case 3: reportes(); break;
             case 4: break;
         }
     } while (op != 4);
@@ -445,6 +447,87 @@ int menuModificarEstudiante(void)
         if (aux == 80)
         {
             if (pos < 8)
+            {
+                pos = pos + 1;
+            }
+            else
+            {
+                pos = 0;
+            }
+        }
+    }
+    return pos;
+}
+
+void reportes()
+{
+    int op;
+    do
+    {
+        op = menuReportes();
+        switch (op)
+        {
+            case 0:
+            {
+                clear();
+                gotoxy(38, 12);
+                Estudiantes->graficar();
+                gotoxy(38,14); cout<<"- Reporte generado con exito";
+                getch();
+            } break;
+            case 1: break;
+            case 2: break;
+            case 3: break;
+            case 4: break;
+            case 5: break;
+            case 6: break;
+        }
+    } while (op != 6);
+
+}
+
+int menuReportes(void)
+{
+    string m[7];
+    m[0] = "   1. Reporte sobre la lista de estudiantes";
+    m[1] = "   2. Reporte sobre la lista de tareas linealizadas";
+    m[2] = "   3. Busqueda en estructura linealizada";
+    m[3] = "   4. Busqueda de posición en lista linealizada";
+    m[4] = "   5. Cola de Errores";
+    m[5] = "   6. Codigo generado de salida";
+    m[6] = "   7. Regresar";
+    char lec;
+    int aux = 0, c, pos = 0;
+    while (aux != 13)
+    {
+        clear();
+        tituloReportes();
+        for (c = 0; c < 7; c++)
+        {
+            gotoxy(15, (c+5) * 2);
+            if (pos == c)
+            {
+                cout <<">>> ";
+            }
+            cout << m[c];
+        }
+
+        lec = getch();
+        aux = (int)lec;
+        if (aux == 72)
+        {
+            if (pos > 0)
+            {
+                pos = pos - 1;
+            }
+            else
+            {
+                pos = 6;
+            }
+        }
+        if (aux == 80)
+        {
+            if (pos < 6)
             {
                 pos = pos + 1;
             }

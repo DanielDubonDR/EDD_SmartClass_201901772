@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1629335042 source:d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\main.cpp
+1629343170 source:d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\main.cpp
 	<iostream>
 	<conio.h>
 	<string>
@@ -11,7 +11,7 @@
 	"LinkedListDC.h"
 	"cola.h"
 
-1629323399 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\funciones.h
+1629343595 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\funciones.h
 	<iostream>
 	<string>
 	<regex>
