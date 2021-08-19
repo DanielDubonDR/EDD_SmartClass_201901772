@@ -285,7 +285,7 @@ void ListDC::graficar()
     string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTADO DE ESTUDIANTES\";\n  node [shape = note, color=\"#187296\", style=filled, fillcolor=\"#7ed6df\"];\n";
     do
     {
-        dataNode+= "N"+to_string(cont)+"[label=\"Carnet: "+aux->getCarnet()+" \\lDPI: "+aux->getDPI()+"\"];\n";
+        dataNode+= "N"+to_string(cont)+"[label=\"Carnet: "+aux->getCarnet()+" \\lDPI: "+aux->getDPI()+" \\lNombre: "+aux->getNombre()+" \\lCarrera: "+aux->getCarrera()+" \\lPassword: "+aux->getPassword()+" \\lCreditos: "+aux->getCreditos()+" \\lEdad: "+aux->getEdad()+" \\lCorreo: "+aux->getEmail()+"\"];\n";
         if(aux != this->Cabeza)
         {
             dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
@@ -295,26 +295,27 @@ void ListDC::graficar()
         cont++;
     }
     while(aux != this->Cabeza);
-
+    dataEdge += "N" + to_string(cont-1) + "->N0[headport=ne];\n";
+    dataEdge += "N0->N" + to_string(cont-1) + "[headport=so];\n";
     grafica += dataNode;
     grafica += dataEdge;
     grafica += "\n}";
-    //-------------------------------------
-    try{
-        //Esta variable debe ser modificada para agregar su path de creacion de la Grafica
+    try
+    {
         string path = "..\\Reportes\\";
-
         ofstream file;
         file.open(path + "ListaAlumnos.dot",std::ios::out);
-
-        if(file.fail()){
+        if(file.fail())
+        {
             exit(1);
         }
         file<<grafica;
         file.close();
-        string command = "dot -Tpng " + path + "ListaAlumnos.dot -o  " + path + "ListaAlumnos.png";
+        string command = "dot -Tpng " + path + "ListaAlumnos.dot -o  " + path + "ListaAlumnos"+to_string(rand())+".png";
         system(command.c_str());
-    }catch(exception e){
+    }
+    catch(exception e)
+    {
         cout<<"Fallo detectado"<<endl;
     }
 }
