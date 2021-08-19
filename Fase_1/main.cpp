@@ -9,6 +9,7 @@
 #include "Funciones.h"
 #include "LinkedListDC.h"
 #include "cola.h"
+#include "LinkedListD.h"
 
 using namespace std;
 
