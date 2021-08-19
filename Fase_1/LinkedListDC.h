@@ -316,6 +316,6 @@ void ListDC::graficar()
     }
     catch(exception e)
     {
-        cout<<"Fallo detectado"<<endl;
+        cout<<"Ocurrio un error"<<endl;
     }
 }

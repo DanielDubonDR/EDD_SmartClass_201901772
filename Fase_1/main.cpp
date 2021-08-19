@@ -478,7 +478,14 @@ void reportes()
             case 1: break;
             case 2: break;
             case 3: break;
-            case 4: break;
+            case 4:
+            {
+                clear();
+                gotoxy(38, 12);
+                cola->graficar();
+                gotoxy(38,14); cout<<"- Reporte generado con exito";
+                getch();
+            } break;
             case 5: break;
             case 6: break;
         }
@@ -492,7 +499,7 @@ int menuReportes(void)
     m[0] = "   1. Reporte sobre la lista de estudiantes";
     m[1] = "   2. Reporte sobre la lista de tareas linealizadas";
     m[2] = "   3. Busqueda en estructura linealizada";
-    m[3] = "   4. Busqueda de posición en lista linealizada";
+    m[3] = "   4. Busqueda de posicion en lista linealizada";
     m[4] = "   5. Cola de Errores";
     m[5] = "   6. Codigo generado de salida";
     m[6] = "   7. Regresar";
@@ -588,15 +595,15 @@ void cargarEstudiantes()
 
             if(!verificarCarnet(carnet))
             {
-                descripcion+="[ El carnet no presenta el formato debido ] \n\t\t  ";
+                descripcion+="[ El carnet no presenta el formato debido ]\\l                    ";
             }
             if(!verificarDPI(dpi))
             {
-                descripcion+="[ El DPI no presenta el formato debido ] \n\t\t  ";
+                descripcion+="[ El DPI no presenta el formato debido ]\\l                    ";
             }
             if(!verificarEmail(email))
             {
-                descripcion+="[ El correo no presenta el formato debido ]\n\t\t  ";
+                descripcion+="[ El correo no presenta el formato debido ]\\l                    ";
             }
 
             if(!verificarCarnet(carnet) || !verificarDPI(dpi) || !verificarEmail(email))
