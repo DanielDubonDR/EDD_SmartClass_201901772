@@ -17,9 +17,9 @@ class ListD
 
         void showList();
         void showListReverse();
-        void append(int, string, string, string, string, string, string, string);
-        void eliminar(int);
-        void modificar(int, int);
+        void append(string, string, string, string, string, string, string, string);
+        void eliminar(string);
+        void modificar(string, string);
 };
 
 ListD::ListD()
@@ -49,7 +49,7 @@ void ListD::showList()
     NodeDE *aux =  this->Cabeza;
     while(aux != NULL)
     {
-        cout<<"Dato: [ "<<aux->getID()<<" ]"<<endl;
+        cout<<"Dato: [ "<<aux->getID()<<" "<<aux->getFecha()<<" ]"<<endl;
         aux = aux->getSiguiente();
     }
 }
@@ -64,7 +64,7 @@ void ListD::showListReverse()
     }
 }
 
-void ListD::append(int _id, string _carnet, string _tarea, string _descripcion, string _materia, string _fecha, string _hora, string _estado)
+void ListD::append(string _id, string _carnet, string _tarea, string _descripcion, string _materia, string _fecha, string _hora, string _estado)
 {
     NodeDE *newNode = new NodeDE(_id, _carnet, _tarea, _descripcion, _materia, _fecha, _hora, _estado);
     if(isEmpty())
@@ -80,7 +80,7 @@ void ListD::append(int _id, string _carnet, string _tarea, string _descripcion, 
     }
 }
 
-void ListD::eliminar(int _dato)
+void ListD::eliminar(string _dato)
 {
     NodeDE *aux = this->Cabeza;
     while(this->Cabeza != NULL)
@@ -111,7 +111,7 @@ void ListD::eliminar(int _dato)
     this->Cabeza = aux;
 }
 
-void ListD::modificar(int id, int _dato)
+void ListD::modificar(string id, string _dato)
 {
     NodeDE *aux = this->Cabeza;
     while(this->Cabeza != NULL)

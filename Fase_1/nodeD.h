@@ -5,15 +5,15 @@ using namespace std;
 class NodeDE
 {
     private:
-        int ID;
+        string ID;
         string carnet, tarea, descripcion, materia, fecha, hora, estado;
         NodeDE *siguiente;
         NodeDE *anterior;
     public:
         NodeDE();
-        NodeDE(int, string, string, string, string, string, string, string);
+        NodeDE(string, string, string, string, string, string, string, string);
 
-        int getID();
+        string getID();
         string getCarnet();        
         string getTarea();
         string getDescripcion();
@@ -22,7 +22,7 @@ class NodeDE
         string getHora();
         string getEstado();        
 
-        void setID(int);
+        void setID(string);
         void setCarnet(string);        
         void setTarea(string);
         void setDescripcion(string);
@@ -39,7 +39,7 @@ class NodeDE
 
 NodeDE::NodeDE()
 {
-    this->ID = 0;
+    this->ID = "";
     this->carnet="";
     this->tarea="";
     this->descripcion="";
@@ -51,7 +51,7 @@ NodeDE::NodeDE()
     this->anterior = NULL;
 }
 
-NodeDE::NodeDE(int _id, string _carnet, string _tarea, string _descripcion, string _materia, string _fecha, string _hora, string _estado)
+NodeDE::NodeDE(string _id, string _carnet, string _tarea, string _descripcion, string _materia, string _fecha, string _hora, string _estado)
 {
     this->ID = _id;
     this->carnet=_carnet;
@@ -66,7 +66,7 @@ NodeDE::NodeDE(int _id, string _carnet, string _tarea, string _descripcion, stri
 }
 
 
-int NodeDE::getID()
+string NodeDE::getID()
 {
     return this->ID;
 }
@@ -116,7 +116,7 @@ NodeDE *NodeDE::getAnterior()
     return this->anterior;
 }
 
-void NodeDE::setID(int _ID)
+void NodeDE::setID(string _ID)
 {
     this->ID = _ID;
 }

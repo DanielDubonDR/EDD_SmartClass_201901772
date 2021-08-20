@@ -27,11 +27,16 @@ int menuModificarEstudiante();
 void reportes();
 int menuReportes();
 void cargarTareas();
+void inicializarMatriz();
+void verMatriz();
+void linealizacion();
 
 
 // Varialbles globales
 ListDC *Estudiantes = new ListDC();
 Queue *cola = new Queue();
+NodeTask *TareasM[5][30][9];
+ListD *Tareas = new ListD();
 int idCola=1;
 
 //Programa principal
@@ -45,7 +50,7 @@ int main()
         switch (op)
         {
             case 0: cargarEstudiantes(); break;
-            case 1: cargarTareas();getch(); break;  /*Estudiantes->graficar(); getch();*/ 
+            case 1: cargarTareas(); break;  /*Estudiantes->graficar(); getch();*/
             case 2: ingresoManual(); break;
             case 3: reportes(); break;
             case 4: break;
@@ -478,7 +483,7 @@ void reportes()
                 gotoxy(38,14); cout<<"- Reporte generado con exito";
                 getch();
             } break;
-            case 1: break;
+            case 1: clear(); Tareas->showList(); getch(); break;
             case 2: break;
             case 3: break;
             case 4:
@@ -698,6 +703,7 @@ void cargarTareas()
     archivo.open(pathTareas, ios::in);
     if(!archivo.fail())
     {
+        inicializarMatriz();
         gotoxy(25, 17); cout<<"> Archivo encontrado";
         string line;
         getline(archivo, line);
@@ -719,7 +725,7 @@ void cargarTareas()
             getline(data, materia, ',');
             getline(data, fecha, ',');
             getline(data, estado, ',');
-            
+
             if(!verificarRangoMes(idMes))
             {
                 descripcionERR+="[ El mes esta fuera de rango ]\\l                    ";
@@ -751,15 +757,17 @@ void cargarTareas()
             }
             else
             {
-                cout<<idMes<<endl;
-                cout<<idDia<<endl;
-                cout<<idHora<<endl;
-                cout<<carnet<<endl;
-                cout<<tarea<<endl;
-                cout<<descripcion<<endl;
-                cout<<materia<<endl;
-                cout<<fecha<<endl;
-                cout<<estado<<endl<<endl;
+                // cout<<idMes<<endl;
+                // cout<<idDia<<endl;
+                // cout<<idHora<<endl;
+                // cout<<carnet<<endl;
+                // cout<<tarea<<endl;
+                // cout<<descripcion<<endl;
+                // cout<<materia<<endl;
+                // cout<<fecha<<endl;
+                // cout<<estado<<endl<<endl;
+                hora=idHora+":00";
+                TareasM[indexMes(idMes)][stoi(idDia)-1][indexHora(idHora)]=new NodeTask(carnet, tarea, descripcion,materia, fecha, hora, estado);
 
             }
             //SEGUIR TRABAJANDO ACA
@@ -770,7 +778,7 @@ void cargarTareas()
                 errores=true;
                 idCola++;
             }
-            
+
             cont++;
         }
         gotoxy(25, 20); cout<<"> Archivo leido";
@@ -784,6 +792,63 @@ void cargarTareas()
         cout<<"Ocurrion un error, por favor verifique la ruta y estructura del archivo sean validas";
     }
     archivo.close();
+    linealizacion();
     gotoxy(25, 24);
     system("pause");
+}
+
+void inicializarMatriz()
+{
+    for(int i=0; i<5; i++)
+    {
+        for (int j = 0; j < 30; j++)
+        {
+            for(int k=0; k<9; k++)
+            {
+                TareasM[i][j][k]=NULL;
+            }
+        }
+
+    }
+}
+
+void verMatriz()
+{
+    for(int i=0; i<5; i++)
+    {
+        for (int j = 0; j < 30; j++)
+        {
+            for(int k=0; k<9; k++)
+            {
+                if(TareasM[i][j][k]!=NULL)
+                {
+                    cout<<TareasM[i][j][k]->getCarnet()<<endl;
+                }
+            }
+        }
+
+    }
+}
+
+void linealizacion()
+{
+    for(int i=0; i<5; i++)
+    {
+        for (int j = 0; j < 30; j++)
+        {
+            for(int k=0; k<9; k++)
+            {
+                int id=k+(9*(j+(30*i)));
+                if(TareasM[i][j][k]!=NULL)
+                {
+                    Tareas->append(to_string(id), TareasM[i][j][k]->getCarnet(), TareasM[i][j][k]->getTarea(), TareasM[i][j][k]->getDescripcion(), TareasM[i][j][k]->getMateria(), TareasM[i][j][k]->getFecha(), TareasM[i][j][k]->getHora(), TareasM[i][j][k]->getEstado());
+                }
+                else
+                {
+                    Tareas->append(to_string(id), "-1", "-1", "-1", "-1", "-1", "-1", "-1");
+                }
+            }
+        }
+
+    }
 }
