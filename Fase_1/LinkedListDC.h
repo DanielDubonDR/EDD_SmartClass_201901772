@@ -16,6 +16,7 @@ class ListDC
         bool isEmpty();
         int size();
         bool buscar(string);
+        bool buscarCarnet(string);
 
         void showList();
         void append(string, string, string, string, string, string, string, string);
@@ -212,6 +213,23 @@ bool ListDC::buscar(string dpi)
     do
     {
         if (aux->getDPI() == dpi)
+        {
+            encontrado=true;
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+    return encontrado;
+}
+
+bool ListDC::buscarCarnet(string carnet)
+{
+    bool encontrado=false;
+    NodeDC *aux = this->Cabeza;
+    do
+    {
+        if (aux->getCarnet() == carnet)
         {
             encontrado=true;
             break;

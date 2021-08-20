@@ -10,6 +10,7 @@
 #include "LinkedListDC.h"
 #include "cola.h"
 #include "LinkedListD.h"
+#include "TaskN.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ void opcionModificar();
 int menuModificarEstudiante();
 void reportes();
 int menuReportes();
+void cargarTareas();
 
 
 // Varialbles globales
@@ -43,7 +45,7 @@ int main()
         switch (op)
         {
             case 0: cargarEstudiantes(); break;
-            case 1: Estudiantes->graficar(); getch(); break;
+            case 1: cargarTareas();getch(); break;  /*Estudiantes->graficar(); getch();*/ 
             case 2: ingresoManual(); break;
             case 3: reportes(); break;
             case 4: break;
@@ -611,6 +613,7 @@ void cargarEstudiantes()
             {
                 descripcion+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
                 cola->Enqueue(idCola, "Estudiante", descripcion);
+                Estudiantes->append(carnet, dpi, nombre, carrera, password, creditos, edad, email);
                 errores=true;
                 idCola++;
             }
@@ -679,4 +682,108 @@ void ingresoEstudiantes()
         gotoxy(21, 26); cout<<"- ERROR: El carnet no cumple con el formato debido";
     }
     getch();
+}
+
+void cargarTareas()
+{
+    clear();
+    //tituloEstudiantes();
+    string pathTareas;
+    gotoxy(22, 11);   cout<<"- Ingrese la ruta del archivo";
+    gotoxy(25, 13);   cout<<"> ";
+    getline(cin, pathTareas);
+    gotoxy(22, 15);   cout<<"- Logs:";
+
+    ifstream archivo;
+    archivo.open(pathTareas, ios::in);
+    if(!archivo.fail())
+    {
+        gotoxy(25, 17); cout<<"> Archivo encontrado";
+        string line;
+        getline(archivo, line);
+        bool errores=false;
+        gotoxy(25, 18); cout<<"> Leyendo archivo";
+        gotoxy(25, 19); cout<<"> Extrayendo datos";
+        int cont=2;
+        while(getline(archivo, line))
+        {
+            stringstream data(line);
+            string idMes, idDia, idHora, carnet, tarea, descripcion, materia, fecha, hora, estado, descripcionERR="";
+
+            getline(data, idMes, ',');
+            getline(data, idDia, ',');
+            getline(data, idHora, ',');
+            getline(data, carnet, ',');
+            getline(data, tarea, ',');
+            getline(data, descripcion, ',');
+            getline(data, materia, ',');
+            getline(data, fecha, ',');
+            getline(data, estado, ',');
+            
+            if(!verificarRangoMes(idMes))
+            {
+                descripcionERR+="[ El mes esta fuera de rango ]\\l                    ";
+            }
+            if(!verificarRangoDia(idDia))
+            {
+                descripcionERR+="[ El dia esta fuera de rango ]\\l                    ";
+            }
+            if(!verificarRangoHora(idHora))
+            {
+                descripcionERR+="[ La hora esta fuera de rango ]\\l                    ";
+            }
+            if(!Estudiantes->buscarCarnet(carnet))
+            {
+                descripcionERR+="[ El carnet del estudiante no se encuentra registrado ]\\l                    ";
+            }
+
+            if(!validarFecha(fecha))
+            {
+                descripcionERR+="[ La fecha no cumple con el formato debido ]\\l                    ";
+            }
+
+            if(!verificarRangoMes(idMes) || !verificarRangoDia(idDia) || !verificarRangoHora(idHora))
+            {
+                descripcionERR+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
+                cola->Enqueue(idCola, "Tarea", descripcion);
+                errores=true;
+                idCola++;
+            }
+            else
+            {
+                cout<<idMes<<endl;
+                cout<<idDia<<endl;
+                cout<<idHora<<endl;
+                cout<<carnet<<endl;
+                cout<<tarea<<endl;
+                cout<<descripcion<<endl;
+                cout<<materia<<endl;
+                cout<<fecha<<endl;
+                cout<<estado<<endl<<endl;
+
+            }
+            //SEGUIR TRABAJANDO ACA
+            if(!Estudiantes->buscarCarnet(carnet) || !validarFecha(fecha))
+            {
+                descripcionERR+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
+                cola->Enqueue(idCola, "Tareaa", descripcion);
+                errores=true;
+                idCola++;
+            }
+            
+            cont++;
+        }
+        gotoxy(25, 20); cout<<"> Archivo leido";
+        if(errores==true)
+        {
+            gotoxy(25, 22); cout<<"- Se encontraron errores en el archivo, por favor revise la cola de errores";
+        }
+    }
+    else
+    {
+        cout<<"Ocurrion un error, por favor verifique la ruta y estructura del archivo sean validas";
+    }
+    archivo.close();
+    gotoxy(25, 24);
+    system("pause");
 }

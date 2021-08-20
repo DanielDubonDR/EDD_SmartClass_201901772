@@ -54,20 +54,20 @@ void tituloManual()
 
 void tituloEstudiantes2()
 {
-                                                                                    
-    gotoxy(20,4);   cout<<",------.        ,--.             ,--.,--.                  ,--.                "; 
-    gotoxy(20,5);   cout<<"|  .---' ,---.,-'  '-.,--.,--. ,-|  |`--' ,--,--.,--,--, ,-'  '-. ,---.  ,---. "; 
-    gotoxy(20,6);   cout<<"|  `--, (  .-''-.  .-'|  ||  |' .-. |,--.' ,-.  ||      \\'-.  .-'| .-. :(  .-' "; 
-    gotoxy(20,7);   cout<<"|  `---..-'  `) |  |  '  ''  '\\ `-' ||  |\\ '-'  ||  ||  |  |  |  \\   --..-'  `)"; 
+
+    gotoxy(20,4);   cout<<",------.        ,--.             ,--.,--.                  ,--.                ";
+    gotoxy(20,5);   cout<<"|  .---' ,---.,-'  '-.,--.,--. ,-|  |`--' ,--,--.,--,--, ,-'  '-. ,---.  ,---. ";
+    gotoxy(20,6);   cout<<"|  `--, (  .-''-.  .-'|  ||  |' .-. |,--.' ,-.  ||      \\'-.  .-'| .-. :(  .-' ";
+    gotoxy(20,7);   cout<<"|  `---..-'  `) |  |  '  ''  '\\ `-' ||  |\\ '-'  ||  ||  |  |  |  \\   --..-'  `)";
     gotoxy(20,8);   cout<<"`------'`----'  `--'   `----'  `---' `--' `--`--'`--''--'  `--'   `----'`----'";
 }
 
 void tituloIngreso()
 {
-    gotoxy(36,3); cout<<"_ _|                                      "; 
-    gotoxy(36,4); cout<<"  |   __ \\    _` |   __|  _ \\   __|   _ \\ "; 
-    gotoxy(36,5); cout<<"  |   |   |  (   |  |     __/ \\__ \\  (   |"; 
-    gotoxy(36,6); cout<<"___| _|  _| \\__, | _|   \\___| ____/ \\___/ "; 
+    gotoxy(36,3); cout<<"_ _|                                      ";
+    gotoxy(36,4); cout<<"  |   __ \\    _` |   __|  _ \\   __|   _ \\ ";
+    gotoxy(36,5); cout<<"  |   |   |  (   |  |     __/ \\__ \\  (   |";
+    gotoxy(36,6); cout<<"___| _|  _| \\__, | _|   \\___| ____/ \\___/ ";
     gotoxy(36,7); cout<<"            |___/";
 }
 
@@ -82,7 +82,7 @@ void tituloModificar()
 }
 
 void tituloEliminar()
-{            
+{
     gotoxy(40,4); cout<<" _____ _ _       _             ";
     gotoxy(40,5); cout<<"|   __| |_|_____|_|___ ___ ___ ";
     gotoxy(40,6); cout<<"|   __| | |     | |   | .'|  _|";
@@ -100,6 +100,51 @@ bool verificarEmail(string email)
 {
     regex patron("^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.)(com|es|org)$");
     return regex_match(email, patron);
+}
+
+bool validarFecha(string _fecha)
+{
+    regex patron("^\\d{4}([\\/])(0?[7-9]|1[0-1])\\1(3[0]|[12][0-9]|0?[1-9])$");
+    return regex_match(_fecha, patron);
+}
+
+bool verificarRangoMes(string _mes)
+{
+    int aux=stoi(_mes);
+    if(aux>=7 && aux<=11)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool verificarRangoDia(string _dia)
+{
+    int aux=stoi(_dia);
+    if(aux>=1 && aux<=30)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool verificarRangoHora(string _hora)
+{
+    int aux=stoi(_hora);
+    if(aux>=8 && aux<=16)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 bool verificarDPI(string dpi)

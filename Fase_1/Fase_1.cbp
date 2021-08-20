@@ -33,10 +33,13 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="Funciones.h" />
+		<Unit filename="LinkedListD.h" />
 		<Unit filename="LinkedListDC.h" />
+		<Unit filename="TaskN.h" />
 		<Unit filename="cola.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="node.h" />
+		<Unit filename="nodeD.h" />
 		<Unit filename="nodeDD.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
