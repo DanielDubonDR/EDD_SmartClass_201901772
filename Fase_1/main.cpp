@@ -661,21 +661,22 @@ void cargarEstudiantes()
 
             if(!verificarCarnet(carnet))
             {
-                descripcion+="[ El carnet no presenta el formato debido ]\\l                    ";
+                descripcion+="[ El carnet no presenta el formato debido: "+carnet+" ]\\l                    ";
             }
             if(!verificarDPI(dpi))
             {
-                descripcion+="[ El DPI no presenta el formato debido ]\\l                    ";
+                descripcion+="[ El DPI no presenta el formato debido: "+dpi+" ]\\l                    ";
             }
             if(!verificarEmail(email))
             {
-                descripcion+="[ El correo no presenta el formato debido ]\\l                    ";
+                descripcion+="[ El correo no presenta el formato debido: "+email+" ]\\l                    ";
             }
 
             if(!verificarCarnet(carnet) || !verificarDPI(dpi) || !verificarEmail(email))
             {
+                descripcion+="[ Use el DPI/ID para editarlo: "+dpi+" ]\\l       ";
                 descripcion+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
-                cola->Enqueue(idCola, "Estudiante", descripcion);
+                cola->Enqueue(idCola, "Estudiante", descripcion, dpi);
                 Estudiantes->append(carnet, dpi, nombre, carrera, password, creditos, edad, email);
                 errores=true;
                 idCola++;
@@ -798,18 +799,18 @@ void cargarTareas()
             }
             if(!Estudiantes->buscarCarnet(carnet))
             {
-                descripcionERR+="[ El carnet del estudiante no se encuentra registrado ]\\l                    ";
+                descripcionERR+="[ El carnet del estudiante no se encuentra registrado: "+carnet+" ]\\l                    ";
             }
 
             if(!validarFecha(fecha))
             {
-                descripcionERR+="[ La fecha no cumple con el formato debido ]\\l                    ";
+                descripcionERR+="[ La fecha no cumple con el formato debido: "+fecha+" ]\\l                    ";
             }
 
             if(!verificarRangoMes(idMes) || !verificarRangoDia(idDia) || !verificarRangoHora(idHora))
             {
                 descripcionERR+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
-                cola->Enqueue(idCola, "Tarea", descripcion);
+                cola->Enqueue(idCola, "Tarea", descripcion, "Tarea no insertada, ingresesa manualmente");
                 errores=true;
                 idCola++;
             }
@@ -831,8 +832,13 @@ void cargarTareas()
             //SEGUIR TRABAJANDO ACA
             if(!Estudiantes->buscarCarnet(carnet) || !validarFecha(fecha))
             {
+                int i = indexMes(idMes);
+                int j = (stoi(idDia)-1);
+                int k = indexHora(idHora);
+                int ids=k+(9*(j+(30*i)));
+                descripcion+="[ Use el DPI/ID para editarlo: "+to_string(ids)+" ]\\l                    ";
                 descripcionERR+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
-                cola->Enqueue(idCola, "Tareaa", descripcion);
+                cola->Enqueue(idCola, "Tareaa", descripcion, to_string(ids));
                 errores=true;
                 idCola++;
             }
@@ -1092,7 +1098,6 @@ void ingresoTareas()
     getch();
 }
 
-//SEGUIR TRABAJANDO ACA IMPLEMENTAR LAS OPCIONES DE MODIFICAR
 void opcionModificarTareas()
 {
     string id;

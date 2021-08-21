@@ -2,9 +2,17 @@ digraph Errores {
  rankdir=LR;
  label="COLA DE ERRORES";
   node [shape = note, color="#c0392b", style=filled, fillcolor="#ff7979"];
-N0[label="ID: 1 \lTipo: Tareaa \lDescripcion: Realizar la encuesta del curso de Estadistica 1.[ La hora esta fuera de rango ]\l                    [ Error encontrado en la linea: 8 del archivo ]"];
+N0[label="ID: 1 \lTipo: Estudiante \lDescripcion: [ El carnet no presenta el formato debido: 20150178 ]\l                    [ Use el DPI/ID para editarlo: 7249529279753 ]\l      [ Error encontrado en la linea: 3 del archivo ]"];
+N1[label="ID: 2 \lTipo: Estudiante \lDescripcion: [ El DPI no presenta el formato debido: 41317661255323 ]\l                    [ Use el DPI/ID para editarlo: 41317661255323 ]\l      [ Error encontrado en la linea: 5 del archivo ]"];
+N2[label="ID: 3 \lTipo: Estudiante \lDescripcion: [ El DPI no presenta el formato debido: 961663619655 ]\l                    [ Use el DPI/ID para editarlo: 961663619655 ]\l      [ Error encontrado en la linea: 7 del archivo ]"];
+N3[label="ID: 4 \lTipo: Estudiante \lDescripcion: [ El correo no presenta el formato debido: adriana56@gmail.co ]\l                    [ Use el DPI/ID para editarlo: 7382344774121 ]\l      [ Error encontrado en la linea: 9 del archivo ]"];
+N4[label="ID: 5 \lTipo: Estudiante \lDescripcion: [ El carnet no presenta el formato debido: 20190177 ]\l                    [ El DPI no presenta el formato debido: 31794258115044 ]\l                    [ El correo no presenta el formato debido: 3179425811504@ingenieria.usac.edu.gt ]\l                    [ Use el DPI/ID para editarlo: 31794258115044 ]\l      [ Error encontrado en la linea: 12 del archivo ]"];
 aux[label="Salida", shape=none, style=none];
  aux1[label="Llegada", shape=none, style=none];
+N1->N0;
+N2->N1;
+N3->N2;
+N4->N3;
 N0->aux; 
- aux1->N0;
+ aux1->N4;
 }

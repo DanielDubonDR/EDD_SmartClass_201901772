@@ -15,7 +15,7 @@ class Queue
         int size();
 
         void showQueue();
-        void Enqueue(int, string, string);
+        void Enqueue(int, string, string, string);
         void Dequeue();
         void graficar();
 };
@@ -59,9 +59,9 @@ void Queue::showQueue()
     }
 }
 
-void Queue::Enqueue(int _id, string _tipo, string _descripcion)
+void Queue::Enqueue(int _id, string _tipo, string _descripcion, string iderr)
 {
-    Node *newNode = new Node(_id, _tipo, _descripcion);
+    Node *newNode = new Node(_id, _tipo, _descripcion, iderr);
     if(isEmpty())
     {
         this->Cabeza=newNode;
