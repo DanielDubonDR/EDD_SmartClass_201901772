@@ -921,6 +921,35 @@ void opcionTareas()
             case 1: break;
             case 2:
             {
+                clear();
+                string id;
+                gotoxy(41,6); cout<<"Ingrese el ID de la tarea: "; getline(cin,id);
+                if(stoi(id)>=0 && stoi(id)<=1349)
+                {
+                    cout<<endl<<endl;
+                    Tareas->mostrarTarea(id);
+                    int decision;
+                    cout<<"\t\t\t\t- Esta seguro de eliminarlo? 1. Si 2. No : ";
+                    cin>>decision;
+                    if(decision==1)
+                    {
+                        Tareas->modificar(id,"-1","-1","-1","-1","-1","-1","-1");
+                        cout<<"\n                                > Se ha eliminado con exito";
+                    }
+                    else if(decision==2)
+                    {
+                        cout<<"\n                                > No se ha eliminado";
+                    }
+                    else
+                    {
+                        cout<<"\n                                > Opcion incorrecta";
+                    }
+                }
+                else
+                {
+                    cout<<"\n\n\n                                       > ERROR: ID fuera de rango";
+                }
+                getch();
                 // string auxDPI;
                 // clear();
                 // tituloEliminar();
