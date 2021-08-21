@@ -1024,13 +1024,13 @@ void ingresoTareas()
     gotoxy(21, 22); cout<<"Materia: ";
     gotoxy(21, 24); cout<<"Fecha: ";
     gotoxy(21, 26); cout<<"Estado: ";
-    gotoxy(33, 10); getline(cin, mes);
+    gotoxy(36, 10); getline(cin, mes);
     if(verificarRangoMes(mes))
     {
-        gotoxy(33, 12); getline(cin, dia);
+        gotoxy(36, 12); getline(cin, dia);
         if(verificarRangoDia(dia))
         {
-            gotoxy(33, 14); getline(cin, hora);
+            gotoxy(36, 14); getline(cin, hora);
             if(verificarRangoHora(hora))
             {
                 int i = indexMes(mes);
@@ -1187,13 +1187,70 @@ void opcionModificarTareas()
                     } break;
                     case 4:
                     {
-                        // clear();
-                        // string nuevoPassword;
-                        // gotoxy(36, 12); cout<<"Ingrese el nuevo password: ";
-                        // getline(cin, nuevoPassword);
-                        // Estudiantes->modificarPassword(auxDPI, nuevoPassword);
-                        // gotoxy(36, 14); cout<<" - Se ha modificado el password con exito";
-                        // getch();
+                        clear();
+                        string mes, dia, hora, anio;
+                        gotoxy(48, 10); cout<<"Mes: ";
+                        gotoxy(48, 12); cout<<"Dia: ";
+                        gotoxy(48, 14); cout<<"Hora: ";
+                        gotoxy(48, 16); cout<<"Anio: ";
+                        gotoxy(57, 10); getline(cin, mes);
+                        if(verificarRangoMes(mes))
+                        {
+                            gotoxy(57, 12); getline(cin, dia);
+                            if(verificarRangoDia(dia))
+                            {
+                                gotoxy(57, 14); getline(cin, hora);
+                                if(verificarRangoHora(hora))
+                                {
+                                    int i = indexMes(mes);
+                                    int j = (stoi(dia)-1);
+                                    int k = indexHora(hora);
+                                    int idNuevo=k+(9*(j+(30*i)));
+                                    if(Tareas->verificarEspacio(to_string(idNuevo)))
+                                    {
+                                        gotoxy(57, 16); getline(cin, anio);
+                                        if(anio.length()>=0 && anio.length()<=4)
+                                        {
+                                            string auxHora=hora+":00";
+                                            if(mes.length()==1)
+                                            {
+                                                mes="0"+mes;
+                                            }
+                                            if(dia.length()==1)
+                                            {
+                                                dia="0"+dia;
+                                            }
+                                            string auxFecha=anio+"/"+mes+"/"+dia;
+                                            Tareas->cambiarInfo(id, to_string(idNuevo), auxHora, auxFecha);
+                                            Tareas->modificar(id,"-1","-1","-1","-1","-1","-1","-1");
+                                            gotoxy(28, 20); cout<<"> Se ha cambiado fecha y hora exitosamente, su nuevo ID es: "<<idNuevo;
+                                            op=6;
+                                        }
+                                        else
+                                        {
+                                            gotoxy(48, 20); cout<<"- ERROR: Formato de anio";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        gotoxy(48, 20); cout<<"- ERROR: Este horario ya esta ocupado";
+                                    }
+                                }
+                                else
+                                {
+                                    gotoxy(48, 20); cout<<"- ERROR: La hora esta fuera de rango";
+                                }
+                            }
+                            else
+                            {
+                                gotoxy(48, 20); cout<<"- ERROR: El dia esta fuera de rango";
+                            }
+                        }
+                        else
+                        {
+                            gotoxy(48, 20); cout<<"- ERROR: El mes esta fuera del rango";
+                        }
+                        getch();
                     } break;
                     case 5:
                     {

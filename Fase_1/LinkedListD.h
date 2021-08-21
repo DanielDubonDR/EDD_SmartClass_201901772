@@ -27,6 +27,7 @@ class ListD
         void modificarMateria(string, string);
         void modificarFechaHora(string, string);
         void modificarEstado(string, string);
+        void cambiarInfo(string, string, string, string);
 };
 
 ListD::ListD()
@@ -235,4 +236,26 @@ void ListD::modificarEstado(string id, string _estado)
         }
         aux = aux->getSiguiente();
     }
+}
+
+void ListD::cambiarInfo(string idViejo, string idNuevo, string hora, string fecha)
+{
+    string _carnet="", _tarea="", _descripcion="", _materia="", _estado="";
+    NodeDE *aux = this->Cabeza;
+    while(aux != NULL)
+    {
+        if (aux->getID() == idViejo)
+        {
+            _carnet=aux->getCarnet();
+            _tarea=aux->getTarea();
+            _descripcion=aux->getDescripcion();
+            _materia=aux->getMateria();
+            _estado=aux->getEstado();
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+
+    this->modificar(idNuevo,_carnet, _tarea, _descripcion, _materia, fecha, hora, _estado);
+
 }
