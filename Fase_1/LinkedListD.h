@@ -21,6 +21,12 @@ class ListD
         void eliminar(string);
         void modificar(string, string, string, string, string, string, string, string);
         void mostrarTarea(string id);
+        void modificarCarnet(string, string);
+        void modificarTarea(string, string);
+        void modificarDescripcion(string, string);
+        void modificarMateria(string, string);
+        void modificarFechaHora(string, string);
+        void modificarEstado(string, string);
 };
 
 ListD::ListD()
@@ -50,7 +56,7 @@ void ListD::showList()
     NodeDE *aux =  this->Cabeza;
     while(aux != NULL)
     {
-        cout<<"Dato: [ "<<aux->getID()<<" "<<aux->getFecha()<<" ]"<<endl;
+        cout<<"Dato: [ "<<aux->getID()<<" "<<aux->getCarnet()<<" "<<aux->getTarea()<<" "<<aux->getDescripcion()<<" "<<aux->getMateria()<<" "<<aux->getEstado()<<" "<<aux->getFecha()<<" ]"<<endl;
         aux = aux->getSiguiente();
     }
 }
@@ -155,6 +161,76 @@ void ListD::mostrarTarea(string id)
             cout<<"\t\t\t\tFecha: "<<aux->getFecha()<<endl<<endl;
             cout<<"\t\t\t\tHora: "<<aux->getHora()<<endl<<endl;
             cout<<"\t\t\t\tEstado: "<<aux->getEstado()<<endl<<endl;
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+}
+
+void ListD::modificarCarnet(string id, string _carnet)
+{
+    NodeDE *aux = this->Cabeza;
+    while(aux != NULL)
+    {
+        if (aux->getID() == id)
+        {
+            aux->setCarnet(_carnet);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+}
+
+void ListD::modificarTarea(string id, string _tarea)
+{
+    NodeDE *aux = this->Cabeza;
+    while(aux != NULL)
+    {
+        if (aux->getID() == id)
+        {
+            aux->setTarea(_tarea);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+}
+
+void ListD::modificarDescripcion(string id, string _descripcion)
+{
+    NodeDE *aux = this->Cabeza;
+    while(aux != NULL)
+    {
+        if (aux->getID() == id)
+        {
+            aux->setDescripcion(_descripcion);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+}
+
+void ListD::modificarMateria(string id, string _materia)
+{
+    NodeDE *aux = this->Cabeza;
+    while(aux != NULL)
+    {
+        if (aux->getID() == id)
+        {
+            aux->setMateria(_materia);
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
+}
+
+void ListD::modificarEstado(string id, string _estado)
+{
+    NodeDE *aux = this->Cabeza;
+    while(aux != NULL)
+    {
+        if (aux->getID() == id)
+        {
+            aux->setEstado(_estado);
             break;
         }
         aux = aux->getSiguiente();

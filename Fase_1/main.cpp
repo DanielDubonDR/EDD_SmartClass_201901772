@@ -1050,8 +1050,15 @@ void ingresoTareas()
                         {
                             string aux=hora+":00";
                             gotoxy(36, 26); getline(cin, estado);
-                            Tareas->modificar(to_string(id), carnet, tarea, descripcion,materia,fecha,aux,estado);
-                            gotoxy(21, 28); cout<<"- Se ha registrado la tarea correctamente";
+                            if(estado=="Pendiente" || estado=="Realizado" || estado=="Incumplido" || estado=="Cumplido")
+                            {
+                                Tareas->modificar(to_string(id), carnet, tarea, descripcion,materia,fecha,aux,estado);
+                                gotoxy(21, 28); cout<<"- Se ha registrado la tarea correctamente";
+                            }
+                            else
+                            {
+                                gotoxy(21, 28); cout<<"- ERROR: Los estados solo pueden ser Pendiente, Realizado, Incumplido";
+                            }
                         }
                         else
                         {
@@ -1090,7 +1097,7 @@ void opcionModificarTareas()
 {
     string id;
     clear();
-    gotoxy(36, 13); cout<<"Ingrese el ID: ";
+    gotoxy(45, 13); cout<<"Ingrese el ID: ";
     getline(cin, id);
 
     if(stoi(id)>=0 && stoi(id)<=1349)
@@ -1105,58 +1112,78 @@ void opcionModificarTareas()
                 {
                     case 0:
                     {
-                        // clear();
-                        // string nuevoCarne;
-                        // gotoxy(36, 12); cout<<"Ingrese el nuevo carnet: ";
-                        // getline(cin, nuevoCarne);
-                        // if(verificarCarnet(nuevoCarne))
-                        // {
-                        //     Estudiantes->modificarCarne(auxDPI, nuevoCarne);
-                        //     gotoxy(36, 14); cout<<" - Se ha modificado el carnet con exito";
-                        // }
-                        // else
-                        // {
-                        //     gotoxy(36, 14); cout<<"- ERROR: El carnet ingresado no cumple con el fomrato debido";
-                        // }
-                        // getch();
+                        clear();
+                        string nuevoCarne;
+                        gotoxy(36, 12); cout<<"Ingrese el nuevo carnet: ";
+                        getline(cin, nuevoCarne);
+                        if(verificarCarnet(nuevoCarne))
+                        {
+                            if(Estudiantes->buscarCarnet(nuevoCarne))
+                            {
+                                Tareas->modificarCarnet(id, nuevoCarne);
+                                gotoxy(36, 14); cout<<" > Se ha modificado el carnet con exito";
+                            }
+                            else
+                            {
+                                gotoxy(36, 14); cout<<"- ERROR: El carnet no esta registrado";
+                            }
+                        }
+                        else
+                        {
+                            gotoxy(36, 14); cout<<"- ERROR: El carnet ingresado no cumple con el fomrato debido";
+                        }
+                        getch();
                     } break;
                     case 1:
                     {
-                        // clear();
-                        // string nuevoDPI;
-                        // gotoxy(36, 12); cout<<"Ingrese el nuevo DPI: ";
-                        // getline(cin, nuevoDPI);
-                        // if(verificarDPI(nuevoDPI))
-                        // {
-                        //     Estudiantes->modificarDPI(auxDPI, nuevoDPI);
-                        //     gotoxy(36, 14); cout<<" - Se ha modificado el DPI con exito";
-                        //     op=8;
-                        // }
-                        // else
-                        // {
-                        //     gotoxy(36, 14); cout<<"- ERROR: El DPI ingresado no cumple con el fomrato debido";
-                        // }
-                        // getch();
+                        clear();
+                        string nuevaTarea;
+                        gotoxy(36, 12); cout<<"Ingrese el nuevo nombre de la tarea: ";
+                        gotoxy(36, 14); cout<<" > "; getline(cin, nuevaTarea);
+                        if(nuevaTarea!="")
+                        {
+                            Tareas->modificarTarea(id, nuevaTarea);
+                            gotoxy(36, 16); cout<<" - Se ha modificado el nombre de la tarea con exito";
+                        }
+                        else
+                        {
+                            gotoxy(36, 16); cout<<" - ERROR: Debe llenar los campos correspondientes";
+                        }
+                        getch();
                     } break;
                     case 2:
                     {
-                        // clear();
-                        // string nuevoNombre;
-                        // gotoxy(36, 12); cout<<"Ingrese el nuevo nombre: ";
-                        // getline(cin, nuevoNombre);
-                        // Estudiantes->modificarNombre(auxDPI, nuevoNombre);
-                        // gotoxy(36, 14); cout<<" - Se ha modificado el nombre con exito";
-                        // getch();
+                        clear();
+                        string nuevaDescripcion;
+                        gotoxy(36, 12); cout<<"Ingrese la descripcion de la tarea: ";
+                        gotoxy(36, 14); cout<<" > "; getline(cin, nuevaDescripcion);
+                        if(nuevaDescripcion!="")
+                        {
+                            Tareas->modificarDescripcion(id, nuevaDescripcion);
+                            gotoxy(36, 16); cout<<" - Se ha modificado la descripcion de la tarea con exito";
+                        }
+                        else
+                        {
+                            gotoxy(36, 16); cout<<" - ERROR: Debe llenar los campos correspondientes";
+                        }
+                        getch();
                     } break;
                     case 3:
                     {
-                        // clear();
-                        // string nuevoCarrera;
-                        // gotoxy(36, 12); cout<<"Ingrese la carrera: ";
-                        // getline(cin, nuevoCarrera);
-                        // Estudiantes->modificarCarrera(auxDPI, nuevoCarrera);
-                        // gotoxy(36, 14); cout<<" - Se ha modificado la carrera con exito";
-                        // getch();
+                        clear();
+                        string nuevaMateria;
+                        gotoxy(36, 12); cout<<"Ingrese la descripcion de la tarea: ";
+                        gotoxy(36, 14); cout<<" > "; getline(cin, nuevaMateria);
+                        if(nuevaMateria!="")
+                        {
+                            Tareas->modificarMateria(id, nuevaMateria);
+                            gotoxy(36, 16); cout<<" - Se ha modificado la materia de la tarea con exito";
+                        }
+                        else
+                        {
+                            gotoxy(36, 16); cout<<" - ERROR: Debe llenar los campos correspondientes";
+                        }
+                        getch();
                     } break;
                     case 4:
                     {
@@ -1170,42 +1197,29 @@ void opcionModificarTareas()
                     } break;
                     case 5:
                     {
-                        // clear();
-                        // string nuevoCredito;
-                        // gotoxy(36, 12); cout<<"Ingrese los creditos: ";
-                        // getline(cin, nuevoCredito);
-                        // Estudiantes->modificarCreditos(auxDPI, nuevoCredito);
-                        // gotoxy(36, 14); cout<<" - Se ha modificado los creditos con exito";
-                        // getch();
+                        clear();
+                        string nuevoEstado;
+                        gotoxy(36, 12); cout<<"Ingrese el nuevo estado de la tarea: ";
+                        gotoxy(36, 14); cout<<" > "; getline(cin, nuevoEstado);
+                        if(nuevoEstado!="")
+                        {
+                            if(nuevoEstado=="Pendiente" || nuevoEstado=="Realizado" || nuevoEstado=="Incumplido" || nuevoEstado=="Cumplido")
+                            {
+                                Tareas->modificarEstado(id, nuevoEstado);
+                                gotoxy(36, 16); cout<<" - Se ha modificado el estado de la tarea con exito";
+                            }
+                            else
+                            {
+                                gotoxy(36, 16); cout<<" - ERROR: Los estados solo pueden ser Pendiente, Realizado, Incumplido";
+                            }
+                        }
+                        else
+                        {
+                            gotoxy(36, 16); cout<<" - ERROR: Debe llenar los campos correspondientes";
+                        }
+                        getch();
                     } break;
-                    case 6:
-                    {
-                        // clear();
-                        // string nuevoEdad;
-                        // gotoxy(36, 12); cout<<"Ingrese la edad: ";
-                        // getline(cin, nuevoEdad);
-                        // Estudiantes->modificarEdad(auxDPI, nuevoEdad);
-                        // gotoxy(36, 14); cout<<" - Se ha modificado la edad con exito";
-                        // getch();
-                    } break;
-                    case 7:
-                    {
-                        // clear();
-                        // string nuevoEmail;
-                        // gotoxy(36, 12); cout<<"Ingrese el correo: ";
-                        // getline(cin, nuevoEmail);
-                        // if(verificarEmail(nuevoEmail))
-                        // {
-                        //     Estudiantes->modificarEmail(auxDPI, nuevoEmail);
-                        //     gotoxy(36, 14); cout<<" - Se ha modificado el correo con exito";
-                        // }
-                        // else
-                        // {
-                        //     gotoxy(36, 14); cout<<"- ERROR: El correo ingresado no cumple con el fomrato debido";
-                        // }
-                        // getch();
-                    } break;
-                    case 8: break;
+                    case 6: break;
                 }
             } while (op != 6);
         }
