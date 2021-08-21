@@ -30,6 +30,9 @@ void cargarTareas();
 void inicializarMatriz();
 void verMatriz();
 void linealizacion();
+void opcionTareas();
+int menuTareas();
+void ingresoTareas();
 
 
 // Varialbles globales
@@ -122,7 +125,7 @@ void ingresoManual()
         switch (op)
         {
             case 0: opcionEstudiantes(); break;
-            case 1: break;
+            case 1: opcionTareas(); break;
             case 2: break;
         }
     } while (op != 2);
@@ -852,3 +855,182 @@ void linealizacion()
 
     }
 }
+
+void opcionTareas()
+{
+    int op;
+    do
+    {
+        op = menuTareas();
+        switch (op)
+        {
+            case 0: ingresoTareas(); break;
+            case 1: break;
+            case 2:
+            {
+                // string auxDPI;
+                // clear();
+                // tituloEliminar();
+                // gotoxy(41, 10); cout<<"Ingrese el DPI: ";
+                // getline(cin, auxDPI);
+
+                // if(Estudiantes->buscar(auxDPI))
+                // {
+                //     int decision;
+                //     cout<<endl;
+                //     Estudiantes->mostrarInfo(auxDPI);
+                //     cout<<"\n\n                                 - Esta seguro de eliminarlo? 1. Si 2. No : ";
+                //     cin>>decision;
+                //     if(decision==1)
+                //     {
+                //         Estudiantes->eliminar(auxDPI);
+                //         cout<<"\n\n                                 - Se ha eliminado con exito";
+                //     }
+                //     else if(decision==2)
+                //     {
+                //         cout<<"\n\n                                 - No se ha eliminado";
+                //     }
+                //     else
+                //     {
+                //         cout<<"\n\n                                 - Opcion incorrecta";
+                //     }
+                //     getch();
+                // }
+                // else
+                // {
+                //     gotoxy(36, 12); cout<<"INFORMACION: El DPI ingresado no se encuentra registrado";
+                //     getch();
+                // }
+            } break;
+            case 3: break;
+        }
+    } while (op != 3);
+
+}
+
+int menuTareas(void)
+{
+    string m[4];
+    m[0] = "   1. Ingresar";
+    m[1] = "   2. Modificar";
+    m[2] = "   3. Eliminar";
+    m[3] = "   4. Regresar";
+    char lec;
+    int aux = 0, c, pos = 0;
+    while (aux != 13)
+    {
+        clear();
+        tituloTareas();
+        for (c = 0; c < 4; c++)
+        {
+            gotoxy(15, (c+6) * 2);
+            if (pos == c)
+            {
+                cout <<">>> ";
+            }
+            cout << m[c];
+        }
+
+        lec = getch();
+        aux = (int)lec;
+        if (aux == 72)
+        {
+            if (pos > 0)
+            {
+                pos = pos - 1;
+            }
+            else
+            {
+                pos = 3;
+            }
+        }
+        if (aux == 80)
+        {
+            if (pos < 3)
+            {
+                pos = pos + 1;
+            }
+            else
+            {
+                pos = 0;
+            }
+        }
+    }
+    return pos;
+}
+
+void ingresoTareas()
+{
+    clear();
+    string mes, dia, hora, carnet, tarea, descripcion, materia, fecha, estado;
+    tituloIngreso();
+    gotoxy(21, 10); cout<<"Mes: ";
+    gotoxy(21, 12); cout<<"Dia: ";
+    gotoxy(21, 14); cout<<"Hora: ";
+    gotoxy(21, 16); cout<<"Carnet: ";
+    gotoxy(21, 18); cout<<"Tarea: ";
+    gotoxy(21, 20); cout<<"Descripcion: ";
+    gotoxy(21, 22); cout<<"Materia: ";
+    gotoxy(21, 24); cout<<"Fecha: ";
+    gotoxy(21, 26); cout<<"Estado: ";
+    gotoxy(33, 10); getline(cin, mes);
+    if(verificarRangoMes(mes))
+    {
+        gotoxy(33, 12); getline(cin, dia);
+        if(verificarRangoDia(dia))
+        {
+            gotoxy(33, 14); getline(cin, hora);
+            if(verificarRangoHora(hora))
+            {
+                int i = indexMes(mes);
+                int j = (stoi(dia)-1);
+                int k = indexHora(hora);
+                int id=k+(9*(j+(30*i)));
+                if(Tareas->verificarEspacio(to_string(id)))
+                {
+                    gotoxy(33, 16); getline(cin, carnet);
+                    if(Estudiantes->buscarCarnet(carnet))
+                    {
+                        gotoxy(33, 18); getline(cin, tarea);
+                        gotoxy(33, 20); getline(cin, descripcion);
+                        gotoxy(33, 22); getline(cin, materia);
+                        gotoxy(33, 24); getline(cin, fecha);
+                        if(validarFecha(fecha))
+                        {
+                            string aux=hora+":00";
+                            gotoxy(33, 26); getline(cin, estado);
+                            Tareas->modificar(to_string(id), carnet, tarea, descripcion,materia,fecha,aux,estado);
+                            gotoxy(21, 26); cout<<"- Se ha registrado la tarea correctamente";
+                        }
+                        else
+                        {
+                            gotoxy(21, 28); cout<<"- ERROR: La fecha no cumple con el formato establecido";
+                        }
+                    }
+                    else
+                    {
+                        gotoxy(21, 28); cout<<"- ERROR: El carnet no esta registrado";
+                    }
+                }
+                else
+                {
+                    gotoxy(21, 28); cout<<"- ERROR: Este horario ya esta ocupado";
+                }
+            }
+            else
+            {
+                 gotoxy(21, 28); cout<<"- ERROR: La hora esta fuera de rango";
+            }
+        }
+        else
+        {
+            gotoxy(21, 28); cout<<"- ERROR: El dia esta fuera de rango";
+        }
+    }
+    else
+    {
+        gotoxy(21, 28); cout<<"- ERROR: El mes esta fuera del rango";
+    }
+    getch();
+}
+

@@ -16,10 +16,10 @@ class ListD
         int size();
 
         void showList();
-        void showListReverse();
+        bool verificarEspacio(string);
         void append(string, string, string, string, string, string, string, string);
         void eliminar(string);
-        void modificar(string, string);
+        void modificar(string, string, string, string, string, string, string, string);
 };
 
 ListD::ListD()
@@ -51,16 +51,6 @@ void ListD::showList()
     {
         cout<<"Dato: [ "<<aux->getID()<<" "<<aux->getFecha()<<" ]"<<endl;
         aux = aux->getSiguiente();
-    }
-}
-
-void ListD::showListReverse()
-{
-    NodeDE *aux =  this->Cola;
-    while(aux != NULL)
-    {
-        cout<<"Dato: [ "<<aux->getID()<<" ]"<<endl;
-        aux = aux->getAnterior();
     }
 }
 
@@ -111,17 +101,41 @@ void ListD::eliminar(string _dato)
     this->Cabeza = aux;
 }
 
-void ListD::modificar(string id, string _dato)
+void ListD::modificar(string id, string _carnet, string _tarea, string _descripcion, string _materia, string _fecha, string _hora, string _estado)
 {
     NodeDE *aux = this->Cabeza;
-    while(this->Cabeza != NULL)
+    while(aux != NULL)
     {
-        if (this->Cabeza->getID() == id)
+        if (aux->getID() == id)
         {
-            this->Cabeza->setID(_dato);
+            aux->setCarnet(_carnet);
+            aux->setTarea(_tarea);
+            aux->setDescripcion(_descripcion);
+            aux->setMateria(_materia);
+            aux->setFecha(_fecha);
+            aux->setHora(_hora);
+            aux->setEstado(_estado);
             break;
         }
-        this->Cabeza = this->Cabeza->getSiguiente();
+        aux = aux->getSiguiente();
     }
-    this->Cabeza = aux;
+}
+
+bool ListD::verificarEspacio(string id)
+{
+    bool encontrado=false;
+    NodeDE *aux = this->Cabeza;
+    while(aux != NULL)
+    {
+        if (aux->getID() == id)
+        {
+            if(aux->getCarnet()=="-1")
+            {
+                encontrado=true;
+                break;
+            }
+        }
+        aux = aux->getSiguiente();
+    }
+    return encontrado;
 }

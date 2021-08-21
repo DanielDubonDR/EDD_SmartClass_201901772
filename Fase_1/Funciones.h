@@ -96,6 +96,16 @@ void tituloReportes()
     gotoxy(37,7);  cout<<"|_| \\ |_|__ |_|   \\_\\_/ |_| \\  |_|  |_|__ _)_)";
 }
 
+void tituloTareas()
+{
+    gotoxy(35,4); cout<<"d888888P                                             "; 
+    gotoxy(35,5); cout<<"   88                                                "; 
+    gotoxy(35,6); cout<<"   88    .d8888b. 88d888b. .d8888b. .d8888b. .d8888b."; 
+    gotoxy(35,7); cout<<"   88    88'  `88 88'  `88 88ooood8 88'  `88 Y8ooooo."; 
+    gotoxy(35,8); cout<<"   88    88.  .88 88       88.  ... 88.  .88       88"; 
+    gotoxy(35,9); cout<<"   dP    `88888P8 dP       `88888P' `88888P8 `88888P'";
+}
+
 bool verificarEmail(string email)
 {
     regex patron("^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.)(com|es|org)$");
