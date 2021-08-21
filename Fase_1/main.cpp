@@ -487,8 +487,61 @@ void reportes()
                 getch();
             } break;
             case 1: clear(); Tareas->showList(); getch(); break;
-            case 2: break;
-            case 3: break;
+            case 2:
+            {
+                clear();
+                string id;
+                gotoxy(41,8); cout<<"Ingrese el ID de la tarea: "; getline(cin,id);
+                if(stoi(id)>=0 && stoi(id)<=1349)
+                {
+                    cout<<endl<<endl;
+                    Tareas->mostrarTarea(id);
+                }
+                else
+                {
+                    gotoxy(30,10); cout<<"ID fuera de rango";
+                }
+                getch();
+            } break;
+            case 3:
+             {
+                clear();
+                string mes, dia, hora;
+                gotoxy(40,8); cout<<"LLENE LOS SIGUIENTES PARAMETROS:";
+                gotoxy(45,12); cout<<"Mes:";
+                gotoxy(45,14); cout<<"Dia:";
+                gotoxy(45,16); cout<<"Hora: ";
+                gotoxy(53,12); getline(cin, mes);
+                if(verificarRangoMes(mes))
+                {
+                    gotoxy(53,14); getline(cin, dia);
+                    if(verificarRangoDia(dia))
+                    {
+                        gotoxy(53,16); getline(cin, hora);
+                        if(verificarRangoHora(hora))
+                        {
+                            int i = indexMes(mes);
+                            int j = (stoi(dia)-1);
+                            int k = indexHora(hora);
+                            int id=k+(9*(j+(30*i)));
+                            gotoxy(43,20); cout<<"- EL ID DE REGISTRO ES: "<<id;
+                        }
+                        else
+                        {
+                            gotoxy(43,20); cout<<"-ERROR: Hora fuera del rango";
+                        }
+                    }
+                    else 
+                    {
+                        gotoxy(43,20); cout<<"-ERROR: Dia fuera del rango";
+                    }
+                }
+                else
+                {
+                    gotoxy(43,20); cout<<"-ERROR: Mes fuera del rango";
+                }
+                getch();
+            } break;
             case 4:
             {
                 clear();
@@ -988,19 +1041,19 @@ void ingresoTareas()
                 int id=k+(9*(j+(30*i)));
                 if(Tareas->verificarEspacio(to_string(id)))
                 {
-                    gotoxy(33, 16); getline(cin, carnet);
+                    gotoxy(36, 16); getline(cin, carnet);
                     if(Estudiantes->buscarCarnet(carnet))
                     {
-                        gotoxy(33, 18); getline(cin, tarea);
-                        gotoxy(33, 20); getline(cin, descripcion);
-                        gotoxy(33, 22); getline(cin, materia);
-                        gotoxy(33, 24); getline(cin, fecha);
+                        gotoxy(36, 18); getline(cin, tarea);
+                        gotoxy(36, 20); getline(cin, descripcion);
+                        gotoxy(36, 22); getline(cin, materia);
+                        gotoxy(36, 24); getline(cin, fecha);
                         if(validarFecha(fecha))
                         {
                             string aux=hora+":00";
-                            gotoxy(33, 26); getline(cin, estado);
+                            gotoxy(36, 26); getline(cin, estado);
                             Tareas->modificar(to_string(id), carnet, tarea, descripcion,materia,fecha,aux,estado);
-                            gotoxy(21, 26); cout<<"- Se ha registrado la tarea correctamente";
+                            gotoxy(21, 28); cout<<"- Se ha registrado la tarea correctamente";
                         }
                         else
                         {

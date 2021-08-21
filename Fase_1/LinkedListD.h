@@ -20,6 +20,7 @@ class ListD
         void append(string, string, string, string, string, string, string, string);
         void eliminar(string);
         void modificar(string, string, string, string, string, string, string, string);
+        void mostrarTarea(string id);
 };
 
 ListD::ListD()
@@ -138,4 +139,24 @@ bool ListD::verificarEspacio(string id)
         aux = aux->getSiguiente();
     }
     return encontrado;
+}
+
+void ListD::mostrarTarea(string id)
+{
+    NodeDE *aux = this->Cabeza;
+    while(aux != NULL)
+    {
+        if (aux->getID() == id)
+        {
+            cout<<"\t\t\t\tCarnet: "<<aux->getCarnet()<<endl<<endl;
+            cout<<"\t\t\t\tNombre de la tarea: "<<aux->getTarea()<<endl<<endl;
+            cout<<"\t\t\t\tDescripcion: "<<aux->getDescripcion()<<endl<<endl;
+            cout<<"\t\t\t\tMateria: "<<aux->getMateria()<<endl<<endl;
+            cout<<"\t\t\t\tFecha: "<<aux->getFecha()<<endl<<endl;
+            cout<<"\t\t\t\tHora: "<<aux->getHora()<<endl<<endl;
+            cout<<"\t\t\t\tEstado: "<<aux->getEstado()<<endl<<endl;
+            break;
+        }
+        aux = aux->getSiguiente();
+    }
 }
