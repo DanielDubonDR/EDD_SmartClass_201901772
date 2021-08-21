@@ -33,6 +33,8 @@ void linealizacion();
 void opcionTareas();
 int menuTareas();
 void ingresoTareas();
+int menuModificarTareas();
+void opcionModificarTareas();
 
 
 // Varialbles globales
@@ -918,7 +920,7 @@ void opcionTareas()
         switch (op)
         {
             case 0: ingresoTareas(); break;
-            case 1: break;
+            case 1: opcionModificarTareas(); break;
             case 2:
             {
                 clear();
@@ -950,39 +952,6 @@ void opcionTareas()
                     cout<<"\n\n\n                                       > ERROR: ID fuera de rango";
                 }
                 getch();
-                // string auxDPI;
-                // clear();
-                // tituloEliminar();
-                // gotoxy(41, 10); cout<<"Ingrese el DPI: ";
-                // getline(cin, auxDPI);
-
-                // if(Estudiantes->buscar(auxDPI))
-                // {
-                //     int decision;
-                //     cout<<endl;
-                //     Estudiantes->mostrarInfo(auxDPI);
-                //     cout<<"\n\n                                 - Esta seguro de eliminarlo? 1. Si 2. No : ";
-                //     cin>>decision;
-                //     if(decision==1)
-                //     {
-                //         Estudiantes->eliminar(auxDPI);
-                //         cout<<"\n\n                                 - Se ha eliminado con exito";
-                //     }
-                //     else if(decision==2)
-                //     {
-                //         cout<<"\n\n                                 - No se ha eliminado";
-                //     }
-                //     else
-                //     {
-                //         cout<<"\n\n                                 - Opcion incorrecta";
-                //     }
-                //     getch();
-                // }
-                // else
-                // {
-                //     gotoxy(36, 12); cout<<"INFORMACION: El DPI ingresado no se encuentra registrado";
-                //     getch();
-                // }
             } break;
             case 3: break;
         }
@@ -1116,3 +1085,194 @@ void ingresoTareas()
     getch();
 }
 
+//SEGUIR TRABAJANDO ACA IMPLEMENTAR LAS OPCIONES DE MODIFICAR
+void opcionModificarTareas()
+{
+    string id;
+    clear();
+    gotoxy(36, 13); cout<<"Ingrese el ID: ";
+    getline(cin, id);
+
+    if(stoi(id)>=0 && stoi(id)<=1349)
+    {
+        if(!(Tareas->verificarEspacio(id)))
+        {
+            int op;
+            do
+            {
+                op = menuModificarTareas();
+                switch (op)
+                {
+                    case 0:
+                    {
+                        // clear();
+                        // string nuevoCarne;
+                        // gotoxy(36, 12); cout<<"Ingrese el nuevo carnet: ";
+                        // getline(cin, nuevoCarne);
+                        // if(verificarCarnet(nuevoCarne))
+                        // {
+                        //     Estudiantes->modificarCarne(auxDPI, nuevoCarne);
+                        //     gotoxy(36, 14); cout<<" - Se ha modificado el carnet con exito";
+                        // }
+                        // else
+                        // {
+                        //     gotoxy(36, 14); cout<<"- ERROR: El carnet ingresado no cumple con el fomrato debido";
+                        // }
+                        // getch();
+                    } break;
+                    case 1:
+                    {
+                        // clear();
+                        // string nuevoDPI;
+                        // gotoxy(36, 12); cout<<"Ingrese el nuevo DPI: ";
+                        // getline(cin, nuevoDPI);
+                        // if(verificarDPI(nuevoDPI))
+                        // {
+                        //     Estudiantes->modificarDPI(auxDPI, nuevoDPI);
+                        //     gotoxy(36, 14); cout<<" - Se ha modificado el DPI con exito";
+                        //     op=8;
+                        // }
+                        // else
+                        // {
+                        //     gotoxy(36, 14); cout<<"- ERROR: El DPI ingresado no cumple con el fomrato debido";
+                        // }
+                        // getch();
+                    } break;
+                    case 2:
+                    {
+                        // clear();
+                        // string nuevoNombre;
+                        // gotoxy(36, 12); cout<<"Ingrese el nuevo nombre: ";
+                        // getline(cin, nuevoNombre);
+                        // Estudiantes->modificarNombre(auxDPI, nuevoNombre);
+                        // gotoxy(36, 14); cout<<" - Se ha modificado el nombre con exito";
+                        // getch();
+                    } break;
+                    case 3:
+                    {
+                        // clear();
+                        // string nuevoCarrera;
+                        // gotoxy(36, 12); cout<<"Ingrese la carrera: ";
+                        // getline(cin, nuevoCarrera);
+                        // Estudiantes->modificarCarrera(auxDPI, nuevoCarrera);
+                        // gotoxy(36, 14); cout<<" - Se ha modificado la carrera con exito";
+                        // getch();
+                    } break;
+                    case 4:
+                    {
+                        // clear();
+                        // string nuevoPassword;
+                        // gotoxy(36, 12); cout<<"Ingrese el nuevo password: ";
+                        // getline(cin, nuevoPassword);
+                        // Estudiantes->modificarPassword(auxDPI, nuevoPassword);
+                        // gotoxy(36, 14); cout<<" - Se ha modificado el password con exito";
+                        // getch();
+                    } break;
+                    case 5:
+                    {
+                        // clear();
+                        // string nuevoCredito;
+                        // gotoxy(36, 12); cout<<"Ingrese los creditos: ";
+                        // getline(cin, nuevoCredito);
+                        // Estudiantes->modificarCreditos(auxDPI, nuevoCredito);
+                        // gotoxy(36, 14); cout<<" - Se ha modificado los creditos con exito";
+                        // getch();
+                    } break;
+                    case 6:
+                    {
+                        // clear();
+                        // string nuevoEdad;
+                        // gotoxy(36, 12); cout<<"Ingrese la edad: ";
+                        // getline(cin, nuevoEdad);
+                        // Estudiantes->modificarEdad(auxDPI, nuevoEdad);
+                        // gotoxy(36, 14); cout<<" - Se ha modificado la edad con exito";
+                        // getch();
+                    } break;
+                    case 7:
+                    {
+                        // clear();
+                        // string nuevoEmail;
+                        // gotoxy(36, 12); cout<<"Ingrese el correo: ";
+                        // getline(cin, nuevoEmail);
+                        // if(verificarEmail(nuevoEmail))
+                        // {
+                        //     Estudiantes->modificarEmail(auxDPI, nuevoEmail);
+                        //     gotoxy(36, 14); cout<<" - Se ha modificado el correo con exito";
+                        // }
+                        // else
+                        // {
+                        //     gotoxy(36, 14); cout<<"- ERROR: El correo ingresado no cumple con el fomrato debido";
+                        // }
+                        // getch();
+                    } break;
+                    case 8: break;
+                }
+            } while (op != 6);
+        }
+        else
+        {
+            gotoxy(30, 13); cout<<"ERROR: Esta tarea aun no ha sido creada";
+            getch();
+        }
+    }
+    else
+    {
+        gotoxy(30, 13); cout<<"ERROR: El ID ingresado esta fuera de rango";
+        getch();
+    }
+
+}
+
+int menuModificarTareas(void)
+{
+    string m[7];
+    m[0] = "   1. Modificar Carnet";
+    m[1] = "   2. Modificar Nombre de la tarea";
+    m[2] = "   3. Modificar Descripcion";
+    m[3] = "   4. Modificar Materia";
+    m[4] = "   5. Modificar Fecha y Hora";
+    m[5] = "   6. Modificar Estado";
+    m[6] = "   7. Regresar";
+    char lec;
+    int aux = 0, c, pos = 0;
+    while (aux != 13)
+    {
+        clear();
+        tituloModificar();
+        for (c = 0; c < 7; c++)
+        {
+            gotoxy(15, (c+5) * 2);
+            if (pos == c)
+            {
+                cout <<">>> ";
+            }
+            cout << m[c];
+        }
+
+        lec = getch();
+        aux = (int)lec;
+        if (aux == 72)
+        {
+            if (pos > 0)
+            {
+                pos = pos - 1;
+            }
+            else
+            {
+                pos = 6;
+            }
+        }
+        if (aux == 80)
+        {
+            if (pos < 6)
+            {
+                pos = pos + 1;
+            }
+            else
+            {
+                pos = 0;
+            }
+        }
+    }
+    return pos;
+}
