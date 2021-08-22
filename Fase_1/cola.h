@@ -18,6 +18,7 @@ class Queue
         void Enqueue(int, string, string, string);
         void Dequeue();
         void graficar();
+        void showHead();
 };
 
 Queue::Queue()
@@ -80,18 +81,8 @@ void Queue::Enqueue(int _id, string _tipo, string _descripcion, string iderr)
 
 void Queue::Dequeue()
 {
-    if(isEmpty())
-    {
-        cout<<"\n\n\n\n\n\n\n\n\n\n\n\n                                      -  LA COLA ESTA VACIA";
-    }
-    else
-    {
-        cout<<"\n\n\n\n\n\n\n\n\n\n                                  DATOS DESENCOLADOS:"<<endl<<endl;
-        cout<<"                    >  ID: [ "<<this->Cabeza->getID()<<" ]"<<endl<<"                    >  Tipo: [ "<<this->Cabeza->getTipo()<<" ]"<<endl<<"                    >  Tipo: [ "<<this->Cabeza->getDescripcion()<<" ]";
-        Node *aux =  this->Cabeza->getSiguiente();
-        this->Cabeza=aux;
-        cout<<"\n\n                    -  Se ha desencolado con exito";
-    }
+    Node *aux =  this->Cabeza->getSiguiente();
+    this->Cabeza=aux;
 }
 
 void Queue::graficar()
@@ -133,4 +124,12 @@ void Queue::graficar()
     {
         cout<<"Ocurrio un error"<<endl;
     }
+}
+
+void Queue::showHead()
+{
+        cout<<"\n\n\n\n\n\n\n\t\t\t\t\t\tDATOS A DESENCOLAR:";
+        cout<<"\n\n\t\t\t\t>  ID: [ "<<this->Cabeza->getID()<<" ]";
+        cout<<"\n\n\t\t\t\t>  Tipo: [ "<<this->Cabeza->getTipo()<<" ]";
+        cout<<"\n\n\t\t\t\t>  Descripcion :  "<<this->Cabeza->getIdErr();
 }

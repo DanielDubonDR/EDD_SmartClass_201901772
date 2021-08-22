@@ -35,7 +35,8 @@ int menuTareas();
 void ingresoTareas();
 int menuModificarTareas();
 void opcionModificarTareas();
-
+int menuCola();
+void opcionCola();
 
 // Varialbles globales
 ListDC *Estudiantes = new ListDC();
@@ -544,14 +545,7 @@ void reportes()
                 }
                 getch();
             } break;
-            case 4:
-            {
-                clear();
-                gotoxy(38, 12);
-                cola->graficar();
-                gotoxy(38,14); cout<<"- Reporte generado con exito";
-                getch();
-            } break;
+            case 4: opcionCola(); break;
             case 5: break;
             case 6: break;
         }
@@ -649,7 +643,7 @@ void cargarEstudiantes()
         while(getline(file, line))
         {
             stringstream data(line);
-            string carnet, dpi, nombre, carrera, password, creditos, edad, email, descripcion="";
+            string carnet, dpi, nombre, carrera, password, creditos, edad, email, descripcion="", descripcion2="";
             getline(data, carnet, ',');
             getline(data, dpi, ',');
             getline(data, nombre, ',');
@@ -661,22 +655,27 @@ void cargarEstudiantes()
 
             if(!verificarCarnet(carnet))
             {
-                descripcion+="[ El carnet no presenta el formato debido: "+carnet+" ]\\l                    ";
+                descripcion+="\\l\t\t\t[ El carnet no presenta el formato debido: "+carnet+" ]";
+                descripcion2+="  [ El carnet no presenta el formato debido: "+carnet+" ]\n\t\t\t\t                    ";
             }
             if(!verificarDPI(dpi))
             {
-                descripcion+="[ El DPI no presenta el formato debido: "+dpi+" ]\\l                    ";
+                descripcion+="\\l\t\t\t[ El DPI no presenta el formato debido: "+dpi+" ]";
+                descripcion2+="  [ El DPI no presenta el formato debido: "+dpi+" ]\n\t\t\t\t                    ";
             }
             if(!verificarEmail(email))
             {
-                descripcion+="[ El correo no presenta el formato debido: "+email+" ]\\l                    ";
+                descripcion+="\\l\t\t\t[ El correo no presenta el formato debido: "+email+" ]";
+                descripcion2+="  [ El correo no presenta el formato debido: "+email+" ]\n\t\t\t\t                    ";
             }
 
             if(!verificarCarnet(carnet) || !verificarDPI(dpi) || !verificarEmail(email))
             {
-                descripcion+="[ Use el DPI/ID para editarlo: "+dpi+" ]\\l       ";
-                descripcion+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
-                cola->Enqueue(idCola, "Estudiante", descripcion, dpi);
+                descripcion+="\\l\t\t\t[ Use el DPI/ID para editarlo: "+dpi+" ]";
+                descripcion+="\\l\t\t[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
+                descripcion2+="[ Use el DPI/ID para editarlo: "+dpi+" ]\n\t\t\t\t                    ";
+                descripcion2+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
+                cola->Enqueue(idCola, "Estudiante", descripcion, descripcion2);
                 Estudiantes->append(carnet, dpi, nombre, carrera, password, creditos, edad, email);
                 errores=true;
                 idCola++;
@@ -773,7 +772,7 @@ void cargarTareas()
         while(getline(archivo, line))
         {
             stringstream data(line);
-            string idMes, idDia, idHora, carnet, tarea, descripcion, materia, fecha, hora, estado, descripcionERR="";
+            string idMes, idDia, idHora, carnet, tarea, descripcion, materia, fecha, hora, estado, descripcionERR="", descripcionERR2="";
 
             getline(data, idMes, ',');
             getline(data, idDia, ',');
@@ -788,59 +787,59 @@ void cargarTareas()
             if(!verificarRangoMes(idMes))
             {
                 descripcionERR+="[ El mes esta fuera de rango ]\\l                    ";
+                descripcionERR2+="\n\t\t\t\t\t\t[ El mes esta fuera de rango ]";
             }
             if(!verificarRangoDia(idDia))
             {
                 descripcionERR+="[ El dia esta fuera de rango ]\\l                    ";
+                descripcionERR2+="\n\t\t\t\t\t\t[ El dia esta fuera de rango ]";
             }
             if(!verificarRangoHora(idHora))
             {
                 descripcionERR+="[ La hora esta fuera de rango ]\\l                    ";
+                descripcionERR2+="\n\t\t\t\t\t\t[ La hora esta fuera de rango ]";
             }
             if(!Estudiantes->buscarCarnet(carnet))
             {
                 descripcionERR+="[ El carnet del estudiante no se encuentra registrado: "+carnet+" ]\\l                    ";
+                descripcionERR2+="\n\t\t\t\t\t\t[ El carnet del estudiante no se encuentra registrado: "+carnet+" ]";
             }
 
             if(!validarFecha(fecha))
             {
                 descripcionERR+="[ La fecha no cumple con el formato debido: "+fecha+" ]\\l                    ";
+                descripcionERR2+="\n\t\t\t\t\t\t[ La fecha no cumple con el formato debido: "+fecha+" ]";
             }
 
             if(!verificarRangoMes(idMes) || !verificarRangoDia(idDia) || !verificarRangoHora(idHora))
             {
-                descripcionERR+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
-                cola->Enqueue(idCola, "Tarea", descripcion, "Tarea no insertada, ingresesa manualmente");
+                descripcionERR+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]\\l                    ";
+                descripcionERR+="[ Tarea no insertada, ingresarla manualmente ]";
+                descripcionERR2+="\n\t\t\t\t\t\t[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
+                descripcionERR2+="\n\t\t\t\t\t\t[ Tarea no insertada, ingresarla manualmente ]";
+                cola->Enqueue(idCola, "Tarea", descripcionERR, descripcionERR2);
                 errores=true;
                 idCola++;
             }
             else
             {
-                // cout<<idMes<<endl;
-                // cout<<idDia<<endl;
-                // cout<<idHora<<endl;
-                // cout<<carnet<<endl;
-                // cout<<tarea<<endl;
-                // cout<<descripcion<<endl;
-                // cout<<materia<<endl;
-                // cout<<fecha<<endl;
-                // cout<<estado<<endl<<endl;
+                if(!Estudiantes->buscarCarnet(carnet) || !validarFecha(fecha))
+                {
+                    int i = indexMes(idMes);
+                    int j = (stoi(idDia)-1);
+                    int k = indexHora(idHora);
+                    int ids=k+(9*(j+(30*i)));
+                    descripcionERR+="[ Use el DPI/ID para editarlo: "+to_string(ids)+" ]\\l                    ";
+                    descripcionERR+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
+                    descripcionERR2+="\n\t\t\t\t\t\t[ Use el DPI/ID para editarlo: "+to_string(ids)+" ]";
+                    descripcionERR2+="\n\t\t\t\t\t\t[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
+                    cola->Enqueue(idCola, "Tarea", descripcionERR, descripcionERR2);
+                    errores=true;
+                    idCola++;
+                }
                 hora=idHora+":00";
                 TareasM[indexMes(idMes)][stoi(idDia)-1][indexHora(idHora)]=new NodeTask(carnet, tarea, descripcion,materia, fecha, hora, estado);
 
-            }
-            //SEGUIR TRABAJANDO ACA
-            if(!Estudiantes->buscarCarnet(carnet) || !validarFecha(fecha))
-            {
-                int i = indexMes(idMes);
-                int j = (stoi(idDia)-1);
-                int k = indexHora(idHora);
-                int ids=k+(9*(j+(30*i)));
-                descripcion+="[ Use el DPI/ID para editarlo: "+to_string(ids)+" ]\\l                    ";
-                descripcionERR+="[ Error encontrado en la linea: "+to_string(cont)+" del archivo ]";
-                cola->Enqueue(idCola, "Tareaa", descripcion, to_string(ids));
-                errores=true;
-                idCola++;
             }
 
             cont++;
@@ -1351,4 +1350,112 @@ int menuModificarTareas(void)
         }
     }
     return pos;
+}
+
+int menuCola(void)
+{
+    string m[3];
+    m[0] = "   1. Ver cola";
+    m[1] = "   2. Desencolar";
+    m[2] = "   3. Regresar";
+    char lec;
+    int aux = 0, c, pos = 0;
+    while (aux != 13)
+    {
+        clear();
+        // tituloEstudiantes2();
+        for (c = 0; c < 3; c++)
+        {
+            gotoxy(15, (c+6) * 2);
+            if (pos == c)
+            {
+                cout <<">>> ";
+            }
+            cout << m[c];
+        }
+
+        lec = getch();
+        aux = (int)lec;
+        if (aux == 72)
+        {
+            if (pos > 0)
+            {
+                pos = pos - 1;
+            }
+            else
+            {
+                pos = 2;
+            }
+        }
+        if (aux == 80)
+        {
+            if (pos < 2)
+            {
+                pos = pos + 1;
+            }
+            else
+            {
+                pos = 0;
+            }
+        }
+    }
+    return pos;
+}
+
+void opcionCola()
+{
+    int op;
+    do
+    {
+        op = menuCola();
+        switch (op)
+        {
+            case 0:
+            {
+                clear();
+                if(cola->isEmpty())
+                {
+                    gotoxy(50, 14); cout<<"LA COLA ESTA VACIA";
+                }
+                else
+                {
+                    gotoxy(38, 12);
+                    cola->graficar();
+                    gotoxy(38,14); cout<<"- Reporte generado con exito";
+                }
+                getch();
+            } break;
+            case 1:
+            {
+                clear();
+                if(cola->isEmpty())
+                {
+                    gotoxy(50, 14); cout<<"LA COLA ESTA VACIA";
+                }
+                else
+                {
+                    int decision;
+                    cola->showHead();
+                    cout<<"\n\n                                 - Esta seguro de desencolar este error? 1. Si 2. No : ";
+                    cin>>decision;
+                    if(decision==1)
+                    {
+                        cola->Dequeue();
+                        cout<<"\n\n                                 - Se ha desencolado con exito";
+                    }
+                    else if(decision==2)
+                    {
+                        cout<<"\n\n                                 - No se ha desencolado";
+                    }
+                    else
+                    {
+                        cout<<"\n\n                                 - Opcion incorrecta";
+                    }
+                }
+                getch();
+            } break;
+            case 2: break;
+        }
+    } while (op != 2);
+
 }
