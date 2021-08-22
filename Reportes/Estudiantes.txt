@@ -1,0 +1,174 @@
+¿Elements?
+	¿element type="user"?
+		¿item Carnet = "201700886" $?
+		¿item DPI = "3502451230508" $?
+		¿item Nombre = "Emilia Miramontes" $?
+		¿item Carrera = "Ingenieria en Ciencias y Sistemas" $?
+		¿item Password = "roxodiciqi" $?
+		¿item Creditos = "205" $?
+		¿item Edad = "21" $?
+		¿item Correo = "nicols36@hotmail.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201501786" $?
+		¿item DPI = "7249529279753" $?
+		¿item Nombre = "Juan Curiel" $?
+		¿item Carrera = "Ingenieria Industrial" $?
+		¿item Password = "zanolexima" $?
+		¿item Creditos = "245" $?
+		¿item Edad = "24" $?
+		¿item Correo = "jernimo.caballero@yahoo.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201822186" $?
+		¿item DPI = "9298434863898" $?
+		¿item Nombre = "Eloisa Rincon" $?
+		¿item Carrera = "Ingenieria Civil" $?
+		¿item Password = "toqelijanu" $?
+		¿item Creditos = "95" $?
+		¿item Edad = "19" $?
+		¿item Correo = "carolinaelizondo85@yahoo.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201901425" $?
+		¿item DPI = "4131766125532" $?
+		¿item Nombre = "Bernardo Hinojosa" $?
+		¿item Carrera = "Ingenieria Mecanica" $?
+		¿item Password = "wosopumano" $?
+		¿item Creditos = "100" $?
+		¿item Edad = "20" $?
+		¿item Correo = "alfonso03@hotmail.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201503186" $?
+		¿item DPI = "8549191766348" $?
+		¿item Nombre = "Manuel Manzanares" $?
+		¿item Carrera = "Ingenieria Electrica" $?
+		¿item Password = "rejumudore" $?
+		¿item Creditos = "226" $?
+		¿item Edad = "24" $?
+		¿item Correo = "benitoarmas92@gmail.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201123146" $?
+		¿item DPI = "9616636196552" $?
+		¿item Nombre = "Julia Corona" $?
+		¿item Carrera = "Ingenieria Electronica" $?
+		¿item Password = "xojobavuji" $?
+		¿item Creditos = "237" $?
+		¿item Edad = "26" $?
+		¿item Correo = "ngela.solorio86@yahoo.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201704186" $?
+		¿item DPI = "4778315315575" $?
+		¿item Nombre = "Berta Carrasco" $?
+		¿item Carrera = "Ingenieria Ambiental" $?
+		¿item Password = "gayahizatu" $?
+		¿item Creditos = "210" $?
+		¿item Edad = "22" $?
+		¿item Correo = "carmen.montenegro@yahoo.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "202000786" $?
+		¿item DPI = "7382344774121" $?
+		¿item Nombre = "Lola Delapaz" $?
+		¿item Carrera = "Ingenieria Quimica" $?
+		¿item Password = "hujocikimi" $?
+		¿item Creditos = "45" $?
+		¿item Edad = "19" $?
+		¿item Correo = "adriana56@gmail.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201611446" $?
+		¿item DPI = "2511893949443" $?
+		¿item Nombre = "Sonia Arteaga" $?
+		¿item Carrera = "Ingenieria Mecanica Industrial" $?
+		¿item Password = "rezutafila" $?
+		¿item Creditos = "195" $?
+		¿item Edad = "23" $?
+		¿item Correo = "esperanza.meza41@hotmail.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201819852" $?
+		¿item DPI = "3423442386382" $?
+		¿item Nombre = "Benjamin Asencio" $?
+		¿item Carrera = "Ingenieria Mecanica Electrica" $?
+		¿item Password = "runoqozepo" $?
+		¿item Creditos = "117" $?
+		¿item Edad = "20" $?
+		¿item Correo = "horacio.tejada15@yahoo.com" $?
+	¿$element?
+	¿element type="task"?
+		¿item Carnet = "201901425" $?
+		¿item Nombre = "Tarea de Matematica" $?
+		¿item Descripcion = "Realizar la tarea del curso de matematica intermedia 1." $?
+		¿item Materia = "Matematica Intermedia 1" $?
+		¿item Fecha = "01/07/2021" $?
+		¿item Hora = "8:00" $?
+		¿item Estado = "Incumplido" $?
+	¿$element?
+	¿element type="task"?
+		¿item Carnet = "202000786" $?
+		¿item Nombre = "Tarea de Fisica" $?
+		¿item Descripcion = "Realizar la tarea del curso de Fisica 1." $?
+		¿item Materia = "Fisica 1" $?
+		¿item Fecha = "01/07/2021" $?
+		¿item Hora = "11:00" $?
+		¿item Estado = "Pendiente" $?
+	¿$element?
+	¿element type="task"?
+		¿item Carnet = "201704186" $?
+		¿item Nombre = "Tarea de Estadistica" $?
+		¿item Descripcion = "Realizar la tarea del curso de Estadistica 1." $?
+		¿item Materia = "Estadistica 1" $?
+		¿item Fecha = "14/07/2021" $?
+		¿item Hora = "10:00" $?
+		¿item Estado = "Cumplido" $?
+	¿$element?
+	¿element type="task"?
+		¿item Carnet = "201700886" $?
+		¿item Nombre = "Codificar en C++" $?
+		¿item Descripcion = "Realizar la tarea del curso de Estructuras de datos" $?
+		¿item Materia = "Estructuras de Datos" $?
+		¿item Fecha = "14/07/2021" $?
+		¿item Hora = "16:00" $?
+		¿item Estado = "Pendiente" $?
+	¿$element?
+	¿element type="task"?
+		¿item Carnet = "201901772" $?
+		¿item Nombre = "Proyecto de Lenguajes" $?
+		¿item Descripcion = "Realizar el proyecto del curso de Lenguajes" $?
+		¿item Materia = "Lenguajes Formales y de Programacion" $?
+		¿item Fecha = "21/10/2021" $?
+		¿item Hora = "8:00" $?
+		¿item Estado = "Pendiente" $?
+	¿$element?
+	¿element type="task"?
+		¿item Carnet = "201901425" $?
+		¿item Nombre = "Tarea de Logica" $?
+		¿item Descripcion = "Realizar el resumen del curso de Logica." $?
+		¿item Materia = "Logica" $?
+		¿item Fecha = "04/10/2021" $?
+		¿item Hora = "9:00" $?
+		¿item Estado = "Pendiente" $?
+	¿$element?
+	¿element type="task"?
+		¿item Carnet = "201704186" $?
+		¿item Nombre = "Tarea 2 de Fisica 3" $?
+		¿item Descripcion = "Realizar la tarea del curso de Fisica 3." $?
+		¿item Materia = "Fisica 3" $?
+		¿item Fecha = "04/10/2021" $?
+		¿item Hora = "11:00" $?
+		¿item Estado = "Pendiente" $?
+	¿$element?
+	¿element type="task"?
+		¿item Carnet = "201700886" $?
+		¿item Nombre = "Proyecto de Lenguajes" $?
+		¿item Descripcion = "Realizar el proyecto del curso de Lenguajes" $?
+		¿item Materia = "Lenguajes Formales y de Programacion" $?
+		¿item Fecha = "21/10/2021" $?
+		¿item Hora = "13:00" $?
+		¿item Estado = "Pendiente" $?
+	¿$element?
+¿$Elements?

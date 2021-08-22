@@ -28,6 +28,8 @@ class ListD
         void modificarFechaHora(string, string);
         void modificarEstado(string, string);
         void cambiarInfo(string, string, string, string);
+        string codigoTareas();
+        string invertir(string);
 };
 
 ListD::ListD()
@@ -258,4 +260,48 @@ void ListD::cambiarInfo(string idViejo, string idNuevo, string hora, string fech
 
     this->modificar(idNuevo,_carnet, _tarea, _descripcion, _materia, fecha, hora, _estado);
 
+}
+
+
+string ListD::codigoTareas()
+{
+    string codigo="";
+    NodeDE *aux =  this->Cabeza;
+    while(aux != NULL)
+    {
+        if(aux->getCarnet()!="-1")
+        {
+            codigo+="\t¿element type=\"task\"?\n";
+            codigo+="\t\t¿item Carnet = \""+aux->getCarnet()+"\" $?\n";
+            codigo+="\t\t¿item Nombre = \""+aux->getTarea()+"\" $?\n";
+            codigo+="\t\t¿item Descripcion = \""+aux->getDescripcion()+"\" $?\n";
+            codigo+="\t\t¿item Materia = \""+aux->getMateria()+"\" $?\n";
+            codigo+="\t\t¿item Fecha = \""+this->invertir(aux->getFecha())+"\" $?\n";
+            codigo+="\t\t¿item Hora = \""+aux->getHora()+"\" $?\n";
+            codigo+="\t\t¿item Estado = \""+aux->getEstado()+"\" $?\n";
+            codigo+="\t¿$element?\n";
+        }
+        aux = aux->getSiguiente();
+    }
+    codigo+="¿$Elements?";
+    return codigo;
+}
+
+string ListD::invertir(string cad)
+{
+    string dia="", mes="", anio="", aux;
+    for (int i=0; i<4; i++)
+    {
+        anio+=cad[i];
+    }
+    for (int i=5; i<7; i++)
+    {
+        mes+=cad[i];
+    }
+    for (int i=8; i<10; i++)
+    {
+        dia+=cad[i];
+    }
+    aux=dia+"/"+mes+"/"+anio;
+    return aux;
 }

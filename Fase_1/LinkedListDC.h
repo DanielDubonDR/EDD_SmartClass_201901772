@@ -17,6 +17,7 @@ class ListDC
         int size();
         bool buscar(string);
         bool buscarCarnet(string);
+        string codigoUsuario();
 
         void showList();
         void append(string, string, string, string, string, string, string, string);
@@ -336,4 +337,26 @@ void ListDC::graficar()
     {
         cout<<"Ocurrio un error"<<endl;
     }
+}
+
+string ListDC::codigoUsuario()
+{
+    string codigo="¿Elements?\n";
+    NodeDC *aux =  this->Cabeza;
+    do
+    {
+        codigo+="\t¿element type=\"user\"?\n";
+        codigo+="\t\t¿item Carnet = \""+aux->getCarnet()+"\" $?\n";
+        codigo+="\t\t¿item DPI = \""+aux->getDPI()+"\" $?\n";
+        codigo+="\t\t¿item Nombre = \""+aux->getNombre()+"\" $?\n";
+        codigo+="\t\t¿item Carrera = \""+aux->getCarrera()+"\" $?\n";
+        codigo+="\t\t¿item Password = \""+aux->getPassword()+"\" $?\n";
+        codigo+="\t\t¿item Creditos = \""+aux->getCreditos()+"\" $?\n";
+        codigo+="\t\t¿item Edad = \""+aux->getEdad()+"\" $?\n";
+        codigo+="\t\t¿item Correo = \""+aux->getEmail()+"\" $?\n";
+        codigo+="\t¿$element?\n";
+        aux = aux->getSiguiente();
+    }
+    while(aux != this->Cabeza);
+    return codigo;
 }

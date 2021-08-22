@@ -37,6 +37,7 @@ int menuModificarTareas();
 void opcionModificarTareas();
 int menuCola();
 void opcionCola();
+void generarCodigo();
 
 // Varialbles globales
 ListDC *Estudiantes = new ListDC();
@@ -507,7 +508,7 @@ void reportes()
                 getch();
             } break;
             case 3:
-             {
+            {
                 clear();
                 string mes, dia, hora;
                 gotoxy(40,8); cout<<"LLENE LOS SIGUIENTES PARAMETROS:";
@@ -546,7 +547,7 @@ void reportes()
                 getch();
             } break;
             case 4: opcionCola(); break;
-            case 5: break;
+            case 5: generarCodigo(); getch(); break;
             case 6: break;
         }
     } while (op != 6);
@@ -1459,3 +1460,27 @@ void opcionCola()
     } while (op != 2);
 
 }
+
+// seguir tabajando aca
+void  generarCodigo()
+{
+    string codigo = Estudiantes->codigoUsuario();
+    codigo+=Tareas->codigoTareas();
+    try
+    {
+        string path = "..\\Reportes\\";
+        ofstream file;
+        file.open(path + "Estudiantes.txt",std::ios::out);
+        if(file.fail())
+        {
+            exit(1);
+        }
+        file<<codigo;
+        file.close();
+    }
+    catch(exception e)
+    {
+        cout<<"Ocurrio un error"<<endl;
+    }
+}
+
