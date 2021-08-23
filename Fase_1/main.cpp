@@ -600,7 +600,29 @@ void reportes()
                 getch();
             } break;
             case 4: opcionCola(); break;
-            case 5: generarCodigo(); getch(); break;
+            case 5: 
+            {
+                if(cola->isEmpty())
+                {
+                    if (!Estudiantes->isEmpty() && !Tareas->isEmpty())
+                    {
+                        generarCodigo(); 
+                        getch();
+                    }
+                    else
+                    {
+                        clear();
+                        gotoxy(34, 14); cout<<"ERROR: No se han resgistrado ningun usuario o tarea";
+                        getch();
+                    }
+                }
+                else
+                {
+                    clear();
+                    gotoxy(17, 14); cout<<"ERROR: No se puede generar el codigo salida, aun existen errores, revise la cola de errores";
+                    getch();
+                }
+            } break;
             case 6: break;
         }
     } while (op != 6);
@@ -1417,7 +1439,7 @@ int menuCola(void)
     while (aux != 13)
     {
         clear();
-        // tituloEstudiantes2();
+        tituloColaErrores();
         for (c = 0; c < 3; c++)
         {
             gotoxy(15, (c+6) * 2);
