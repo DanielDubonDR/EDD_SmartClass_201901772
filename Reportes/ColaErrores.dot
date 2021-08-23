@@ -2,9 +2,11 @@ digraph Errores {
  rankdir=LR;
  label="COLA DE ERRORES";
   node [shape = note, color="#c0392b", style=filled, fillcolor="#ff7979"];
-N0[label="ID: 2 \lTipo: Tarea \lDescripcion: [ El carnet del estudiante no se encuentra registrado: 201901772 ]\l                    [ Use el DPI/ID para editarlo: 333 ]\l                    [ Error encontrado en la linea: 10 del archivo ]"];
+N0[label="ID: 1 \lTipo: Tarea \lDescripcion: [ La hora esta fuera de rango ]\l                    [ Error encontrado en la linea: 8 del archivo ]\l                    [ Tarea no insertada, ingresarla manualmente ]"];
+N1[label="ID: 2 \lTipo: Tarea \lDescripcion: [ El carnet del estudiante no se encuentra registrado: 201901772 ]\l                    [ Use el DPI/ID para editarlo: 333 ]\l                    [ Error encontrado en la linea: 10 del archivo ]"];
 aux[label="Salida", shape=none, style=none];
  aux1[label="Llegada", shape=none, style=none];
+N1->N0;
 N0->aux; 
- aux1->N0;
+ aux1->N1;
 }
