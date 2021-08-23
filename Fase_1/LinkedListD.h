@@ -30,6 +30,13 @@ class ListD
         void cambiarInfo(string, string, string, string);
         string codigoTareas();
         string invertir(string);
+        void graficar(int);
+        void graficar1(int);
+        void graficar2(int);
+        void graficar3(int);
+        void graficar4(int);
+        void graficar5(int);
+        void graficar6(int);
 };
 
 ListD::ListD()
@@ -304,4 +311,302 @@ string ListD::invertir(string cad)
     }
     aux=dia+"/"+mes+"/"+anio;
     return aux;
+}
+
+void ListD::graficar(int orden)
+{
+    NodeDE *aux =  this->Cabeza;
+    int cont=0;
+    string dataNode="", dataEdge="";
+    string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTA DE TAREAS\";\n  node [shape = note, color=\"#27ae60\", style=filled, fillcolor=\"#2ecc71\"];\n";
+    while(aux->getID() != "201")
+    {
+        dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\lCarnet: "+aux->getCarnet()+" \\lNombre: "+aux->getTarea()+" \\lDescripcion: "+aux->getDescripcion()+" \\lMateria: "+aux->getMateria()+" \\lFecha: "+aux->getFecha()+" \\lHora: "+aux->getHora()+" \\lEstado: "+aux->getEstado()+"\"];\n";
+        if(aux->getAnterior() != NULL)
+        {
+            dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
+            dataEdge += "N" + to_string(cont) + "->N" + to_string(cont-1) + ";\n";
+        }
+        aux = aux->getSiguiente();
+        cont++;
+    }
+    grafica += dataNode;
+    grafica += dataEdge;
+    grafica += "\n}";
+    try
+    {
+        string path = "..\\Reportes\\";
+        ofstream file;
+        file.open(path + "ListaTareas.dot",std::ios::out);
+        if(file.fail())
+        {
+            exit(1);
+        }
+        file<<grafica;
+        file.close();
+        string command = "dot -Tpng " + path + "ListaTareas.dot -o  " + path + "ListaTareas"+to_string(orden)+".png";
+        system(command.c_str());
+    }
+    catch(exception e)
+    {
+        cout<<"Ocurrio un error"<<endl;
+    }
+}
+
+void ListD::graficar1(int orden)
+{
+    NodeDE *aux =  this->Cabeza;
+    int cont=0;
+    string dataNode="", dataEdge="";
+    string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTA DE TAREAS\";\n  node [shape = note, color=\"#27ae60\", style=filled, fillcolor=\"#2ecc71\"];\n";
+    while(aux->getID()!="401")
+    {
+        if(stoi(aux->getID())>200)
+        {
+            dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\lCarnet: "+aux->getCarnet()+" \\lNombre: "+aux->getTarea()+" \\lDescripcion: "+aux->getDescripcion()+" \\lMateria: "+aux->getMateria()+" \\lFecha: "+aux->getFecha()+" \\lHora: "+aux->getHora()+" \\lEstado: "+aux->getEstado()+"\"];\n";
+            if(stoi(aux->getID())>201)
+            {
+                dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
+                dataEdge += "N" + to_string(cont) + "->N" + to_string(cont-1) + ";\n";
+            }
+        }
+        aux = aux->getSiguiente();
+        cont++;
+    }
+    grafica += dataNode;
+    grafica += dataEdge;
+    grafica += "\n}";
+    try
+    {
+        string path = "..\\Reportes\\";
+        ofstream file;
+        file.open(path + "ListaTareas.dot",std::ios::out);
+        if(file.fail())
+        {
+            exit(1);
+        }
+        file<<grafica;
+        file.close();
+        string command = "dot -Tpng " + path + "ListaTareas.dot -o  " + path + "ListaTareas"+to_string(orden)+".png";
+        system(command.c_str());
+    }
+    catch(exception e)
+    {
+        cout<<"Ocurrio un error"<<endl;
+    }
+}
+
+void ListD::graficar2(int orden)
+{
+    NodeDE *aux =  this->Cabeza;
+    int cont=0;
+    string dataNode="", dataEdge="";
+    string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTA DE TAREAS\";\n  node [shape = note, color=\"#27ae60\", style=filled, fillcolor=\"#2ecc71\"];\n";
+    while(aux->getID()!="601")
+    {
+        if(stoi(aux->getID())>400)
+        {
+            dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\lCarnet: "+aux->getCarnet()+" \\lNombre: "+aux->getTarea()+" \\lDescripcion: "+aux->getDescripcion()+" \\lMateria: "+aux->getMateria()+" \\lFecha: "+aux->getFecha()+" \\lHora: "+aux->getHora()+" \\lEstado: "+aux->getEstado()+"\"];\n";
+            if(stoi(aux->getID())>401)
+            {
+                dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
+                dataEdge += "N" + to_string(cont) + "->N" + to_string(cont-1) + ";\n";
+            }
+        }
+        aux = aux->getSiguiente();
+        cont++;
+    }
+    grafica += dataNode;
+    grafica += dataEdge;
+    grafica += "\n}";
+    try
+    {
+        string path = "..\\Reportes\\";
+        ofstream file;
+        file.open(path + "ListaTareas.dot",std::ios::out);
+        if(file.fail())
+        {
+            exit(1);
+        }
+        file<<grafica;
+        file.close();
+        string command = "dot -Tpng " + path + "ListaTareas.dot -o  " + path + "ListaTareas"+to_string(orden)+".png";
+        system(command.c_str());
+    }
+    catch(exception e)
+    {
+        cout<<"Ocurrio un error"<<endl;
+    }
+}
+
+void ListD::graficar3(int orden)
+{
+    NodeDE *aux =  this->Cabeza;
+    int cont=0;
+    string dataNode="", dataEdge="";
+    string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTA DE TAREAS\";\n  node [shape = note, color=\"#27ae60\", style=filled, fillcolor=\"#2ecc71\"];\n";
+    while(aux->getID()!="801")
+    {
+        if(stoi(aux->getID())>600)
+        {
+            dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\lCarnet: "+aux->getCarnet()+" \\lNombre: "+aux->getTarea()+" \\lDescripcion: "+aux->getDescripcion()+" \\lMateria: "+aux->getMateria()+" \\lFecha: "+aux->getFecha()+" \\lHora: "+aux->getHora()+" \\lEstado: "+aux->getEstado()+"\"];\n";
+            if(stoi(aux->getID())>601)
+            {
+                dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
+                dataEdge += "N" + to_string(cont) + "->N" + to_string(cont-1) + ";\n";
+            }
+        }
+        aux = aux->getSiguiente();
+        cont++;
+    }
+    grafica += dataNode;
+    grafica += dataEdge;
+    grafica += "\n}";
+    try
+    {
+        string path = "..\\Reportes\\";
+        ofstream file;
+        file.open(path + "ListaTareas.dot",std::ios::out);
+        if(file.fail())
+        {
+            exit(1);
+        }
+        file<<grafica;
+        file.close();
+        string command = "dot -Tpng " + path + "ListaTareas.dot -o  " + path + "ListaTareas"+to_string(orden)+".png";
+        system(command.c_str());
+    }
+    catch(exception e)
+    {
+        cout<<"Ocurrio un error"<<endl;
+    }
+}
+
+void ListD::graficar4(int orden)
+{
+    NodeDE *aux =  this->Cabeza;
+    int cont=0;
+    string dataNode="", dataEdge="";
+    string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTA DE TAREAS\";\n  node [shape = note, color=\"#27ae60\", style=filled, fillcolor=\"#2ecc71\"];\n";
+    while(aux->getID()!="1001")
+    {
+        if(stoi(aux->getID())>800)
+        {
+            dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\lCarnet: "+aux->getCarnet()+" \\lNombre: "+aux->getTarea()+" \\lDescripcion: "+aux->getDescripcion()+" \\lMateria: "+aux->getMateria()+" \\lFecha: "+aux->getFecha()+" \\lHora: "+aux->getHora()+" \\lEstado: "+aux->getEstado()+"\"];\n";
+            if(stoi(aux->getID())>801)
+            {
+                dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
+                dataEdge += "N" + to_string(cont) + "->N" + to_string(cont-1) + ";\n";
+            }
+        }
+        aux = aux->getSiguiente();
+        cont++;
+    }
+    grafica += dataNode;
+    grafica += dataEdge;
+    grafica += "\n}";
+    try
+    {
+        string path = "..\\Reportes\\";
+        ofstream file;
+        file.open(path + "ListaTareas.dot",std::ios::out);
+        if(file.fail())
+        {
+            exit(1);
+        }
+        file<<grafica;
+        file.close();
+        string command = "dot -Tpng " + path + "ListaTareas.dot -o  " + path + "ListaTareas"+to_string(orden)+".png";
+        system(command.c_str());
+    }
+    catch(exception e)
+    {
+        cout<<"Ocurrio un error"<<endl;
+    }
+}
+
+void ListD::graficar5(int orden)
+{
+    NodeDE *aux =  this->Cabeza;
+    int cont=0;
+    string dataNode="", dataEdge="";
+    string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTA DE TAREAS\";\n  node [shape = note, color=\"#27ae60\", style=filled, fillcolor=\"#2ecc71\"];\n";
+    while(aux->getID()!="1201")
+    {
+        if(stoi(aux->getID())>1000)
+        {
+            dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\lCarnet: "+aux->getCarnet()+" \\lNombre: "+aux->getTarea()+" \\lDescripcion: "+aux->getDescripcion()+" \\lMateria: "+aux->getMateria()+" \\lFecha: "+aux->getFecha()+" \\lHora: "+aux->getHora()+" \\lEstado: "+aux->getEstado()+"\"];\n";
+            if(stoi(aux->getID())>1001)
+            {
+                dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
+                dataEdge += "N" + to_string(cont) + "->N" + to_string(cont-1) + ";\n";
+            }
+        }
+        aux = aux->getSiguiente();
+        cont++;
+    }
+    grafica += dataNode;
+    grafica += dataEdge;
+    grafica += "\n}";
+    try
+    {
+        string path = "..\\Reportes\\";
+        ofstream file;
+        file.open(path + "ListaTareas.dot",std::ios::out);
+        if(file.fail())
+        {
+            exit(1);
+        }
+        file<<grafica;
+        file.close();
+        string command = "dot -Tpng " + path + "ListaTareas.dot -o  " + path + "ListaTareas"+to_string(orden)+".png";
+        system(command.c_str());
+    }
+    catch(exception e)
+    {
+        cout<<"Ocurrio un error"<<endl;
+    }
+}
+
+void ListD::graficar6(int orden)
+{
+    NodeDE *aux =  this->Cabeza;
+    int cont=0;
+    string dataNode="", dataEdge="";
+    string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTA DE TAREAS\";\n  node [shape = note, color=\"#27ae60\", style=filled, fillcolor=\"#2ecc71\"];\n";
+    while(aux != NULL)
+    {
+        if(stoi(aux->getID())>1200)
+        {
+            dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\lCarnet: "+aux->getCarnet()+" \\lNombre: "+aux->getTarea()+" \\lDescripcion: "+aux->getDescripcion()+" \\lMateria: "+aux->getMateria()+" \\lFecha: "+aux->getFecha()+" \\lHora: "+aux->getHora()+" \\lEstado: "+aux->getEstado()+"\"];\n";
+            if(stoi(aux->getID())>1201)
+            {
+                dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
+                dataEdge += "N" + to_string(cont) + "->N" + to_string(cont-1) + ";\n";
+            }
+        }
+        aux = aux->getSiguiente();
+        cont++;
+    }
+    grafica += dataNode;
+    grafica += dataEdge;
+    grafica += "\n}";
+    try
+    {
+        string path = "..\\Reportes\\";
+        ofstream file;
+        file.open(path + "ListaTareas.dot",std::ios::out);
+        if(file.fail())
+        {
+            exit(1);
+        }
+        file<<grafica;
+        file.close();
+        string command = "dot -Tpng " + path + "ListaTareas.dot -o  " + path + "ListaTareas"+to_string(orden)+".png";
+        system(command.c_str());
+    }
+    catch(exception e)
+    {
+        cout<<"Ocurrio un error"<<endl;
+    }
 }

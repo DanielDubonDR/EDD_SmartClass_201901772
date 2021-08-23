@@ -46,6 +46,7 @@ NodeTask *TareasM[5][30][9];
 ListD *Tareas = new ListD();
 int idCola=1;
 int contadorReporteEstudiantes=0;
+int contadorReporteTareas=0;
 
 //Programa principal
 int main()
@@ -534,7 +535,36 @@ void reportes()
                     getch();
                 }
             } break;
-            case 1: clear(); Tareas->showList(); getch(); break;
+            case 1: //clear(); Tareas->showList(); getch(); 
+            {
+                if(!Tareas->isEmpty())
+                {
+                    clear();
+                    gotoxy(38, 12);
+                    Tareas->graficar(contadorReporteTareas);
+                    contadorReporteTareas++;
+                    Tareas->graficar1(contadorReporteTareas);
+                    contadorReporteTareas++;
+                    Tareas->graficar2(contadorReporteTareas);
+                    contadorReporteTareas++;
+                    Tareas->graficar3(contadorReporteTareas);
+                    contadorReporteTareas++;
+                    Tareas->graficar4(contadorReporteTareas);
+                    contadorReporteTareas++;
+                    Tareas->graficar5(contadorReporteTareas);
+                    contadorReporteTareas++;
+                    Tareas->graficar6(contadorReporteTareas);
+                    contadorReporteTareas++;
+                    gotoxy(38,19); cout<<"- Reporte generado con exito";
+                    getch();
+                }
+                else
+                {
+                    clear();
+                    gotoxy(34, 14); cout<<"ERROR: No se ha resgistrado ningun usuario aun";
+                    getch();
+                }
+            }break;
             case 2:
             {
                 if(!Tareas->isEmpty())
