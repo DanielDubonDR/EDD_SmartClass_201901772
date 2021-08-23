@@ -130,7 +130,19 @@ void ingresoManual()
         switch (op)
         {
             case 0: opcionEstudiantes(); break;
-            case 1: opcionTareas(); break;
+            case 1: 
+            {
+                if(!Tareas->isEmpty())
+                {
+                    opcionTareas();
+                }
+                else
+                {
+                    clear();
+                    gotoxy(34, 14); cout<<"ERROR: No se ha cargado ninguna tarea aun";
+                    getch();
+                }
+            } break;
             case 2: break;
         }
     } while (op != 2);
@@ -196,40 +208,61 @@ void opcionEstudiantes()
         switch (op)
         {
             case 0: ingresoEstudiantes(); break;
-            case 1: opcionModificar(); break;
-            case 2:
+            case 1: 
             {
-                string auxDPI;
-                clear();
-                tituloEliminar();
-                gotoxy(41, 10); cout<<"Ingrese el DPI: ";
-                getline(cin, auxDPI);
-
-                if(Estudiantes->buscar(auxDPI))
+                if(!Estudiantes->isEmpty())
                 {
-                    int decision;
-                    cout<<endl;
-                    Estudiantes->mostrarInfo(auxDPI);
-                    cout<<"\n\n                                 - Esta seguro de eliminarlo? 1. Si 2. No : ";
-                    cin>>decision;
-                    if(decision==1)
-                    {
-                        Estudiantes->eliminar(auxDPI);
-                        cout<<"\n\n                                 - Se ha eliminado con exito";
-                    }
-                    else if(decision==2)
-                    {
-                        cout<<"\n\n                                 - No se ha eliminado";
-                    }
-                    else
-                    {
-                        cout<<"\n\n                                 - Opcion incorrecta";
-                    }
-                    getch();
+                    opcionModificar();
                 }
                 else
                 {
-                    gotoxy(34, 16); cout<<"INFORMACION: El DPI ingresado no se encuentra registrado";
+                    clear();
+                    gotoxy(34, 14); cout<<"ERROR: No se ha resgistrado ningun usuario aun";
+                    getch();
+                }
+            } break;
+            case 2:
+            {
+                if(!Estudiantes->isEmpty())
+                {
+                    string auxDPI;
+                    clear();
+                    tituloEliminar();
+                    gotoxy(41, 10); cout<<"Ingrese el DPI: ";
+                    getline(cin, auxDPI);
+
+                    if(Estudiantes->buscar(auxDPI))
+                    {
+                        int decision;
+                        cout<<endl;
+                        Estudiantes->mostrarInfo(auxDPI);
+                        cout<<"\n\n                                 - Esta seguro de eliminarlo? 1. Si 2. No : ";
+                        cin>>decision;
+                        if(decision==1)
+                        {
+                            Estudiantes->eliminar(auxDPI);
+                            cout<<"\n\n                                 - Se ha eliminado con exito";
+                        }
+                        else if(decision==2)
+                        {
+                            cout<<"\n\n                                 - No se ha eliminado";
+                        }
+                        else
+                        {
+                            cout<<"\n\n                                 - Opcion incorrecta";
+                        }
+                        getch();
+                    }
+                    else
+                    {
+                        gotoxy(30, 16); cout<<"INFORMACION: El DPI ingresado no se encuentra registrado";
+                        getch();
+                    }
+                }
+                else
+                {
+                    clear();
+                    gotoxy(34, 14); cout<<"ERROR: No se ha resgistrado ningun usuario aun";
                     getch();
                 }
             } break;
@@ -485,29 +518,47 @@ void reportes()
         {
             case 0:
             {
-                clear();
-                gotoxy(38, 12);
-                Estudiantes->graficar(contadorReporteEstudiantes);
-                contadorReporteEstudiantes++;
-                gotoxy(38,14); cout<<"- Reporte generado con exito";
-                getch();
+                if(!Estudiantes->isEmpty())
+                {
+                    clear();
+                    gotoxy(38, 12);
+                    Estudiantes->graficar(contadorReporteEstudiantes);
+                    contadorReporteEstudiantes++;
+                    gotoxy(38,14); cout<<"- Reporte generado con exito";
+                    getch();
+                }
+                else
+                {
+                    clear();
+                    gotoxy(34, 14); cout<<"ERROR: No se ha resgistrado ningun usuario aun";
+                    getch();
+                }
             } break;
             case 1: clear(); Tareas->showList(); getch(); break;
             case 2:
             {
-                clear();
-                string id;
-                gotoxy(41,8); cout<<"Ingrese el ID de la tarea: "; getline(cin,id);
-                if(stoi(id)>=0 && stoi(id)<=1349)
-                {
-                    cout<<endl<<endl;
-                    Tareas->mostrarTarea(id);
+                if(!Tareas->isEmpty())
+                {    
+                    clear();
+                    string id;
+                    gotoxy(41,8); cout<<"Ingrese el ID de la tarea: "; getline(cin,id);
+                    if(stoi(id)>=0 && stoi(id)<=1349)
+                    {
+                        cout<<endl<<endl;
+                        Tareas->mostrarTarea(id);
+                    }
+                    else
+                    {
+                        gotoxy(30,10); cout<<"ID fuera de rango";
+                    }
+                    getch();
                 }
                 else
                 {
-                    gotoxy(30,10); cout<<"ID fuera de rango";
+                    clear();
+                    gotoxy(34, 14); cout<<"ERROR: No se ha resgistrado ninguna tarea aun";
+                    getch();
                 }
-                getch();
             } break;
             case 3:
             {
@@ -753,7 +804,7 @@ void ingresoEstudiantes()
 void cargarTareas()
 {
     clear();
-    //tituloEstudiantes();
+    tituloCargarTareas();
     string pathTareas;
     gotoxy(22, 11);   cout<<"- Ingrese la ruta del archivo";
     gotoxy(25, 13);   cout<<"> ";
