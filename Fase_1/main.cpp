@@ -45,6 +45,7 @@ Queue *cola = new Queue();
 NodeTask *TareasM[5][30][9];
 ListD *Tareas = new ListD();
 int idCola=1;
+int contadorReporteEstudiantes=0;
 
 //Programa principal
 int main()
@@ -84,7 +85,7 @@ int menu(void)
         titulo();
         for (c = 0; c < 5; c++)
         {
-            gotoxy(15, (c+6) * 2);
+            gotoxy(15, (c+7) * 2);
             if (pos == c)
             {
                 cout <<">>> ";
@@ -228,7 +229,7 @@ void opcionEstudiantes()
                 }
                 else
                 {
-                    gotoxy(36, 12); cout<<"INFORMACION: El DPI ingresado no se encuentra registrado";
+                    gotoxy(34, 16); cout<<"INFORMACION: El DPI ingresado no se encuentra registrado";
                     getch();
                 }
             } break;
@@ -486,7 +487,8 @@ void reportes()
             {
                 clear();
                 gotoxy(38, 12);
-                Estudiantes->graficar();
+                Estudiantes->graficar(contadorReporteEstudiantes);
+                contadorReporteEstudiantes++;
                 gotoxy(38,14); cout<<"- Reporte generado con exito";
                 getch();
             } break;
@@ -1464,6 +1466,7 @@ void opcionCola()
 // seguir tabajando aca
 void  generarCodigo()
 {
+    clear();
     string codigo = Estudiantes->codigoUsuario();
     codigo+=Tareas->codigoTareas();
     try
@@ -1477,10 +1480,10 @@ void  generarCodigo()
         }
         file<<codigo;
         file.close();
+        gotoxy(38,14); cout<<"- Reporte generado con exito";
     }
     catch(exception e)
     {
         cout<<"Ocurrio un error"<<endl;
     }
 }
-

@@ -31,7 +31,7 @@ class ListDC
         void modificarCreditos(string, string);
         void modificarEdad(string, string);
         void mostrarInfo(string);
-        void graficar();
+        void graficar(int);
 };
 
 ListDC::ListDC()
@@ -296,7 +296,7 @@ void ListDC::eliminar(string dpi)
     while(aux != this->Cabeza);
 }
 
-void ListDC::graficar()
+void ListDC::graficar(int orden)
 {
     NodeDC *aux =  this->Cabeza;
     int cont=0;
@@ -330,7 +330,7 @@ void ListDC::graficar()
         }
         file<<grafica;
         file.close();
-        string command = "dot -Tpng " + path + "ListaAlumnos.dot -o  " + path + "ListaAlumnos"+to_string(rand())+".png";
+        string command = "dot -Tpng " + path + "ListaAlumnos.dot -o  " + path + "ListaAlumnos"+to_string(orden)+".png";
         system(command.c_str());
     }
     catch(exception e)
