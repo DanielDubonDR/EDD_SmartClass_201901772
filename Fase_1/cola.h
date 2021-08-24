@@ -117,7 +117,7 @@ void Queue::graficar()
         }
         file<<grafica;
         file.close();
-        string command = "dot -Tpng " + path + "ColaErrores.dot -o  " + path + "ColaErrores.png";
+        string command = "dot -Tpdf " + path + "ColaErrores.dot -o  " + path + "ColaErrores.pdf";
         system(command.c_str());
     }
     catch(exception e)

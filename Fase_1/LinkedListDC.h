@@ -330,7 +330,7 @@ void ListDC::graficar(int orden)
         }
         file<<grafica;
         file.close();
-        string command = "dot -Tpng " + path + "ListaAlumnos.dot -o  " + path + "ListaAlumnos"+to_string(orden)+".png";
+        string command = "dot -Tpdf " + path + "ListaAlumnos.dot -o  " + path + "ListaAlumnos"+to_string(orden)+".pdf";
         system(command.c_str());
     }
     catch(exception e)
