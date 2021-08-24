@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1629775398 source:d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\main.cpp
+1629779377 source:d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\main.cpp
 	<iostream>
 	<conio.h>
 	<string>
@@ -34,7 +34,7 @@
 1629573806 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\node.h
 	<iostream>
 
-1629706168 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\linkedlistd.h
+1629779785 d:\usac\segundo semestre 2021\estructura de datos\laboratorio\edd_smartclass_201901772\fase_1\linkedlistd.h
 	<iostream>
 	"nodeD.h"
 

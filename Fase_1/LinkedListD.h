@@ -319,9 +319,16 @@ void ListD::graficar(int orden)
     int cont=0;
     string dataNode="", dataEdge="";
     string grafica="digraph Alumnos {\n rankdir=LR;\n label=\"LISTA DE TAREAS\";\n  node [shape = note, color=\"#27ae60\", style=filled, fillcolor=\"#2ecc71\"];\n";
-    while(aux->getID() != "201")
+    while(aux != NULL)
     {
-        dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\lCarnet: "+aux->getCarnet()+" \\lNombre: "+aux->getTarea()+" \\lDescripcion: "+aux->getDescripcion()+" \\lMateria: "+aux->getMateria()+" \\lFecha: "+aux->getFecha()+" \\lHora: "+aux->getHora()+" \\lEstado: "+aux->getEstado()+"\"];\n";
+        if(aux->getCarnet() != "-1")
+        {
+            dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\lCarnet: "+aux->getCarnet()+" \\lNombre: "+aux->getTarea()+" \\lDescripcion: "+aux->getDescripcion()+" \\lMateria: "+aux->getMateria()+" \\lFecha: "+aux->getFecha()+" \\lHora: "+aux->getHora()+" \\lEstado: "+aux->getEstado()+"\"];\n";
+        }
+        else
+        {
+            dataNode+= "N"+to_string(cont)+"[label=\"ID: "+aux->getID()+" \\l-1\"];\n";
+        }
         if(aux->getAnterior() != NULL)
         {
             dataEdge += "N" + to_string(cont-1) + "->N" + to_string(cont) + ";\n";
@@ -344,7 +351,7 @@ void ListD::graficar(int orden)
         }
         file<<grafica;
         file.close();
-        string command = "dot -Tpng " + path + "ListaTareas.dot -o  " + path + "ListaTareas"+to_string(orden)+".png";
+        string command = "dot -Tpdf " + path + "ListaTareas.dot -o  " + path + "ListaTareas"+to_string(orden)+".pdf";
         system(command.c_str());
     }
     catch(exception e)

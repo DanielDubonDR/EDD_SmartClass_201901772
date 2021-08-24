@@ -541,28 +541,28 @@ void reportes()
                 if(!Tareas->isEmpty())
                 {
                     clear();
-                    gotoxy(22, 10);
+                    gotoxy(36, 12);
                     Tareas->graficar(contadorReporteTareas);
                     contadorReporteTareas++;
-                    gotoxy(22, 11);
-                    Tareas->graficar1(contadorReporteTareas);
-                    contadorReporteTareas++;
-                    gotoxy(22, 12);
-                    Tareas->graficar2(contadorReporteTareas);
-                    contadorReporteTareas++;
-                    gotoxy(22, 13);
-                    Tareas->graficar3(contadorReporteTareas);
-                    contadorReporteTareas++;
-                    gotoxy(22, 14);
-                    Tareas->graficar4(contadorReporteTareas);
-                    contadorReporteTareas++;
-                    gotoxy(22, 15);
-                    Tareas->graficar5(contadorReporteTareas);
-                    contadorReporteTareas++;
-                    gotoxy(22, 16);
-                    Tareas->graficar6(contadorReporteTareas);
-                    contadorReporteTareas++;
-                    gotoxy(22,18); cout<<"> Reporte generado con exito";
+                    // gotoxy(22, 11);
+                    // Tareas->graficar1(contadorReporteTareas);
+                    // contadorReporteTareas++;
+                    // gotoxy(22, 12);
+                    // Tareas->graficar2(contadorReporteTareas);
+                    // contadorReporteTareas++;
+                    // gotoxy(22, 13);
+                    // Tareas->graficar3(contadorReporteTareas);
+                    // contadorReporteTareas++;
+                    // gotoxy(22, 14);
+                    // Tareas->graficar4(contadorReporteTareas);
+                    // contadorReporteTareas++;
+                    // gotoxy(22, 15);
+                    // Tareas->graficar5(contadorReporteTareas);
+                    // contadorReporteTareas++;
+                    // gotoxy(22, 16);
+                    // Tareas->graficar6(contadorReporteTareas);
+                    // contadorReporteTareas++;
+                    gotoxy(36,14); cout<<"> Reporte generado con exito";
                     getch();
                 }
                 else
