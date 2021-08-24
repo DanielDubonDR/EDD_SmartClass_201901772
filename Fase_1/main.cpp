@@ -239,6 +239,7 @@ void opcionEstudiantes()
                         Estudiantes->mostrarInfo(auxDPI);
                         cout<<"\n\n                                 - Esta seguro de eliminarlo? 1. Si 2. No : ";
                         cin>>decision;
+                        cin.ignore();
                         if(decision==1)
                         {
                             Estudiantes->eliminar(auxDPI);
@@ -328,7 +329,7 @@ void opcionModificar()
 {
     string auxDPI;
     clear();
-    gotoxy(36, 13); cout<<"Ingrese el DPI acutal: ";
+    gotoxy(36, 13); cout<<"Ingrese el DPI actual: ";
     getline(cin, auxDPI);
 
     if(Estudiantes->buscar(auxDPI))
@@ -1050,6 +1051,7 @@ void opcionTareas()
                     int decision;
                     cout<<"\t\t\t\t- Esta seguro de eliminarlo? 1. Si 2. No : ";
                     cin>>decision;
+                    cin.ignore();
                     if(decision==1)
                     {
                         Tareas->modificar(id,"-1","-1","-1","-1","-1","-1","-1");
@@ -1347,6 +1349,29 @@ void opcionModificarTareas()
                                             gotoxy(48, 20); cout<<"- ERROR: Formato de anio";
                                         }
                                     }
+                                    else if(stoi(id)==idNuevo)
+                                    {
+                                        gotoxy(57, 16); getline(cin, anio);
+                                        if(anio.length()>=0 && anio.length()<=4)
+                                        {
+                                            string auxHora=hora+":00";
+                                            if(mes.length()==1)
+                                            {
+                                                mes="0"+mes;
+                                            }
+                                            if(dia.length()==1)
+                                            {
+                                                dia="0"+dia;
+                                            }
+                                            string auxFecha=anio+"/"+mes+"/"+dia;
+                                            Tareas->cambiarInfo(id, to_string(idNuevo), auxHora, auxFecha);
+                                            gotoxy(28, 20); cout<<"> Se ha cambiado se ha cambiado el formato de fecha exitosamente";
+                                        }
+                                        else
+                                        {
+                                            gotoxy(48, 20); cout<<"- ERROR: Formato de anio";
+                                        }
+                                    }
                                     else
                                     {
                                         gotoxy(48, 20); cout<<"- ERROR: Este horario ya esta ocupado";
@@ -1550,6 +1575,7 @@ void opcionCola()
                     cola->showHead();
                     cout<<"\n\n                                 - Esta seguro de desencolar este error? 1. Si 2. No : ";
                     cin>>decision;
+                    cin.ignore();
                     if(decision==1)
                     {
                         cola->Dequeue();

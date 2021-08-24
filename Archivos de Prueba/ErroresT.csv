@@ -1,0 +1,10 @@
+Mes,Dia,Hora,Carnet,Nombre,Descripcion,Materia,Fecha,Estado
+6,1,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matematica intermedia 1.,Matematica Intermedia 1,2021/07/01,Incumplido
+7,31,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fisica 1.,Fisica 1,2021/07/01,Pendiente
+7,14,18,201704186,Tarea de Estadistica,Realizar la tarea del curso de Estadistica 1.,Estadistica 1,2021/07/14,Cumplido
+7,14,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+10,4,9,201901425,Tarea de Logica,Realizar el resumen del curso de Logica.,Logica,04/10/2021,Pendiente
+10,4,11,201704186,Tarea 2 de Fisica 3,Realizar la tarea del curso de Fisica 3.,Fisica 3,2021/10/04,Pendiente
+10,21,7,201501786,Encuesta de Estadistica,Realizar la encuesta del curso de Estadistica 1.,Estadistica 1,2021/10/21,Pendiente
+10,21,13,201700886,Proyecto de Lenguajes,Realizar el proyecto del curso de Lenguajes,Lenguajes Formales y de Programacion,2021/10/21,Pendiente
+8,8,8,201901772,Proyecto de Lenguajes,Realizar el proyecto del curso de Lenguajes,Lenguajes Formales y de Programacion,2021/10/21,Pendiente
