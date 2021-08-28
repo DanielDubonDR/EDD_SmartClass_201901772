@@ -2,11 +2,19 @@ digraph Errores {
  rankdir=LR;
  label="COLA DE ERRORES";
   node [shape = note, color="#c0392b", style=filled, fillcolor="#ff7979"];
-N0[label="ID: 1 \lTipo: Tarea \lDescripcion: [ La hora esta fuera de rango ]\l                    [ Error encontrado en la linea: 8 del archivo ]\l                    [ Tarea no insertada, ingresarla manualmente ]"];
-N1[label="ID: 2 \lTipo: Tarea \lDescripcion: [ El carnet del estudiante no se encuentra registrado: 201901772 ]\l                    [ Use el DPI/ID para editarlo: 333 ]\l                    [ Error encontrado en la linea: 10 del archivo ]"];
+N0[label="ID: 1 \lTipo: Estudiante \lDescripcion: \l			[ El carnet no presenta el formato debido: 2010244 ]\l			[ Use el DPI/ID para editarlo: 5970926381748 ]\l		[ Error encontrado en la linea: 3 del archivo ]"];
+N1[label="ID: 2 \lTipo: Estudiante \lDescripcion: \l			[ El DPI no presenta el formato debido: 879575888 ]\l			[ Use el DPI/ID para editarlo: 879575888 ]\l		[ Error encontrado en la linea: 4 del archivo ]"];
+N2[label="ID: 3 \lTipo: Estudiante \lDescripcion: \l			[ El correo no presenta el formato debido: BernadettePescud.10outlook.com ]\l			[ Use el DPI/ID para editarlo: 5531711621404 ]\l		[ Error encontrado en la linea: 5 del archivo ]"];
+N3[label="ID: 4 \lTipo: Tarea \lDescripcion: [ La fecha no cumple con el formato debido: 01/08/2021 ]\l                    [ Use el DPI/ID para editarlo: 270 ]\l                    [ Error encontrado en la linea: 2 del archivo ]"];
+N4[label="ID: 5 \lTipo: Tarea \lDescripcion: [ El carnet del estudiante no se encuentra registrado: 201024489 ]\l                    [ Use el DPI/ID para editarlo: 505 ]\l                    [ Error encontrado en la linea: 12 del archivo ]"];
+N5[label="ID: 6 \lTipo: Tarea \lDescripcion: [ El carnet del estudiante no se encuentra registrado: 201024489 ]\l                    [ Use el DPI/ID para editarlo: 138 ]\l                    [ Error encontrado en la linea: 268 del archivo ]"];
 aux[label="Salida", shape=none, style=none];
  aux1[label="Llegada", shape=none, style=none];
 N1->N0;
+N2->N1;
+N3->N2;
+N4->N3;
+N5->N4;
 N0->aux; 
- aux1->N1;
+ aux1->N5;
 }
