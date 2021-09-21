@@ -1,0 +1,97 @@
+¿Elements?
+    ¿element type="user"?
+        ¿item Carnet = "201901425" $?
+        ¿item DPI = "3502451230508" $?
+        ¿item Nombre = "Emilia Miramontes" $?
+        ¿item Carrera = "Ingenieria en Ciencias y Sistemas" $?
+        ¿item Password = "roxodiciqi" $?
+        ¿item Creditos = 205 $?
+        ¿item Edad = 21 $?
+        ¿item Correo = "abrahamz@outlook.com" $?
+    ¿$element?
+    ¿element type="task"?
+        ¿item Carnet = "201901425" $?
+        ¿item Nombre = "Tarea de Matematica" $?
+        ¿item Descripcion = "Realizar la tarea del curso de matemática intermedia 1." $?
+        ¿item Materia = "Matemática Intermedia 1" $?
+        ¿item Fecha = "01/07/2021" $?
+        ¿item Hora = "8:00" $?
+        ¿item Estado = "Incumplido" $?
+    ¿$element?
+    ¿element type="user"?
+        ¿item Carnet = "201501786" $?
+        ¿item DPI = "7249529279753" $?
+        ¿item Nombre = "Juan Curiel" $?
+        ¿item Carrera = "Ingenieria Industrial" $?
+        ¿item Password = "zanolexima" $?
+        ¿item Creditos = 245 $?
+        ¿item Edad = 24 $?
+        ¿item Correo = "obrunelleschid@hotmail.com" $?
+    ¿$element?
+    ¿element type="task"?
+        ¿item Carnet = "201501786" $?
+        ¿item Nombre = "Tarea de Estadística" $?
+        ¿item Descripcion = "Realizar la tarea del curso de Estadística 1." $?
+        ¿item Materia = "Estadística 1" $?
+        ¿item Fecha = "14/07/2021" $?
+        ¿item Hora = "10:00" $?
+        ¿item Estado = "Cumplido" $?
+    ¿$element?
+    ¿element type="user"?
+        ¿item Carnet = "201822186" $?
+        ¿item DPI = "9298434863898" $?
+        ¿item Nombre = "Eloisa Rincón" $?
+        ¿item Carrera = "Ingenieria Civil" $?
+        ¿item Password = "toqelijanu" $?
+        ¿item Creditos = 95 $?
+        ¿item Edad = 19 $?
+        ¿item Correo = "epalleske9@gmail.org" $?
+    ¿$element?
+    ¿element type="task"?
+        ¿item Carnet = "201822186" $?
+        ¿item Nombre = "Codificar en C++" $?
+        ¿item Descripcion = "Realizar la tarea del curso de Estructuras de datos" $?
+        ¿item Materia = "Estructuras de Datos" $?
+        ¿item Fecha = "14/07/2021" $?
+        ¿item Hora = "16:00" $?
+        ¿item Estado = "Pendiente" $?
+    ¿$element?
+    ¿element type="user"?
+        ¿item Carnet = "201922176" $?
+        ¿item DPI = "9298434863898" $?
+        ¿item Nombre = "Pancho Villa" $?
+        ¿item Carrera = "Ingenieria Quimica" $?
+        ¿item Password = "toqelijanu" $?
+        ¿item Creditos = 95 $?
+        ¿item Edad = 19 $?
+        ¿item Correo = "stodein1@outlook.com" $?
+    ¿$element?
+    ¿element type="task"?
+        ¿item Carnet = "201922176" $?
+        ¿item Nombre = "Equilibrar quimicos" $?
+        ¿item Descripcion = "Balancear todas las estructuras" $?
+        ¿item Materia = "Quimica organica" $?
+        ¿item Fecha = "14/08/2021" $?
+        ¿item Hora = "13:00" $?
+        ¿item Estado = "Pendiente" $?
+    ¿$element?
+    ¿element type="user"?
+        ¿item Carnet = "202022123" $?
+        ¿item DPI = "9298434863898" $?
+        ¿item Nombre = "Crity Ceballos Alonzo" $?
+        ¿item Carrera = "Ingenieria en Sistemas" $?
+        ¿item Password = "toqelijanu" $?
+        ¿item Creditos = 95 $?
+        ¿item Edad = 19 $?
+        ¿item Correo = "hola4@outlook.org" $?
+    ¿$element?
+    ¿element type="task"?
+        ¿item Carnet = "202022123" $?
+        ¿item Nombre = "Circuitos" $?
+        ¿item Descripcion = "Realizar mapas de karnaught" $?
+        ¿item Materia = "Fisica" $?
+        ¿item Fecha = "30/09/2021" $?
+        ¿item Hora = "10:00" $?
+        ¿item Estado = "Pendiente" $?
+    ¿$element?
+¿$Elements?
