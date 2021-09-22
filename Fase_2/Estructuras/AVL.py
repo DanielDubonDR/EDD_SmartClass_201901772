@@ -1,3 +1,6 @@
+from pathlib import Path
+import os
+
 class Node:
     def __init__(self, carnet, dpi, nombre, carrera, password, creditos, edad, correo):
         self.carnet = carnet
@@ -243,4 +246,19 @@ class  AVL:
         self.string += "\n\t\tnode[fillcolor=white, fontcolor=black];"
         self.preordenG1()
         self.string += "\n\t}"
-        print(self.string)
+        # print(self.string)
+        self.generarArchivo()
+    
+    def generarArchivo(self):
+        path_desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"\\Reportes_F2"
+        path_current = "{}{}".format(os.path.abspath(os.path.dirname(__file__)), '\\')
+        path_current = path_current.replace("\\Estructuras", "")+"Archivos_dot"
+        pathdot = Path(path_current)
+        pathdot.mkdir(parents=True, exist_ok=True)
+        path = Path(path_desktop)
+        path.mkdir(parents=True, exist_ok=True)
+        archivo=open("Archivos_dot\\AVL.dot", 'w', encoding='utf8')
+        archivo.write(self.string)
+        archivo.close()
+        os.system('cd Archivos_dot& dot -Tpdf AVL.dot -o '+path_desktop+'\\AVL.pdf')
+        os.startfile(path_desktop+"\\AVL.pdf")

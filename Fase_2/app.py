@@ -28,14 +28,17 @@ def cargarTareas(path):
 
     parser.parse(contenido)
     print(lista_tareas)
-# *-------------------------------------------------------------- API ---------------------------------------------------------------
+
+# !-------------------------------------------------------------- API ---------------------------------------------------------------
+
+# ?_________________________________________________________ CARGAS MASIVAS __________________________________________________________
+
 @app.route('/carga', methods=['POST'])
 def cargaMasiva():
     tipo = request.json['tipo']
     path = request.json['path']
     if tipo == "estudiante":
         cargarUsuarios(path)
-        arbol_AVL.graficar()
         return jsonify({'Tipo': tipo, 'Mensaje': 'Se han cargado los estudiantes con exito'})
 
     elif tipo == "recordatorio":
@@ -47,6 +50,19 @@ def cargaMasiva():
         
     else:
         return jsonify({'Error': 'Tipo invalido'})
+
+# ?______________________________________________________ CRUD ESTUDIANTES __________________________________________________________
+
+# ?_________________________________________________________ REPORTES _______________________________________________________________
+@app.route('/reporte', methods=['GET'])
+def graficarALV():
+    tipo = request.json['tipo']
+    if tipo == 0:
+        if arbol_AVL.root is not None:
+            arbol_AVL.graficar()
+            return jsonify({'Tipo': str(tipo), 'Mensaje': 'Se ha generado el reporte con exito'})
+        else:
+            return jsonify({'ERROR': 'No se ha ingresado alumnos'})
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
