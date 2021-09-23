@@ -103,10 +103,10 @@ class  AVL:
             return None
 
         elif carnet < node.carnet:
-            return self._search( carnet, self.izq )
+            return self._search( carnet, node.izq )
 
         elif carnet > node.carnet:
-            return self._search( carnet, self.der )
+            return self._search( carnet, node.der )
 
         else:
             return node

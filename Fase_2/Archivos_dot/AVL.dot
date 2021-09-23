@@ -4,14 +4,14 @@
             node[shape=circle, style=filled, fillcolor="#303F9F", fontcolor=white, color="#0A122A"];
             splines=false;
         
+		n201901425 [label = "201901425"];
+		n201901425 -> n201822186[tailport=sw headport=n];
+		n201901425 -> n201922176[tailport=se headport=n];
 		n201822186 [label = "201822186"];
 		n201822186 -> n201501786[tailport=sw headport=n];
-		n201822186 -> n201922176[tailport=se headport=n];
 		n201501786 [label = "201501786"];
 		n201922176 [label = "201922176"];
-		n201922176 -> n201901425[tailport=sw headport=n];
 		n201922176 -> n202022123[tailport=se headport=n];
-		n201901425 [label = "201901425"];
 		n202022123 [label = "202022123"];
 		edge[dir=none];
 		node[fillcolor=white, fontcolor=black];
