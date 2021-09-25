@@ -1,7 +1,9 @@
+from Estructuras.monthList import DoubleList
+
 class Node:
     def __init__(self, year):
         self.year = year
-        self.listaMeses = None
+        self.listaMeses = DoubleList()
         self.siguiente = None
         self.anterior = None
     
@@ -67,11 +69,27 @@ class DoubleList:
             self.size-=1
 
     def get(self, id):
-        nodeAux = self.cabeza
-        while nodeAux != None:
-            if nodeAux.year == id:
-                return nodeAux
-            nodeAux = nodeAux.siguiente
+        if self.isEmpty()==False:
+            nodeAux = self.cabeza
+            while nodeAux != None:
+                if nodeAux.year == id:
+                    return nodeAux.listaMeses
+                nodeAux = nodeAux.siguiente
+            return None
+        else:
+            return None
+    
+    def search(self, id):
+        if self.isEmpty() == False:
+            nodeAux = self.cabeza
+            encontrado = False
+            while nodeAux != None:
+                if nodeAux.year == id:
+                    encontrado = True
+                nodeAux = nodeAux.siguiente
+            return encontrado
+        else:
+            return False
 
     def delete(self, id):
         nodeAux = self.cabeza

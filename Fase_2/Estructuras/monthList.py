@@ -1,11 +1,12 @@
 class Node:
-    def __init__(self, dato, siguiente=None, anterior=None):
-        self.dato = dato
-        self.siguiente = siguiente
-        self.anterior = anterior
+    def __init__(self, mes):
+        self.mes = mes
+        self.tareas = None
+        self.siguiente = None
+        self.anterior = None
     
     def __str__(self):
-        return str(self.dato)+str("\n")
+        return str(self.mes)+str("\n")
 
 class DoubleList:
     def __init__(self):
@@ -19,8 +20,8 @@ class DoubleList:
         else:
             return False
     
-    def prepend(self, dato):
-        newNode = Node(dato)
+    def prepend(self, mes):
+        newNode = Node(mes)
         if self.isEmpty():
             self.cabeza = self.cola = newNode
         else:
@@ -29,8 +30,8 @@ class DoubleList:
             self.cabeza = newNode
         self.size += 1
 
-    def append(self, dato):
-        newNode = Node(dato)
+    def append(self, mes):
+        newNode = Node(mes)
         if self.isEmpty():
             self.cabeza = self.cola = newNode
         else:
@@ -68,14 +69,15 @@ class DoubleList:
     def get(self, id):
         nodeAux = self.cabeza
         while nodeAux != None:
-            if nodeAux.dato == id:
+            if nodeAux.mes == id:
                 return nodeAux
             nodeAux = nodeAux.siguiente
+        return None
 
     def delete(self, id):
         nodeAux = self.cabeza
         while nodeAux != None:
-            if nodeAux.dato == id:
+            if nodeAux.mes == id:
                 if nodeAux == self.cabeza:
                     self.shift()
                     break
@@ -90,9 +92,9 @@ class DoubleList:
                     break
             nodeAux = nodeAux.siguiente
     
-    def update(self, id, dato):
+    def update(self, id, mes):
         nodeAux = self.get(id)
-        nodeAux.dato=dato
+        nodeAux.mes=mes
 
     # TODO: realizar el metodo de insertar
 
@@ -104,14 +106,15 @@ class DoubleList:
             nodeAux = nodeAux.siguiente
         return string
 
-prueba = DoubleList()
-prueba.append(1)
-prueba.append(2)
-prueba.append(3)
-prueba.append(4)
-prueba.append(5)
-print(prueba)
-prueba.delete(2)
-print(prueba)
-prueba.delete(5)
-print(prueba)
+# prueba = DoubleList()
+# prueba.append('3')
+# print(prueba.get('3'))
+# prueba.append(2)
+# prueba.append(3)
+# prueba.append(4)
+# prueba.append(5)
+# print(prueba)
+# prueba.delete(2)
+# print(prueba)
+# prueba.delete(5)
+# print(prueba)

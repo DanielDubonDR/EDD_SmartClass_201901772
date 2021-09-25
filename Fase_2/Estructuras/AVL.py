@@ -1,4 +1,5 @@
 from pathlib import Path
+from Estructuras.yearList import DoubleList
 import os
 
 class Node:
@@ -11,7 +12,7 @@ class Node:
         self.creditos = creditos
         self.edad = edad
         self.correo = correo
-        self.listaAnio = None
+        self.listaAnios = DoubleList()
         self.der = None
         self.izq = None
         self.size = 0
