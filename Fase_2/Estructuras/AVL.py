@@ -11,7 +11,7 @@ class Node:
         self.creditos = creditos
         self.edad = edad
         self.correo = correo
-        self.lista = None
+        self.listaAnio = None
         self.der = None
         self.izq = None
         self.size = 0
@@ -214,7 +214,7 @@ class  AVL:
 
     def _preordenG(self, root):
         if root is not None:
-            self.string += "\n\t\tn" + str(root.carnet) + " [label = \""+str(root.carnet) +"\"];"
+            self.string += "\n\t\tn" + str(root.carnet) + " [label = \""+str(root.carnet) +"\" penwidth=2.5];"
             if root.izq is not None:
                 self.string += "\n\t\tn" + str(root.carnet) + " -> n" + str(root.izq.carnet) + "[tailport=sw headport=n];"
             if root.der is not None:

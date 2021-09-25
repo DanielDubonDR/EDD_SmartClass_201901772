@@ -4,15 +4,15 @@
             node[shape=circle, style=filled, fillcolor="#303F9F", fontcolor=white, color="#0A122A"];
             splines=false;
         
-		n201901425 [label = "201901425"];
-		n201901425 -> n201822186[tailport=sw headport=n];
-		n201901425 -> n201922176[tailport=se headport=n];
-		n201822186 [label = "201822186"];
+		n201822186 [label = "201822186" penwidth=2.5];
 		n201822186 -> n201501786[tailport=sw headport=n];
-		n201501786 [label = "201501786"];
-		n201922176 [label = "201922176"];
+		n201822186 -> n201922176[tailport=se headport=n];
+		n201501786 [label = "201501786" penwidth=2.5];
+		n201922176 [label = "201922176" penwidth=2.5];
+		n201922176 -> n201901425[tailport=sw headport=n];
 		n201922176 -> n202022123[tailport=se headport=n];
-		n202022123 [label = "202022123"];
+		n201901425 [label = "201901425" penwidth=2.5];
+		n202022123 [label = "202022123" penwidth=2.5];
 		edge[dir=none];
 		node[fillcolor=white, fontcolor=black];
 		201501786 [shape=plain label= "Carnet: 201501786\lDPI: 7249529279753\lCarrera: Ingenieria Industrial\lCorreo: obrunelleschid@hotmail.com\lPassword: zanolexima\lCreditos: 245\lEdad: 24\l"];
