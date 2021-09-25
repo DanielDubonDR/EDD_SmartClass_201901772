@@ -229,7 +229,7 @@ class  AVL:
     def _preordenG1(self, root):
         if root is not None:
             self._preordenG1(root.izq)
-            self.string += "\n\t\t" + str(root.carnet) + " [shape=plain label= \""+"Carnet: "+str(root.carnet)+"\lDPI: "+str(root.dpi)+"\lCarrera: "+str(root.carrera)+"\lCorreo: "+str(root.correo)+"\lPassword: "+str(root.password)+"\lCreditos: "+str(root.creditos)+"\lEdad: "+str(root.edad)+"\l\"];"
+            self.string += "\n\t\t" + str(root.carnet) + " [shape=plain label= \""+str(root.nombre)+"\\n"+str(root.carrera)+"\"];"
             self.string += "\n\t\t{rank=same; n" + str(root.carnet) + "; " + str(root.carnet) + "}"
             self.string += "\n\t\tn" + str(root.carnet) + " -> " + str(root.carnet) + ";"
             self._preordenG1(root.der)

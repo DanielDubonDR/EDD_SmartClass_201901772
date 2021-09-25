@@ -4,30 +4,30 @@
             node[shape=circle, style=filled, fillcolor="#303F9F", fontcolor=white, color="#0A122A"];
             splines=false;
         
-		n201901425 [label = "201901425" penwidth=2.5];
-		n201901425 -> n201822186[tailport=sw headport=n];
-		n201901425 -> n201922176[tailport=se headport=n];
 		n201822186 [label = "201822186" penwidth=2.5];
 		n201822186 -> n201501786[tailport=sw headport=n];
+		n201822186 -> n201922176[tailport=se headport=n];
 		n201501786 [label = "201501786" penwidth=2.5];
 		n201922176 [label = "201922176" penwidth=2.5];
+		n201922176 -> n201901425[tailport=sw headport=n];
 		n201922176 -> n202022123[tailport=se headport=n];
+		n201901425 [label = "201901425" penwidth=2.5];
 		n202022123 [label = "202022123" penwidth=2.5];
 		edge[dir=none];
 		node[fillcolor=white, fontcolor=black];
-		201501786 [shape=plain label= "Carnet: 201501786\lDPI: 7249529279753\lCarrera: Ingenieria Industrial\lCorreo: obrunelleschid@hotmail.com\lPassword: zanolexima\lCreditos: 245\lEdad: 24\l"];
+		201501786 [shape=plain label= "Juan Curiel\nIngenieria Industrial"];
 		{rank=same; n201501786; 201501786}
 		n201501786 -> 201501786;
-		201822186 [shape=plain label= "Carnet: 201822186\lDPI: 9298434863898\lCarrera: Ingenieria Civil\lCorreo: epalleske9@gmail.org\lPassword: toqelijanu\lCreditos: 95\lEdad: 19\l"];
+		201822186 [shape=plain label= "Eloisa Rincón\nIngenieria Civil"];
 		{rank=same; n201822186; 201822186}
 		n201822186 -> 201822186;
-		201901425 [shape=plain label= "Carnet: 201901425\lDPI: 3502451230508\lCarrera: Ingenieria en Ciencias y Sistemas\lCorreo: abrahamz@outlook.com\lPassword: roxodiciqi\lCreditos: 205\lEdad: 21\l"];
+		201901425 [shape=plain label= "Emilia Miramontes\nIngenieria en Ciencias y Sistemas"];
 		{rank=same; n201901425; 201901425}
 		n201901425 -> 201901425;
-		201922176 [shape=plain label= "Carnet: 201922176\lDPI: 9298434863898\lCarrera: Ingenieria Quimica\lCorreo: stodein1@outlook.com\lPassword: toqelijanu\lCreditos: 95\lEdad: 19\l"];
+		201922176 [shape=plain label= "Pancho Villa\nIngenieria Quimica"];
 		{rank=same; n201922176; 201922176}
 		n201922176 -> 201922176;
-		202022123 [shape=plain label= "Carnet: 202022123\lDPI: 9298434863898\lCarrera: Ingenieria en Sistemas\lCorreo: hola4@outlook.org\lPassword: toqelijanu\lCreditos: 95\lEdad: 19\l"];
+		202022123 [shape=plain label= "Crity Ceballos Alonzo\nIngenieria en Sistemas"];
 		{rank=same; n202022123; 202022123}
 		n202022123 -> 202022123;
 	}
