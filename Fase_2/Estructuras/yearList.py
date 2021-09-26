@@ -1,9 +1,9 @@
-from Estructuras.monthList import DoubleList
+from Estructuras.monthList import DoubleListMonth
 
 class Node:
     def __init__(self, year):
         self.year = year
-        self.listaMeses = DoubleList()
+        self.listaMeses = DoubleListMonth()
         self.siguiente = None
         self.anterior = None
     
@@ -69,15 +69,15 @@ class DoubleList:
             self.size-=1
 
     def get(self, id):
-        if self.isEmpty()==False:
-            nodeAux = self.cabeza
-            while nodeAux != None:
-                if nodeAux.year == id:
-                    return nodeAux.listaMeses
-                nodeAux = nodeAux.siguiente
-            return None
-        else:
-            return None
+        # if self.isEmpty()==False:
+        nodeAux = self.cabeza
+        while nodeAux != None:
+            if nodeAux.year == id:
+                return nodeAux.listaMeses
+            nodeAux = nodeAux.siguiente
+        #     return None
+        # else:
+        #     return None
     
     def search(self, id):
         if self.isEmpty() == False:

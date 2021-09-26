@@ -27,7 +27,41 @@ def getAnio(fecha):
 
 def getMes(fecha):
     fecha = fecha.split("/")
-    return fecha[1]
+    return int(fecha[1])
+
+def getNombreMes(mes):
+    if mes == 1:
+        return "Enero"
+    elif mes == 2:
+        return "Febrero"
+    elif mes == 3:
+        return "Marzo"
+    elif mes == 4:
+        return "Abril"
+    elif mes == 5:
+        return "Mayo"
+    elif mes == 6:
+        return "Junio"
+    elif mes == 7:
+        return "Julio"
+    elif mes == 8:
+        return "Agosto"
+    elif mes == 9:
+        return "Septiembre"
+    elif mes == 10:
+        return "Octubre"
+    elif mes == 11:
+        return "Noviembre"
+    elif mes == 12:
+        return "Diciembre"
+
+def getDia(fecha):
+    fecha = fecha.split("/")
+    return int(fecha[0])
+
+def getHora(hora):
+    hora = hora.split(':')
+    return int(hora[0])
 
 # !-------------------------------------------------------------- API ---------------------------------------------------------------
 
@@ -54,21 +88,31 @@ def cargaMasiva():
                 if alumno is not None:
                     listaYears = alumno.listaAnios
                     anio = getAnio(nodeAux.fecha)
-                    # TODO: ARREGLAR DESDE AQUI QUE YA ME HICE BOLAS MEJOR IRE A DORMIR
-                    # print(anio)
                     if listaYears.search(anio) is False:
                         listaYears.append(anio)
 
                     listaMeses = listaYears.get(anio)
-
-                    if listaMeses.isEmpy():
-                        listaMeses.append(getMes(nodeAux.fecha))
-
-
-                    # proceder a insertar el mes
+                    mes = getMes(nodeAux.fecha)
                     
+                    if listaMeses.search(mes) is False:
+                        listaMeses.append(mes)
+                    
+                    tareasMes = listaMeses.get(mes)
+                    dia = getDia(nodeAux.fecha)
+                    hora = getHora(nodeAux.hora)
+                    if tareasMes.verificarExiste(dia,hora) is False:
+                        tareasMes.append(hora,dia)
+                    
+                    tasks = tareasMes.getLista(hora, dia)
+                    tasks.append(nodeAux.carnet, nodeAux.nombre, nodeAux.descripcion, nodeAux.materia, nodeAux.fecha, nodeAux.hora, nodeAux.hora)
+                    # print(tasks)
+                    
+                    # print(listaMeses)
+                    # !----continual aqui
+
                 else:
                     return jsonify({'Error': 'El carnet '+str(nodeAux.carnet)+' no se encuentra registrado'})
+
             return jsonify({'Tipo': tipo, 'Mensaje': 'Se han cargado las tareas con exito'})
         else:
             return jsonify({'Error': 'Error no hay alumnos registrados'})
@@ -148,7 +192,7 @@ def CRUD_Estudiantes():
 
 # ?_________________________________________________________ REPORTES _______________________________________________________________
 @app.route('/reporte', methods=['GET'])
-def graficarALV():
+def graficar():
     tipo = request.json['tipo']
     if tipo == 0:
         if arbol_AVL.root is not None:
@@ -156,6 +200,30 @@ def graficarALV():
             return jsonify({'Tipo': str(tipo), 'Mensaje': 'Se ha generado el reporte con exito'})
         else:
             return jsonify({'ERROR': 'No se ha ingresado alumnos'})
+    
+    elif tipo == 1:
+        carnet = request.json['carnet']
+        anio = request.json['año']
+        mes = request.json['mes']
+        if arbol_AVL.root is not None:
+            alumno = arbol_AVL.search(int(carnet))
+            if alumno is not None:
+                listaYears = alumno.listaAnios
+                if listaYears.search(anio) is not False:
+                    listaMeses = listaYears.get(anio)
+                    if listaMeses.search(mes) is not False:
+                        tareasMes = listaMeses.get(mes)
+                        tareasMes.graficar(getNombreMes(mes))
+                        return jsonify({'Mensaje': 'Reporte generado con exito'})
+                    else:
+                        return jsonify({'Error': 'No se tiene registrado ningun evento en este mes'})
+                else:
+                    return jsonify({'Error': 'No se tiene registrado ningun evento en este año'})
+            else:
+                return jsonify({'Error': 'El carnet '+str(carnet)+' no se encuentra registrado'})
+        else:
+            return jsonify({'Error': 'Error no hay alumnos registrados'})
+        
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)

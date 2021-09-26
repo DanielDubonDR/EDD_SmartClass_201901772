@@ -1,14 +1,16 @@
+from Estructuras.MOrtogonal import matrizOrtogonal
+
 class Node:
     def __init__(self, mes):
         self.mes = mes
-        self.tareas = None
+        self.tareas = matrizOrtogonal()
         self.siguiente = None
         self.anterior = None
     
     def __str__(self):
         return str(self.mes)+str("\n")
 
-class DoubleList:
+class DoubleListMonth:
     def __init__(self):
         self.cabeza = None
         self.cola = None
@@ -70,9 +72,21 @@ class DoubleList:
         nodeAux = self.cabeza
         while nodeAux != None:
             if nodeAux.mes == id:
-                return nodeAux
+                return nodeAux.tareas
             nodeAux = nodeAux.siguiente
         return None
+    
+    def search(self, id):
+        if self.isEmpty() == False:
+            nodeAux = self.cabeza
+            encontrado = False
+            while nodeAux != None:
+                if nodeAux.mes == id:
+                    encontrado = True
+                nodeAux = nodeAux.siguiente
+            return encontrado
+        else:
+            return False
 
     def delete(self, id):
         nodeAux = self.cabeza

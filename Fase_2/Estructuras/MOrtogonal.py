@@ -8,8 +8,8 @@ class matrizOrtogonal:
         self.stringGraficar = ""
         self.auxstringGraficar = ""
 
-    def append(self, fila, columna, dato):
-        nuevo = Nodo(fila, columna, dato)
+    def append(self, fila, columna):
+        nuevo = Nodo(fila, columna)
 
         CFila = self.CFilas.getCabecera(fila)
         if CFila == None:
@@ -69,10 +69,40 @@ class matrizOrtogonal:
             print("\nFila"+str(actual.fila))
             print("Columna   dato")
             while actual != None:
-                print(str(actual.columna)+"         "+actual.dato)
+                # print(str(actual.columna)+"         "+actual.dato)
                 actual = actual.derecha
             CFila = CFila.siguiente
         print("------------------------FIN RECORRIDO POR FILA------------------------\n")
+    
+    def getLista(self, ff, cc):
+        CFila = self.CFilas.primero
+        while CFila != None:
+            actual = CFila.accesoNodo
+            f=actual.fila
+            while actual != None:
+                c=actual.columna
+                if c==cc and f==ff: 
+                    return actual.listaTareas
+                actual = actual.derecha
+            CFila = CFila.siguiente
+        return False
+    
+    def verificarExiste(self, ff, cc):
+        encontrado=False
+        CFila = self.CFilas.primero
+        while CFila != None:
+            actual = CFila.accesoNodo
+            f=actual.fila
+            while actual != None:
+                c=actual.columna
+                if c==cc and f==ff: 
+                    encontrado=True
+                actual = actual.derecha
+            CFila = CFila.siguiente
+        return encontrado
+    
+    def mensaje(self):
+        print("hola")
 
     def recorrerColumnas(self):
         print("------------------------RECORRIDO POR COLUMNAS------------------------")
@@ -82,7 +112,7 @@ class matrizOrtogonal:
             print("\nColumna"+str(actual.columna))
             print("Fila   dato")
             while actual != None:
-                print(str(actual.fila)+"      "+actual.dato)
+                # print(str(actual.fila)+"      "+actual.dato)
                 actual = actual.abajo
             CColumna = CColumna.siguiente
         print("----------------------FIN RECORRIDO POR COLUMNAS----------------------\n")
@@ -102,7 +132,7 @@ class matrizOrtogonal:
                 # conectarIdFilas += "\n\t\tF"+str(CFila.siguiente.accesoNodo.fila)+" -> F"+str(actual.fila)+";"
             direccionInteriores += "\n\t\t{ rank = same; F"+str(actual.fila)+"; "
             while actual != None:
-                nodosInteriores += "\n\t\tN"+str(actual.fila)+"_L"+str(actual.columna)+" [label = \""+str(actual.dato)+"\" width = 1, style=\"filled, rounded\" fillcolor=\"#c8d6e5\" color=\"#222f3e\" penwidth=2 group = "+str(actual.columna)+" ];"
+                nodosInteriores += "\n\t\tN"+str(actual.fila)+"_L"+str(actual.columna)+" [label = \""+str(actual.listaTareas.tamanio)+"\" width = 1, style=\"filled, rounded\" fillcolor=\"#c8d6e5\" color=\"#222f3e\" penwidth=2 group = "+str(actual.columna)+" ];"
                 direccionInteriores += "N"+str(actual.fila)+"_L"+str(actual.columna)+"; "
                 # print(str(actual.columna)+"         "+actual.dato)
                 if Primero:
@@ -160,11 +190,12 @@ class matrizOrtogonal:
         self.stringGraficar+="\n\t\tHead -> F"+str(primeroF)+"; \n\t\tHead -> C"+str(primeroC)+";"
         self.stringGraficar+=direccion+"}"
 
-    def graficar(self):
+    def graficar(self,mes):
         self.auxstringGraficar=""
         self.stringGraficar = """
         digraph G {
-        label="\nMatriz Dispersa" fontsize=28\n;
+        label=\"\\n"""+mes
+        self.stringGraficar +="""\" fontsize=28;
         node [shape=box, height=0.8];
         Head[ label = "Matriz", width = 1, style = "filled, rounded" fillcolor = "#ff6b6b", color="#c23616" group = 1 penwidth=2.5];
         """
@@ -174,6 +205,15 @@ class matrizOrtogonal:
         self.generarAchivo()
     
     def generarAchivo(self):
-        archivo=open("Archivo.dot", 'w', encoding='utf8')
+        archivo=open("Archivos_dot\\Dispersa.dot", 'w', encoding='utf8')
         archivo.write(self.stringGraficar)
         archivo.close()
+
+# n = matrizOrtogonal()
+# n.append(7, 2, "5")
+# n.append(7, 8, "1")
+# n.append(7, 15, "14")
+# n.append(10, 2, "1")
+# n.append(10, 5, "3")
+# n.append(15, 15, "5")
+# n.recorrerFilas()
