@@ -100,9 +100,9 @@ def cargaMasiva():
                     tareasMes = listaMeses.get(mes)
                     dia = getDia(nodeAux.fecha)
                     hora = getHora(nodeAux.hora)
-                    if tareasMes.verificarExiste(dia,hora) is False:
+                    if tareasMes.verificarExiste(hora,dia) is False:
                         tareasMes.append(hora,dia)
-                    
+                    # tareasMes.recorrerFilas()
                     tasks = tareasMes.getLista(hora, dia)
                     tasks.append(nodeAux.carnet, nodeAux.nombre, nodeAux.descripcion, nodeAux.materia, nodeAux.fecha, nodeAux.hora, nodeAux.hora)
                     # print(tasks)
@@ -213,6 +213,8 @@ def graficar():
                     listaMeses = listaYears.get(anio)
                     if listaMeses.search(mes) is not False:
                         tareasMes = listaMeses.get(mes)
+                        # tareasMes.recorrerFilas()
+
                         tareasMes.graficar(getNombreMes(mes))
                         return jsonify({'Mensaje': 'Reporte generado con exito'})
                     else:

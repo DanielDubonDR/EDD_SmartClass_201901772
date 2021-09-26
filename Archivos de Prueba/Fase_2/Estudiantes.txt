@@ -94,4 +94,49 @@
         ¿item Hora = "10:00" $?
         ¿item Estado = "Pendiente" $?
     ¿$element?
+    ¿element type="task"?
+            ¿item Carnet = "201501786" $?
+            ¿item Nombre = "Tarea sad" $?
+            ¿item Descripcion = "Realizarsdfdf Estadística 1." $?
+            ¿item Materia = "Estadística 1sss" $?
+            ¿item Fecha = "24/07/2021" $?
+            ¿item Hora = "10:00" $?
+            ¿item Estado = "Cumplido" $?
+        ¿$element?
+        ¿element type="task"?
+            ¿item Carnet = "201501786" $?
+            ¿item Nombre = "Tarea sssad" $?
+            ¿item Descripcion = "Realdfizarsdfdsdff Estadística 1." $?
+            ¿item Materia = "Estadístsdfica 1sss" $?
+            ¿item Fecha = "1/07/2021" $?
+            ¿item Hora = "13:00" $?
+            ¿item Estado = "Cumplido" $?
+        ¿$element?
+        ¿element type="task"?
+            ¿item Carnet = "201501786" $?
+            ¿item Nombre = "Taresdssda sssad" $?
+            ¿item Descripcion = "Realddfdfizarsdfdsdff Estadística 1." $?
+            ¿item Materia = "Estadídffstsdfica 1sss" $?
+            ¿item Fecha = "1/07/2021" $?
+            ¿item Hora = "13:00" $?
+            ¿item Estado = "Incumplido" $?
+        ¿$element?
+        ¿element type="task"?
+            ¿item Carnet = "201501786" $?
+            ¿item Nombre = "Taresd222ssda sssad" $?
+            ¿item Descripcion = "Rea222222lddfdfizarsdfdsdff Estadística 1." $?
+            ¿item Materia = "Estad22222ídffstsdfica 1sss" $?
+            ¿item Fecha = "1/07/2021" $?
+            ¿item Hora = "13:00" $?
+            ¿item Estado = "Anulado" $?
+        ¿$element?
+        ¿element type="task"?
+            ¿item Carnet = "201501786" $?
+            ¿item Nombre = "Tarea sssad" $?
+            ¿item Descripcion = "Realdfizarsdfdsdff Estadística 1." $?
+            ¿item Materia = "Estadístsdfica 1sss" $?
+            ¿item Fecha = "1/03/2020" $?
+            ¿item Hora = "13:00" $?
+            ¿item Estado = "Cumplido" $?
+        ¿$element?
 ¿$Elements?

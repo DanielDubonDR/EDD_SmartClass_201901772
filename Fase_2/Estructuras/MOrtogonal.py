@@ -69,7 +69,7 @@ class matrizOrtogonal:
             print("\nFila"+str(actual.fila))
             print("Columna   dato")
             while actual != None:
-                # print(str(actual.columna)+"         "+actual.dato)
+                print(str(actual.columna)+"         "+str(actual.listaTareas.tamanio))
                 actual = actual.derecha
             CFila = CFila.siguiente
         print("------------------------FIN RECORRIDO POR FILA------------------------\n")
