@@ -1,5 +1,7 @@
 from .NodosOrtogonal import Nodo, nCabecera
 from .Cabecera import listaCabeceras
+from pathlib import Path
+import os
 
 class matrizOrtogonal:
     def __init__(self):
@@ -202,12 +204,26 @@ class matrizOrtogonal:
         self.getDataFilas()
         self.stringGraficar+=self.auxstringGraficar
         self.stringGraficar+="\n}"
-        self.generarAchivo()
+        self.generarArchivo()
     
-    def generarAchivo(self):
+    # def generarAchivo(self):
+    #     archivo=open("Archivos_dot\\Dispersa.dot", 'w', encoding='utf8')
+    #     archivo.write(self.stringGraficar)
+    #     archivo.close()
+    
+    def generarArchivo(self):
+        path_desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"\\Reportes_F2"
+        path_current = "{}{}".format(os.path.abspath(os.path.dirname(__file__)), '\\')
+        path_current = path_current.replace("\\Estructuras", "")+"Archivos_dot"
+        pathdot = Path(path_current)
+        pathdot.mkdir(parents=True, exist_ok=True)
+        path = Path(path_desktop)
+        path.mkdir(parents=True, exist_ok=True)
         archivo=open("Archivos_dot\\Dispersa.dot", 'w', encoding='utf8')
         archivo.write(self.stringGraficar)
         archivo.close()
+        os.system('cd Archivos_dot& dot -Tpdf Dispersa.dot -o '+path_desktop+'\\Dispersa.pdf')
+        os.startfile(path_desktop+"\\Dispersa.pdf")
 
 # n = matrizOrtogonal()
 # n.append(7, 2, "5")
