@@ -104,7 +104,7 @@ def cargaMasiva():
                         tareasMes.append(hora,dia)
                     # tareasMes.recorrerFilas()
                     tasks = tareasMes.getLista(hora, dia)
-                    tasks.append(nodeAux.carnet, nodeAux.nombre, nodeAux.descripcion, nodeAux.materia, nodeAux.fecha, nodeAux.hora, nodeAux.hora)
+                    tasks.append(nodeAux.carnet, nodeAux.nombre, nodeAux.descripcion, nodeAux.materia, nodeAux.fecha, nodeAux.hora, nodeAux.estado)
                     # print(tasks)
                     
                     # print(listaMeses)
@@ -190,6 +190,7 @@ def CRUD_Estudiantes():
         else:
             return jsonify({'Error': 'No se ha registrado ningun alumno aun'})
 
+# TODO: Realizar CRUD recordatorios
 # ?_________________________________________________________ REPORTES _______________________________________________________________
 @app.route('/reporte', methods=['GET'])
 def graficar():
@@ -213,19 +214,49 @@ def graficar():
                     listaMeses = listaYears.get(anio)
                     if listaMeses.search(mes) is not False:
                         tareasMes = listaMeses.get(mes)
-                        # tareasMes.recorrerFilas()
 
                         tareasMes.graficar(getNombreMes(mes))
                         return jsonify({'Mensaje': 'Reporte generado con exito'})
                     else:
-                        return jsonify({'Error': 'No se tiene registrado ningun evento en este mes'})
+                        return jsonify({'Mensaje': 'No se tiene registradas tareas en este mes'})
                 else:
-                    return jsonify({'Error': 'No se tiene registrado ningun evento en este año'})
+                    return jsonify({'Mensaje': 'No se tiene registrado de ningun evento en este año'})
             else:
-                return jsonify({'Error': 'El carnet '+str(carnet)+' no se encuentra registrado'})
+                return jsonify({'Mensaje': 'El carnet '+str(carnet)+' no se encuentra registrado'})
         else:
-            return jsonify({'Error': 'Error no hay alumnos registrados'})
+            return jsonify({'Mensaje': 'Error no hay alumnos registrados'})
         
+    elif tipo == 2:
+        carnet = request.json['carnet']
+        anio = request.json['año']
+        mes = request.json['mes']
+        dia = request.json['dia']
+        hora = request.json['hora']
+        if arbol_AVL.root is not None:
+            alumno = arbol_AVL.search(int(carnet))
+            if alumno is not None:
+                listaYears = alumno.listaAnios
+                if listaYears.search(anio) is not False:
+                    listaMeses = listaYears.get(anio)
+                    if listaMeses.search(mes) is not False:
+                        tareasMes = listaMeses.get(mes)
+                        if tareasMes.verificarExiste(hora,dia) is not False:
+                            tasks = tareasMes.getLista(hora, dia)
+                            # fecha = str(dia)+"/"+str(mes)+"/"+str(anio)+" "+str(hora)+":00"
+                            tasks.graficar()
+                            return jsonify({'Mensaje': 'Reporte generado con exito'})
+                        else:
+                            return jsonify({'Mensaje': 'No encontraron tareas en este dia y hora'})
+                    else:
+                        return jsonify({'Mensaje': 'No se tiene registradas tareas en este mes'})
+                else:
+                    return jsonify({'Mensaje': 'No se tiene registrado de ningun evento en este año'})
+            else:
+                return jsonify({'Mensaje': 'El carnet '+str(carnet)+' no se encuentra registrado'})
+        else:
+            return jsonify({'Mensaje': 'Error no hay alumnos registrados'})
+    
+# TODO: Generar reporte 3 y 4
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)

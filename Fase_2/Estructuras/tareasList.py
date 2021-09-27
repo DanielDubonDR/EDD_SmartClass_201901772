@@ -1,3 +1,6 @@
+from pathlib import Path
+import os
+
 class Nodo:
     def __init__(self, id, carnet, nombre, descripcion, materia, fecha, hora, estado):
         self.id = id
@@ -82,14 +85,6 @@ class Lista_Simple:
         nodeAux = self.get(id)
         nodeAux.dato=dato
 
-    # def insert(self, id, dato):
-    #     newNode = Nodo(dato)
-    #     nodoAnt = self.get(id)
-    #     nodoSig = nodoAnt.siguiente
-    #     nodoAnt.siguiente = newNode
-    #     newNode.siguiente = nodoSig
-    #     self.tamanio += 1
-
     def insert(self, id, dato):
         newNode = Nodo(dato)
         nodeAux = self.cabeza
@@ -130,6 +125,39 @@ class Lista_Simple:
             nodeAux = nodoSig
         self.cabeza = intercambio
 
+    def graficar(self):
+        string = """
+        digraph List {
+        rankdir=LR;
+        label="\\nLista de Tareas """+str(self.cabeza.fecha)+str(" ")+str(self.cabeza.hora)+""" " fontsize=20;
+        node [shape = note, color="#187296", style=filled, fillcolor="#7ed6df" penwidth=2.3];
+        """
+        conectarNodos = ""
+        nodeAux = self.cabeza
+        while nodeAux != None:
+            string += "\n\t\tN"+str(nodeAux.id)+" [label=\"\lCarnet: "+str(nodeAux.carnet)+" \lNombre: "+str(nodeAux.nombre)+" \lDescripcion: "+str(nodeAux.descripcion)+" \lMateria: "+str(nodeAux.materia)+" \lFecha: "+str(nodeAux.fecha)+" \lHora: "+str(nodeAux.hora)+" \lEstado: "+str(nodeAux.estado)+"\l\"];"
+            if nodeAux.siguiente is not None:
+                conectarNodos += "\n\t\tN"+str(nodeAux.id)+" -> N"+str(nodeAux.siguiente.id)
+            nodeAux = nodeAux.siguiente
+        string += conectarNodos
+        string += "\n}"
+        self.generarArchivo(string)
+
+    def generarArchivo(self, string):
+        path_desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"\\Reportes_F2"
+        path_current = "{}{}".format(os.path.abspath(os.path.dirname(__file__)), '\\')
+        path_current = path_current.replace("\\Estructuras", "")+"Archivos_dot"
+        pathdot = Path(path_current)
+        pathdot.mkdir(parents=True, exist_ok=True)
+        path = Path(path_desktop)
+        path.mkdir(parents=True, exist_ok=True)
+        archivo=open("Archivos_dot\\ListaTareas.dot", 'w', encoding='utf8')
+        archivo.write(string)
+        archivo.close()
+        os.system('cd Archivos_dot& dot -Tpdf ListaTareas.dot -o '+path_desktop+'\\ListaTareas.pdf')
+        os.startfile(path_desktop+"\\ListaTareas.pdf")
+
+
     def __str__(self):
         string = ""
         nodeAux = self.cabeza
@@ -137,17 +165,3 @@ class Lista_Simple:
             string += str(nodeAux)
             nodeAux = nodeAux.siguiente
         return string
-
-# hola = Lista_Simple()
-# hola.prepend(1)
-# hola.prepend(2)
-# hola.prepend(3)
-# hola.prepend(4)
-# hola.prepend(5)
-# print(hola.pop())
-# print(hola.pop())
-# print(hola.pop())
-# print(hola.pop())
-# print(hola.pop())
-# print(hola)
-# print(hola.isEmpy())
