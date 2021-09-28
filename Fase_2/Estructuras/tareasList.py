@@ -135,7 +135,7 @@ class Lista_Simple:
         conectarNodos = ""
         nodeAux = self.cabeza
         while nodeAux != None:
-            string += "\n\t\tN"+str(nodeAux.id)+" [label=\"\lCarnet: "+str(nodeAux.carnet)+" \lNombre: "+str(nodeAux.nombre)+" \lDescripcion: "+str(nodeAux.descripcion)+" \lMateria: "+str(nodeAux.materia)+" \lFecha: "+str(nodeAux.fecha)+" \lHora: "+str(nodeAux.hora)+" \lEstado: "+str(nodeAux.estado)+"\l\"];"
+            string += "\n\t\tN"+str(nodeAux.id)+" [label=\"\ID tarea: "+str(nodeAux.id)+" \lCarnet: "+str(nodeAux.carnet)+" \lNombre: "+str(nodeAux.nombre)+" \lDescripcion: "+str(nodeAux.descripcion)+" \lMateria: "+str(nodeAux.materia)+" \lFecha: "+str(nodeAux.fecha)+" \lHora: "+str(nodeAux.hora)+" \lEstado: "+str(nodeAux.estado)+"\l\"];"
             if nodeAux.siguiente is not None:
                 conectarNodos += "\n\t\tN"+str(nodeAux.id)+" -> N"+str(nodeAux.siguiente.id)
             nodeAux = nodeAux.siguiente

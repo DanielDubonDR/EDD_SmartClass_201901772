@@ -105,11 +105,6 @@ def cargaMasiva():
                     # tareasMes.recorrerFilas()
                     tasks = tareasMes.getLista(hora, dia)
                     tasks.append(nodeAux.carnet, nodeAux.nombre, nodeAux.descripcion, nodeAux.materia, nodeAux.fecha, nodeAux.hora, nodeAux.estado)
-                    # print(tasks)
-                    
-                    # print(listaMeses)
-                    # !----continual aqui
-
                 else:
                     return jsonify({'Error': 'El carnet '+str(nodeAux.carnet)+' no se encuentra registrado'})
 
@@ -191,6 +186,48 @@ def CRUD_Estudiantes():
             return jsonify({'Error': 'No se ha registrado ningun alumno aun'})
 
 # TODO: Realizar CRUD recordatorios
+# ?______________________________________________________ CRUD RECORDATORIOS __________________________________________________________
+@app.route('/recordatorios', methods=['POST', 'GET', 'PUT', 'DELETE'])
+def CRUD_Recordatorios():
+    if request.method == 'POST':
+        carnet = request.json['Carnet']
+        nombre = request.json['Nombre']
+        descripcion = request.json['Descripcion']
+        materia = request.json['Materia']
+        fecha = request.json['Fecha']
+        hora = request.json['Hora']
+        estado = request.json['Estado']
+        if arbol_AVL.root is not None:
+            alumno = arbol_AVL.search(int(carnet))
+            if alumno is not None:
+                listaYears = alumno.listaAnios
+                anio = getAnio(fecha)
+                if listaYears.search(anio) is False:
+                    listaYears.append(anio)
+
+                listaMeses = listaYears.get(anio)
+                mes = getMes(fecha)
+                
+                if listaMeses.search(mes) is False:
+                    listaMeses.append(mes)
+                
+                tareasMes = listaMeses.get(mes)
+                dia = getDia(fecha)
+                hora = getHora(hora)
+                if tareasMes.verificarExiste(hora,dia) is False:
+                    tareasMes.append(hora,dia)
+
+                tasks = tareasMes.getLista(hora, dia)
+                tasks.append(carnet, nombre, descripcion, materia, fecha, hora, estado)
+
+                return jsonify({'Mensaje': 'Se ha cargado la tarea con exito'})
+
+            else:
+                return jsonify({'Error': 'El carnet '+str(carnet)+' no se encuentra registrado'})
+        else:
+            return jsonify({'Error': 'Error no hay alumnos registrados'})
+        
+
 # ?_________________________________________________________ REPORTES _______________________________________________________________
 @app.route('/reporte', methods=['GET'])
 def graficar():
