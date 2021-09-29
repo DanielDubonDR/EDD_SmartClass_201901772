@@ -318,6 +318,49 @@ def CRUD_Recordatorios():
                 return jsonify({'Error': 'El carnet '+str(carnet)+' no se encuentra registrado'})
         else:
             return jsonify({'Mensaje': 'Error, no hay alumnos registrados'})
+    
+    elif request.method == 'DELETE':
+        carnet = request.json['Carnet']
+        fecha = request.json['Fecha']
+        hora = request.json['Hora']
+        posicion = request.json['Posicion']
+        if arbol_AVL.root is not None:
+            alumno = arbol_AVL.search(int(carnet))
+            if alumno is not None:
+                listaYears = alumno.listaAnios
+                anio = getAnio(fecha)
+                if listaYears.search(anio) is not False:
+                    listaMeses = listaYears.get(anio)
+                    mes = getMes(fecha)
+
+                    if listaMeses.search(mes) is not False:
+                    
+                        tareasMes = listaMeses.get(mes)
+                        dia = getDia(fecha)
+                        hora = getHora(hora)
+                        if tareasMes.verificarExiste(hora,dia) is not False:
+                            tasks = tareasMes.getLista(hora, dia)
+                            task = tasks.get(posicion)
+                            if task is not None:
+                                tasks.delete(posicion)
+                                # TODO: IMPLEMENTAR ELIMINAR DISPERSA
+                                if tasks.tamanio == 0:
+                                    tasks.cabeza = None
+                                    tasks.cola = None
+                                    tasks.id = 1
+                                return jsonify({'Mensaje': 'Se ha eliminado la tarea satisfactoriamente'})
+                            else:
+                                return jsonify({'Mensaje': 'Error, no existe alguna tarea en la posicion indicada'})
+                        else:
+                            return jsonify({'Mensaje': 'No encontraron tareas en esta hora y/o dia'})
+                    else:
+                        return jsonify({'Mensaje': 'No se tiene registradas tareas en este mes'})
+                else:
+                    return jsonify({'Mensaje': 'No se tiene registrado ningun evento en este año'})
+            else:
+                return jsonify({'Error': 'El carnet '+str(carnet)+' no se encuentra registrado'})
+        else:
+            return jsonify({'Mensaje': 'Error, no hay alumnos registrados'})
 
 # ?_________________________________________________________ REPORTES _______________________________________________________________
 @app.route('/reporte', methods=['GET'])
@@ -371,8 +414,11 @@ def graficar():
                         if tareasMes.verificarExiste(hora,dia) is not False:
                             tasks = tareasMes.getLista(hora, dia)
                             # fecha = str(dia)+"/"+str(mes)+"/"+str(anio)+" "+str(hora)+":00"
-                            tasks.graficar()
-                            return jsonify({'Mensaje': 'Reporte generado con exito'})
+                            if tasks.tamanio != 0:
+                                tasks.graficar()
+                                return jsonify({'Mensaje': 'Reporte generado con exito'})
+                            else:
+                                return jsonify({'Mensaje': 'No encontraron tareas en esta hora y/o dia'})
                         else:
                             return jsonify({'Mensaje': 'No encontraron tareas en esta hora y/o dia'})
                     else:

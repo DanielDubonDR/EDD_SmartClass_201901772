@@ -29,24 +29,28 @@ class Lista_Simple:
             return False
             
     def append(self, carnet, nombre, descripcion, materia, fecha, hora, estado):
-        newNode = Nodo((self.tamanio+1), carnet, nombre, descripcion, materia, fecha, hora, estado)
+        newNode = Nodo(self.id, carnet, nombre, descripcion, materia, fecha, hora, estado)
         if self.isEmpy():
             self.cabeza = self.cola = newNode
             self.tamanio += 1
+            self.id += 1
         else:
             self.cola.siguiente = newNode
             self.cola = newNode
             self.tamanio += 1
+            self.id += 1
     
     def prepend(self, dato):
         newNode = Nodo(dato)
         if self.isEmpy():
             self.cabeza = self.cola = newNode
             self.tamanio += 1
+            self.id += 1
         else:
             newNode.siguiente = self.cabeza
             self.cabeza = newNode
             self.tamanio += 1
+            self.id += 1
     
     def shift(self):
         if self.tamanio == 1:
@@ -104,7 +108,7 @@ class Lista_Simple:
     def delete(self, id):
         nodeAux = self.cabeza
         previous = None
-        while nodeAux and nodeAux.dato != id:
+        while nodeAux and nodeAux.id != id:
             previous = nodeAux
             nodeAux = nodeAux.siguiente
         if previous is None:
@@ -112,6 +116,8 @@ class Lista_Simple:
             self.tamanio -=1
         elif nodeAux:
             previous.siguiente = nodeAux.siguiente
+            if nodeAux.siguiente is None:
+                self.cola = previous
             nodeAux.siguiente = None
             self.tamanio -=1
     

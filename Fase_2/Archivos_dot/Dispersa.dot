@@ -19,12 +19,12 @@
 		Head -> F10; 
 		Head -> C1;
 		{ rank = same; Head;C1; C14; C24; }
-		N10_L14 [label = "2" width = 1, style="filled, rounded" fillcolor="#c8d6e5" color="#222f3e" penwidth=2 group = 14 ];
+		N10_L14 [label = "1" width = 1, style="filled, rounded" fillcolor="#c8d6e5" color="#222f3e" penwidth=2 group = 14 ];
 		F10 -> N10_L14;
 		N10_L14-> N10_L24;
 		N10_L24-> N10_L14;
 		N10_L24 [label = "1" width = 1, style="filled, rounded" fillcolor="#c8d6e5" color="#222f3e" penwidth=2 group = 24 ];
-		N13_L1 [label = "4" width = 1, style="filled, rounded" fillcolor="#c8d6e5" color="#222f3e" penwidth=2 group = 1 ];
+		N13_L1 [label = "2" width = 1, style="filled, rounded" fillcolor="#c8d6e5" color="#222f3e" penwidth=2 group = 1 ];
 		F13 -> N13_L1;
 		{ rank = same; F10; N10_L14; N10_L24; }
 		{ rank = same; F13; N13_L1; }

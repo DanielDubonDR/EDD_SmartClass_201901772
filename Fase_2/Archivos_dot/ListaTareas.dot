@@ -1,14 +1,10 @@
 
         digraph List {
         rankdir=LR;
-        label="\nLista de Tareas 1/07/2021 13:00 " fontsize=20;
+        label="\nLista de Tareas 01/07/2021 13:00 " fontsize=20;
         node [shape = note, color="#187296", style=filled, fillcolor="#7ed6df" penwidth=2.3];
         
-		N1 [label="\ID tarea: 1 \lCarnet: 201501786 \lNombre: Tarea de Matematicas \lDescripcion: Realizar la tarea previa al parcial \lMateria: Matematica intermedia 1 \lFecha: 1/07/2021 \lHora: 13:00 \lEstado: Incumplido\l"];
-		N2 [label="\ID tarea: 2 \lCarnet: 201501786 \lNombre: Tarea de Matematicas \lDescripcion: Descansar \lMateria: Matematica intermedia 1 \lFecha: 1/07/2021 \lHora: 13:00 \lEstado: Realizada\l"];
-		N3 [label="\ID tarea: 3 \lCarnet: 201501786 \lNombre: Aeronautica espacial \lDescripcion: Realizar la tarea previa al parcial \lMateria: Matematica \lFecha: 1/07/2021 \lHora: 13:00 \lEstado: hoal\l"];
-		N4 [label="\ID tarea: 4 \lCarnet: 201501786 \lNombre: Tarea de Prueba \lDescripcion: Terminar CRUD recordatorios \lMateria: EDD \lFecha: 01/07/2021 \lHora: 13:00 \lEstado: En proceso\l"];
+		N1 [label="\ID tarea: 1 \lCarnet: 201501786 \lNombre: Implementar metodo eliminar dispwwwwersa \lDescripcion: Uasdfdatorios \lMateria: EDD \lFecha: 01/07/2021 \lHora: 13:00 \lEstado: En proceso\l"];
+		N2 [label="\ID tarea: 2 \lCarnet: 201501786 \lNombre: Tarea de Prueba \lDescripcion: Terminar CRUD recordatorios \lMateria: EDD \lFecha: 01/07/2021 \lHora: 13:00 \lEstado: En proceso\l"];
 		N1 -> N2
-		N2 -> N3
-		N3 -> N4
 }
