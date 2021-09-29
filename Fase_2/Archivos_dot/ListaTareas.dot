@@ -1,14 +1,10 @@
 
         digraph List {
         rankdir=LR;
-        label="\nLista de Tareas 01/07/2021 13 " fontsize=20;
+        label="\nLista de Tareas 14/07/2021 10:00 " fontsize=20;
         node [shape = note, color="#187296", style=filled, fillcolor="#7ed6df" penwidth=2.3];
         
-		N1 [label="\ID tarea: 1 \lCarnet: 201501786 \lNombre: Tarea de Prueba \lDescripcion: Terminar CRUD recordatorios \lMateria: EDD \lFecha: 01/07/2021 \lHora: 13 \lEstado: En proceso\l"];
-		N2 [label="\ID tarea: 2 \lCarnet: 201501786 \lNombre: Tarea sssad \lDescripcion: Realdfizarsdfdsdff Estadística 1. \lMateria: Estadístsdfica 1sss \lFecha: 1/07/2021 \lHora: 13:00 \lEstado: Cumplido\l"];
-		N3 [label="\ID tarea: 3 \lCarnet: 201501786 \lNombre: Taresdssda sssad \lDescripcion: Realddfdfizarsdfdsdff Estadística 1. \lMateria: Estadídffstsdfica 1sss \lFecha: 1/07/2021 \lHora: 13:00 \lEstado: Incumplido\l"];
-		N4 [label="\ID tarea: 4 \lCarnet: 201501786 \lNombre: Taresd222ssda sssad \lDescripcion: Rea222222lddfdfizarsdfdsdff Estadística 1. \lMateria: Estad22222ídffstsdfica 1sss \lFecha: 1/07/2021 \lHora: 13:00 \lEstado: Anulado\l"];
+		N1 [label="\ID tarea: 1 \lCarnet: 201501786 \lNombre: Tarea de Estadística \lDescripcion: Realizar la tarea del curso de Estadística 1. \lMateria: Estadística 1 \lFecha: 14/07/2021 \lHora: 10:00 \lEstado: Cumplido\l"];
+		N2 [label="\ID tarea: 2 \lCarnet: 201501786 \lNombre: Tarea de Prueba \lDescripcion: Terminar CRUD recordatorios \lMateria: EDD \lFecha: 14/07/2021 \lHora: 10:00 \lEstado: En proceso\l"];
 		N1 -> N2
-		N2 -> N3
-		N3 -> N4
 }

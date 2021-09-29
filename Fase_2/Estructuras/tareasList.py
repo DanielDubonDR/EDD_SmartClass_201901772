@@ -77,9 +77,10 @@ class Lista_Simple:
     def get(self, id):
         nodeAux = self.cabeza
         while nodeAux != None:
-            if nodeAux.dato == id:
+            if nodeAux.id == id:
                 return nodeAux
             nodeAux = nodeAux.siguiente
+        return None
 
     def update(self, id, dato):
         nodeAux = self.get(id)
