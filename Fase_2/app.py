@@ -362,6 +362,24 @@ def CRUD_Recordatorios():
         else:
             return jsonify({'Mensaje': 'Error, no hay alumnos registrados'})
 
+# ?________________________________________________________ CRUD CURSOS _____________________________________________________________
+@app.route('/cursosPensum', methods=['POST'])
+def CreateCursosPensum():
+    cursos = request.json['Cursos']
+    for curso in cursos:
+        codigo = curso['Codigo']
+        nombre = curso['Nombre']
+        creditos = curso['Creditos']
+        prerequisitos = curso['Prerequisitos']
+        obligatorio = curso['Obligatorio']
+        print(codigo+" "+nombre+" "+str(creditos)+" "+prerequisitos+" "+str(obligatorio))
+    return jsonify({'Mensaje': 'Leido con exito'})
+
+@app.route('/cursosEstudiante', methods=['POST'])
+def CreateCursosEstudiante():
+    cursos = request.json['Estudiantes']
+    return jsonify({'Mensaje': 'Leido con exito'})
+
 # ?_________________________________________________________ REPORTES _______________________________________________________________
 @app.route('/reporte', methods=['GET'])
 def graficar():
