@@ -1,19 +1,11 @@
  
         digraph BTree
         {
-        label="\nCursos Pensum" fontsize=25;
+        label="\nCursos año 2020 semestre 2" fontsize=25;
         rankdir=TB;
-        node[color=" #0a3d62",style="filled, rounded", fillcolor=" #82ccdd", shape=record penwidth=2, fontcolor=" #0a3d62"];
-        edge[color=" #0a3d62" penwidth=1.3 arrowhead=vee];
+        node[color=" #006266",style="filled, rounded", fillcolor=" #A3CB38", shape=record penwidth=2, fontcolor=" #006266"];
+        edge[color=" #006266" penwidth=1.3 arrowhead=vee];
         splines=false;
         
-		Nodo101[label="<f0> | <f1>101\nMatemática Básica 1 | <f2>  | <f3>348\nQuimica General 1 | <f4>  | <f5>777\nOrganización de Lenguajes y Compiladores 1 | <f6>  ", group=0];
-		Nodo005[label="<f0> | <f1>005\nTécnicas de Estudio e Investigación | <f2>  | <f3>018\nFilosofia de la Ciencia | <f4>  | <f5>039\nDeportes 1 | <f6>  ", group=0];
-		Nodo103[label="<f0> | <f1>103\nMatemática Básica 2 | <f2>  | <f3>107\nMátematica Intermedia 1 | <f4>  | <f5>281\nSistemas Operativos 1 | <f6>  ", group=0];
-		Nodo770[label="<f0> | <f1>770\nIntroducción a la Programación y Computación 1 | <f2>  | <f3>772\nEstructuras de Datos | <f4>  | <f5>774\nSistemas de Bases de Datos 1 | <f6>  ", group=0];
-		Nodo796[label="<f0> | <f1>796\nLenguajes Formales y de Programación | <f2>  | <f3>960\nMatemática Cómputo 1 | <f4>  | <f5>2036\nPráctica Intermedia | <f6>  ", group=0];
-		Nodo101:f0->Nodo005
-		Nodo101:f2->Nodo103
-		Nodo101:f4->Nodo770
-		Nodo101:f6->Nodo796
+		Nodo281[label="<f0> | <f1>281\nSistemas Operativos 1 | <f2>  | <f3>774\nSistemas de Bases de Datos 1 | <f4>  | <f5>2036\nPráctica Intermedia | <f6>  ", group=0];
 	}

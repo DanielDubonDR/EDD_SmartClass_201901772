@@ -115,7 +115,62 @@ def cargaMasiva():
             return jsonify({'Error': 'Error no hay alumnos registrados'})
 
     elif  tipo == "curso":
-        return jsonify({'Tipo': tipo})
+        if arbol_AVL.root is not None:
+            path = request.json['path']
+
+            with open(path, encoding='utf8') as archivo:
+                datos = json.load(archivo)
+
+                for estudiante in datos['Estudiantes']:
+                    carnet = estudiante['Carnet']
+                    alumno = arbol_AVL.search(int(carnet))
+                    if alumno is not None:
+
+                        for anios in estudiante['Años']:
+                            anio = anios['Año']
+                            listaYears = alumno.listaAnios
+                            if listaYears.search(anio) is False:
+                                listaYears.append(anio)
+
+                            # ! ESTOY TRABAJANDO AQUI
+                            listaSemestres = listaYears.getSemestres(anio)
+
+                            for semestres in anios['Semestres']:
+                                semestre = semestres['Semestre']
+
+                                if semestre == "1" or semestre == "2":
+                                    if listaSemestres.search(semestre) is False:
+                                        listaSemestres.append(semestre)
+                                    
+                                    Arbol_cursos = listaSemestres.getCursosSemestre(semestre)
+
+                                    for cursos in semestres['Cursos']:
+                                        codigo = cursos['Codigo']
+                                        nombre = cursos['Nombre']
+                                        creditos = cursos['Creditos']
+                                        prerequisitos = cursos['Prerequisitos']
+                                        obligatorio = cursos['Obligatorio']
+
+                                        Arbol_cursos.appendDatos(codigo, nombre, creditos, prerequisitos, str(obligatorio))
+                                        # print("\t\t\t"+codigo)
+                                        # print("\t\t\t"+nombre)
+                                        # print("\t\t\t"+str(creditos))
+                                        # print("\t\t\t"+prerequisitos)
+                                        # print("\t\t\t"+str(obligatorio))
+                                        # print("")
+
+                                else:
+                                    print("Error, solo se aceptan dos semestres")
+
+                                
+                                
+                    else:
+                        return jsonify({'Error': 'El carnet '+str(nodeAux.carnet)+' no se encuentra registrado'})
+
+            return jsonify({'Tipo': tipo, 'Mensaje': 'Se han cargado los cursos de los alumnos con exito'})
+
+        else:
+            return jsonify({'Error': 'Error no hay alumnos registrados'})
         
     else:
         return jsonify({'Error': 'Tipo invalido'})
@@ -458,7 +513,35 @@ def graficar():
         else:
             return jsonify({'ERROR': 'No se ha ingresado cursos al pensum'})
     
-# TODO: Generar reporte 4
+    elif tipo == 4:
+        carnet = request.json['carnet']
+        anio = request.json['año']
+        semestre = request.json['semestre']
+        if arbol_AVL.root is not None:
+            alumno = arbol_AVL.search(int(carnet))
+            if alumno is not None:
+                listaYears = alumno.listaAnios
+                if listaYears.search(anio) is not False:
+                    listaSemestres = listaYears.getSemestres(anio)
+
+                    if listaSemestres.search(semestre) is not False:
+                        Arbol_cursos = listaSemestres.getCursosSemestre(semestre)
+                        Arbol_cursos.graficar("Cursos año "+anio+" semestre "+semestre, "#006266", "#A3CB38")
+                        return jsonify({'Tipo': str(tipo), 'Mensaje': 'Se ha generado el reporte con exito'})
+                        
+                    else:
+                        return jsonify({'Mensaje': 'No se tiene registrado cursos en este semestre'})
+                else:
+                    return jsonify({'Mensaje': 'No se tiene registrado datos en este año'})
+            else:
+                return jsonify({'Mensaje': 'El carnet '+str(carnet)+' no se encuentra registrado'})
+        else:
+            return jsonify({'Mensaje': 'Error no hay alumnos registrados'})
+    
+    else:
+        return jsonify({'Mensaje': 'Error este tipo de reporte no existe'})
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
