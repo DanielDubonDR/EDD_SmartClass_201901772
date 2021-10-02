@@ -2,11 +2,13 @@ from flask import Flask, jsonify, request
 from Analizador.Syntactic import parser
 from Analizador.Syntactic import lista_usuarios, lista_tareas
 from Estructuras.AVL import AVL
+from Estructuras.Arbol_BPensum import ArbolB
 # from flask_cors import  CORS
 import json
 
 # *------------------------------------------------------ VARIABLES GLOBALES --------------------------------------------------------
 arbol_AVL = AVL()
+arbol_BPensum = ArbolB()
 
 app = Flask(__name__)
 # *----------------------------------------------------------- FUNCIONES ------------------------------------------------------------
@@ -372,8 +374,9 @@ def CreateCursosPensum():
         creditos = curso['Creditos']
         prerequisitos = curso['Prerequisitos']
         obligatorio = curso['Obligatorio']
-        print(codigo+" "+nombre+" "+str(creditos)+" "+prerequisitos+" "+str(obligatorio))
-    return jsonify({'Mensaje': 'Leido con exito'})
+        arbol_BPensum.appendDatos(codigo, nombre, creditos, prerequisitos, str(obligatorio))
+        # print(codigo+" "+nombre+" "+str(creditos)+" "+prerequisitos+" "+str(obligatorio))
+    return jsonify({'Mensaje': 'Se han cargado los cursos con exito'})
 
 @app.route('/cursosEstudiante', methods=['POST'])
 def CreateCursosEstudiante():
@@ -448,7 +451,14 @@ def graficar():
         else:
             return jsonify({'Mensaje': 'Error no hay alumnos registrados'})
     
-# TODO: Generar reporte 3 y 4
+    elif tipo == 3:
+        if arbol_BPensum.raiz is not None:
+            arbol_BPensum.graficar("Cursos Pensum", "#0a3d62", "#82ccdd")
+            return jsonify({'Tipo': str(tipo), 'Mensaje': 'Se ha generado el reporte con exito'})
+        else:
+            return jsonify({'ERROR': 'No se ha ingresado cursos al pensum'})
+    
+# TODO: Generar reporte 4
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)

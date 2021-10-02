@@ -1,5 +1,7 @@
-from DobleBPensum import DoubleList
-from ListaPuntero import ListaPuntero
+from Estructuras.DobleBPensum import DoubleList
+from Estructuras.ListaPuntero import ListaPuntero
+from pathlib import Path
+import os
 
 class PaginaB:
     def __init__(self):
@@ -250,21 +252,22 @@ class ArbolB:
         elif  int(a) == int(b):
             return 0
     
-    def graficar(self):
+    def graficar(self, title, color, background):
         self.cont = 0
         self.string = """ 
         digraph BTree
         {
-        label="\\nArbol B Cursos" fontsize=25;
+        label="\\n"""+title+"""" fontsize=25;
         rankdir=TB;
-        node[color="#0a3d62",style="filled, rounded", fillcolor="#82ccdd", shape=record penwidth=2, fontcolor="#0c2461"];
-        edge[color="#0c2461" penwidth=1.3 arrowhead=vee];
+        node[color=" """+color+"""",style="filled, rounded", fillcolor=" """+background+"""", shape=record penwidth=2, fontcolor=" """+color+""""];
+        edge[color=" """+color+"""" penwidth=1.3 arrowhead=vee];
         splines=false;
         """
         self._graficar(self.raiz)
         self.__graficar(self.raiz)
         self.string += "\n\t}"
-        print(self.string)
+        # print(self.string)
+        self.generarArchivo()
 
 
     
@@ -323,21 +326,35 @@ class ArbolB:
             self.__graficar(pagina.getApuntador(2))
             self.__graficar(pagina.getApuntador(3))
             self.__graficar(pagina.getApuntador(4))
+    
+    def generarArchivo(self):
+        path_desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"\\Reportes_F2"
+        path_current = "{}{}".format(os.path.abspath(os.path.dirname(__file__)), '\\')
+        path_current = path_current.replace("\\Estructuras", "")+"Archivos_dot"
+        pathdot = Path(path_current)
+        pathdot.mkdir(parents=True, exist_ok=True)
+        path = Path(path_desktop)
+        path.mkdir(parents=True, exist_ok=True)
+        archivo=open("Archivos_dot\\CursosPensum.dot", 'w', encoding='utf8')
+        archivo.write(self.string)
+        archivo.close()
+        os.system('cd Archivos_dot& dot -Tpdf CursosPensum.dot -o '+path_desktop+'\\CursosPensum.pdf')
+        os.startfile(path_desktop+"\\CursosPensum.pdf")
 
 
-a = ArbolB()
-a.appendDatos("100", "Matematica basica 1", 7, "", "true")
-a.appendDatos("080", "Matematica basica 2", 8, "", "false")
-a.appendDatos("060", "Matematica basica 3", 9, "", "true")
-a.appendDatos("075", "Matematica basica 4", 10, "", "true")
-a.appendDatos("020", "Matematica basica 5", 11, "", "false")
-a.appendDatos("065", "Matematica basica 6", 12, "", "true")
-a.appendDatos("140", "Matematica basica 7", 13, "", "false")
-a.appendDatos("150", "Matematica basica 8", 15, "", "true")
-a.appendDatos("160", "Matematica basica 9", 16, "", "false")
-a.appendDatos("170", "Matematica basica 10", 17, "", "true")
-a.appendDatos("180", "Matematica basica 11", 18, "", "false")
-a.appendDatos("190", "Matematica basica 12", 19, "", "true")
-a.appendDatos("200", "Matematica basica 13", 20, "", "false")
-# a.preorden()
-a.graficar()
+# a = ArbolB()
+# a.appendDatos("100", "Matematica basica 1", 7, "", "true")
+# a.appendDatos("080", "Matematica basica 2", 8, "", "false")
+# a.appendDatos("060", "Matematica basica 3", 9, "", "true")
+# a.appendDatos("075", "Matematica basica 4", 10, "", "true")
+# a.appendDatos("020", "Matematica basica 5", 11, "", "false")
+# a.appendDatos("065", "Matematica basica 6", 12, "", "true")
+# a.appendDatos("140", "Matematica basica 7", 13, "", "false")
+# a.appendDatos("150", "Matematica basica 8", 15, "", "true")
+# a.appendDatos("160", "Matematica basica 9", 16, "", "false")
+# a.appendDatos("170", "Matematica basica 10", 17, "", "true")
+# a.appendDatos("180", "Matematica basica 11", 18, "", "false")
+# a.appendDatos("190", "Matematica basica 12", 19, "", "true")
+# a.appendDatos("200", "Matematica basica 13", 20, "", "false")
+# # a.preorden()
+# a.graficar()
