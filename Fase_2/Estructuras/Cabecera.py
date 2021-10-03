@@ -29,4 +29,7 @@ class listaCabeceras:
         while actual != None:
             if actual.id == id:
                 return actual
-            actual = actual.siguiente                
+            actual = actual.siguiente   
+
+    def setPrimero(self, nodo):
+        self.primero = nodo

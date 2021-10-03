@@ -64,7 +64,6 @@ class matrizOrtogonal:
                     nuevo.arriba = actual
 
     def recorrerFilas(self):
-        print("-------------------------RECORRIDO POR FILAS-------------------------")
         CFila = self.CFilas.primero
         while CFila != None:
             actual = CFila.accesoNodo
@@ -74,7 +73,6 @@ class matrizOrtogonal:
                 print(str(actual.columna)+"         "+str(actual.listaTareas.tamanio))
                 actual = actual.derecha
             CFila = CFila.siguiente
-        print("------------------------FIN RECORRIDO POR FILA------------------------\n")
     
     def getLista(self, ff, cc):
         CFila = self.CFilas.primero
@@ -105,9 +103,197 @@ class matrizOrtogonal:
     
     def mensaje(self):
         print("hola")
+    
+    def search(self, ff, cc):
+        CFila = self.CFilas.primero
+        while CFila != None:
+            actual = CFila.accesoNodo
+            f=actual.fila
+            while actual != None:
+                c=actual.columna
+                if c==cc and f==ff: 
+                    return actual
+                actual = actual.derecha
+            CFila = CFila.siguiente
+        return False
+    
+    def delete(self, ff, cc):
+        nodoEliminar = self.search(ff,cc)
+        if nodoEliminar != False:
+            # *0BTENER APUTNADORES
+            arriba = nodoEliminar.arriba
+            abajo = nodoEliminar.abajo
+            derecha = nodoEliminar.derecha
+            izquierda = nodoEliminar.izquierda
+            print(arriba)
+            print(abajo)
+            print(derecha)
+            print(izquierda)
+            # ! CASO 1 (nodo unico):
+            if arriba is None and abajo is None and derecha is None and izquierda is None:
+                self.eliminarCabeceraFila(ff)
+                self.eliminarCabeceraColumna(cc)
+            
+            # ! CASO 2:
+            elif arriba is None and abajo is None and derecha is None and izquierda is not None:
+                self.eliminarCabeceraColumna(cc)
+                izquierda.derecha = None
+                nodoEliminar.izquierda = None
+            
+            # ! CASO 3:
+            elif arriba is None and abajo is None and derecha is not None and izquierda is None:
+                self.eliminarCabeceraColumna(cc)
+                CFila = self.CFilas.getCabecera(ff)
+                CFila.accesoNodo = derecha
+                derecha.izquierda = None
+                nodoEliminar.derecha = None
+            
+            # ! CASO 4:
+            elif arriba is None and abajo is None and derecha is not None and izquierda is not None:
+                self.eliminarCabeceraColumna(cc)
+                izquierda.derecha = derecha
+                derecha.izquierda = izquierda
+                nodoEliminar.izquierda = None
+                nodoEliminar.derecha = None
+            
+            # ! CASO 5:
+            elif arriba is None and abajo is not None and derecha is None and izquierda is None:
+                self.eliminarCabeceraFila(ff)
+                CColumna = self.CColumnas.getCabecera(cc)
+                CColumna.accesoNodo = abajo
+                abajo.arriba = None
+                nodoEliminar.abajo = None
+            
+            # ! CASO 6:
+            elif arriba is None and abajo is not None and derecha is None and izquierda is not None:
+                CColumna = self.CColumnas.getCabecera(cc)
+                CColumna.accesoNodo = abajo
+                abajo.arriba = None
+                izquierda.derecha = None
+                nodoEliminar.izquierda = None
+            
+            # ! CASO 7:
+            elif arriba is None and abajo is not None and derecha is not None and izquierda is None:
+                CColumna = self.CColumnas.getCabecera(cc)
+                CFila = self.CFilas.getCabecera(ff)
+                CColumna.accesoNodo = abajo
+                CFila.accesoNodo = derecha
+                derecha.izquierda = None
+                abajo.arriba = None
+                nodoEliminar.abajo = None
+                nodoEliminar.derecha = None
+            
+            # ! CASO 8:
+            elif arriba is None and abajo is not None and derecha is not None and izquierda is not None:
+                CColumna = self.CColumnas.getCabecera(cc)
+                CColumna.accesoNodo = abajo
+                derecha.izquierda = izquierda
+                izquierda.derecha = derecha
+                abajo.arriba = None
+                nodoEliminar.abajo = None
+                nodoEliminar.derecha = None
+                nodoEliminar.izquierda = None
+            
+            # ! CASO 9:
+            elif arriba is not None and abajo is None and derecha is None and izquierda is None:
+                self.eliminarCabeceraFila(ff)
+                arriba.abajo = None
+                nodoEliminar.arriba = None
+            
+            # ! CASO 10:
+            elif arriba is not None and abajo is None and derecha is None and izquierda is not None:
+                arriba.abajo = None
+                izquierda.derecha = None
+                nodoEliminar.arriba = None
+                nodoEliminar.izquierda = None
+            
+            # ! CASO 11:
+            elif arriba is not None and abajo is None and derecha is not None and izquierda is None:
+                CFila = self.CFilas.getCabecera(ff)
+                CFila.accesoNodo = derecha
+                arriba.abajo = None
+                derecha.izquierda = None
+                nodoEliminar.arriba = None
+                nodoEliminar.derecha = None
+            
+            # ! CASO 12:
+            elif arriba is not None and abajo is None and derecha is not None and izquierda is not None:
+                arriba.abajo = None
+                derecha.izquierda = izquierda
+                izquierda.derecha = derecha
+                nodoEliminar.derecha = None
+                nodoEliminar.izquierda = None
+                nodoEliminar.arriba = None
+            
+            # ! CASO 13:
+            elif arriba is not None and abajo is not None and derecha is None and izquierda is None:
+                self.eliminarCabeceraFila(ff)
+                arriba.abajo = abajo
+                abajo.arriba = arriba
+                nodoEliminar.arriba = None
+                nodoEliminar.abajo = None
+            
+            # ! CASO 14:
+            elif arriba is not None and abajo is not None and derecha is None and izquierda is not None:
+                arriba.abajo = abajo
+                abajo.arriba = arriba
+                izquierda.derecha = None
+                nodoEliminar.izquierda = None
+                nodoEliminar.arriba = None
+                nodoEliminar.abajo = None
+            
+            # ! CASO 15:
+            elif arriba is not None and abajo is not None and derecha is not None and izquierda is None:
+                CFila = self.CFilas.getCabecera(ff)
+                CFila.accesoNodo = derecha
+                derecha.izquierda = None
+                arriba.abajo = abajo
+                abajo.arriba = arriba
+                nodoEliminar.arriba = None
+                nodoEliminar.abajo = None
+                nodoEliminar.derecha = None
+            
+            # ! CASO 16:
+            elif arriba is not None and abajo is not None and derecha is not None and izquierda is not None:
+                arriba.abajo = abajo
+                abajo.arriba = arriba
+                derecha.izquierda = izquierda
+                izquierda.derecha = derecha
+                nodoEliminar.arriba = None
+                nodoEliminar.abajo = None
+                nodoEliminar.derecha = None
+                nodoEliminar.izquierda =None
+
+
+    def eliminarCabeceraFila(self, ff):
+        CFila = self.CFilas.getCabecera(ff)
+        dererecha = CFila.siguiente
+        izquierda = CFila.anterior
+        if izquierda is None and dererecha is not None:
+            self.CFilas.setPrimero(dererecha)
+        elif izquierda is not None and dererecha is None:
+            izquierda.siguiente = None
+        else:
+            izquierda.siguiente = dererecha
+            dererecha.anterior = izquierda
+            CFila.siguiente = None
+            CFila.anterior = None
+    
+    def eliminarCabeceraColumna(self, cc):
+        CFila = self.CColumnas.getCabecera(cc)
+        dererecha = CFila.siguiente
+        izquierda = CFila.anterior
+        if izquierda is None and dererecha is not None:
+            self.CFilas.setPrimero(dererecha)
+        elif izquierda is not None and dererecha is None:
+            izquierda.siguiente = None
+        else:
+            izquierda.siguiente = dererecha
+            dererecha.anterior = izquierda
+            CFila.siguiente = None
+            CFila.anterior = None
 
     def recorrerColumnas(self):
-        print("------------------------RECORRIDO POR COLUMNAS------------------------")
         CColumna = self.CColumnas.primero
         while CColumna != None:
             actual = CColumna.accesoNodo
@@ -117,7 +303,6 @@ class matrizOrtogonal:
                 # print(str(actual.fila)+"      "+actual.dato)
                 actual = actual.abajo
             CColumna = CColumna.siguiente
-        print("----------------------FIN RECORRIDO POR COLUMNAS----------------------\n")
 
     def getDataFilas(self):
         CFila = self.CFilas.primero
