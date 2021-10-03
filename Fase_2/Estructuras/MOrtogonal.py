@@ -125,10 +125,10 @@ class matrizOrtogonal:
             abajo = nodoEliminar.abajo
             derecha = nodoEliminar.derecha
             izquierda = nodoEliminar.izquierda
-            print(arriba)
-            print(abajo)
-            print(derecha)
-            print(izquierda)
+            # print(arriba)
+            # print(abajo)
+            # print(derecha)
+            # print(izquierda)
             # ! CASO 1 (nodo unico):
             if arriba is None and abajo is None and derecha is None and izquierda is None:
                 self.eliminarCabeceraFila(ff)
@@ -284,7 +284,7 @@ class matrizOrtogonal:
         dererecha = CFila.siguiente
         izquierda = CFila.anterior
         if izquierda is None and dererecha is not None:
-            self.CFilas.setPrimero(dererecha)
+            self.CColumnas.setPrimero(dererecha)
         elif izquierda is not None and dererecha is None:
             izquierda.siguiente = None
         else:

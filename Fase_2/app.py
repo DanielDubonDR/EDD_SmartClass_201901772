@@ -400,11 +400,12 @@ def CRUD_Recordatorios():
                             task = tasks.get(posicion)
                             if task is not None:
                                 tasks.delete(posicion)
-                                # TODO: IMPLEMENTAR ELIMINAR DISPERSA
+                                # IMPLEMENTAR ELIMINAR DISPERSA
                                 if tasks.tamanio == 0:
-                                    tasks.cabeza = None
-                                    tasks.cola = None
-                                    tasks.id = 1
+                                    tareasMes.delete(hora, dia)
+                                    # tasks.cabeza = None
+                                    # tasks.cola = None
+                                    # tasks.id = 1
                                 return jsonify({'Mensaje': 'Se ha eliminado la tarea satisfactoriamente'})
                             else:
                                 return jsonify({'Mensaje': 'Error, no existe alguna tarea en la posicion indicada'})
@@ -535,11 +536,11 @@ def graficar():
                         if tareasMes.verificarExiste(hora,dia) is not False:
                             tasks = tareasMes.getLista(hora, dia)
                             # fecha = str(dia)+"/"+str(mes)+"/"+str(anio)+" "+str(hora)+":00"
-                            if tasks.tamanio != 0:
-                                tasks.graficar()
-                                return jsonify({'Mensaje': 'Reporte generado con exito'})
-                            else:
-                                return jsonify({'Mensaje': 'No encontraron tareas en esta hora y/o dia'})
+                            # if tasks.tamanio != 0:
+                            tasks.graficar()
+                            return jsonify({'Mensaje': 'Reporte generado con exito'})
+                            # else:
+                            #     return jsonify({'Mensaje': 'No encontraron tareas en esta hora y/o dia'})
                         else:
                             return jsonify({'Mensaje': 'No encontraron tareas en esta hora y/o dia'})
                     else:
