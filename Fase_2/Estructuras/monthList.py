@@ -110,7 +110,7 @@ class DoubleListMonth:
         nodeAux = self.get(id)
         nodeAux.mes=mes
 
-    # TODO: realizar el metodo de insertar
+    
 
     def __str__(self):
         string = ""

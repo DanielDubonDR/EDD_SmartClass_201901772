@@ -434,7 +434,7 @@ def CreateCursosPensum():
         # print(codigo+" "+nombre+" "+str(creditos)+" "+prerequisitos+" "+str(obligatorio))
     return jsonify({'Mensaje': 'Se han cargado los cursos con exito'})
 
-# TODO: Seguir trabajando aca, verificar y hacer test si funciona
+
 @app.route('/cursosEstudiante', methods=['POST'])
 def CreateCursosEstudiante():
     datos = request.json['Estudiantes']
