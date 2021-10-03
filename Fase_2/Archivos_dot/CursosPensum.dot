@@ -7,5 +7,9 @@
         edge[color=" #006266" penwidth=1.3 arrowhead=vee];
         splines=false;
         
-		Nodo281[label="<f0> | <f1>281\nSistemas Operativos 1 | <f2>  | <f3>774\nSistemas de Bases de Datos 1 | <f4>  | <f5>2036\nPráctica Intermedia | <f6>  ", group=0];
+		Nodo774[label="<f0> | <f1>774\nSistemas de Bases de Datos 1 | <f2>  ", group=0];
+		Nodo281[label="<f0> | <f1>281\nSistemas Operativos 1 | <f2>  | <f3>282\nSistemas Operativos 2 | <f4>  ", group=0];
+		Nodo775[label="<f0> | <f1>775\nSistemas de Bases de Datos 2 | <f2>  | <f3>2036\nPráctica Intermedia | <f4>  | <f5>2037\nPráctica Intermedia 2 | <f6>  ", group=0];
+		Nodo774:f0->Nodo281
+		Nodo774:f2->Nodo775
 	}

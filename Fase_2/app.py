@@ -160,12 +160,12 @@ def cargaMasiva():
                                         # print("")
 
                                 else:
-                                    print("Error, solo se aceptan dos semestres")
+                                    print("Error, solo se admiten semetre 1 y semestre 2")
 
                                 
                                 
                     else:
-                        return jsonify({'Error': 'El carnet '+str(nodeAux.carnet)+' no se encuentra registrado'})
+                        return jsonify({'Error': 'El carnet '+str(carnet)+' no se encuentra registrado'})
 
             return jsonify({'Tipo': tipo, 'Mensaje': 'Se han cargado los cursos de los alumnos con exito'})
 
@@ -242,7 +242,7 @@ def CRUD_Estudiantes():
         else:
             return jsonify({'Error': 'No se ha registrado ningun alumno aun'})
 
-# TODO: Realizar CRUD recordatorios
+
 # ?______________________________________________________ CRUD RECORDATORIOS __________________________________________________________
 @app.route('/recordatorios', methods=['POST', 'GET', 'PUT', 'DELETE'])
 def CRUD_Recordatorios():
@@ -433,10 +433,55 @@ def CreateCursosPensum():
         # print(codigo+" "+nombre+" "+str(creditos)+" "+prerequisitos+" "+str(obligatorio))
     return jsonify({'Mensaje': 'Se han cargado los cursos con exito'})
 
+# TODO: Seguir trabajando aca, verificar y hacer test si funciona
 @app.route('/cursosEstudiante', methods=['POST'])
 def CreateCursosEstudiante():
-    cursos = request.json['Estudiantes']
-    return jsonify({'Mensaje': 'Leido con exito'})
+    datos = request.json['Estudiantes']
+    if arbol_AVL.root is not None:
+
+        for estudiante in datos:
+            carnet = estudiante['Carnet']
+            alumno = arbol_AVL.search(int(carnet))
+            if alumno is not None:
+
+                for anios in estudiante['Años']:
+                    anio = anios['Año']
+                    listaYears = alumno.listaAnios
+                    if listaYears.search(anio) is False:
+                        listaYears.append(anio)
+
+                    listaSemestres = listaYears.getSemestres(anio)
+
+                    for semestres in anios['Semestres']:
+                        semestre = semestres['Semestre']
+
+                        if semestre == "1" or semestre == "2":
+                            if listaSemestres.search(semestre) is False:
+                                listaSemestres.append(semestre)
+                            
+                            Arbol_cursos = listaSemestres.getCursosSemestre(semestre)
+
+                            for cursos in semestres['Cursos']:
+                                codigo = cursos['Codigo']
+                                nombre = cursos['Nombre']
+                                creditos = cursos['Creditos']
+                                prerequisitos = cursos['Prerequisitos']
+                                obligatorio = cursos['Obligatorio']
+
+                                Arbol_cursos.appendDatos(codigo, nombre, creditos, prerequisitos, str(obligatorio))
+                                
+
+                        else:
+                            print("Error, solo se admiten semetre 1 y semestre 2")
+
+
+            else:
+                return jsonify({'Error': 'El carnet '+str(carnet)+' no se encuentra registrado'})
+
+        return jsonify({'Mensaje': 'Se han cargado los cursos de los estudiantes con exito'})
+
+    else:
+        return jsonify({'Error': 'Error no hay alumnos registrados'})
 
 # ?_________________________________________________________ REPORTES _______________________________________________________________
 @app.route('/reporte', methods=['GET'])
