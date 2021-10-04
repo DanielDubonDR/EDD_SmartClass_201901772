@@ -313,7 +313,7 @@ class matrizOrtogonal:
         while CFila != None:
             Primero=True    
             actual = CFila.accesoNodo
-            idFila+= "\n\t\tF"+str(actual.fila)+" [label = \""+str(actual.fila)+"\"   width = 1 style = filled, fillcolor = \"#00d2d3\", color=\"#01a3a4\" penwidth=2.5 group = 1 ];"
+            idFila+= "\n\t\tF"+str(actual.fila)+" [label = \"Hora\\n"+str(actual.fila)+":00\"   width = 1 style = filled, fillcolor = \"#00d2d3\", color=\"#01a3a4\" penwidth=2.5 group = 1 ];"
             if CFila.siguiente is not None:
                 conectarIdFilas += "\n\t\tF"+str(actual.fila)+" -> F"+str(CFila.siguiente.accesoNodo.fila)+";"
                 # conectarIdFilas += "\n\t\tF"+str(CFila.siguiente.accesoNodo.fila)+" -> F"+str(actual.fila)+";"
@@ -353,7 +353,7 @@ class matrizOrtogonal:
         while CColumna != None:
             primero = True
             actual = CColumna.accesoNodo
-            idColumna += "\n\t\tC"+str(actual.columna)+" [label = \""+str(actual.columna)+"\"   width = 1 style = filled, fillcolor = \"#00d2d3\", color=\"#01a3a4\" penwidth=2.5 group = "+str(actual.columna)+" ];"
+            idColumna += "\n\t\tC"+str(actual.columna)+" [label = \"Día\\n"+str(actual.columna)+"\"   width = 1 style = filled, fillcolor = \"#00d2d3\", color=\"#01a3a4\" penwidth=2.5 group = "+str(actual.columna)+" ];"
             direccion += "C"+str(actual.columna)+"; "
             if CColumna.siguiente is not None:
                 conectarIdColumnas += "\n\t\tC"+str(actual.columna)+" -> C"+str(CColumna.siguiente.accesoNodo.columna)+";"

@@ -139,4 +139,250 @@
             ¿item Hora = "13:00" $?
             ¿item Estado = "Cumplido" $?
         ¿$element?
+	¿element type="user"?
+		¿item Carnet = "201183728" $?
+		¿item DPI = "2050740201006" $?
+		¿item Nombre = "Alvin Huckett" $?
+		¿item Carrera = "Ingenieria Quimica" $?
+		¿item Password = "DGHS2Xi" $?
+		¿item Creditos = 222 $?
+		¿item Edad = 20 $?
+		¿item Correo = "AlvinHuckett_60@outlook.org" $?
+	¿$element?
+    ¿element type="task"?
+		¿item Carnet = "201183728" $?
+		¿item Nombre = "Examen de Matematica Computo 1" $?
+		¿item Descripcion = "Realizar el Examen de Matematica Computo 1" $?
+		¿item Materia = "Matematica Computo 1" $?
+		¿item Fecha = "03/10/2021" $?
+		¿item Hora = "9:00" $?
+		¿item Estado = "Incumplido" $?
+	¿$element?
+    ¿element type="task"?
+		¿item Carnet = "201183728" $?
+		¿item Nombre = "Proyecto 1 de Practica Intermedia" $?
+		¿item Descripcion = "Hacer el Proyecto 1 de Practica Intermedia" $?
+		¿item Materia = "Practica Intermedia" $?
+		¿item Fecha = "01/11/2021" $?
+		¿item Hora = "16:00" $?
+		¿item Estado = "Incumplido" $?
+	¿$element?
+    ¿element type="task"?
+		¿item Carnet = "201183728" $?
+		¿item Nombre = "Proyecto 1 de IPC1" $?
+		¿item Descripcion = "Entregar el Proyecto 1 de IPC1" $?
+		¿item Materia = "IPC1" $?
+		¿item Fecha = "09/11/2021" $?
+		¿item Hora = "8:00" $?
+		¿item Estado = "Realizado" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "202011111" $?
+		¿item DPI = "5970926381748" $?
+		¿item Nombre = "Nertie Laurenzi" $?
+		¿item Carrera = "Ingenieria Mecanica Industrial" $?
+		¿item Password = "198yxel" $?
+		¿item Creditos = 139 $?
+		¿item Edad = 19 $?
+		¿item Correo = "NertieLaurenzi.75@hotmail.es" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201210811" $?
+		¿item DPI = "1234567891111" $?
+		¿item Nombre = "Lamont Barthrup" $?
+		¿item Carrera = "Ingenieria Mecanica" $?
+		¿item Password = "j60uy9" $?
+		¿item Creditos = 53 $?
+		¿item Edad = 25 $?
+		¿item Correo = "LamontBarthrup_34@outlook.org" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201582352" $?
+		¿item DPI = "4172564417242" $?
+		¿item Nombre = "calificacion" $?
+		¿item Carrera = "Ingenieria Mecanica Industrial" $?
+		¿item Password = "m6ILxd" $?
+		¿item Creditos = 113 $?
+		¿item Edad = 23 $?
+		¿item Correo = "BobinaDelacroux_46@hotmail.com" $?
+	¿$element?
+    ¿element type="user"?
+		¿item Carnet = "201582352" $?
+		¿item DPI = "4172564417242" $?
+		¿item Nombre = "calificacion" $?
+		¿item Carrera = "Ingenieria Mecanica Industrial" $?
+		¿item Password = "m6ILxd" $?
+		¿item Creditos = 113 $?
+		¿item Edad = 23 $?
+		¿item Correo = "BobinaDelacroux_46@hotmail.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201115140" $?
+		¿item DPI = "8429519350118" $?
+		¿item Nombre = "Pebrook Gircke" $?
+		¿item Carrera = "Ingenieria Mecanica" $?
+		¿item Password = "Ysgy3Vt" $?
+		¿item Creditos = 172 $?
+		¿item Edad = 19 $?
+		¿item Correo = "PebrookGircke93@undefined.org" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201350393" $?
+		¿item DPI = "9029374304090" $?
+		¿item Nombre = "Laurie Tumilty" $?
+		¿item Carrera = "Ingenieria en Ciencias y Sistemas" $?
+		¿item Password = "UKazTS0" $?
+		¿item Creditos = 124 $?
+		¿item Edad = 20 $?
+		¿item Correo = "LaurieTumilty58@undefined.com" $?
+	¿$element?
+    ¿element type="task"?
+		¿item Carnet = "201350393" $?
+		¿item Nombre = "Investigacion de Social Humanistica 1" $?
+		¿item Descripcion = "Hacer la Investigacion de Social Humanistica 1" $?
+		¿item Materia = "Social Humanistica 1" $?
+		¿item Fecha = "11/09/2021" $?
+		¿item Hora = "8:00" $?
+		¿item Estado = "Realizado" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201698163" $?
+		¿item DPI = "8010354636352" $?
+		¿item Nombre = "Barn Killingbeck" $?
+		¿item Carrera = "Ingenieria Mecanica Electrica" $?
+		¿item Password = "38KWHL" $?
+		¿item Creditos = 130 $?
+		¿item Edad = 2 $?
+		¿item Correo = "BarnKillingbeck33@gmail.org" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201402462" $?
+		¿item DPI = "3594915493584" $?
+		¿item Nombre = "Joscelin Fewings" $?
+		¿item Carrera = "Ingenieria Mecanica" $?
+		¿item Password = "tF7ZroZ" $?
+		¿item Creditos = 202 $?
+		¿item Edad = 25 $?
+		¿item Correo = "JoscelinFewings_56@outlook.es" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201643353" $?
+		¿item DPI = "9692561360208" $?
+		¿item Nombre = "Llywellyn Woodnutt" $?
+		¿item Carrera = "Ingenieria Mecanica Electrica" $?
+		¿item Password = "ui708GE" $?
+		¿item Creditos = 44 $?
+		¿item Edad = 27 $?
+		¿item Correo = "LlywellynWoodnutt_83@gmail.es" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201043689" $?
+		¿item DPI = "0714796787404" $?
+		¿item Nombre = "Ardene Benediktovich" $?
+		¿item Carrera = "Ingenieria Mecanica" $?
+		¿item Password = "muiPC17" $?
+		¿item Creditos = 13 $?
+		¿item Edad = 23 $?
+		¿item Correo = "ArdeneBenediktovich72@outlook.org" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201489697" $?
+		¿item DPI = "3310894947855" $?
+		¿item Nombre = "Judye Rossborough" $?
+		¿item Carrera = "Ingenieria Mecanica Electrica" $?
+		¿item Password = "k9oGtrw" $?
+		¿item Creditos = 3 $?
+		¿item Edad = 26 $?
+		¿item Correo = "JudyeRossborough_49@yahoo.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201818908" $?
+		¿item DPI = "2689202578134" $?
+		¿item Nombre = "Wilbur Alberts" $?
+		¿item Carrera = "Ingenieria en Ciencias y Sistemas" $?
+		¿item Password = "SSeRj8d" $?
+		¿item Creditos = 64 $?
+		¿item Edad = 18 $?
+		¿item Correo = "WilburAlberts45@hotmail.org" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201816850" $?
+		¿item DPI = "0154497044345" $?
+		¿item Nombre = "Emili Palleske" $?
+		¿item Carrera = "Ingenieria Mecanica" $?
+		¿item Password = "17x8L" $?
+		¿item Creditos = 28 $?
+		¿item Edad = 21 $?
+		¿item Correo = "EmiliPalleske.89@gmail.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201232485" $?
+		¿item DPI = "3762365704505" $?
+		¿item Nombre = "Vivian Currer" $?
+		¿item Carrera = "Ingenieria Quimica" $?
+		¿item Password = "xe7yeho" $?
+		¿item Creditos = 218 $?
+		¿item Edad = 28 $?
+		¿item Correo = "VivianCurrer_25@outlook.org" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201131811" $?
+		¿item DPI = "3347258005328" $?
+		¿item Nombre = "Eloise Trevarthen" $?
+		¿item Carrera = "Ingenieria Mecanica" $?
+		¿item Password = "B8FP4" $?
+		¿item Creditos = 201 $?
+		¿item Edad = 22 $?
+		¿item Correo = "EloiseTrevarthen91@hotmail.es" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201476680" $?
+		¿item DPI = "4293824642888" $?
+		¿item Nombre = "Kim Westphal" $?
+		¿item Carrera = "Ingenieria Quimica" $?
+		¿item Password = "qtry5" $?
+		¿item Creditos = 159 $?
+		¿item Edad = 19 $?
+		¿item Correo = "KimWestphal38@yahoo.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201511649" $?
+		¿item DPI = "5648266954532" $?
+		¿item Nombre = "Aylmar Raubenheimer" $?
+		¿item Carrera = "Ingenieria Mecanica" $?
+		¿item Password = "76816q" $?
+		¿item Creditos = 163 $?
+		¿item Edad = 23 $?
+		¿item Correo = "AylmarRaubenheimer.27@hotmail.es" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201255643" $?
+		¿item DPI = "7672150791181" $?
+		¿item Nombre = "Alvin Huckett" $?
+		¿item Carrera = "Ingenieria Industrial" $?
+		¿item Password = "g4X4Ak" $?
+		¿item Creditos = 65 $?
+		¿item Edad = 29 $?
+		¿item Correo = "AlvinHuckett_63@undefined.org" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201947729" $?
+		¿item DPI = "1430797138430" $?
+		¿item Nombre = "Camila Dibbert" $?
+		¿item Carrera = "Ingenieria Mecanica Industrial" $?
+		¿item Password = "b4wdeP" $?
+		¿item Creditos = 188 $?
+		¿item Edad = 21 $?
+		¿item Correo = "CamilaDibbert.81@gmail.com" $?
+	¿$element?
+	¿element type="user"?
+		¿item Carnet = "201173540" $?
+		¿item DPI = "3235002226847" $?
+		¿item Nombre = "Alvin Huckett" $?
+		¿item Carrera = "Ingenieria Industrial" $?
+		¿item Password = "ITrpSM0" $?
+		¿item Creditos = 104 $?
+		¿item Edad = 22 $?
+		¿item Correo = "AlvinHuckett_65@outlook.org" $?
+	¿$element?
 ¿$Elements?
