@@ -1,0 +1,468 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    DATE
+    HOUR
+    ID
+    QUOTATION_MARKS
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> LQUESTION TELEMENTS RQUESTION elementos LQUESTION DOLAR TELEMENTS RQUESTION
+Rule 2     elementos -> elementos elemento
+Rule 3     elementos -> elemento
+Rule 4     elemento -> LQUESTION TELEMENT tipoElemento RQUESTION items LQUESTION DOLAR TELEMENT RQUESTION
+Rule 5     tipoElemento -> TTYPE EQUALS NORMSTRING
+Rule 6     items -> items item
+Rule 7     items -> item
+Rule 8     item -> LQUESTION TITEM tipeItem EQUALS valueItem DOLAR RQUESTION
+Rule 9     valueItem -> NORMSTRING
+Rule 10    valueItem -> NUMBER
+Rule 11    tipeItem -> TCARNET
+Rule 12    tipeItem -> TDPI
+Rule 13    tipeItem -> TNOMBRE
+Rule 14    tipeItem -> TCARRERA
+Rule 15    tipeItem -> TPASSWORD
+Rule 16    tipeItem -> TCREDITOS
+Rule 17    tipeItem -> TEDAD
+Rule 18    tipeItem -> TDESCRIPCION
+Rule 19    tipeItem -> TMATERIA
+Rule 20    tipeItem -> TFECHA
+Rule 21    tipeItem -> THORA
+Rule 22    tipeItem -> TESTADO
+Rule 23    tipeItem -> TCORREO
+
+Terminals, with rules where they appear
+
+DATE                 : 
+DOLAR                : 1 4 8
+EQUALS               : 5 8
+HOUR                 : 
+ID                   : 
+LQUESTION            : 1 1 4 4 8
+NORMSTRING           : 5 9
+NUMBER               : 10
+QUOTATION_MARKS      : 
+RQUESTION            : 1 1 4 4 8
+TCARNET              : 11
+TCARRERA             : 14
+TCORREO              : 23
+TCREDITOS            : 16
+TDESCRIPCION         : 18
+TDPI                 : 12
+TEDAD                : 17
+TELEMENT             : 4 4
+TELEMENTS            : 1 1
+TESTADO              : 22
+TFECHA               : 20
+THORA                : 21
+TITEM                : 8
+TMATERIA             : 19
+TNOMBRE              : 13
+TPASSWORD            : 15
+TTYPE                : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+elemento             : 2 3
+elementos            : 1 2
+item                 : 6 7
+items                : 4 6
+statement            : 0
+tipeItem             : 8
+tipoElemento         : 4
+valueItem            : 8
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . LQUESTION TELEMENTS RQUESTION elementos LQUESTION DOLAR TELEMENTS RQUESTION
+
+    LQUESTION       shift and go to state 2
+
+    statement                      shift and go to state 1
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> LQUESTION . TELEMENTS RQUESTION elementos LQUESTION DOLAR TELEMENTS RQUESTION
+
+    TELEMENTS       shift and go to state 3
+
+
+state 3
+
+    (1) statement -> LQUESTION TELEMENTS . RQUESTION elementos LQUESTION DOLAR TELEMENTS RQUESTION
+
+    RQUESTION       shift and go to state 4
+
+
+state 4
+
+    (1) statement -> LQUESTION TELEMENTS RQUESTION . elementos LQUESTION DOLAR TELEMENTS RQUESTION
+    (2) elementos -> . elementos elemento
+    (3) elementos -> . elemento
+    (4) elemento -> . LQUESTION TELEMENT tipoElemento RQUESTION items LQUESTION DOLAR TELEMENT RQUESTION
+
+    LQUESTION       shift and go to state 5
+
+    elementos                      shift and go to state 6
+    elemento                       shift and go to state 7
+
+state 5
+
+    (4) elemento -> LQUESTION . TELEMENT tipoElemento RQUESTION items LQUESTION DOLAR TELEMENT RQUESTION
+
+    TELEMENT        shift and go to state 8
+
+
+state 6
+
+    (1) statement -> LQUESTION TELEMENTS RQUESTION elementos . LQUESTION DOLAR TELEMENTS RQUESTION
+    (2) elementos -> elementos . elemento
+    (4) elemento -> . LQUESTION TELEMENT tipoElemento RQUESTION items LQUESTION DOLAR TELEMENT RQUESTION
+
+    LQUESTION       shift and go to state 9
+
+    elemento                       shift and go to state 10
+
+state 7
+
+    (3) elementos -> elemento .
+
+    LQUESTION       reduce using rule 3 (elementos -> elemento .)
+
+
+state 8
+
+    (4) elemento -> LQUESTION TELEMENT . tipoElemento RQUESTION items LQUESTION DOLAR TELEMENT RQUESTION
+    (5) tipoElemento -> . TTYPE EQUALS NORMSTRING
+
+    TTYPE           shift and go to state 12
+
+    tipoElemento                   shift and go to state 11
+
+state 9
+
+    (1) statement -> LQUESTION TELEMENTS RQUESTION elementos LQUESTION . DOLAR TELEMENTS RQUESTION
+    (4) elemento -> LQUESTION . TELEMENT tipoElemento RQUESTION items LQUESTION DOLAR TELEMENT RQUESTION
+
+    DOLAR           shift and go to state 13
+    TELEMENT        shift and go to state 8
+
+
+state 10
+
+    (2) elementos -> elementos elemento .
+
+    LQUESTION       reduce using rule 2 (elementos -> elementos elemento .)
+
+
+state 11
+
+    (4) elemento -> LQUESTION TELEMENT tipoElemento . RQUESTION items LQUESTION DOLAR TELEMENT RQUESTION
+
+    RQUESTION       shift and go to state 14
+
+
+state 12
+
+    (5) tipoElemento -> TTYPE . EQUALS NORMSTRING
+
+    EQUALS          shift and go to state 15
+
+
+state 13
+
+    (1) statement -> LQUESTION TELEMENTS RQUESTION elementos LQUESTION DOLAR . TELEMENTS RQUESTION
+
+    TELEMENTS       shift and go to state 16
+
+
+state 14
+
+    (4) elemento -> LQUESTION TELEMENT tipoElemento RQUESTION . items LQUESTION DOLAR TELEMENT RQUESTION
+    (6) items -> . items item
+    (7) items -> . item
+    (8) item -> . LQUESTION TITEM tipeItem EQUALS valueItem DOLAR RQUESTION
+
+    LQUESTION       shift and go to state 17
+
+    items                          shift and go to state 18
+    item                           shift and go to state 19
+
+state 15
+
+    (5) tipoElemento -> TTYPE EQUALS . NORMSTRING
+
+    NORMSTRING      shift and go to state 20
+
+
+state 16
+
+    (1) statement -> LQUESTION TELEMENTS RQUESTION elementos LQUESTION DOLAR TELEMENTS . RQUESTION
+
+    RQUESTION       shift and go to state 21
+
+
+state 17
+
+    (8) item -> LQUESTION . TITEM tipeItem EQUALS valueItem DOLAR RQUESTION
+
+    TITEM           shift and go to state 22
+
+
+state 18
+
+    (4) elemento -> LQUESTION TELEMENT tipoElemento RQUESTION items . LQUESTION DOLAR TELEMENT RQUESTION
+    (6) items -> items . item
+    (8) item -> . LQUESTION TITEM tipeItem EQUALS valueItem DOLAR RQUESTION
+
+    LQUESTION       shift and go to state 23
+
+    item                           shift and go to state 24
+
+state 19
+
+    (7) items -> item .
+
+    LQUESTION       reduce using rule 7 (items -> item .)
+
+
+state 20
+
+    (5) tipoElemento -> TTYPE EQUALS NORMSTRING .
+
+    RQUESTION       reduce using rule 5 (tipoElemento -> TTYPE EQUALS NORMSTRING .)
+
+
+state 21
+
+    (1) statement -> LQUESTION TELEMENTS RQUESTION elementos LQUESTION DOLAR TELEMENTS RQUESTION .
+
+    $end            reduce using rule 1 (statement -> LQUESTION TELEMENTS RQUESTION elementos LQUESTION DOLAR TELEMENTS RQUESTION .)
+
+
+state 22
+
+    (8) item -> LQUESTION TITEM . tipeItem EQUALS valueItem DOLAR RQUESTION
+    (11) tipeItem -> . TCARNET
+    (12) tipeItem -> . TDPI
+    (13) tipeItem -> . TNOMBRE
+    (14) tipeItem -> . TCARRERA
+    (15) tipeItem -> . TPASSWORD
+    (16) tipeItem -> . TCREDITOS
+    (17) tipeItem -> . TEDAD
+    (18) tipeItem -> . TDESCRIPCION
+    (19) tipeItem -> . TMATERIA
+    (20) tipeItem -> . TFECHA
+    (21) tipeItem -> . THORA
+    (22) tipeItem -> . TESTADO
+    (23) tipeItem -> . TCORREO
+
+    TCARNET         shift and go to state 26
+    TDPI            shift and go to state 27
+    TNOMBRE         shift and go to state 28
+    TCARRERA        shift and go to state 29
+    TPASSWORD       shift and go to state 30
+    TCREDITOS       shift and go to state 31
+    TEDAD           shift and go to state 32
+    TDESCRIPCION    shift and go to state 33
+    TMATERIA        shift and go to state 34
+    TFECHA          shift and go to state 35
+    THORA           shift and go to state 36
+    TESTADO         shift and go to state 37
+    TCORREO         shift and go to state 38
+
+    tipeItem                       shift and go to state 25
+
+state 23
+
+    (4) elemento -> LQUESTION TELEMENT tipoElemento RQUESTION items LQUESTION . DOLAR TELEMENT RQUESTION
+    (8) item -> LQUESTION . TITEM tipeItem EQUALS valueItem DOLAR RQUESTION
+
+    DOLAR           shift and go to state 39
+    TITEM           shift and go to state 22
+
+
+state 24
+
+    (6) items -> items item .
+
+    LQUESTION       reduce using rule 6 (items -> items item .)
+
+
+state 25
+
+    (8) item -> LQUESTION TITEM tipeItem . EQUALS valueItem DOLAR RQUESTION
+
+    EQUALS          shift and go to state 40
+
+
+state 26
+
+    (11) tipeItem -> TCARNET .
+
+    EQUALS          reduce using rule 11 (tipeItem -> TCARNET .)
+
+
+state 27
+
+    (12) tipeItem -> TDPI .
+
+    EQUALS          reduce using rule 12 (tipeItem -> TDPI .)
+
+
+state 28
+
+    (13) tipeItem -> TNOMBRE .
+
+    EQUALS          reduce using rule 13 (tipeItem -> TNOMBRE .)
+
+
+state 29
+
+    (14) tipeItem -> TCARRERA .
+
+    EQUALS          reduce using rule 14 (tipeItem -> TCARRERA .)
+
+
+state 30
+
+    (15) tipeItem -> TPASSWORD .
+
+    EQUALS          reduce using rule 15 (tipeItem -> TPASSWORD .)
+
+
+state 31
+
+    (16) tipeItem -> TCREDITOS .
+
+    EQUALS          reduce using rule 16 (tipeItem -> TCREDITOS .)
+
+
+state 32
+
+    (17) tipeItem -> TEDAD .
+
+    EQUALS          reduce using rule 17 (tipeItem -> TEDAD .)
+
+
+state 33
+
+    (18) tipeItem -> TDESCRIPCION .
+
+    EQUALS          reduce using rule 18 (tipeItem -> TDESCRIPCION .)
+
+
+state 34
+
+    (19) tipeItem -> TMATERIA .
+
+    EQUALS          reduce using rule 19 (tipeItem -> TMATERIA .)
+
+
+state 35
+
+    (20) tipeItem -> TFECHA .
+
+    EQUALS          reduce using rule 20 (tipeItem -> TFECHA .)
+
+
+state 36
+
+    (21) tipeItem -> THORA .
+
+    EQUALS          reduce using rule 21 (tipeItem -> THORA .)
+
+
+state 37
+
+    (22) tipeItem -> TESTADO .
+
+    EQUALS          reduce using rule 22 (tipeItem -> TESTADO .)
+
+
+state 38
+
+    (23) tipeItem -> TCORREO .
+
+    EQUALS          reduce using rule 23 (tipeItem -> TCORREO .)
+
+
+state 39
+
+    (4) elemento -> LQUESTION TELEMENT tipoElemento RQUESTION items LQUESTION DOLAR . TELEMENT RQUESTION
+
+    TELEMENT        shift and go to state 41
+
+
+state 40
+
+    (8) item -> LQUESTION TITEM tipeItem EQUALS . valueItem DOLAR RQUESTION
+    (9) valueItem -> . NORMSTRING
+    (10) valueItem -> . NUMBER
+
+    NORMSTRING      shift and go to state 43
+    NUMBER          shift and go to state 44
+
+    valueItem                      shift and go to state 42
+
+state 41
+
+    (4) elemento -> LQUESTION TELEMENT tipoElemento RQUESTION items LQUESTION DOLAR TELEMENT . RQUESTION
+
+    RQUESTION       shift and go to state 45
+
+
+state 42
+
+    (8) item -> LQUESTION TITEM tipeItem EQUALS valueItem . DOLAR RQUESTION
+
+    DOLAR           shift and go to state 46
+
+
+state 43
+
+    (9) valueItem -> NORMSTRING .
+
+    DOLAR           reduce using rule 9 (valueItem -> NORMSTRING .)
+
+
+state 44
+
+    (10) valueItem -> NUMBER .
+
+    DOLAR           reduce using rule 10 (valueItem -> NUMBER .)
+
+
+state 45
+
+    (4) elemento -> LQUESTION TELEMENT tipoElemento RQUESTION items LQUESTION DOLAR TELEMENT RQUESTION .
+
+    LQUESTION       reduce using rule 4 (elemento -> LQUESTION TELEMENT tipoElemento RQUESTION items LQUESTION DOLAR TELEMENT RQUESTION .)
+
+
+state 46
+
+    (8) item -> LQUESTION TITEM tipeItem EQUALS valueItem DOLAR . RQUESTION
+
+    RQUESTION       shift and go to state 47
+
+
+state 47
+
+    (8) item -> LQUESTION TITEM tipeItem EQUALS valueItem DOLAR RQUESTION .
+
+    LQUESTION       reduce using rule 8 (item -> LQUESTION TITEM tipeItem EQUALS valueItem DOLAR RQUESTION .)
+
