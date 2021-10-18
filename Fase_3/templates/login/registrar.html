@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Registrar</title>
+  <link href="{{url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+  <script src="{{url_for('static', filename = 'js/validaciones.js')}}"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <div class="title">Registrar</div>
+
+      <form method="POST" >
+        <div class="field">
+          <input type="text" name="carnet"  maxlength="25" required>
+          <label>Carnet</label>
+        </div>
+
+        <div class="field">
+          <input type="text" name="DPI" maxlength="25" required >
+          <label>DPI</label>
+        </div>
+
+        <div class="field">
+          <input type="text" name="Nombre" maxlength="25" required>
+          <label>Nombre</label>
+        </div>
+
+        <div class="field">
+          <input type="text" name="Carrera" maxlength="25" required>
+          <label>Carrera</label>
+        </div>
+        
+        <div class="field">
+          <input type="text" name="Correo" maxlength="25" required>
+          <label>Correo</label>
+        </div>
+
+        <div class="field">
+          <input type="password" name="password" maxlength="25" required>
+          <label>Password</label>
+        </div>
+
+        <div class="field">
+          <input type="text" name="edad" maxlength="25" required>
+          <label>Edad</label>
+        </div>
+
+      <div class="field">
+        <br>
+        <input type="submit" value="Registrar" required >
+      </div>
+
+      <div class="signup-link">
+        <a href="login">Regresar al Inicio de Sesión</a>
+      </div>
+      <!-- {% if error == True %} -->
+        <div id="msga">
+          Este usuario ya esta registrado
+        </div>
+      <!-- {% elif error=="r" %} -->
+      <div id="msgt">
+        Se ha registrado correctamente
+      </div>
+        <!-- {% endif %} -->
+    </form>
+  </div>
+</body>
+</html>

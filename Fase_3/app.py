@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template, redirect, session
 from Analizador.Syntactic import parser
 from Analizador.Syntactic import lista_usuarios, lista_tareas
 from Estructuras.AVL import AVL
@@ -587,7 +587,20 @@ def graficar():
     else:
         return jsonify({'Mensaje': 'Error este tipo de reporte no existe'})
 
+# !--------------------------------------------------------- FRONTEND ---------------------------------------------------------------
 
+# ?__________________________________________________________ LOGIN _________________________________________________________________
+@app.route('/')
+def home():
+    return redirect('/login')
+
+@app.route('/login')
+def login():
+    return render_template('login/login.html', error=None)
+
+@app.route('/registrar')
+def registrar():
+    return render_template('login/registrar.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)

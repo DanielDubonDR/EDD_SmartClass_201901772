@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Inicio de Sesión</title>
+  <link href="{{url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="title">Iniciar Sesión</div>
+    <form method="POST">
+      <div class="field">
+        <input type="text" name="carnet" required>
+        <label>Carnet</label>
+      </div>
+      <div class="field">
+        <input type="password" name="password" required>
+        <label>Password</label>
+      </div>
+      <div class="field">
+        <br>
+        <input type="submit" value="Ingresar">
+      </div>
+      <br>
+      {% if error != None %}
+      <div id="msga">
+        ¡Usuario o contraseña incorrecta!
+      </div>
+      {% endif %}
+      <div class="signup-link">
+        ¿No esta registrado? <a href="registrar">Registrese ahora</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
