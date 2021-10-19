@@ -5,14 +5,15 @@
   <meta charset="utf-8">
   <title>Inicio de Sesión</title>
   <link href="{{url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+  <script src="{{url_for('static', filename = 'js/validaciones.js')}}"></script>
 </head>
 
 <body>
   <div class="wrapper">
     <div class="title">Iniciar Sesión</div>
-    <form method="POST">
+    <div class="form">
       <div class="field">
-        <input type="text" name="carnet" required>
+        <input type="text" name="carnet" id="carnet" maxlength="9" required onkeypress="return soloNumeros1(event);">
         <label>Carnet</label>
       </div>
       <div class="field">
@@ -21,7 +22,7 @@
       </div>
       <div class="field">
         <br>
-        <input type="submit" value="Ingresar">
+        <button>Ingresar</button>
       </div>
       <br>
       {% if error != None %}
@@ -32,7 +33,7 @@
       <div class="signup-link">
         ¿No esta registrado? <a href="registrar">Registrese ahora</a>
       </div>
-    </form>
+    </div>
   </div>
 </body>
 </html>

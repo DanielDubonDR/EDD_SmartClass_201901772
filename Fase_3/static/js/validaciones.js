@@ -1,59 +1,104 @@
-function soloLetras(e) {
-  textoArea = document.getElementById("usuario").value;
+function soloNumeros1(e) {
+  textoArea = document.getElementById("carnet").value;
   var total = textoArea.length;
-  if (total == 0) {
+  if (total == 0) 
+  {
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toString();
-    letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ"; //Se define todo el abecedario que se quiere que se muestre.
-    especiales = [8, 9, 37, 39, 46, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
+    letras = "1234567890";
 
-    tecla_especial = false
-    for (var i in especiales) {
-      if (key == especiales[i]) {
-        tecla_especial = true;
-        break;
-      }
-    }
-
-    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+    if (letras.indexOf(tecla) == -1) 
+    {
       return false;
     }
-
-  } else if (total > 0) {
-    if (window.event) { //asignamos el valor de la tecla a keynum
-      keynum = e.keyCode; //IE
-    } else {
-      keynum = e.which; //FF
+  } 
+  else if (total > 0) 
+  {
+    if (window.event) 
+    {
+      keynum = e.keyCode; 
+    } 
+    else 
+    {
+      keynum = e.which;
     }
-    //comprobamos si se encuentra en el rango numérico y que teclas no recibirá.
-    if ((keynum > 64 && keynum < 91) || (keynum > 47 && keynum < 58) || (keynum > 96 && keynum < 132) || keynum == 8 || keynum == 13 || keynum == 6) {
+    if ((keynum >= 48 && keynum <= 57)) 
+    {
       return true;
-    } else {
+    } 
+    else 
+    {
       return false;
     }
-
   }
-
 }
 
+function soloNumeros2(e) {
+  textoArea = document.getElementById("dpi").value;
+  var total = textoArea.length;
+  if (total == 0) 
+  {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toString();
+    letras = "1234567890";
 
-function validar()
-{
-    var a=document.getElementById("pass1").value;
-    var b=document.getElementById("pass2").value;
-    //alert(a+" "+b);
-    var k=false;
-    if(a!=b)
+    if (letras.indexOf(tecla) == -1) 
     {
-      //alert("diferentes");
-      document.getElementById('msg').style.display = 'block';
-      k= false;
+      return false;
     }
-    else
+  } 
+  else if (total > 0) 
+  {
+    if (window.event) 
     {
-      //alert("iguales");
-      document.getElementById('msg').style.display = 'none';
-      k= true;
+      keynum = e.keyCode; 
+    } 
+    else 
+    {
+      keynum = e.which;
     }
-    return k;
+    if ((keynum >= 48 && keynum <= 57)) 
+    {
+      return true;
+    } 
+    else 
+    {
+      return false;
+    }
+  }
+}
+
+function soloNumeros3(e) {
+  textoArea = document.getElementById("edad").value;
+  var total = textoArea.length;
+  if (total == 0) 
+  {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toString();
+    letras = "1234567890";
+
+    if (letras.indexOf(tecla) == -1) 
+    {
+      return false;
+    }
+  } 
+  else if (total > 0) 
+  {
+    if (window.event) 
+    {
+      keynum = e.keyCode; 
+    } 
+    else 
+    {
+      keynum = e.which;
+    }
+    if ((keynum >= 48 && keynum <= 57)) 
+    {
+      return true;
+    } 
+    else 
+    {
+      return false;
+    }
+  }
 }

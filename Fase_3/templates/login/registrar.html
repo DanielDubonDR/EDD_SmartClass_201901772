@@ -13,60 +13,97 @@
 
     <div class="title">Registrar</div>
 
-      <form method="POST" >
+      <div class="form">
         <div class="field">
-          <input type="text" name="carnet"  maxlength="25" required>
+          <input type="text" name="carnet" id="carnet"  maxlength="9" onkeypress="return soloNumeros1(event);">
           <label>Carnet</label>
         </div>
-
+        <div id="msg"></div>
         <div class="field">
-          <input type="text" name="DPI" maxlength="25" required >
+          <input type="text" name="dpi" id="dpi" maxlength="13" onkeypress="return soloNumeros2(event);">
           <label>DPI</label>
         </div>
 
         <div class="field">
-          <input type="text" name="Nombre" maxlength="25" required>
+          <input type="text" name="nombre" id="nombre" >
           <label>Nombre</label>
         </div>
 
         <div class="field">
-          <input type="text" name="Carrera" maxlength="25" required>
+          <input type="text" name="carrera" id="carrera" maxlength="30">
           <label>Carrera</label>
         </div>
         
         <div class="field">
-          <input type="text" name="Correo" maxlength="25" required>
+          <input type="email" name="correo" id="email" maxlength="25">
           <label>Correo</label>
         </div>
 
         <div class="field">
-          <input type="password" name="password" maxlength="25" required>
+          <input type="password" name="password" id="password" maxlength="25">
           <label>Password</label>
         </div>
 
         <div class="field">
-          <input type="text" name="edad" maxlength="25" required>
+          <input type="text" name="edad" id="edad" maxlength="3" onkeypress="return soloNumeros3(event);">
           <label>Edad</label>
         </div>
 
       <div class="field">
         <br>
-        <input type="submit" value="Registrar" required >
+        <button onclick="registrar()">Registrar</button>
       </div>
 
       <div class="signup-link">
         <a href="login">Regresar al Inicio de Sesión</a>
       </div>
-      <!-- {% if error == True %} -->
-        <div id="msga">
-          Este usuario ya esta registrado
-        </div>
-      <!-- {% elif error=="r" %} -->
-      <div id="msgt">
-        Se ha registrado correctamente
-      </div>
-        <!-- {% endif %} -->
-    </form>
+      <div id="msga"></div>
+      <div id="msgt"></div>
+    </div>
   </div>
+  <script>
+    function registrar()
+    {
+      let carnet = document.getElementById("carnet").value;
+      let dpi = document.getElementById("dpi").value;
+      let nombre = document.getElementById("nombre").value;
+      let carrera = document.getElementById("carrera").value;
+      let correo = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let edad = document.getElementById("edad").value;
+      
+      if(carnet !== "" && dpi !== "" && nombre !== "" && carrera !== "" && correo !== "" && password !== "" && edad !== "")
+      {
+        var objeto = {
+            'carnet': carnet,
+            'DPI': dpi,
+            'nombre': nombre,
+            'carrera': carrera,
+            'correo': correo,
+            'password': password,
+            'creditos': 0,
+            'edad': edad
+        }
+        console.log(objeto);
+        fetch('/estudiante', 
+        { method: 'POST', body: JSON.stringify(objeto), headers:{ 'Content-Type': 'application/json'}}).then(res => res.json())
+          .catch(error => { 
+              console.error('Error:', error)
+              alert("Ocurrio un error")
+          })
+          .then(response =>{
+              console.log('Success:', response);
+              alert(response.message)
+              location.reload
+              //location.href="/perfil"
+          }) 
+      }
+      else
+      {
+        const textdiv = document.getElementById("msga ");
+        textdiv.textContent = "LLene todos los campos requeridos"
+      }
+    }
+  </script>
 </body>
 </html>
