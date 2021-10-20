@@ -1,6 +1,12 @@
 from pathlib import Path
 from Estructuras.yearList import DoubleList
 import os
+import time
+from cryptography.fernet import Fernet
+import base64
+from cryptography.fernet import Fernet
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 class Node:
     def __init__(self, carnet, dpi, nombre, carrera, password, creditos, edad, correo):
@@ -16,6 +22,8 @@ class Node:
         self.der = None
         self.izq = None
         self.size = 0
+        self.key = None
+        self.dt = None
 
 class  AVL:
     def __init__(self):
@@ -31,21 +39,21 @@ class  AVL:
     
     # *----------------------------------------- Metodo incial para agregar un nuevo nodo ---------------------------------------------
     def add(self, carnet, dpi, nombre, carrera, password, creditos, edad, correo):
-        self.root = self._add(carnet, dpi, nombre, carrera, password, creditos, edad, correo, self.root)
+        self.root = self._add(self.encriptar(carnet), self.encriptar(dpi), self.encriptar(nombre), carrera, self.encriptar(password), creditos, self.encriptar(edad), self.encriptar(correo), self.root)
     
     # * --------------------------------------- Metodo recursivo para agregar un nuevo nodo -------------------------------------------
     def _add(self, carnet, dpi, nombre, carrera, password, creditos, edad, correo, root):
         if root is None:
             return Node(carnet, dpi, nombre, carrera, password, creditos, edad, correo)
         else:
-            if carnet < root.carnet:
+            if int(self.desencriptar(carnet)) < int(self.desencriptar(root.carnet)):
                 root.izq = self._add(carnet, dpi, nombre, carrera, password, creditos, edad, correo, root.izq)
                 if self.height(root.der) - self.height(root.izq) == -2:
                     if carnet < root.izq.carnet:
                         root = self.SimpleIzq(root)
                     else:
                         root = self.dobleIzq(root)
-            elif carnet > root.carnet:
+            elif int(self.desencriptar(carnet)) > int(self.desencriptar(root.carnet)):
                 root.der = self._add(carnet, dpi, nombre, carrera, password, creditos, edad, correo, root.der)
                 if self.height(root.der) - self.height(root.izq) == 2:
                     if carnet > root.der.carnet:
@@ -103,10 +111,10 @@ class  AVL:
         if node is None:
             return None
 
-        elif carnet < node.carnet:
+        elif int(carnet) < int(self.desencriptar(node.carnet)):
             return self._search( carnet, node.izq )
 
-        elif carnet > node.carnet:
+        elif int(carnet) > int(self.desencriptar(node.carnet)):
             return self._search( carnet, node.der )
 
         else:
@@ -215,11 +223,11 @@ class  AVL:
 
     def _preordenG(self, root):
         if root is not None:
-            self.string += "\n\t\tn" + str(root.carnet) + " [label = \""+str(root.carnet) +"\" penwidth=2.5];"
+            self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " [label = \""+self.txt(root.carnet) +"\" penwidth=2.5];"
             if root.izq is not None:
-                self.string += "\n\t\tn" + str(root.carnet) + " -> n" + str(root.izq.carnet) + "[tailport=sw headport=n];"
+                self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " -> n" + self.desencriptar(root.izq.carnet) + "[tailport=sw headport=n];"
             if root.der is not None:
-                self.string += "\n\t\tn" + str(root.carnet) + " -> n" + str(root.der.carnet) + "[tailport=se headport=n];"
+                self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " -> n" + self.desencriptar(root.der.carnet) + "[tailport=se headport=n];"
             self._preordenG(root.izq)
             self._preordenG(root.der)
     
@@ -229,10 +237,34 @@ class  AVL:
     def _preordenG1(self, root):
         if root is not None:
             self._preordenG1(root.izq)
-            self.string += "\n\t\t" + str(root.carnet) + " [shape=plain label= \""+str(root.nombre)+"\\n"+str(root.carrera)+"\"];"
-            self.string += "\n\t\t{rank=same; n" + str(root.carnet) + "; " + str(root.carnet) + "}"
-            self.string += "\n\t\tn" + str(root.carnet) + " -> " + str(root.carnet) + ";"
+            self.string += "\n\t\t" + self.desencriptar(root.carnet) + " [shape=plain label= \""+self.txt(root.nombre)+"\\n"+str(root.carrera)+"\"];"
+            self.string += "\n\t\t{rank=same; n" + self.desencriptar(root.carnet) + "; " + self.desencriptar(root.carnet) + "}"
+            self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " -> " + self.desencriptar(root.carnet) + ";"
             self._preordenG1(root.der)
+
+    def preordenGG(self):
+        self._preordenGG(self.root)
+
+    def _preordenGG(self, root):
+        if root is not None:
+            self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " [label = \""+self.desencriptar(root.carnet) +"\" penwidth=2.5];"
+            if root.izq is not None:
+                self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " -> n" + self.desencriptar(root.izq.carnet) + "[tailport=sw headport=n];"
+            if root.der is not None:
+                self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " -> n" + self.desencriptar(root.der.carnet) + "[tailport=se headport=n];"
+            self._preordenGG(root.izq)
+            self._preordenGG(root.der)
+    
+    def preordenG2(self):
+        self._preordenG2(self.root)
+
+    def _preordenG2(self, root):
+        if root is not None:
+            self._preordenG2(root.izq)
+            self.string += "\n\t\t" + self.desencriptar(root.carnet) + " [shape=plain label= \""+self.desencriptar(root.nombre)+"\\n"+str(root.carrera)+"\"];"
+            self.string += "\n\t\t{rank=same; n" + self.desencriptar(root.carnet) + "; " + self.desencriptar(root.carnet) + "}"
+            self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " -> " + self.desencriptar(root.carnet) + ";"
+            self._preordenG2(root.der)
 
     def graficar(self):
         self.string = ""
@@ -246,6 +278,24 @@ class  AVL:
         self.string += "\n\t\tedge[dir=none];"
         self.string += "\n\t\tnode[fillcolor=white, fontcolor=black];"
         self.preordenG1()
+        self.string += "\n\t}"
+        # print(self.string)
+        self.generarArchivo()
+        time.sleep(1)
+        self.graficarDesencriptado()
+
+    def graficarDesencriptado(self):
+        self.string = ""
+        self.string += """  
+        digraph G
+        {
+            node[shape=circle, style=filled, fillcolor=\"#303F9F\", fontcolor=white, color=\"#0A122A\"];
+            splines=false;
+        """
+        self.preordenGG()
+        self.string += "\n\t\tedge[dir=none];"
+        self.string += "\n\t\tnode[fillcolor=white, fontcolor=black];"
+        self.preordenG2()
         self.string += "\n\t}"
         # print(self.string)
         self.generarArchivo()
@@ -263,3 +313,32 @@ class  AVL:
         archivo.close()
         os.system('cd Archivos_dot& dot -Tpdf AVL.dot -o '+path_desktop+'\\AVL.pdf')
         os.startfile(path_desktop+"\\AVL.pdf")
+
+    def txt(self, dato):
+        result = dato.decode()
+        return result[0:6]
+# ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
+
+# &_________________________________________________________ FERNAT _________________________________________________________________
+    def generarClave(self, passwordMaestro):
+        salt = os.urandom(16)
+        kdf = PBKDF2HMAC(
+            algorithm=hashes.SHA256(),
+            length=32,
+            salt=salt,
+            iterations=100000,
+        )
+        self.key = base64.urlsafe_b64encode(kdf.derive(passwordMaestro.encode()))
+        self.dt = Fernet(self.key)
+    
+    def encriptar(self, dato):
+        datoEncriptado = self.dt.encrypt(dato.encode())
+        return datoEncriptado
+
+    def desencriptar(self, datoEncriptado):
+        desencriptado = self.dt.decrypt(datoEncriptado).decode()
+        return desencriptado
+    
+    def txt(self, dato):
+        result = dato.decode()
+        return result[0:6]

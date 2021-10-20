@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, render_template, redirect, session
+import hashlib
 from Analizador.Syntactic import parser
 from Analizador.Syntactic import lista_usuarios, lista_tareas
 from Estructuras.AVL import AVL
@@ -9,6 +10,8 @@ import json
 # *------------------------------------------------------ VARIABLES GLOBALES --------------------------------------------------------
 arbol_AVL = AVL()
 arbol_BPensum = ArbolB()
+passwordMaestro = "D4t4_3structur3"
+arbol_AVL.generarClave(passwordMaestro)
 
 app = Flask(__name__)
 # *----------------------------------------------------------- FUNCIONES ------------------------------------------------------------
@@ -187,11 +190,11 @@ def CRUD_Estudiantes():
         password = request.json['password']
         creditos = request.json['creditos']
         edad = request.json['edad']
-        if arbol_AVL.search(int(carnet)) is None:
-            arbol_AVL.add(int(carnet), dpi, nombre, carrera, password, creditos, edad, correo)
-            return jsonify({'Mensaje': 'Se ha ingresado un nuevo estudiante con exito'})
+        if arbol_AVL.search(carnet) is None:
+            arbol_AVL.add(carnet, dpi, nombre, carrera, sha256(password), creditos, edad, correo)
+            return jsonify({'Mensaje': True})
         else:
-            return jsonify({'Mensaje': 'Error ya exite un alumno con el mismo carnet'})
+            return jsonify({'Mensaje': False})
 
     elif request.method == 'GET':
         carnet = request.json['carnet']
@@ -601,6 +604,14 @@ def login():
 @app.route('/registrar')
 def registrar():
     return render_template('login/registrar.html')
+
+# ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
+
+# &_________________________________________________________ SHA256 _________________________________________________________________
+
+def sha256(dato):
+    token = hashlib.sha256(dato.encode()).hexdigest()
+    return token
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
