@@ -35,7 +35,7 @@
         </div>
         
         <div class="field">
-          <input type="email" name="correo" id="email" maxlength="25">
+          <input type="text" name="correo" id="email" maxlength="25">
           <label>Correo</label>
         </div>
 
@@ -93,16 +93,32 @@
           })
           .then(response =>{
               console.log('Success:', response);
-              alert(response.Mensaje)
-              location.reload
+              if(response.Mensaje == true)
+              {
+                // alert('Se registro correctamente');
+                const textdiv = document.getElementById("msgt");
+                textdiv.textContent = "Se ha registrado con éxito";
+                setTimeout("redireccionar()", 1500);
+              }
+              else
+              {
+                const textdiv = document.getElementById("msg");
+                textdiv.textContent = "Este usuario no se encuentra disponible";
+              }
+              // location.reload
               //location.href="/perfil"
           }) 
       }
       else
       {
-        const textdiv = document.getElementById("msga ");
-        textdiv.textContent = "LLene todos los campos requeridos"
+        const textdiv = document.getElementById("msga");
+        textdiv.textContent = "LLene todos los campos requeridos";
       }
+    }
+
+    function redireccionar()
+    {
+      location.href="/login";
     }
   </script>
 </body>
