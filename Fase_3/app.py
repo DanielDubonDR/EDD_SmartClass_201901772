@@ -24,7 +24,7 @@ def cargarUsuarios(path):
     # print(lista_usuarios)
     while lista_usuarios.isEmpy() != True:
         nodeAux = lista_usuarios.pop()
-        arbol_AVL.add(int(nodeAux.carnet), nodeAux.dpi, nodeAux.nombre, nodeAux.carrera, nodeAux.password, nodeAux.creditos, nodeAux.edad, nodeAux.correo)
+        arbol_AVL.add(nodeAux.carnet, nodeAux.dpi, nodeAux.nombre, nodeAux.carrera, sha256(nodeAux.password), nodeAux.creditos, str(nodeAux.edad), nodeAux.correo)
 
 def getAnio(fecha):
     fecha = fecha.split("/")

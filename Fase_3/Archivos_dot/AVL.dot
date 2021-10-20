@@ -4,10 +4,380 @@
             node[shape=circle, style=filled, fillcolor="#303F9F", fontcolor=white, color="#0A122A"];
             splines=false;
         
-		n201901772 [label = "201901772" penwidth=2.5];
+		n201582352 [label = "201582352" penwidth=2.5];
+		n201582352 -> n201350393[tailport=sw headport=n];
+		n201582352 -> n201740604[tailport=se headport=n];
+		n201350393 [label = "201350393" penwidth=2.5];
+		n201350393 -> n201183728[tailport=sw headport=n];
+		n201350393 -> n201402462[tailport=se headport=n];
+		n201183728 [label = "201183728" penwidth=2.5];
+		n201183728 -> n201115140[tailport=sw headport=n];
+		n201183728 -> n201309890[tailport=se headport=n];
+		n201115140 [label = "201115140" penwidth=2.5];
+		n201115140 -> n201022466[tailport=sw headport=n];
+		n201115140 -> n201131811[tailport=se headport=n];
+		n201022466 [label = "201022466" penwidth=2.5];
+		n201022466 -> n201006295[tailport=sw headport=n];
+		n201022466 -> n201068965[tailport=se headport=n];
+		n201006295 [label = "201006295" penwidth=2.5];
+		n201006295 -> n201000244[tailport=sw headport=n];
+		n201006295 -> n201009015[tailport=se headport=n];
+		n201000244 [label = "201000244" penwidth=2.5];
+		n201009015 [label = "201009015" penwidth=2.5];
+		n201068965 [label = "201068965" penwidth=2.5];
+		n201068965 -> n201043689[tailport=sw headport=n];
+		n201068965 -> n201110247[tailport=se headport=n];
+		n201043689 [label = "201043689" penwidth=2.5];
+		n201110247 [label = "201110247" penwidth=2.5];
+		n201131811 [label = "201131811" penwidth=2.5];
+		n201131811 -> n201119966[tailport=sw headport=n];
+		n201131811 -> n201157605[tailport=se headport=n];
+		n201119966 [label = "201119966" penwidth=2.5];
+		n201119966 -> n201116100[tailport=sw headport=n];
+		n201119966 -> n201125580[tailport=se headport=n];
+		n201116100 [label = "201116100" penwidth=2.5];
+		n201125580 [label = "201125580" penwidth=2.5];
+		n201157605 [label = "201157605" penwidth=2.5];
+		n201157605 -> n201145786[tailport=sw headport=n];
+		n201157605 -> n201173540[tailport=se headport=n];
+		n201145786 [label = "201145786" penwidth=2.5];
+		n201145786 -> n201137248[tailport=sw headport=n];
+		n201145786 -> n201147451[tailport=se headport=n];
+		n201137248 [label = "201137248" penwidth=2.5];
+		n201147451 [label = "201147451" penwidth=2.5];
+		n201173540 [label = "201173540" penwidth=2.5];
+		n201309890 [label = "201309890" penwidth=2.5];
+		n201309890 -> n201232485[tailport=sw headport=n];
+		n201309890 -> n201327079[tailport=se headport=n];
+		n201232485 [label = "201232485" penwidth=2.5];
+		n201232485 -> n201210811[tailport=sw headport=n];
+		n201232485 -> n201255643[tailport=se headport=n];
+		n201210811 [label = "201210811" penwidth=2.5];
+		n201255643 [label = "201255643" penwidth=2.5];
+		n201255643 -> n201234795[tailport=sw headport=n];
+		n201234795 [label = "201234795" penwidth=2.5];
+		n201327079 [label = "201327079" penwidth=2.5];
+		n201327079 -> n201315898[tailport=sw headport=n];
+		n201327079 -> n201327675[tailport=se headport=n];
+		n201315898 [label = "201315898" penwidth=2.5];
+		n201315898 -> n201315288[tailport=sw headport=n];
+		n201315288 [label = "201315288" penwidth=2.5];
+		n201327675 [label = "201327675" penwidth=2.5];
+		n201327675 -> n201339503[tailport=se headport=n];
+		n201339503 [label = "201339503" penwidth=2.5];
+		n201402462 [label = "201402462" penwidth=2.5];
+		n201402462 -> n201374369[tailport=sw headport=n];
+		n201402462 -> n201489697[tailport=se headport=n];
+		n201374369 [label = "201374369" penwidth=2.5];
+		n201374369 -> n201359507[tailport=sw headport=n];
+		n201374369 -> n201389879[tailport=se headport=n];
+		n201359507 [label = "201359507" penwidth=2.5];
+		n201389879 [label = "201389879" penwidth=2.5];
+		n201389879 -> n201375524[tailport=sw headport=n];
+		n201375524 [label = "201375524" penwidth=2.5];
+		n201489697 [label = "201489697" penwidth=2.5];
+		n201489697 -> n201428558[tailport=sw headport=n];
+		n201489697 -> n201511649[tailport=se headport=n];
+		n201428558 [label = "201428558" penwidth=2.5];
+		n201428558 -> n201412244[tailport=sw headport=n];
+		n201428558 -> n201476680[tailport=se headport=n];
+		n201412244 [label = "201412244" penwidth=2.5];
+		n201476680 [label = "201476680" penwidth=2.5];
+		n201476680 -> n201461415[tailport=sw headport=n];
+		n201461415 [label = "201461415" penwidth=2.5];
+		n201511649 [label = "201511649" penwidth=2.5];
+		n201511649 -> n201500866[tailport=sw headport=n];
+		n201511649 -> n201537627[tailport=se headport=n];
+		n201500866 [label = "201500866" penwidth=2.5];
+		n201500866 -> n201509061[tailport=se headport=n];
+		n201509061 [label = "201509061" penwidth=2.5];
+		n201537627 [label = "201537627" penwidth=2.5];
+		n201537627 -> n201516603[tailport=sw headport=n];
+		n201516603 [label = "201516603" penwidth=2.5];
+		n201740604 [label = "201740604" penwidth=2.5];
+		n201740604 -> n201667272[tailport=sw headport=n];
+		n201740604 -> n201816850[tailport=se headport=n];
+		n201667272 [label = "201667272" penwidth=2.5];
+		n201667272 -> n201646518[tailport=sw headport=n];
+		n201667272 -> n201698163[tailport=se headport=n];
+		n201646518 [label = "201646518" penwidth=2.5];
+		n201646518 -> n201635991[tailport=sw headport=n];
+		n201646518 -> n201661519[tailport=se headport=n];
+		n201635991 [label = "201635991" penwidth=2.5];
+		n201635991 -> n201594265[tailport=sw headport=n];
+		n201635991 -> n201643353[tailport=se headport=n];
+		n201594265 [label = "201594265" penwidth=2.5];
+		n201643353 [label = "201643353" penwidth=2.5];
+		n201661519 [label = "201661519" penwidth=2.5];
+		n201698163 [label = "201698163" penwidth=2.5];
+		n201698163 -> n201669286[tailport=sw headport=n];
+		n201698163 -> n201704168[tailport=se headport=n];
+		n201669286 [label = "201669286" penwidth=2.5];
+		n201669286 -> n201668149[tailport=sw headport=n];
+		n201668149 [label = "201668149" penwidth=2.5];
+		n201704168 [label = "201704168" penwidth=2.5];
+		n201704168 -> n201709702[tailport=se headport=n];
+		n201709702 [label = "201709702" penwidth=2.5];
+		n201816850 [label = "201816850" penwidth=2.5];
+		n201816850 -> n201774497[tailport=sw headport=n];
+		n201816850 -> n201947729[tailport=se headport=n];
+		n201774497 [label = "201774497" penwidth=2.5];
+		n201774497 -> n201766242[tailport=sw headport=n];
+		n201774497 -> n201790782[tailport=se headport=n];
+		n201766242 [label = "201766242" penwidth=2.5];
+		n201766242 -> n201761573[tailport=sw headport=n];
+		n201766242 -> n201773473[tailport=se headport=n];
+		n201761573 [label = "201761573" penwidth=2.5];
+		n201761573 -> n201764124[tailport=se headport=n];
+		n201764124 [label = "201764124" penwidth=2.5];
+		n201773473 [label = "201773473" penwidth=2.5];
+		n201790782 [label = "201790782" penwidth=2.5];
+		n201790782 -> n201803912[tailport=se headport=n];
+		n201803912 [label = "201803912" penwidth=2.5];
+		n201947729 [label = "201947729" penwidth=2.5];
+		n201947729 -> n201897987[tailport=sw headport=n];
+		n201947729 -> n201954202[tailport=se headport=n];
+		n201897987 [label = "201897987" penwidth=2.5];
+		n201897987 -> n201825364[tailport=sw headport=n];
+		n201897987 -> n201921767[tailport=se headport=n];
+		n201825364 [label = "201825364" penwidth=2.5];
+		n201825364 -> n201818908[tailport=sw headport=n];
+		n201825364 -> n201864201[tailport=se headport=n];
+		n201818908 [label = "201818908" penwidth=2.5];
+		n201864201 [label = "201864201" penwidth=2.5];
+		n201921767 [label = "201921767" penwidth=2.5];
+		n201921767 -> n201906670[tailport=sw headport=n];
+		n201921767 -> n201933753[tailport=se headport=n];
+		n201906670 [label = "201906670" penwidth=2.5];
+		n201933753 [label = "201933753" penwidth=2.5];
+		n201954202 [label = "201954202" penwidth=2.5];
+		n201954202 -> n201991578[tailport=se headport=n];
+		n201991578 [label = "201991578" penwidth=2.5];
 		edge[dir=none];
 		node[fillcolor=white, fontcolor=black];
-		201901772 [shape=plain label= "Daniel Reginaldo Dubón Rodríguez\nIng en systemsas"];
-		{rank=same; n201901772; 201901772}
-		n201901772 -> 201901772;
+		201000244 [shape=plain label= "Nertie Laurenzi\nIngenieria Mecanica Industrial"];
+		{rank=same; n201000244; 201000244}
+		n201000244 -> 201000244;
+		201006295 [shape=plain label= "Roderigo Gomme\nIngenieria Mecanica Electrica"];
+		{rank=same; n201006295; 201006295}
+		n201006295 -> 201006295;
+		201009015 [shape=plain label= "Afton Hounson\nIngenieria Mecanica"];
+		{rank=same; n201009015; 201009015}
+		n201009015 -> 201009015;
+		201022466 [shape=plain label= "Wash Sedgemore\nIngenieria Mecanica Electrica"];
+		{rank=same; n201022466; 201022466}
+		n201022466 -> 201022466;
+		201043689 [shape=plain label= "Ardene Benediktovich\nIngenieria Mecanica"];
+		{rank=same; n201043689; 201043689}
+		n201043689 -> 201043689;
+		201068965 [shape=plain label= "Tim Goldspink\nIngenieria Mecanica Industrial"];
+		{rank=same; n201068965; 201068965}
+		n201068965 -> 201068965;
+		201110247 [shape=plain label= "Aylmar Raubenheimer\nIngenieria Mecanica Electrica"];
+		{rank=same; n201110247; 201110247}
+		n201110247 -> 201110247;
+		201115140 [shape=plain label= "Pebrook Gircke\nIngenieria Mecanica"];
+		{rank=same; n201115140; 201115140}
+		n201115140 -> 201115140;
+		201116100 [shape=plain label= "Franky Viney\nIngenieria Quimica"];
+		{rank=same; n201116100; 201116100}
+		n201116100 -> 201116100;
+		201119966 [shape=plain label= "Michelle Glanister\nIngenieria Industrial"];
+		{rank=same; n201119966; 201119966}
+		n201119966 -> 201119966;
+		201125580 [shape=plain label= "Boycie Langlais\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201125580; 201125580}
+		n201125580 -> 201125580;
+		201131811 [shape=plain label= "Eloise Trevarthen\nIngenieria Mecanica"];
+		{rank=same; n201131811; 201131811}
+		n201131811 -> 201131811;
+		201137248 [shape=plain label= "Eba Keitley\nIngenieria Mecanica"];
+		{rank=same; n201137248; 201137248}
+		n201137248 -> 201137248;
+		201145786 [shape=plain label= "Harvey Darbyshire\nIngenieria Mecanica"];
+		{rank=same; n201145786; 201145786}
+		n201145786 -> 201145786;
+		201147451 [shape=plain label= "Ellerey Sherwyn\nIngenieria Mecanica Electrica"];
+		{rank=same; n201147451; 201147451}
+		n201147451 -> 201147451;
+		201157605 [shape=plain label= "Alonzo Seagrove\nIngenieria Industrial"];
+		{rank=same; n201157605; 201157605}
+		n201157605 -> 201157605;
+		201173540 [shape=plain label= "Alvin Huckett\nIngenieria Industrial"];
+		{rank=same; n201173540; 201173540}
+		n201173540 -> 201173540;
+		201183728 [shape=plain label= "Alvin Huckett\nIngenieria Quimica"];
+		{rank=same; n201183728; 201183728}
+		n201183728 -> 201183728;
+		201210811 [shape=plain label= "Lamont Barthrup\nIngenieria Mecanica"];
+		{rank=same; n201210811; 201210811}
+		n201210811 -> 201210811;
+		201232485 [shape=plain label= "Vivian Currer\nIngenieria Quimica"];
+		{rank=same; n201232485; 201232485}
+		n201232485 -> 201232485;
+		201234795 [shape=plain label= "Wilbur Alberts\nIngenieria Mecanica Industrial"];
+		{rank=same; n201234795; 201234795}
+		n201234795 -> 201234795;
+		201255643 [shape=plain label= "Alvin Huckett\nIngenieria Industrial"];
+		{rank=same; n201255643; 201255643}
+		n201255643 -> 201255643;
+		201309890 [shape=plain label= "Grayce Poltone\nIngenieria Industrial"];
+		{rank=same; n201309890; 201309890}
+		n201309890 -> 201309890;
+		201315288 [shape=plain label= "Joscelin Fewings\nIngenieria Mecanica Electrica"];
+		{rank=same; n201315288; 201315288}
+		n201315288 -> 201315288;
+		201315898 [shape=plain label= "Bernadette Pescud\nIngenieria Mecanica Industrial"];
+		{rank=same; n201315898; 201315898}
+		n201315898 -> 201315898;
+		201327079 [shape=plain label= "Franky Viney\nIngenieria Industrial"];
+		{rank=same; n201327079; 201327079}
+		n201327079 -> 201327079;
+		201327675 [shape=plain label= "Lamont Barthrup\nIngenieria Mecanica Electrica"];
+		{rank=same; n201327675; 201327675}
+		n201327675 -> 201327675;
+		201339503 [shape=plain label= "Drusilla Louca\nIngenieria Mecanica Industrial"];
+		{rank=same; n201339503; 201339503}
+		n201339503 -> 201339503;
+		201350393 [shape=plain label= "Laurie Tumilty\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201350393; 201350393}
+		n201350393 -> 201350393;
+		201359507 [shape=plain label= "Olly Brunelleschi\nIngenieria Quimica"];
+		{rank=same; n201359507; 201359507}
+		n201359507 -> 201359507;
+		201374369 [shape=plain label= "Lionel Messi\nIngenieria Mecanica Industrial"];
+		{rank=same; n201374369; 201374369}
+		n201374369 -> 201374369;
+		201375524 [shape=plain label= "Tim Goldspink\nIngenieria Quimica"];
+		{rank=same; n201375524; 201375524}
+		n201375524 -> 201375524;
+		201389879 [shape=plain label= "Darn Studdal\nIngenieria Industrial"];
+		{rank=same; n201389879; 201389879}
+		n201389879 -> 201389879;
+		201402462 [shape=plain label= "Joscelin Fewings\nIngenieria Mecanica"];
+		{rank=same; n201402462; 201402462}
+		n201402462 -> 201402462;
+		201412244 [shape=plain label= "Eba Keitley\nIngenieria Industrial"];
+		{rank=same; n201412244; 201412244}
+		n201412244 -> 201412244;
+		201428558 [shape=plain label= "Llywellyn Woodnutt\nIngenieria Mecanica"];
+		{rank=same; n201428558; 201428558}
+		n201428558 -> 201428558;
+		201461415 [shape=plain label= "Roderigo Gomme\nIngenieria Mecanica Industrial"];
+		{rank=same; n201461415; 201461415}
+		n201461415 -> 201461415;
+		201476680 [shape=plain label= "Kim Westphal\nIngenieria Quimica"];
+		{rank=same; n201476680; 201476680}
+		n201476680 -> 201476680;
+		201489697 [shape=plain label= "Judye Rossborough\nIngenieria Mecanica Electrica"];
+		{rank=same; n201489697; 201489697}
+		n201489697 -> 201489697;
+		201500866 [shape=plain label= "Claybourne Nelmes\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201500866; 201500866}
+		n201500866 -> 201500866;
+		201509061 [shape=plain label= "Tim Goldspink\nIngenieria Mecanica Electrica"];
+		{rank=same; n201509061; 201509061}
+		n201509061 -> 201509061;
+		201511649 [shape=plain label= "Aylmar Raubenheimer\nIngenieria Mecanica"];
+		{rank=same; n201511649; 201511649}
+		n201511649 -> 201511649;
+		201516603 [shape=plain label= "Aylmar Raubenheimer\nIngenieria Mecanica Industrial"];
+		{rank=same; n201516603; 201516603}
+		n201516603 -> 201516603;
+		201537627 [shape=plain label= "Aylmar Raubenheimer\nIngenieria Mecanica Electrica"];
+		{rank=same; n201537627; 201537627}
+		n201537627 -> 201537627;
+		201582352 [shape=plain label= "Bobina Delacroux\nIngenieria Mecanica Industrial"];
+		{rank=same; n201582352; 201582352}
+		n201582352 -> 201582352;
+		201594265 [shape=plain label= "Ardene Benediktovich\nIngenieria Mecanica Industrial"];
+		{rank=same; n201594265; 201594265}
+		n201594265 -> 201594265;
+		201635991 [shape=plain label= "Boycie Langlais\nIngenieria Industrial"];
+		{rank=same; n201635991; 201635991}
+		n201635991 -> 201635991;
+		201643353 [shape=plain label= "Llywellyn Woodnutt\nIngenieria Mecanica Electrica"];
+		{rank=same; n201643353; 201643353}
+		n201643353 -> 201643353;
+		201646518 [shape=plain label= "Aylmar Raubenheimer\nIngenieria Mecanica Electrica"];
+		{rank=same; n201646518; 201646518}
+		n201646518 -> 201646518;
+		201661519 [shape=plain label= "Harvey Darbyshire\nIngenieria Mecanica"];
+		{rank=same; n201661519; 201661519}
+		n201661519 -> 201661519;
+		201667272 [shape=plain label= "Adriaens Timms\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201667272; 201667272}
+		n201667272 -> 201667272;
+		201668149 [shape=plain label= "Harvey Darbyshire\nIngenieria Mecanica"];
+		{rank=same; n201668149; 201668149}
+		n201668149 -> 201668149;
+		201669286 [shape=plain label= "Tim Goldspink\nIngenieria Mecanica"];
+		{rank=same; n201669286; 201669286}
+		n201669286 -> 201669286;
+		201698163 [shape=plain label= "Barn Killingbeck\nIngenieria Mecanica Electrica"];
+		{rank=same; n201698163; 201698163}
+		n201698163 -> 201698163;
+		201704168 [shape=plain label= "Tim Goldspink\nIngenieria Mecanica Electrica"];
+		{rank=same; n201704168; 201704168}
+		n201704168 -> 201704168;
+		201709702 [shape=plain label= "Dillon Blandamere\nIngenieria Industrial"];
+		{rank=same; n201709702; 201709702}
+		n201709702 -> 201709702;
+		201740604 [shape=plain label= "Llywellyn Woodnutt\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201740604; 201740604}
+		n201740604 -> 201740604;
+		201761573 [shape=plain label= "Alonzo Seagrove\nIngenieria Quimica"];
+		{rank=same; n201761573; 201761573}
+		n201761573 -> 201761573;
+		201764124 [shape=plain label= "Harvey Darbyshire\nIngenieria Industrial"];
+		{rank=same; n201764124; 201764124}
+		n201764124 -> 201764124;
+		201766242 [shape=plain label= "Franky Viney\nIngenieria Mecanica Electrica"];
+		{rank=same; n201766242; 201766242}
+		n201766242 -> 201766242;
+		201773473 [shape=plain label= "Krystal Crellin\nIngenieria Mecanica"];
+		{rank=same; n201773473; 201773473}
+		n201773473 -> 201773473;
+		201774497 [shape=plain label= "Llywellyn Woodnutt\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201774497; 201774497}
+		n201774497 -> 201774497;
+		201790782 [shape=plain label= "Claybourne Nelmes\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201790782; 201790782}
+		n201790782 -> 201790782;
+		201803912 [shape=plain label= "Emili Palleske\nIngenieria Mecanica Industrial"];
+		{rank=same; n201803912; 201803912}
+		n201803912 -> 201803912;
+		201816850 [shape=plain label= "Emili Palleske\nIngenieria Mecanica"];
+		{rank=same; n201816850; 201816850}
+		n201816850 -> 201816850;
+		201818908 [shape=plain label= "Wilbur Alberts\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201818908; 201818908}
+		n201818908 -> 201818908;
+		201825364 [shape=plain label= "Phillis Syrie\nIngenieria Quimica"];
+		{rank=same; n201825364; 201825364}
+		n201825364 -> 201825364;
+		201864201 [shape=plain label= "Claybourne Nelmes\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201864201; 201864201}
+		n201864201 -> 201864201;
+		201897987 [shape=plain label= "Michelle Glanister\nIngenieria Quimica"];
+		{rank=same; n201897987; 201897987}
+		n201897987 -> 201897987;
+		201906670 [shape=plain label= "Franky Viney\nIngenieria Mecanica Industrial"];
+		{rank=same; n201906670; 201906670}
+		n201906670 -> 201906670;
+		201921767 [shape=plain label= "Consolata Reskelly\nIngenieria Mecanica"];
+		{rank=same; n201921767; 201921767}
+		n201921767 -> 201921767;
+		201933753 [shape=plain label= "Bobina Delacroux\nIngenieria en Ciencias y Sistemas"];
+		{rank=same; n201933753; 201933753}
+		n201933753 -> 201933753;
+		201947729 [shape=plain label= "Camila Dibbert\nIngenieria Mecanica Industrial"];
+		{rank=same; n201947729; 201947729}
+		n201947729 -> 201947729;
+		201954202 [shape=plain label= "Eloise Trevarthen\nIngenieria Mecanica Industrial"];
+		{rank=same; n201954202; 201954202}
+		n201954202 -> 201954202;
+		201991578 [shape=plain label= "Olly Brunelleschi\nIngenieria Mecanica Industrial"];
+		{rank=same; n201991578; 201991578}
+		n201991578 -> 201991578;
 	}

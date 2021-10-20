@@ -49,14 +49,14 @@ class  AVL:
             if int(self.desencriptar(carnet)) < int(self.desencriptar(root.carnet)):
                 root.izq = self._add(carnet, dpi, nombre, carrera, password, creditos, edad, correo, root.izq)
                 if self.height(root.der) - self.height(root.izq) == -2:
-                    if carnet < root.izq.carnet:
+                    if int(self.desencriptar(carnet)) < int(self.desencriptar(root.izq.carnet)):
                         root = self.SimpleIzq(root)
                     else:
                         root = self.dobleIzq(root)
             elif int(self.desencriptar(carnet)) > int(self.desencriptar(root.carnet)):
                 root.der = self._add(carnet, dpi, nombre, carrera, password, creditos, edad, correo, root.der)
                 if self.height(root.der) - self.height(root.izq) == 2:
-                    if carnet > root.der.carnet:
+                    if int(self.desencriptar(carnet)) > int(self.desencriptar(root.der.carnet)):
                         root = self.SimpleDer(root)
                     else:
                         root = self.dobleDer(root)
