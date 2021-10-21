@@ -609,7 +609,7 @@ def login():
             return jsonify({'Mensaje': 'admin'})
 
         else:
-
+            # TODO: REALIZAR LA VERIFICACION DE CREDENCIALES DESPUES PROCEDER A REALIZAR LAS CARGAS MASIVAS EN ADMIN
             return jsonify({'Mensaje': 'estudiante'})
 
 @app.route('/registrar')
