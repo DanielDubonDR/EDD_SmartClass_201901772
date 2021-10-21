@@ -15,37 +15,37 @@
 
       <div class="form">
         <div class="field">
-          <input type="text" name="carnet" id="carnet"  maxlength="9" onkeypress="return soloNumeros1(event);">
+          <input type="text" name="carnet" id="carnet"  maxlength="9" onkeypress="return soloNumeros1(event);" required>
           <label>Carnet</label>
         </div>
         <div id="msg"></div>
         <div class="field">
-          <input type="text" name="dpi" id="dpi" maxlength="13" onkeypress="return soloNumeros2(event);">
+          <input type="text" name="dpi" id="dpi" maxlength="13" onkeypress="return soloNumeros2(event);" required>
           <label>DPI</label>
         </div>
 
         <div class="field">
-          <input type="text" name="nombre" id="nombre" >
+          <input type="text" name="nombre" id="nombre" required>
           <label>Nombre</label>
         </div>
 
         <div class="field">
-          <input type="text" name="carrera" id="carrera" maxlength="30">
+          <input type="text" name="carrera" id="carrera" maxlength="30" required>
           <label>Carrera</label>
         </div>
         
         <div class="field">
-          <input type="text" name="correo" id="email" maxlength="25">
+          <input type="text" name="correo" id="email" maxlength="25" required>
           <label>Correo</label>
         </div>
 
         <div class="field">
-          <input type="password" name="password" id="password" maxlength="25">
+          <input type="password" name="password" id="password" maxlength="25" required>
           <label>Password</label>
         </div>
 
         <div class="field">
-          <input type="text" name="edad" id="edad" maxlength="3" onkeypress="return soloNumeros3(event);">
+          <input type="text" name="edad" id="edad" maxlength="3" onkeypress="return soloNumeros3(event);" required>
           <label>Edad</label>
         </div>
 
@@ -84,7 +84,7 @@
             'creditos': 0,
             'edad': edad
         }
-        console.log(objeto);
+        // console.log(objeto);
         fetch('/estudiante', 
         { method: 'POST', body: JSON.stringify(objeto), headers:{ 'Content-Type': 'application/json'}}).then(res => res.json())
           .catch(error => { 

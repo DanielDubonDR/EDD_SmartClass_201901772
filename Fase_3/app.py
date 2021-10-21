@@ -597,13 +597,35 @@ def graficar():
 def home():
     return redirect('/login')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login/login.html', error=None)
+    if request.method == 'GET':
+        return render_template('login/login.html')
+    
+    elif request.method == 'POST':
+        carnet = request.json['carnet']
+        password = request.json['password']
+        if carnet == 'admin' and password == 'admin':
+            return redirect('/admin')
+
+        else:
+
+            return redirect('/usuario')
 
 @app.route('/registrar')
 def registrar():
     return render_template('login/registrar.html')
+# ?__________________________________________________________ ADMIN  ________________________________________________________________
+
+@app.route('/admin')
+def admin():
+    return jsonify({'Mensaje': 'Bienvenido ADMIN'})
+
+# ?__________________________________________________________ USER  ________________________________________________________________
+
+@app.route('/usuario')
+def usuario():
+    return jsonify({'Mensaje': 'Bienvenido ESTUDIANTE'})
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
 
