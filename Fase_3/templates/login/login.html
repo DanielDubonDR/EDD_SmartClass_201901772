@@ -56,7 +56,14 @@
               alert("Ocurrio un error")
           })
           .then(response =>{
-              console.log('Success:', response);
+              if(response.Mensaje === 'admin')
+              {
+                location.href="/admin"
+              }
+              else if (response.Mensaje === 'estudiante')
+              {
+                location.href="/usuario"
+              }
               // location.reload
               //location.href="/perfil"
           }) 

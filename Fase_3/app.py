@@ -606,11 +606,11 @@ def login():
         carnet = request.json['carnet']
         password = request.json['password']
         if carnet == 'admin' and password == 'admin':
-            return redirect('/admin')
+            return jsonify({'Mensaje': 'admin'})
 
         else:
 
-            return redirect('/usuario')
+            return jsonify({'Mensaje': 'estudiante'})
 
 @app.route('/registrar')
 def registrar():
@@ -618,14 +618,14 @@ def registrar():
 # ?__________________________________________________________ ADMIN  ________________________________________________________________
 
 @app.route('/admin')
-def admin():
-    return jsonify({'Mensaje': 'Bienvenido ADMIN'})
+def inicioadmin():
+    return render_template('admin/inicio.html')
 
 # ?__________________________________________________________ USER  ________________________________________________________________
 
 @app.route('/usuario')
 def usuario():
-    return jsonify({'Mensaje': 'Bienvenido ESTUDIANTE'})
+    return render_template('user/inicio.html')
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
 
