@@ -12,6 +12,7 @@ passwordMaestro = "D4t4_3structur3"
 arbol_AVL.generarClave(passwordMaestro)
 
 app = Flask(__name__)
+app.secret_key = b'_Esta_3s_Una_CLAV3_js_js_js_j_xD_'
 # *----------------------------------------------------------- FUNCIONES ------------------------------------------------------------
 
 def getAnio(fecha):
@@ -381,7 +382,13 @@ def graficar():
 # ?__________________________________________________________ LOGIN _________________________________________________________________
 @app.route('/')
 def home():
-    return redirect('/login')
+    if 'user' in session:
+        if session['user'] == "admin":
+            return redirect("/admin")
+        else:
+            return redirect("/usuario")
+    else:
+        return redirect('/login')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -392,15 +399,28 @@ def login():
         carnet = request.json['carnet']
         password = request.json['password']
         if carnet == 'admin' and password == 'admin':
+            session['user'] = "admin"
+            session['nombre'] = "admin"
             return jsonify({'Mensaje': 'admin'})
 
         else:
             # TODO: REALIZAR LA VERIFICACION DE CREDENCIALES DESPUES PROCEDER A REALIZAR LAS CARGAS MASIVAS EN ADMIN
-            return jsonify({'Mensaje': 'estudiante'})
+            if arbol_AVL.validar(carnet, sha256(password)):
+                session['user'] = carnet
+                session['nombre'] = arbol_AVL.getNombre(carnet)
+                return jsonify({'Mensaje': 'estudiante'})
+            else:
+                return jsonify({'Mensaje': 'error'})
 
 @app.route('/registrar')
 def registrar():
     return render_template('login/registrar.html')
+
+@app.route('/logout')
+def cerrarSesion():
+    session.pop('user')
+    session.pop('nombre')
+    return redirect('/')
 # ?__________________________________________________________ ADMIN  ________________________________________________________________
 
 @app.route('/admin')
@@ -411,7 +431,7 @@ def inicioadmin():
 
 @app.route('/usuario')
 def usuario():
-    return render_template('user/inicio.html')
+    return render_template('user/inicio.html', user=session['user'], nombre=session['nombre'])
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
 

@@ -64,6 +64,11 @@
               {
                 location.href="/usuario"
               }
+              else if (response.Mensaje === 'error')
+              {
+                const textdiv = document.getElementById("msga");
+                textdiv.textContent = "Usuario o contraseña incorrecto";
+              }
               // location.reload
               //location.href="/perfil"
           }) 

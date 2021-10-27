@@ -1,3 +1,4 @@
+from logging import fatal
 from pathlib import Path
 from Estructuras.yearList import DoubleList
 import os
@@ -119,6 +120,20 @@ class  AVL:
 
         else:
             return node
+    
+    def validar(self, carnet, password):
+        node = self.search(carnet)
+        if node is None:
+            return False
+        else:
+            if self.desencriptar(node.carnet) == carnet and self.desencriptar(node.password) == password:
+                return True
+            else:
+                return False
+    
+    def getNombre(self, carnet):
+        node = self.search(carnet)
+        return self.desencriptar(node.nombre)
 
     def getMin(self):
             if self.root is None:
