@@ -1,7 +1,5 @@
 from flask import Flask, jsonify, request, render_template, redirect, session
 import hashlib
-from Analizador.Syntactic import parser
-from Analizador.Syntactic import lista_usuarios, lista_tareas
 from Estructuras.AVL import AVL
 from Estructuras.Arbol_BPensum import ArbolB
 # from flask_cors import  CORS
@@ -15,16 +13,6 @@ arbol_AVL.generarClave(passwordMaestro)
 
 app = Flask(__name__)
 # *----------------------------------------------------------- FUNCIONES ------------------------------------------------------------
-def cargarUsuarios(path):
-    archivo = open(path,"r", encoding="utf-8")
-    contenido = archivo.read()
-    archivo.close()
-
-    parser.parse(contenido)
-    # print(lista_usuarios)
-    while lista_usuarios.isEmpy() != True:
-        nodeAux = lista_usuarios.pop()
-        arbol_AVL.add(nodeAux.carnet, nodeAux.dpi, nodeAux.nombre, nodeAux.carrera, sha256(nodeAux.password), nodeAux.creditos, str(nodeAux.edad), nodeAux.correo)
 
 def getAnio(fecha):
     fecha = fecha.split("/")
@@ -77,45 +65,20 @@ def cargaMasiva():
     tipo = request.json['tipo']
     path = request.json['path']
     if tipo == "estudiante":
-        cargarUsuarios(path)
+        with open(path, encoding='utf8') as archivo:
+            datos = json.load(archivo)
+
+            for estudiante in datos['estudiantes']:
+                carnet = estudiante['carnet']
+                dpi = estudiante['DPI']
+                nombre = estudiante['nombre']
+                carrera = estudiante['carrera']
+                correo = estudiante['correo']
+                password = estudiante['password']
+                edad = estudiante['edad']
+                arbol_AVL.add(str(carnet), str(dpi), nombre, carrera, sha256(password), 0, str(edad), correo)
+
         return jsonify({'Tipo': tipo, 'Mensaje': 'Se han cargado los estudiantes con exito'})
-
-    elif tipo == "recordatorio":
-        #  FIXME: VACIAR LA LISTA DE TAREAS SI SE DESEA INGRESAR DIFERENTE RUTA YA QUE DUPLICA VALORES
-        # archivo = open(path,"r", encoding="utf-8")
-        # contenido = archivo.read()
-        # archivo.close()
-        if arbol_AVL.root is not None:
-            # parser.parse(contenido)
-            while lista_tareas.isEmpy() != True:
-                nodeAux = lista_tareas.pop()
-                alumno = arbol_AVL.search(int(nodeAux.carnet))
-                if alumno is not None:
-                    listaYears = alumno.listaAnios
-                    anio = getAnio(nodeAux.fecha)
-                    if listaYears.search(anio) is False:
-                        listaYears.append(anio)
-
-                    listaMeses = listaYears.get(anio)
-                    mes = getMes(nodeAux.fecha)
-                    
-                    if listaMeses.search(mes) is False:
-                        listaMeses.append(mes)
-                    
-                    tareasMes = listaMeses.get(mes)
-                    dia = getDia(nodeAux.fecha)
-                    hora = getHora(nodeAux.hora)
-                    if tareasMes.verificarExiste(hora,dia) is False:
-                        tareasMes.append(hora,dia)
-                    # tareasMes.recorrerFilas()
-                    tasks = tareasMes.getLista(hora, dia)
-                    tasks.append(nodeAux.carnet, nodeAux.nombre, nodeAux.descripcion, nodeAux.materia, nodeAux.fecha, nodeAux.hora, nodeAux.estado)
-                else:
-                    return jsonify({'Error': 'El carnet '+str(nodeAux.carnet)+' no se encuentra registrado'})
-
-            return jsonify({'Tipo': tipo, 'Mensaje': 'Se han cargado las tareas con exito'})
-        else:
-            return jsonify({'Error': 'Error no hay alumnos registrados'})
 
     elif  tipo == "curso":
         if arbol_AVL.root is not None:
