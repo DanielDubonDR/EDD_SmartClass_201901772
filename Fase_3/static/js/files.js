@@ -9,10 +9,10 @@ button.addEventListener("click", (e) => {
 });
 
 input.addEventListener("change", (e) => {
-   files = this.files;
-   dropArea.classList.add("active");
-   showFiles(files);
-   dropArea.classList.remove("active");
+    files = this.files;
+    dropArea.classList.add("active");
+    showFiles(files);
+    dropArea.classList.remove("active");
 });
 
 dropArea.addEventListener("dragover", (e) => {
@@ -66,7 +66,7 @@ function processFile(file)
             <div id="${id}" class="file-container">
                 <div class="status">
                     <span>${file.name}</span>
-                    <span class="status-text">
+                    <span class="status-text" id="ad">
                         Loading...
                     </span>
                 </div>
@@ -74,8 +74,9 @@ function processFile(file)
             `;
             const html = document.querySelector("#preview").innerHTML;
             document.querySelector("#preview").innerHTML = text + html;
+            upload(fileUrl);
         });
-        fileReader.readAsDataURL(file);
+        fileReader.readAsText(file);
     }
     else
     {
@@ -83,3 +84,20 @@ function processFile(file)
     }
 }
 
+function upload(data){
+    // console.log(objeto);
+    fetch('/cursosPensum', 
+    { method: 'POST', body: data, headers:{ 'Content-Type': 'application/json'}}).then(res => res.json())
+    .catch(error => { 
+        console.error('Error:', error)
+        alert("Ocurrio un error")
+        document.querySelector("#ad").innerHTML = `<span class="failure">El archivo no pudo subirse ...</span>`;
+    })
+    .then(response =>{
+        console.log('Success:', response);
+        if(response.Mensaje == true)
+        {
+            document.querySelector("#ad").innerHTML = `<span class="success">Archivo subido correctamente ...</span>`;
+        }
+    }) 
+}

@@ -223,7 +223,7 @@ def CreateCursosPensum():
         obligatorio = curso['Obligatorio']
         arbol_BPensum.appendDatos(codigo, nombre, creditos, prerequisitos, str(obligatorio))
         # print(codigo+" "+nombre+" "+str(creditos)+" "+prerequisitos+" "+str(obligatorio))
-    return jsonify({'Mensaje': 'Se han cargado los cursos con exito'})
+    return jsonify({'Mensaje': True})
 
 
 @app.route('/cursosEstudiante', methods=['POST'])
