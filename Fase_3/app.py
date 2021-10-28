@@ -404,7 +404,7 @@ def login():
             return jsonify({'Mensaje': 'admin'})
 
         else:
-            # TODO: REALIZAR LA VERIFICACION DE CREDENCIALES DESPUES PROCEDER A REALIZAR LAS CARGAS MASIVAS EN ADMIN
+            # TODO:  REALIZAR LAS CARGAS MASIVAS EN ADMIN
             if arbol_AVL.validar(carnet, sha256(password)):
                 session['user'] = carnet
                 session['nombre'] = arbol_AVL.getNombre(carnet)
@@ -426,6 +426,14 @@ def cerrarSesion():
 @app.route('/admin')
 def inicioadmin():
     return render_template('admin/inicio.html')
+
+@app.route('/pass')
+def passwordM():
+    return render_template('admin/password.html')
+
+@app.route('/masivaPensum')
+def masivaPensum():
+    return render_template('admin/cargarPensum.html')
 
 # ?__________________________________________________________ USER  ________________________________________________________________
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Inicio</title>
+    <title>Cursos Pensum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/font-awesome.min.css')}}">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/metisMenu.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/slicknav.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/loadFile.css')}}">
     <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <!-- others css -->
@@ -25,6 +26,7 @@
     
     <!-- modernizr css -->
     <script src="{{url_for('static', filename = 'assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
 </head>
 
 <body>
@@ -46,7 +48,7 @@
                 <div class="menu-inner">
                     <nav>
                         <ul class="metismenu" id="menu">
-                            <li>
+                            <li class="active">
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-import fa-align-left"></i>
                                     <span>Cargas Masivas</span></a>
                                 <ul class="collapse">
@@ -56,7 +58,7 @@
                                             <li><a href="#">Cargar Estudiantes</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/masivaPensum">Cargar cursos pensum</a></li>
+                                    <li class="active"><a href="/masivaPensum">Cargar cursos pensum</a></li>
                                     <li><a href="#">Cargar cursos estudiantes</a></li>
                                     <li><a href="#">Cargar apuntes estudiantes</a></li>
                                 </ul>
@@ -129,9 +131,10 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Inicio</h4>
+                            <h4 class="page-title pull-left">Dashboard</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="/admin">Inicio</a></li>
+                                <li><a href="index.html">Home</a></li>
+                                <li><span>Dashboard</span></li>
                             </ul>
                         </div>
                     </div>
@@ -139,7 +142,7 @@
                         <div class="user-profile pull-right">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Administrador<i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                                <a class="dropdown-item" href="#">Cerrar Sesión</a>
                             </div>
                         </div>
                     </div>
@@ -147,15 +150,34 @@
             </div>
             <!-- page title area end -->
             <div class="main-content-inner">
-                <br>
-                <div class="card">
-                    <div class="card-body">
-                        <br><br><br><br><br><br><br>
-                        <h1 class="text-primary" style="font-family: Lobster, serif; font-size: 50px;">Smart Class</h1>
-                        <h1 style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 80px;">Bienvenido ADMIN</h1>
-                        <br><br><br><br><br><br>
+                <div class="row">
+                    <!-- Bootstrap Grid start -->
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Start 6 column grid system -->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                    </div>
+                                    <div class="col-md-6 drop-area">
+                                        <h2>Arrastra y suelta el archivo</h2>
+                                        <span>o</span>
+                                        <button>Selecciona tus archivos</button>
+                                        <input type="file" name="" id="input-file" hidden multiple/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="preview"></div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
         <!-- main content area end -->
@@ -168,8 +190,93 @@
         <!-- footer area end-->
     </div>
     <!-- page container area end -->
+    <!-- offset area start -->
+    <div class="offset-area">
+        <div class="offset-close"><i class="ti-close"></i></div>
+        <ul class="nav offset-menu-tab">
+            <li><a class="active" data-toggle="tab" href="#activity">Activity</a></li>
+            <li><a data-toggle="tab" href="#settings">Settings</a></li>
+        </ul>
+        <div class="offset-content tab-content">
+            <div id="activity" class="tab-pane fade in show active">
+                <div class="recent-activity">
+                    <div class="timeline-task">
+                        <div class="icon bg1">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Added</h4>
+                            <span class="time"><i class="ti-time"></i>7 Minutes Ago</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>You missed you Password!</h4>
+                            <span class="time"><i class="ti-time"></i>09:20 Am</span>
+                        </div>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg3">
+                            <i class="fa fa-bomb"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Member waiting for you Attention</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="settings" class="tab-pane fade">
+                <div class="offset-settings">
+                    <h4>General Settings</h4>
+                    <div class="settings-list">
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Notifications</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch1" />
+                                    <label for="switch1">Toggle</label>
+                                </div>
+                            </div>
+                            <p>Keep it 'On' When you want to get all the notification.</p>
+                        </div>
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Show recent activity</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch2" />
+                                    <label for="switch2">Toggle</label>
+                                </div>
+                            </div>
+                            <p>The for attribute is necessary to bind our custom checkbox with the input.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- offset area end -->
     <!-- jquery latest version -->
     <script src="{{url_for('static', filename = 'assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/files.js')}}"></script>
     <!-- bootstrap 4 js -->
     <script src="{{url_for('static', filename = 'assets/js/popper.min.js')}}"></script>
     <script src="{{url_for('static', filename = 'assets/js/bootstrap.min.js')}}"></script>
@@ -180,6 +287,8 @@
     <!-- others plugins -->
     <script src="{{url_for('static', filename = 'assets/js/plugins.js')}}"></script>
     <script src="{{url_for('static', filename = 'assets/js/scripts.js')}}"></script>
+    
+
 </body>
 
 </html>
