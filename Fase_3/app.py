@@ -9,7 +9,8 @@ import json
 arbol_AVL = AVL()
 arbol_BPensum = ArbolB()
 passwordMaestro = "D4t4_3structur3"
-arbol_AVL.generarClave(passwordMaestro)
+passEstablecida = False
+# arbol_AVL.generarClave(passwordMaestro)
 
 app = Flask(__name__)
 app.secret_key = b'_Esta_3s_Una_CLAV3_js_js_js_j_xD_'
@@ -434,6 +435,17 @@ def passwordM():
 @app.route('/masivaPensum')
 def masivaPensum():
     return render_template('admin/cargarPensum.html')
+
+@app.route('/setPass', methods=['POST'])
+def setPass():
+    if request.method == 'POST':
+        pw = request.json['pw']
+        global passwordMaestro
+        global passEstablecida
+        passwordMaestro = pw;
+        arbol_AVL.generarClave(passwordMaestro)
+        passEstablecida = True
+        return jsonify({'Mensaje': True})
 
 # ?__________________________________________________________ USER  ________________________________________________________________
 
