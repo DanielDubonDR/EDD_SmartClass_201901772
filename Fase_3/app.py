@@ -143,6 +143,21 @@ def cargaMasiva():
     else:
         return jsonify({'Error': 'Tipo invalido'})
 
+@app.route('/cargaMasivaEstudiantes', methods=['POST'])
+def loadEstudiantes():
+    datos = request.json['estudiantes']
+    for estudiante in datos:
+        carnet = estudiante['carnet']
+        dpi = estudiante['DPI']
+        nombre = estudiante['nombre']
+        carrera = estudiante['carrera']
+        correo = estudiante['correo']
+        password = estudiante['password']
+        edad = estudiante['edad']
+        arbol_AVL.add(str(carnet), str(dpi), nombre, carrera, sha256(password), 0, str(edad), correo)
+    
+    return jsonify({'Mensaje': True})
+
 # ?______________________________________________________ CRUD ESTUDIANTES __________________________________________________________
 @app.route('/estudiante', methods=['POST', 'GET', 'PUT', 'DELETE'])
 def CRUD_Estudiantes():
@@ -446,6 +461,10 @@ def setPass():
         arbol_AVL.generarClave(passwordMaestro)
         passEstablecida = True
         return jsonify({'Mensaje': True})
+
+@app.route('/cargarUsers')
+def cargarUsers():
+    return render_template('admin/cargarEstudiantes.html', pasw=passEstablecida)
 
 # ?__________________________________________________________ USER  ________________________________________________________________
 
