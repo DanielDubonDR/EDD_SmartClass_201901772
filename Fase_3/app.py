@@ -58,6 +58,12 @@ def getHora(hora):
     hora = hora.split(':')
     return int(hora[0])
 
+def isEmpyArbol():
+    if arbol_AVL.root is None:
+        return True
+    else:
+        return False
+
 # !-------------------------------------------------------------- API ---------------------------------------------------------------
 
 # ?_________________________________________________________ CARGAS MASIVAS __________________________________________________________
@@ -248,7 +254,7 @@ def CreateCursosEstudiante():
 
         for estudiante in datos:
             carnet = estudiante['Carnet']
-            alumno = arbol_AVL.search(int(carnet))
+            alumno = arbol_AVL.search(carnet)
             if alumno is not None:
 
                 for anios in estudiante['Años']:
@@ -285,7 +291,7 @@ def CreateCursosEstudiante():
             else:
                 return jsonify({'Error': 'El carnet '+str(carnet)+' no se encuentra registrado'})
 
-        return jsonify({'Mensaje': 'Se han cargado los cursos de los estudiantes con exito'})
+        return jsonify({'Mensaje': True})
 
     else:
         return jsonify({'Error': 'Error no hay alumnos registrados'})
@@ -370,7 +376,7 @@ def graficar():
         anio = request.json['año']
         semestre = request.json['semestre']
         if arbol_AVL.root is not None:
-            alumno = arbol_AVL.search(int(carnet))
+            alumno = arbol_AVL.search(carnet)
             if alumno is not None:
                 listaYears = alumno.listaAnios
                 if listaYears.search(anio) is not False:
@@ -420,7 +426,6 @@ def login():
             return jsonify({'Mensaje': 'admin'})
 
         else:
-            # TODO:  REALIZAR LAS CARGAS MASIVAS EN ADMIN
             if arbol_AVL.validar(carnet, sha256(password)):
                 session['user'] = carnet
                 session['nombre'] = arbol_AVL.getNombre(carnet)
@@ -465,6 +470,10 @@ def setPass():
 @app.route('/cargarUsers')
 def cargarUsers():
     return render_template('admin/cargarEstudiantes.html', pasw=passEstablecida)
+
+@app.route('/cargarCursosUsers')
+def cargarCursosUsers():
+    return render_template('admin/cargarCursosEs.html', arbol=isEmpyArbol())
 
 # ?__________________________________________________________ USER  ________________________________________________________________
 
