@@ -1,51 +1,15 @@
  
         digraph BTree
         {
-        label="\nCursos Pensum" fontsize=25;
+        label="\nCursos año 2017 semestre 2" fontsize=25;
         rankdir=TB;
-        node[color=" #0a3d62",style="filled, rounded", fillcolor=" #82ccdd", shape=record penwidth=2, fontcolor=" #0a3d62"];
-        edge[color=" #0a3d62" penwidth=1.3 arrowhead=vee];
+        node[color=" #006266",style="filled, rounded", fillcolor=" #A3CB38", shape=record penwidth=2, fontcolor=" #006266"];
+        edge[color=" #006266" penwidth=1.3 arrowhead=vee];
         splines=false;
         
-		Nodo0147[label="<f0> | <f1>0147\nFisica basica | <f2>  | <f3>0770\nIntroduccion a la programacion y computacion 1 | <f4>  | <f5>0796\nLenguajes formales y de programacion | <f6>  ", group=0];
-		Nodo0008[label="<f0> | <f1>0008\nIdioma tecnico 2 | <f2>  | <f3>0017\nSocial Humanistica 1 | <f4>  | <f5>0039\nDeportes 1 | <f6>  | <f7>0107\nMatematica intermedia 1 | <f8>  ", group=0];
-		Nodo0005[label="<f0> | <f1>0005\nTecnicas de estudio y de investigacion | <f2>  | <f3>0006\nIdioma tecnico 1 | <f4>  ", group=0];
-		Nodo0009[label="<f0> | <f1>0009\nIdioma tecnico 3 | <f2>  | <f3>0011\nIdioma tecnico 4 | <f4>  | <f5>0014\nEconomia | <f6>  ", group=0];
-		Nodo0018[label="<f0> | <f1>0018\nFilosofia de la ciencia | <f2>  | <f3>0019\nSocial Humanistica 2 | <f4>  ", group=0];
-		Nodo0101[label="<f0> | <f1>0101\nMatematica Basica 1 | <f2>  | <f3>0103\nMatematica Basica 2 | <f4>  ", group=0];
-		Nodo0112[label="<f0> | <f1>0112\nMatematica intermedia 2 | <f2>  | <f3>0114\nMatematica intermedia 3 | <f4>  | <f5>0116\nMatematica aplicada 3 | <f6>  | <f7>0118\nMatematica aplicada 1 | <f8>  ", group=0];
-		Nodo0281[label="<f0> | <f1>0281\nSistemas operativos 1 | <f2>  | <f3>0348\nQuimica General 1 | <f4>  | <f5>0724\nTeoria de sistemas 2 | <f6>  ", group=0];
-		Nodo0150[label="<f0> | <f1>0150\nFisica 1 | <f2>  | <f3>0152\nFisica 2 | <f4>  ", group=0];
-		Nodo0283[label="<f0> | <f1>0283\nAnalisis y diseño de sistemas 1 | <f2>  | <f3>0285\nSistemas operativos 2 | <f4>  ", group=0];
-		Nodo0601[label="<f0> | <f1>0601\nInvestigacion de operaciones 1 | <f2>  | <f3>0603\nInvestigacion de operaciones 2 | <f4>  | <f5>0720\nModelacion y simulacion 2 | <f6>  | <f7>0722\nTeoria de sistemas 1 | <f8>  ", group=0];
-		Nodo0729[label="<f0> | <f1>0729\nModelacion y simulacion 1 | <f2>  | <f3>0732\nEstadistica 1 | <f4>  | <f5>0736\nAnalisis probabilistico | <f6>  ", group=0];
-		Nodo0777[label="<f0> | <f1>0777\nOrganizacion de lenguajes y compiladores 1 | <f2>  | <f3>0781\nOrganizacion de lenguajes y compiladores 2 | <f4>  ", group=0];
-		Nodo0771[label="<f0> | <f1>0771\nIntroduccion a la programacion y computacion 2 | <f2>  | <f3>0772\nEstructura de datos | <f4>  | <f5>0773\nManejo e implementacion de archivos | <f6>  | <f7>0775\nSistemas de bases de datos 2 | <f8>  ", group=0];
-		Nodo0778[label="<f0> | <f1>0778\nArquitectura de computadores y ensambladores 1 | <f2>  | <f3>0779\nArquitectura de computadores y ensambladores 2 | <f4>  | <f5>0780\nSoftware avanzado | <f6>  ", group=0];
-		Nodo0785[label="<f0> | <f1>0785\nAnalisis y diseño de sistemas 2 | <f2>  | <f3>0786\nSistemas organizacionales y gerenciales 1 | <f4>  | <f5>0787\nSistemas organizacionales y gerenciales 2 | <f6>  | <f7>0795\nLogica de sistemas | <f8>  ", group=0];
-		Nodo0799[label="<f0> | <f1>0799\nSeminario de investigacion | <f2>  | <f3>0964\nOrganizacion computacional | <f4>  | <f5>0975\nRedes de computadoras 2 | <f6>  ", group=0];
-		Nodo0797[label="<f0> | <f1>0797\nSeminario de sistemas 1 | <f2>  | <f3>0798\nSeminario de sistemas 2 | <f4>  ", group=0];
-		Nodo0960[label="<f0> | <f1>0960\nMatematica computo 1 | <f2>  | <f3>0962\nMatematica computo 2 | <f4>  ", group=0];
-		Nodo0970[label="<f0> | <f1>0970\nRedes de computadoras 1 | <f2>  | <f3>0972\nSistemas organizacionales y gerenciales 1 | <f4>  ", group=0];
-		Nodo2009[label="<f0> | <f1>2009\nPractica final | <f2>  | <f3>2025\nPractica inicial | <f4>  | <f5>2036\nPractica intermedia | <f6>  ", group=0];
-		Nodo0147:f0->Nodo0008
-		Nodo0147:f2->Nodo0281
-		Nodo0147:f4->Nodo0777
-		Nodo0147:f6->Nodo0799
-		Nodo0008:f0->Nodo0005
-		Nodo0008:f2->Nodo0009
-		Nodo0008:f4->Nodo0018
-		Nodo0008:f6->Nodo0101
-		Nodo0008:f8->Nodo0112
-		Nodo0281:f0->Nodo0150
-		Nodo0281:f2->Nodo0283
-		Nodo0281:f4->Nodo0601
-		Nodo0281:f6->Nodo0729
-		Nodo0777:f0->Nodo0771
-		Nodo0777:f2->Nodo0778
-		Nodo0777:f4->Nodo0785
-		Nodo0799:f0->Nodo0797
-		Nodo0799:f2->Nodo0960
-		Nodo0799:f4->Nodo0970
-		Nodo0799:f6->Nodo2009
+		Nodo0152[label="<f0> | <f1>0152\nFisica 2 | <f2>  ", group=0];
+		Nodo0011[label="<f0> | <f1>0011\nIdioma tecnico 4 | <f2>  | <f3>0112\nMatematica intermedia 2 | <f4>  | <f5>0114\nMatematica intermedia 3 | <f6>  ", group=0];
+		Nodo0771[label="<f0> | <f1>0771\nIntroduccion a la programacion y computacion 2 | <f2>  | <f3>0962\nMatematica computo 2 | <f4>  | <f5>2025\nPractica inicial | <f6>  ", group=0];
+		Nodo0152:f0->Nodo0011
+		Nodo0152:f2->Nodo0771
 	}
