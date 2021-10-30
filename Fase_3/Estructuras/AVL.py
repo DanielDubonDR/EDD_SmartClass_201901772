@@ -252,7 +252,7 @@ class  AVL:
     def _preordenG1(self, root):
         if root is not None:
             self._preordenG1(root.izq)
-            self.string += "\n\t\t" + self.desencriptar(root.carnet) + " [shape=plain label= \""+self.txt(root.nombre)+"\\n"+str(root.carrera)+"\"];"
+            self.string += "\n\t\t" + self.desencriptar(root.carnet) + " [shape=plain label= \""+self.txt(root.nombre)+"\\n"+self.txt(root.dpi)+"\\n"+self.txt(root.correo)+"\\n"+self.txt(root.password)+"\"];"
             self.string += "\n\t\t{rank=same; n" + self.desencriptar(root.carnet) + "; " + self.desencriptar(root.carnet) + "}"
             self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " -> " + self.desencriptar(root.carnet) + ";"
             self._preordenG1(root.der)
@@ -276,7 +276,7 @@ class  AVL:
     def _preordenG2(self, root):
         if root is not None:
             self._preordenG2(root.izq)
-            self.string += "\n\t\t" + self.desencriptar(root.carnet) + " [shape=plain label= \""+self.desencriptar(root.nombre)+"\\n"+str(root.carrera)+"\"];"
+            self.string += "\n\t\t" + self.desencriptar(root.carnet) + " [shape=plain label= \""+self.desencriptar(root.nombre)+"\\n"+self.desencriptar(root.dpi)+"\\n"+self.desencriptar(root.correo)+"\\n"+self.txt1(self.desencriptar(root.password))+"\"];"
             self.string += "\n\t\t{rank=same; n" + self.desencriptar(root.carnet) + "; " + self.desencriptar(root.carnet) + "}"
             self.string += "\n\t\tn" + self.desencriptar(root.carnet) + " -> " + self.desencriptar(root.carnet) + ";"
             self._preordenG2(root.der)
@@ -356,4 +356,7 @@ class  AVL:
     
     def txt(self, dato):
         result = dato.decode()
-        return result[0:6]
+        return result[9:15]
+    
+    def txt1(self, dato):
+        return dato[0:9]
