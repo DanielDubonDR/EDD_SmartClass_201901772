@@ -475,6 +475,13 @@ def cargarUsers():
 def cargarCursosUsers():
     return render_template('admin/cargarCursosEs.html', arbol=isEmpyArbol())
 
+@app.route('/reporteUsuarios')
+def reporteUsuarios():
+    return render_template('admin/reporteUsuarios.html')
+
+# TODO: realizar reportes, preguntar como son los reportes y que datos mostrar
+# TODO: arreglar reporte usuarios mostrar mas datos encriptados
+
 # ?__________________________________________________________ USER  ________________________________________________________________
 
 @app.route('/usuario')
