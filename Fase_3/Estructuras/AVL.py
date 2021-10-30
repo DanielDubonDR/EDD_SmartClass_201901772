@@ -8,6 +8,7 @@ import base64
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+import shutil
 
 class Node:
     def __init__(self, carnet, dpi, nombre, carrera, password, creditos, edad, correo):
@@ -313,10 +314,10 @@ class  AVL:
         self.preordenG2()
         self.string += "\n\t}"
         # print(self.string)
-        self.generarArchivo()
+        self.generarArchivo2()
     
     def generarArchivo(self):
-        path_desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"\\Reportes_F2"
+        path_desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"\\Reportes_F3"
         path_current = "{}{}".format(os.path.abspath(os.path.dirname(__file__)), '\\')
         path_current = path_current.replace("\\Estructuras", "")+"Archivos_dot"
         pathdot = Path(path_current)
@@ -326,8 +327,24 @@ class  AVL:
         archivo=open("Archivos_dot\\AVL.dot", 'w', encoding='utf8')
         archivo.write(self.string)
         archivo.close()
-        os.system('cd Archivos_dot& dot -Tpdf AVL.dot -o '+path_desktop+'\\AVL.pdf')
-        os.startfile(path_desktop+"\\AVL.pdf")
+        os.system('cd Archivos_dot& dot -Tpdf AVL.dot -o '+path_desktop+'\\AVL_Encriptado.pdf')
+        shutil.copy(path_desktop+'\\AVL_Encriptado.pdf', 'static\\reportes\\AVL_Encriptado.pdf')
+        # os.startfile(path_desktop+"\\AVL_Encriptado.pdf")
+    
+    def generarArchivo2(self):
+        path_desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"\\Reportes_F3"
+        path_current = "{}{}".format(os.path.abspath(os.path.dirname(__file__)), '\\')
+        path_current = path_current.replace("\\Estructuras", "")+"Archivos_dot"
+        pathdot = Path(path_current)
+        pathdot.mkdir(parents=True, exist_ok=True)
+        path = Path(path_desktop)
+        path.mkdir(parents=True, exist_ok=True)
+        archivo=open("Archivos_dot\\AVL.dot", 'w', encoding='utf8')
+        archivo.write(self.string)
+        archivo.close()
+        os.system('cd Archivos_dot& dot -Tpdf AVL.dot -o '+path_desktop+'\\AVL_Desencriptado.pdf')
+        shutil.copy(path_desktop+'\\AVL_Desencriptado.pdf', 'static\\reportes\\AVL_Desencriptado.pdf')
+        # os.startfile(path_desktop+"\\AVL_Desencriptado.pdf")
 
     def txt(self, dato):
         result = dato.decode()

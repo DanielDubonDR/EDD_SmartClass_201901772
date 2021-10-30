@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Inicio</title>
+    <title>Reporte Usuarios</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/font-awesome.min.css')}}">
@@ -68,11 +68,11 @@
                                     <li><a href="#">Corregir árbol de merkle</a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-files"></i><span>Reportes</span></a>
                                 <ul class="collapse">
                                     <li><a href="#">Apuntes estudiantes</a></li>
-                                    <li><a href="#">Estudiantes registrados</a></li>
+                                    <li class="active"><a href="#">Estudiantes registrados</a></li>
                                     <li><a href="#">Grafo de prerrequisitos</a></li>
                                     <li><a href="#">Encriptación del árbol de merkle</a></li>
                                 </ul>
@@ -132,6 +132,7 @@
                             <h4 class="page-title pull-left">Inicio</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="/admin">Inicio</a></li>
+                                <li><span>Reporte Usuarios</span></li>
                             </ul>
                         </div>
                     </div>
@@ -150,7 +151,23 @@
                 <br>
                 <div class="card">
                     <div class="card-body">
-                        <embed src="{{url_for("static", filename = 'reportes/AVL.pdf')}}" type="application/pdf" width="100%" height="400px" />
+                        {% if arbol == False %}
+                            <h1 class="text-primary" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 32px;">Reporte Encriptado</h1>
+                            <br>
+                            <embed src="{{url_for("static", filename = 'reportes/AVL_Encriptado.pdf')}}" type="application/pdf" width="100%" height="450px" />
+                            <br><br><br><br><br>
+                            <h1 class="text-primary" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 32px;">Reporte Desencriptado</h1>
+                            <br>
+                            <embed src="{{url_for("static", filename = 'reportes/AVL_Desencriptado.pdf')}}" type="application/pdf" width="100%" height="450px" />
+                        {% else %}
+                            <div class="col-md-6">
+                                <br><br><br><br><br><br><br>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>No se han cargado estudiantes</strong>
+                                </div>
+                                <br><br><br><br><br>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

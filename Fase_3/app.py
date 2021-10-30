@@ -477,7 +477,11 @@ def cargarCursosUsers():
 
 @app.route('/reporteUsuarios')
 def reporteUsuarios():
-    return render_template('admin/reporteUsuarios.html')
+    if isEmpyArbol():
+        return render_template('admin/reporteUsuarios.html', arbol=True)
+    else:
+        arbol_AVL.graficar()
+        return render_template('admin/reporteUsuarios.html', arbol=False)
 
 # TODO: realizar reportes, preguntar como son los reportes y que datos mostrar
 # TODO: arreglar reporte usuarios mostrar mas datos encriptados
