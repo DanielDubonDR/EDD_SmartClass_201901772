@@ -2,6 +2,9 @@
 # &_________________________________________________________ tablaHash.py _________________________________________________________________
 
 import Estructuras.Solovay_Strassen as primo
+import os
+from pathlib import Path
+import shutil
 
 class Node:
     def __init__(self, carnet, list):
@@ -93,7 +96,7 @@ class tablaHash:
         else:
             return False
     
-    def reporte(self):
+    def generarReporte(self):
         self.enlaces = ""
         self.string = """digraph G {
         nodesep=.05;
@@ -104,7 +107,7 @@ class tablaHash:
         self.generateNodos()
         self.string += self.enlaces
         self.string +="\n}"
-        print(self.string)
+        self.generarArchivo()
     
     # *node0 [label = " <f0>201901772|<f1>201901772|<f2> 201901772 |<f5>201901772|<f6>201901772" height=3];
 
@@ -131,3 +134,16 @@ class tablaHash:
                         self.enlaces += "\t\t\nnode0:f"+str(i)+" -> node"+str(i)+str(apuntes.id)
                     cont += 1
 
+    def generarArchivo(self):
+        path_desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"\\Reportes_F3"
+        path_current = "{}{}".format(os.path.abspath(os.path.dirname(__file__)), '\\')
+        path_current = path_current.replace("\\Estructuras", "")+"Archivos_dot"
+        pathdot = Path(path_current)
+        pathdot.mkdir(parents=True, exist_ok=True)
+        path = Path(path_desktop)
+        path.mkdir(parents=True, exist_ok=True)
+        archivo=open("Archivos_dot\\Apuntes.dot", 'w', encoding='utf8')
+        archivo.write(self.string)
+        archivo.close()
+        os.system('cd Archivos_dot& dot -Tpdf Apuntes.dot -o '+path_desktop+'\\ApuntesEstudiantes.pdf')
+        shutil.copy(path_desktop+'\\ApuntesEstudiantes.pdf', 'static\\reportes\\ApuntesEstudiantes.pdf')

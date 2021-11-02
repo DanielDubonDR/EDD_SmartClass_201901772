@@ -506,7 +506,15 @@ def reporteUsuarios():
 def cargarApuntes():
     return render_template('admin/cargarApuntes.html')
 
-# TODO: realizar e implementar tabla hash
+@app.route('/reporteApuntes')
+def reporteApuntes():
+    if hash_Table.isEmpy():
+        return render_template('admin/reporteApuntes.html', table=True)
+    else:
+        hash_Table.generarReporte()
+        return render_template('admin/reporteApuntes.html', table=False)
+
+# TODO: implementar apuntes estudiante
 
 # ?__________________________________________________________ USER  ________________________________________________________________
 
