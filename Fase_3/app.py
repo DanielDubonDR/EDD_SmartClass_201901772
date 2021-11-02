@@ -522,6 +522,18 @@ def reporteApuntes():
 def usuario():
     return render_template('user/inicio.html', user=session['user'], nombre=session['nombre'])
 
+@app.route('/verApuntes')
+def verApuntes():
+    return render_template('user/apuntes.html')
+
+@app.route('/verApunte')
+def verApunte():
+    return render_template('user/visualizarApunte.html')
+
+@app.route('/addApunte')
+def addApunte():
+    return render_template('user/crearApunte.html')
+
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
 
 # &_________________________________________________________ SHA256 _________________________________________________________________

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Inicio</title>
+    <title>Apuntes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/font-awesome.min.css')}}">
@@ -66,11 +66,11 @@
                         <div class="horizontal-menu">
                             <nav>
                                 <ul id="nav_menu">
-                                    <li class="active"><a href="/usuario"><i class="ti-home"></i> <span>Inicio</span></a></li>
-                                    <li>
+                                    <li><a href="/usuario"><i class="ti-home"></i> <span>Inicio</span></a></li>
+                                    <li class="active">
                                         <a href="javascript:void(0)"><i class="fa fa-sticky-note-o"></i><span>Apuntes</span></a>
                                         <ul class="submenu">
-                                            <li><a href="/verApuntes">Ver apuntes</a></li>
+                                            <li class="active"><a href="/verApuntes">Ver apuntes</a></li>
                                             <li><a href="/addApunte">Realizar apuntes</a></li>
                                         </ul>
                                     </li>
@@ -92,15 +92,40 @@
         <!-- header area end -->
         <!-- page title area end -->
         <div class="main-content-inner">
-            <br>
-            <div class="card">
-                <div class="card-body">
-                    <br><br><br><br><br><br><br>
-                    <h1 style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 70px;">Bienvenido...</h1>
-                    <h1 class="text-info" style="font-family: Lobster, serif; font-size: 50px;">{{nombre}}</h1>
-                    <br><br><br><br><br><br><br>
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-secondary" style="font-family: Lobster, serif; font-size: 30px;">Apuntes</h1>
+                        <br>
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table table-hover progress-table text-center" style="font-family: Yanone Kaffeesatz, serif; font-size: 18px;">
+                                    <thead class="text-uppercase">
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Titulo</th>
+                                            <th scope="col">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>
+                                                <ul class="d-flex justify-content-center">
+                                                    <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-external-link"></i></a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
                 </div>
             </div>
+            <br><br><br><br><br><br><br><br><br>
         </div>
         <!-- main content area end -->
         <!-- footer area start-->

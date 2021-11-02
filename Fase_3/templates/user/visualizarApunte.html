@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Inicio</title>
+    <title>Apuntes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/font-awesome.min.css')}}">
@@ -66,11 +66,11 @@
                         <div class="horizontal-menu">
                             <nav>
                                 <ul id="nav_menu">
-                                    <li class="active"><a href="/usuario"><i class="ti-home"></i> <span>Inicio</span></a></li>
-                                    <li>
+                                    <li><a href="/usuario"><i class="ti-home"></i> <span>Inicio</span></a></li>
+                                    <li class="active">
                                         <a href="javascript:void(0)"><i class="fa fa-sticky-note-o"></i><span>Apuntes</span></a>
                                         <ul class="submenu">
-                                            <li><a href="/verApuntes">Ver apuntes</a></li>
+                                            <li class="active"><a href="/verApuntes">Ver apuntes</a></li>
                                             <li><a href="/addApunte">Realizar apuntes</a></li>
                                         </ul>
                                     </li>
@@ -92,15 +92,39 @@
         <!-- header area end -->
         <!-- page title area end -->
         <div class="main-content-inner">
-            <br>
-            <div class="card">
-                <div class="card-body">
-                    <br><br><br><br><br><br><br>
-                    <h1 style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 70px;">Bienvenido...</h1>
-                    <h1 class="text-info" style="font-family: Lobster, serif; font-size: 50px;">{{nombre}}</h1>
-                    <br><br><br><br><br><br><br>
+            
+                <!-- Bootstrap Grid start -->
+                <div class="col-12 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Start 6 column grid system -->
+                            <div class="row">
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-6">
+                                    <br>
+                                    <div style="text-align: center;">
+                                        <h1 class="text-secondary" style="font-family: Lobster, serif; font-size: 32px;">Titulos de lasdf</h1>
+                                    </div>
+                                    <br>
+                                    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptas consequuntur quibusdam, eos sint molestiae odio atque cupiditate beatae labore ducimus voluptatum, sit doloribus soluta numquam dolor, possimus autem libero? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim quam dignissimos quia quis autem quos expedita nisi architecto hic possimus adipisci cumque similique ducimus quisquam excepturi aliquam, quod laboriosam? Consectetur! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus quae qui repellendus distinctio voluptatibus beatae numquam quod quidem aspernatur, ipsa, adipisci repudiandae id hic labore suscipit recusandae enim quaerat mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam totam quisquam nemo fuga modi soluta eum cupiditate veritatis mollitia? Nihil aperiam beatae at excepturi laboriosam nobis ab veniam, quam quibusdam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore voluptas quisquam explicabo ipsum id impedit ut similique placeat dolorem sapiente laborum natus fuga iusto voluptates repudiandae sequi, velit magnam minima.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="preview"></div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <br><br>
+                    </div>
                 </div>
             </div>
+            
         </div>
         <!-- main content area end -->
         <!-- footer area start-->
