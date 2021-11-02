@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cargar cursos estudiantes</title>
+    <title>Cargar Apuntes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/font-awesome.min.css')}}">
@@ -55,12 +55,12 @@
                                     <li><a href="javascript:void(0)" aria-expanded="true">Cargar estudiantes</a>
                                         <ul class="collapse">
                                             <li><a href="/pass">Establecer password maestro</a></li>
-                                            <li ><a href="/cargarUsers">Cargar Estudiantes</a></li>
+                                            <li><a href="/cargarUsers">Cargar Estudiantes</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/masivaPensum">Cargar cursos pensum</a></li>
-                                    <li class="active"><a href="/cargarCursosUsers">Cargar cursos estudiantes</a></li>
-                                    <li><a href="/cargarApuntes">Cargar apuntes estudiantes</a></li>
+                                    <li><a href="/cargarCursosUsers">Cargar cursos estudiantes</a></li>
+                                    <li class="active"><a href="/cargarApuntes">Cargar apuntes estudiantes</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -73,7 +73,7 @@
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-files"></i><span>Reportes</span></a>
                                 <ul class="collapse">
-                                    <li><a href="#">Apuntes estudiantes</a></li>
+                                    <li><a href="/reporteApuntes">Apuntes estudiantes</a></li>
                                     <li><a href="/reporteUsuarios">Estudiantes registrados</a></li>
                                     <li><a href="#">Grafo de prerrequisitos</a></li>
                                     <li><a href="#">Encriptación del árbol de merkle</a></li>
@@ -133,8 +133,8 @@
                         <div class="breadcrumbs-area clearfix">
                             <h4 class="page-title pull-left">Dashboard</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="/admin">Home</a></li>
-                                <li><span>Carga Cursos Estudiantes</span></li>
+                                <li><a href="index.html">Home</a></li>
+                                <li><span>Cargar Apuntes</span></li>
                             </ul>
                         </div>
                     </div>
@@ -159,22 +159,12 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                     </div>
-                                    {% if arbol == False %}
                                     <div class="col-md-6 drop-area">
                                         <h2>Arrastra y suelta el archivo</h2>
                                         <span>o</span>
                                         <button>Selecciona tus archivos</button>
                                         <input type="file" name="" id="input-file" hidden multiple/>
                                     </div>
-                                    {% else %}
-                                        <div class="col-md-6">
-                                            <br><br><br><br><br><br><br>
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <strong>No se han cargado estudiantes</strong>
-                                            </div>
-                                            <br><br><br><br><br>
-                                        </div>
-                                    {% endif %}
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
@@ -202,7 +192,7 @@
     <!-- page container area end -->
     <!-- jquery latest version -->
     <script src="{{url_for('static', filename = 'assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
-    <script src="{{url_for('static', filename = 'js/filesCursosEs.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/filesApuntes.js')}}"></script>
     <!-- bootstrap 4 js -->
     <script src="{{url_for('static', filename = 'assets/js/popper.min.js')}}"></script>
     <script src="{{url_for('static', filename = 'assets/js/bootstrap.min.js')}}"></script>

@@ -483,8 +483,11 @@ def reporteUsuarios():
         arbol_AVL.graficar()
         return render_template('admin/reporteUsuarios.html', arbol=False)
 
-# TODO: realizar reportes, preguntar como son los reportes y que datos mostrar
-# TODO: arreglar reporte usuarios mostrar mas datos encriptados
+@app.route('/cargarApuntes')
+def cargarApuntes():
+    return render_template('admin/cargarApuntes.html')
+
+# TODO: realizar e implementar tabla hash
 
 # ?__________________________________________________________ USER  ________________________________________________________________
 
