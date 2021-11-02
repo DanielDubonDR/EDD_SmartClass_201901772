@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request, render_template, redirect, session
 import hashlib
 from Estructuras.AVL import AVL
 from Estructuras.Arbol_BPensum import ArbolB
+from Estructuras.tablaHash import tablaHash
+from Estructuras.listaApuntes import notesList
 # from flask_cors import  CORS
 import json
 
@@ -10,6 +12,7 @@ arbol_AVL = AVL()
 arbol_BPensum = ArbolB()
 passwordMaestro = "D4t4_3structur3"
 passEstablecida = False
+hash_Table = tablaHash()
 # arbol_AVL.generarClave(passwordMaestro)
 
 app = Flask(__name__)
@@ -161,6 +164,22 @@ def loadEstudiantes():
         password = estudiante['password']
         edad = estudiante['edad']
         arbol_AVL.add(str(carnet), str(dpi), nombre, carrera, sha256(password), 0, str(edad), correo)
+    
+    return jsonify({'Mensaje': True})
+
+@app.route('/loadApuntes', methods=['POST'])
+def loadApuntes():
+    datos = request.json['usuarios']
+    for usuario in datos:
+        notes = notesList()
+        carnet = usuario['carnet']
+        # print(carnet)
+        for apunte in usuario['apuntes']:
+            titulo = apunte['Título']
+            contenido = apunte['Contenido']
+            notes.append(titulo, contenido)
+        
+        hash_Table.insert(carnet, notes)
     
     return jsonify({'Mensaje': True})
 
