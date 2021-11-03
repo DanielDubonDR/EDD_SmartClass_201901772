@@ -104,10 +104,14 @@
                                 <div class="col-md-6">
                                     <br>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Título" id="example-text-input">
+                                        <input class="form-control" type="text" placeholder="Título" style="font-family: 'Yanone Kaffeesatz', monospace; font-size: 20px;" id="titulo">
                                     </div>
                                     <br>
-                                    <textarea name="" id=""  rows="18" style="width: 100%;" placeholder="  Apuntes"></textarea>
+                                    <textarea class="form-control" style="font-family: 'Yanone Kaffeesatz', monospace; font-size: 18px;" id="contenido" aria-label="With textarea" rows="12" placeholder="Apuntes"></textarea>
+                                    <br>
+                                    <button type="button" class="btn btn-info btn-lg btn-block" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;" onclick="enviar()">Agregar Apunte</button>
+                                    <br>
+                                    <div id="al"></div>
                                 </div>
                             </div>
                             <div class="row">
@@ -135,7 +139,62 @@
         </footer>
         <!-- footer area end-->
     </div>
-    <!-- main wrapper start -->
+    <script>
+        function enviar()
+        {
+            let p1 = document.getElementById("titulo").value;
+            let p2 = document.getElementById("contenido").value;
+
+            if( p1 !== "" && p2 !== "")
+            {
+                var objeto = {
+                    'titulo': p1,
+                    'contenido': p2
+                }
+                // console.log(objeto);
+                fetch('/addNote', 
+                { method: 'POST', body: JSON.stringify(objeto), headers:{ 'Content-Type': 'application/json'}}).then(res => res.json())
+                .catch(error => { 
+                    console.error('Error:', error)
+                    alert("Ocurrio un error")
+                })
+                .then(response =>{
+                    console.log('Success:', response);
+                    if(response.Mensaje == true)
+                    {
+                        const text = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <strong>Apunte agregado con exito con éxito</strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span class="fa fa-times"></span>
+                                                </button>
+                                            </div>`;
+            
+                        const html = document.querySelector("#al").innerHTML;
+                        document.querySelector("#al").innerHTML = text + html;
+                    }
+                    setTimeout("redireccionar()", 900)
+                }) 
+            
+            }
+            else
+            {
+                const text = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    <strong>¡ Llene todos los campos !</strong>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span class="fa fa-times"></span>
+                                                    </button>
+                                                </div>`;
+                
+                const html = document.querySelector("#al").innerHTML;
+                document.querySelector("#al").innerHTML = text + html;
+            }
+        }
+
+        function redireccionar()
+        {
+            location.reload();
+        }
+    </script>
     
     <!-- jquery latest version -->
     <script src="{{url_for('static', filename = 'assets/js/vendor/jquery-2.2.4.min.js')}}"></script>

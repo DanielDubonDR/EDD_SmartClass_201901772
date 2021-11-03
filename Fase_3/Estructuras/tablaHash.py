@@ -80,13 +80,13 @@ class tablaHash:
         return self.n/self.size
     
     def search(self, carnet):
-        cont = 1
+        cont = 0
         while True:
             i = self.exploracionCuadratica(carnet, cont)
             if self.hash_list[i] is None:
                 return None
             elif self.hash_list[i].carnet == carnet:
-                return self.hash_list[i].carnet
+                return self.hash_list[i]
             else:
                 cont += 1
     

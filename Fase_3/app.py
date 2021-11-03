@@ -532,7 +532,27 @@ def verApunte():
 
 @app.route('/addApunte')
 def addApunte():
-    return render_template('user/crearApunte.html')
+    return render_template('user/crearApunte.html', user=session['user'])
+
+@app.route('/addNote', methods=['POST'])
+def addNote():
+    titulo = request.json['titulo']
+    contenido = request.json['contenido']
+
+    apunte = hash_Table.search(int(session['user']))
+
+    if apunte is not None:
+        apunte.list.append(titulo, contenido)
+        hash_Table.generarReporte()
+        return jsonify({'Mensaje': True})
+    
+    else:
+        newList = notesList()
+        newList.append(titulo, contenido)
+        hash_Table.insert(int(session['user']), newList)
+        hash_Table.generarReporte()
+        return jsonify({'Mensaje': True})
+
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
 

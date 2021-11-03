@@ -3,32 +3,18 @@ digraph G {
         rankdir=LR;
         node [shape=record color="#c23616" style = "filled" fillcolor = "#ff6b6b" fontcolor=white penwidth=2.5 width = 2.2];		
 
-node0 [label = " |  |  | <f3>202100001|<f4>202100020|<f5>202100003|<f6>202100004|<f7>202100043| |  | <f10>202100008| |  | <f13>202100011|<f14>202100012|<f15>202100032| |  | " height=18];		
+node0 [label = " |  | <f2>201901772| |  |  | " height=6];		
 node [shape=note color="#01a3a4" width = 2 height=0.7 style = filled fillcolor = "#00d2d3" fontcolor=black penwidth=2];		
-node31 [label = "pendientes"];		
-node32 [label = "block chain"];		
-node33 [label = "tabla hash"];		
-node41 [label = "tareas pendientes"];		
-node51 [label = "Lab edd -18/10"];		
-node52 [label = "resumen primer parcial -fisica2"];		
-node61 [label = "tareas pendientes"];		
-node71 [label = "tareas pendientes"];		
-node101 [label = "EDD"];		
-node102 [label = "resumen"];		
-node131 [label = "tareas pendientes"];		
-node141 [label = "tareas pendientes"];		
-node151 [label = "tareas pendientes"];		
-node0:f3 -> node31		
-node31 -> node32		
-node32 -> node33		
-node0:f4 -> node41		
-node0:f5 -> node51		
-node51 -> node52		
-node0:f6 -> node61		
-node0:f7 -> node71		
-node0:f10 -> node101		
-node101 -> node102		
-node0:f13 -> node131		
-node0:f14 -> node141		
-node0:f15 -> node151
+node21 [label = "Hola que hace"];		
+node22 [label = "hola que hace 2"];		
+node23 [label = "Si funciona carajo"];		
+node24 [label = "siuuuuuu"];		
+node25 [label = "tyyyyy"];		
+node26 [label = "ggggg"];		
+node0:f2 -> node21		
+node21 -> node22		
+node22 -> node23		
+node23 -> node24		
+node24 -> node25		
+node25 -> node26
 }
