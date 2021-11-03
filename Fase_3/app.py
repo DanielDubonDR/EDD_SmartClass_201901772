@@ -514,7 +514,7 @@ def reporteApuntes():
         hash_Table.generarReporte()
         return render_template('admin/reporteApuntes.html', table=False)
 
-# TODO: implementar apuntes estudiante
+# TODO: implementar asignar cursos y ver cursos asignados
 
 # ?__________________________________________________________ USER  ________________________________________________________________
 
@@ -524,11 +524,19 @@ def usuario():
 
 @app.route('/verApuntes')
 def verApuntes():
-    return render_template('user/apuntes.html')
+    apunte = hash_Table.search(int(session['user']))
+    if apunte is not None:
+        return render_template('user/apuntes.html', user=session['user'], apuntes=apunte.list)
+    else:
+        return render_template('user/apuntes.html', user=session['user'], apuntes=None)
 
-@app.route('/verApunte')
-def verApunte():
-    return render_template('user/visualizarApunte.html')
+@app.route('/verApunte/<int:id>')
+def verApunte(id):
+    apunte = hash_Table.search(int(session['user']))
+    for i in apunte.list.iterar():
+        if i.id == id:
+
+            return render_template('user/visualizarApunte.html', user=session['user'], titulo=i.titulo, contenido=i.contenido)
 
 @app.route('/addApunte')
 def addApunte():
@@ -543,14 +551,14 @@ def addNote():
 
     if apunte is not None:
         apunte.list.append(titulo, contenido)
-        hash_Table.generarReporte()
+
         return jsonify({'Mensaje': True})
     
     else:
         newList = notesList()
         newList.append(titulo, contenido)
         hash_Table.insert(int(session['user']), newList)
-        hash_Table.generarReporte()
+        
         return jsonify({'Mensaje': True})
 
 

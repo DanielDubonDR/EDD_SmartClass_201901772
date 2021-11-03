@@ -92,6 +92,7 @@
         <!-- header area end -->
         <!-- page title area end -->
         <div class="main-content-inner">
+            {% if apuntes != None %}
             <div class="col-12 mt-5">
                 <div class="card">
                     <div class="card-body">
@@ -108,15 +109,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for apunte in apuntes.iterar() %}
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
+                                            <th scope="row">{{apunte.id}}</th>
+                                            <td>{{apunte.titulo}}</td>
                                             <td>
                                                 <ul class="d-flex justify-content-center">
-                                                    <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-external-link"></i></a></li>
+                                                    <li class="mr-3"><a href="/verApunte/{{apunte.id}}" class="text-secondary"><i class="fa fa-external-link"></i></a></li>
                                                 </ul>
                                             </td>
                                         </tr>
+                                        {% endfor%}
                                     </tbody>
                                 </table>
                             </div>
@@ -124,8 +127,40 @@
                     </div>
                     <br><br>
                 </div>
+                <br><br><br><br><br><br><br><br><br>
             </div>
-            <br><br><br><br><br><br><br><br><br>
+            {% else %}
+                
+                    <!-- Bootstrap Grid start -->
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Start 6 column grid system -->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                    </div>
+                                        <div class="col-md-6">
+                                            <br><br><br><br><br><br><br>
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <strong>¡ No tienes apuntes !</strong> <a href="/addApunte"> <br> Realizar apuntes</a>
+                                            </div>
+                                            <br><br><br><br><br>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="preview"></div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                
+            {% endif %}
         </div>
         <!-- main content area end -->
         <!-- footer area start-->

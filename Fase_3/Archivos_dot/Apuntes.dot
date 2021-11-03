@@ -3,18 +3,18 @@ digraph G {
         rankdir=LR;
         node [shape=record color="#c23616" style = "filled" fillcolor = "#ff6b6b" fontcolor=white penwidth=2.5 width = 2.2];		
 
-node0 [label = " |  | <f2>201901772| |  |  | " height=6];		
+node0 [label = " | <f1>201210811| |  | <f4>201183728|<f5>201000244|" height=6];		
 node [shape=note color="#01a3a4" width = 2 height=0.7 style = filled fillcolor = "#00d2d3" fontcolor=black penwidth=2];		
-node21 [label = "Hola que hace"];		
-node22 [label = "hola que hace 2"];		
-node23 [label = "Si funciona carajo"];		
-node24 [label = "siuuuuuu"];		
-node25 [label = "tyyyyy"];		
-node26 [label = "ggggg"];		
-node0:f2 -> node21		
-node21 -> node22		
-node22 -> node23		
-node23 -> node24		
-node24 -> node25		
-node25 -> node26
+node11 [label = "pendientes"];		
+node12 [label = "block chain"];		
+node13 [label = "tabla hash"];		
+node41 [label = "Lab edd -18/10"];		
+node42 [label = "resumen primer parcial -fisica2"];		
+node51 [label = "tareas pendientes"];		
+node0:f1 -> node11		
+node11 -> node12		
+node12 -> node13		
+node0:f4 -> node41		
+node41 -> node42		
+node0:f5 -> node51
 }
