@@ -561,6 +561,13 @@ def addNote():
         
         return jsonify({'Mensaje': True})
 
+@app.route('/addCurso')
+def addCurso():
+    txt = arbol_BPensum.iterar()
+    txt = txt[:-1]
+    txt = txt.split("#")
+    return render_template('user/asignarCursos.html', user="session['user']", cursos=txt)
+
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
 
