@@ -152,11 +152,15 @@
                 <div class="card">
                     <div class="card-body">
                         {% if arbol == False %}
-                            <h1 class="text-primary" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 32px;">Reporte Encriptado</h1>
+                            <div style="text-align: center;">
+                                <h1 class="text-secondary" style="font-family: Lobster, serif; font-size: 32px;">Reporte Encriptado</h1>
+                            </div>
                             <br>
                             <embed src="{{url_for("static", filename = 'reportes/AVL_Encriptado.pdf')}}" type="application/pdf" width="100%" height="450px" />
                             <br><br><br><br><br>
-                            <h1 class="text-primary" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 32px;">Reporte Desencriptado</h1>
+                            <div style="text-align: center;">
+                                <h1 class="text-secondary" style="font-family: Lobster, serif; font-size: 32px;">Reporte Desencriptado</h1>
+                            </div>
                             <br>
                             <embed src="{{url_for("static", filename = 'reportes/AVL_Desencriptado.pdf')}}" type="application/pdf" width="100%" height="450px" />
                         {% else %}

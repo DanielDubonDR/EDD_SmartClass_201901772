@@ -152,7 +152,9 @@
                 <div class="card">
                     <div class="card-body">
                         {% if table == False %}
-                            <h1 class="text-primary" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 35px;">Reporte de todos los apuntes de estudiantes</h1>
+                            <div style="text-align: center;">
+                                <h1 class="text-secondary" style="font-family: Lobster, serif; font-size: 32px;">Reporte de todos los apuntes de estudiantes</h1>
+                            </div>
                             <br>
                             <embed src="{{url_for("static", filename = 'reportes/ApuntesEstudiantes.pdf')}}" type="application/pdf" width="100%" height="600px" />
                             <br><br><br><br><br>
