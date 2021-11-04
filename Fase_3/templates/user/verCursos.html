@@ -77,8 +77,8 @@
                                     <li class="active">
                                         <a href="javascript:void(0)"><i class="ti-book"></i><span>Cursos</span></a>
                                         <ul class="submenu">
-                                            <li class="active"><a href="/addCurso">Asignar cursos</a></li>
-                                            <li><a href="/verCursos">Cursos asignados</a></li>
+                                            <li><a href="/addCurso">Asignar cursos</a></li>
+                                            <li class="active"><a href="/verCursos">Cursos asignados</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/redCursos"><i class="fa fa-sitemap"></i> <span>Red de cursos</span></a></li>
@@ -105,18 +105,29 @@
                             <!-- Start 6 column grid system -->
                             <div class="row">
                                 <div class="col-md-6">
-                                    <select class="browser-default custom-select" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;" id="curso">
-                                        <option selected>Seleccionar curso</option>
-                                        {% for curso in cursos %}
-                                            <option>{{curso}}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
                                     <select class="browser-default custom-select" id="semestre" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;">
                                         <option selected>Seleccionar semestre</option>
                                         <option>Primer semestre</option>
                                         <option>Segundo semestre</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="browser-default custom-select" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;" id="anio">
+                                        <option selected>Seleccionar año</option>
+                                        <option>2021</option>
+                                        <option>2020</option>
+                                        <option>2019</option>
+                                        <option>2018</option>
+                                        <option>2017</option>
+                                        <option>2016</option>
+                                        <option>2015</option>
+                                        <option>2014</option>
+                                        <option>2013</option>
+                                        <option>2012</option>
+                                        <option>2011</option>
+                                        <option>2010</option>
+                                        <option>2009</option>
+                                        <option>2008</option>
                                     </select>
                                 </div>
                             </div>
@@ -125,7 +136,7 @@
                                 <div class="col-md-3">
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="button" class="btn btn-info btn-lg btn-block" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;" onclick="enviar()">Asignar Curso</button>
+                                    <button type="button" class="btn btn-info btn-lg btn-block" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;" onclick="enviar()">Ver cursos asignados</button>
                                     <br>
                                     <div id="al"></div>
                                 </div>
@@ -145,17 +156,18 @@
     <script>
         function enviar()
         {
-            let curso = document.getElementById("curso").value;
+            let anio = document.getElementById("anio").value;
             let semestre = document.getElementById("semestre").value;
 
-            if( curso !== "Seleccionar curso" || semestre !== "Seleccionar semestre")
+            if( semestre !== "Seleccionar semestre" || anio !== "Seleccionar año")
             {
                 var objeto = {
-                    'curso': curso,
+                    'tipo': 4,
+                    'anio': anio,
                     'semestre': semestre
                 }
                 // console.log(objeto);
-                fetch('/addCursoEstudiante', 
+                fetch('/reporte', 
                 { method: 'POST', body: JSON.stringify(objeto), headers:{ 'Content-Type': 'application/json'}}).then(res => res.json())
                 .catch(error => { 
                     console.error('Error:', error)
@@ -166,7 +178,7 @@
                     if(response.Mensaje == true)
                     {
                         const text = `<div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                <strong>Curso asignado con exito con éxito</strong>
+                                                <strong>Reporte generado con exito con éxito</strong>
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span class="fa fa-times"></span>
                                                 </button>
@@ -174,8 +186,35 @@
             
                         const html = document.querySelector("#al").innerHTML;
                         document.querySelector("#al").innerHTML = text + html;
+                        setTimeout("redireccionar()", 900)
                     }
-                    setTimeout("redireccionar()", 900)
+                    else if(response.Mensaje == "semestre")
+                    {
+                        const text = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    <strong>¡ No se tiene asignado cursos este semstre !</strong>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span class="fa fa-times"></span>
+                                                    </button>
+                                                </div>`;
+            
+                        const html = document.querySelector("#al").innerHTML;
+                        document.querySelector("#al").innerHTML = text + html;
+                        
+                    }
+                    else if(response.Mensaje == "anio")
+                    {
+                        const text = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    <strong>¡ No se tiene asignado cursos este año !</strong>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span class="fa fa-times"></span>
+                                                    </button>
+                                                </div>`;
+            
+                        const html = document.querySelector("#al").innerHTML;
+                        document.querySelector("#al").innerHTML = text + html;
+                        
+                    }
+                    
                 }) 
             
             }
@@ -195,7 +234,7 @@
 
         function redireccionar()
         {
-            location.reload();
+            location.href="/verCursosAsignados";
         }
     </script>
     <!-- jquery latest version -->

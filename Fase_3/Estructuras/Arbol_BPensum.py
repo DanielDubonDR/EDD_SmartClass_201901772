@@ -2,6 +2,7 @@ from Estructuras.DobleBPensum import DoubleList
 from Estructuras.ListaPuntero import ListaPuntero
 from pathlib import Path
 import os
+import shutil
 
 class PaginaB:
     def __init__(self):
@@ -357,7 +358,8 @@ class ArbolB:
         archivo.write(self.string)
         archivo.close()
         os.system('cd Archivos_dot& dot -Tpdf CursosPensum.dot -o '+path_desktop+'\\CursosPensum.pdf')
-        os.startfile(path_desktop+"\\CursosPensum.pdf")
+        shutil.copy(path_desktop+'\\CursosPensum.pdf', 'static\\reportes\\CursosPensum.pdf')
+        # os.startfile(path_desktop+"\\CursosPensum.pdf")
 
 
 # a = ArbolB()

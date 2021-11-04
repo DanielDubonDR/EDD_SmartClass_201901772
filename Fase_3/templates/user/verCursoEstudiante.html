@@ -77,8 +77,8 @@
                                     <li class="active">
                                         <a href="javascript:void(0)"><i class="ti-book"></i><span>Cursos</span></a>
                                         <ul class="submenu">
-                                            <li class="active"><a href="/addCurso">Asignar cursos</a></li>
-                                            <li><a href="/verCursos">Cursos asignados</a></li>
+                                            <li><a href="/addCurso">Asignar cursos</a></li>
+                                            <li class="active"><a href="/verCursos">Cursos asignados</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/redCursos"><i class="fa fa-sitemap"></i> <span>Red de cursos</span></a></li>
@@ -93,111 +93,26 @@
         <!-- page title area end -->
         <div class="main-content-inner">
             
-                <!-- Bootstrap Grid start -->
-                <div class="col-12 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <br><br><br>
-                            <div style="text-align: center;">
-                                <h1 class="text-secondary" style="font-family: Lobster, serif; font-size: 32px;">Asignar Cursos</h1>
-                            </div>
-                            <br><br><br>
-                            <!-- Start 6 column grid system -->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <select class="browser-default custom-select" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;" id="curso">
-                                        <option selected>Seleccionar curso</option>
-                                        {% for curso in cursos %}
-                                            <option>{{curso}}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <select class="browser-default custom-select" id="semestre" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;">
-                                        <option selected>Seleccionar semestre</option>
-                                        <option>Primer semestre</option>
-                                        <option>Segundo semestre</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <br><br><br>
-                            <div class="row">
-                                <div class="col-md-3">
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="button" class="btn btn-info btn-lg btn-block" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;" onclick="enviar()">Asignar Curso</button>
-                                    <br>
-                                    <div id="al"></div>
-                                </div>
-                                
-                            </div>
-                            
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <br><br>
+                        <div style="text-align: center;">
+                            <h1 class="text-secondary" style="font-family: Lobster, serif; font-size: 32px;">Cursos Asignados</h1>
                         </div>
-                        <br><br><br><br><br><br><br>
+                        <br>
+                        <embed src="{{url_for("static", filename = 'reportes/CursosPensum.pdf')}}" type="application/pdf" width="100%" height="500px" />
+                        <br><br><br><br><br>
                     </div>
                 </div>
             </div>
             
         </div>
+            
+        </div>
         <!-- main content area end -->
     </div>
     <!-- main wrapper start -->
-    <script>
-        function enviar()
-        {
-            let curso = document.getElementById("curso").value;
-            let semestre = document.getElementById("semestre").value;
-
-            if( curso !== "Seleccionar curso" || semestre !== "Seleccionar semestre")
-            {
-                var objeto = {
-                    'curso': curso,
-                    'semestre': semestre
-                }
-                // console.log(objeto);
-                fetch('/addCursoEstudiante', 
-                { method: 'POST', body: JSON.stringify(objeto), headers:{ 'Content-Type': 'application/json'}}).then(res => res.json())
-                .catch(error => { 
-                    console.error('Error:', error)
-                    alert("Ocurrio un error")
-                })
-                .then(response =>{
-                    console.log('Success:', response);
-                    if(response.Mensaje == true)
-                    {
-                        const text = `<div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                <strong>Curso asignado con exito con éxito</strong>
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                    <span class="fa fa-times"></span>
-                                                </button>
-                                            </div>`;
-            
-                        const html = document.querySelector("#al").innerHTML;
-                        document.querySelector("#al").innerHTML = text + html;
-                    }
-                    setTimeout("redireccionar()", 900)
-                }) 
-            
-            }
-            else
-            {
-                const text = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                    <strong>¡ Selecciones todos los campos !</strong>
-                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                        <span class="fa fa-times"></span>
-                                                    </button>
-                                                </div>`;
-                
-                const html = document.querySelector("#al").innerHTML;
-                document.querySelector("#al").innerHTML = text + html;
-            }
-        }
-
-        function redireccionar()
-        {
-            location.reload();
-        }
-    </script>
     <!-- jquery latest version -->
     <script src="{{url_for('static', filename = 'assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
     <!-- bootstrap 4 js -->

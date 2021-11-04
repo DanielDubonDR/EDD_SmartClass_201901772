@@ -1,15 +1,15 @@
  
         digraph BTree
         {
-        label="\nCursos año 2017 semestre 2" fontsize=25;
+        label="\nCursos año 2021 semestre 2" fontsize=25;
         rankdir=TB;
         node[color=" #006266",style="filled, rounded", fillcolor=" #A3CB38", shape=record penwidth=2, fontcolor=" #006266"];
         edge[color=" #006266" penwidth=1.3 arrowhead=vee];
         splines=false;
         
-		Nodo0152[label="<f0> | <f1>0152\nFisica 2 | <f2>  ", group=0];
-		Nodo0011[label="<f0> | <f1>0011\nIdioma tecnico 4 | <f2>  | <f3>0112\nMatematica intermedia 2 | <f4>  | <f5>0114\nMatematica intermedia 3 | <f6>  ", group=0];
-		Nodo0771[label="<f0> | <f1>0771\nIntroduccion a la programacion y computacion 2 | <f2>  | <f3>0962\nMatematica computo 2 | <f4>  | <f5>2025\nPractica inicial | <f6>  ", group=0];
-		Nodo0152:f0->Nodo0011
-		Nodo0152:f2->Nodo0771
+		Nodo0114[label="<f0> | <f1>0114\nMatematica intermedia 3 | <f2>  ", group=0];
+		Nodo0011[label="<f0> | <f1>0011\nIdioma tecnico 4 | <f2>  | <f3>0039\nDeportes 1 | <f4>  | <f5>0112\nMatematica intermedia 2 | <f6>  ", group=0];
+		Nodo0152[label="<f0> | <f1>0152\nFisica 2 | <f2>  | <f3>0771\nIntroduccion a la programacion y computacion 2 | <f4>  ", group=0];
+		Nodo0114:f0->Nodo0011
+		Nodo0114:f2->Nodo0152
 	}

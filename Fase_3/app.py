@@ -316,7 +316,7 @@ def CreateCursosEstudiante():
         return jsonify({'Error': 'Error no hay alumnos registrados'})
 
 # ?_________________________________________________________ REPORTES _______________________________________________________________
-@app.route('/reporte', methods=['GET'])
+@app.route('/reporte', methods=['POST'])
 def graficar():
     tipo = request.json['tipo']
     if tipo == 0:
@@ -391,9 +391,13 @@ def graficar():
             return jsonify({'ERROR': 'No se ha ingresado cursos al pensum'})
     
     elif tipo == 4:
-        carnet = request.json['carnet']
-        anio = request.json['año']
+        carnet = session['user']
+        anio = request.json['anio']
         semestre = request.json['semestre']
+        if semestre == "Primer semestre":
+            semestre = "1"
+        else:
+            semestre = "2"
         if arbol_AVL.root is not None:
             alumno = arbol_AVL.search(carnet)
             if alumno is not None:
@@ -404,12 +408,12 @@ def graficar():
                     if listaSemestres.search(semestre) is not False:
                         Arbol_cursos = listaSemestres.getCursosSemestre(semestre)
                         Arbol_cursos.graficar("Cursos año "+anio+" semestre "+semestre, "#006266", "#A3CB38")
-                        return jsonify({'Tipo': str(tipo), 'Mensaje': 'Se ha generado el reporte con exito'})
+                        return jsonify({'Mensaje': True})
                         
                     else:
-                        return jsonify({'Mensaje': 'No se tiene registrado cursos en este semestre'})
+                        return jsonify({'Mensaje': 'semestre'})
                 else:
-                    return jsonify({'Mensaje': 'No se tiene registrado datos en este año'})
+                    return jsonify({'Mensaje': 'anio'})
             else:
                 return jsonify({'Mensaje': 'El carnet '+str(carnet)+' no se encuentra registrado'})
         else:
@@ -566,7 +570,65 @@ def addCurso():
     txt = arbol_BPensum.iterar()
     txt = txt[:-1]
     txt = txt.split("#")
-    return render_template('user/asignarCursos.html', user="session['user']", cursos=txt)
+    return render_template('user/asignarCursos.html', user=session['user'], cursos=txt)
+
+@app.route('/addCursoEstudiante', methods=['POST'])
+def addCursoEstudiante():
+    auxcurso = request.json['curso']
+    semestre = request.json['semestre']
+    auxcurso = auxcurso.split("-")
+    codigo = auxcurso[0]
+    nombre = auxcurso[1]
+    if semestre == "Primer semestre":
+        semestre = "1"
+    else:
+        semestre = "2"
+    
+    if arbol_AVL.root is not None:
+
+        
+        carnet = session['user']
+        alumno = arbol_AVL.search(carnet)
+        if alumno is not None:
+
+            anio = "2021"
+            listaYears = alumno.listaAnios
+            if listaYears.search(anio) is False:
+                listaYears.append(anio)
+
+            listaSemestres = listaYears.getSemestres(anio)
+
+            if semestre == "1" or semestre == "2":
+                if listaSemestres.search(semestre) is False:
+                    listaSemestres.append(semestre)
+                
+                Arbol_cursos = listaSemestres.getCursosSemestre(semestre)
+
+                creditos = 0
+                prerequisitos = ""
+                obligatorio = True
+
+                Arbol_cursos.appendDatos(codigo, nombre, creditos, prerequisitos, str(obligatorio))
+                
+                return jsonify({'Mensaje': True})
+
+            else:
+                print("Error, solo se admiten semetre 1 y semestre 2")
+
+
+        else:
+            return jsonify({'Error': 'El carnet '+str(carnet)+' no se encuentra registrado'})
+
+    else:
+        return jsonify({'Error': 'Error no hay alumnos registrados'})
+
+@app.route('/verCursosAsignados')
+def verCursosAsignados():
+    return render_template('user/verCursoEstudiante.html', user=session['user'])
+
+@app.route('/verCursos')
+def verCursos():
+    return render_template('user/verCursos.html', user=session['user'])
 
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
