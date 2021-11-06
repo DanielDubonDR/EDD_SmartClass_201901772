@@ -667,7 +667,7 @@ def viewRedCursos():
 def pp():
     loadGraph()
     graph.generateMap("0773")
-    graph.getList()
+    
     return "ty"
 
 

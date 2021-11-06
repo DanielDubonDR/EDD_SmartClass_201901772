@@ -1,3 +1,6 @@
+from pathlib import Path
+import os
+import shutil
 from Estructuras.List import List
 
 class NodeGraph:
@@ -124,4 +127,18 @@ edge[color="#027575" penwidth=1.3 dir="back" arrowtail="vee"]; """
             if line not in lineSeen:
                 self.string += "\n"+line
                 lineSeen.add(line)
-        print(self.string)
+        self.generarArchivo()
+    
+    def generarArchivo(self):
+        path_desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"\\Reportes_F3"
+        path_current = "{}{}".format(os.path.abspath(os.path.dirname(__file__)), '\\')
+        path_current = path_current.replace("\\Estructuras", "")+"Archivos_dot"
+        pathdot = Path(path_current)
+        pathdot.mkdir(parents=True, exist_ok=True)
+        path = Path(path_desktop)
+        path.mkdir(parents=True, exist_ok=True)
+        archivo=open("Archivos_dot\\graph.dot", 'w', encoding='utf8')
+        archivo.write(self.string)
+        archivo.close()
+        os.system('cd Archivos_dot& dot -Tpdf graph.dot -o '+path_desktop+'\\redEstudios.pdf')
+        shutil.copy(path_desktop+'\\redEstudios.pdf', 'static\\reportes\\redEstudios.pdf')
