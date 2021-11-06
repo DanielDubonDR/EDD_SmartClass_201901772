@@ -118,7 +118,10 @@ class tablaHash:
                 self.string += "<f"+str(i)+">"+str(self.hash_list[i].carnet)+"|"
             elif self.hash_list[i] is None:
                 self.string += " | "
-        self.string = self.string[:-3]
+        if self.hash_list[-1] is None:
+            self.string = self.string[:-3]
+        else:
+            self.string = self.string[:-1]
         self.string += "\" height="+str(self.size-1)+"];"
     
     def generateNodos(self):
