@@ -262,6 +262,24 @@ class ArbolB:
             self._iterar(pagina.getApuntador(2))
             self._iterar(pagina.getApuntador(3))
             self._iterar(pagina.getApuntador(4))
+    
+    def getData(self):
+        self.info = ""
+        self._getData(self.raiz)
+        return self.info
+    
+    def _getData(self, pagina):
+        if pagina is not None:
+            for i in range(pagina.size):
+                if pagina.getCodigo(i) is not None:
+                    if pagina.getCodigo(i) != "":
+                        self.info += pagina.getCodigo(i)+"-"+pagina.getNombre(i)+"-"+pagina.getCreditos(i)+"-"+pagina.getPrerequisitos(i)+"#"
+
+            self._getData(pagina.getApuntador(0))
+            self._getData(pagina.getApuntador(1))
+            self._getData(pagina.getApuntador(2))
+            self._getData(pagina.getApuntador(3))
+            self._getData(pagina.getApuntador(4))
 
     def compareTo(self, a, b):
         if int(a) > int(b):

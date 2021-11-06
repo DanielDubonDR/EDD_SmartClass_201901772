@@ -630,6 +630,14 @@ def verCursosAsignados():
 def verCursos():
     return render_template('user/verCursos.html', user=session['user'])
 
+@app.route('/redCursos')
+def redCursos():
+    return render_template('user/redCursos.html', user="session['user']")
+
+@app.route('/viewRedCursos')
+def viewRedCursos():
+    return render_template('user/viewRedCursos.html', user="session['user']")
+
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
 
