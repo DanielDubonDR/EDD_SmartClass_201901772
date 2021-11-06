@@ -5,34 +5,31 @@ rankdir=RL;
 splines=false;
 node[shape=box3d color="#006266" style = "filled" fillcolor = "#00d2d3" penwidth=2 width=4.5]
 edge[color="#027575" penwidth=1.3 dir="back" arrowtail="vee"]; 
-n0773 [label="0773\nManejo e implementacion de archivos" shape=box3d color="#c23616" style="filled" fillcolor="#ff6b6b" fontcolor=white penwidth=2]
-n0773 -> n0772[label="5" tailport=w headport=e];
-n0773 -> n0796[label="3" tailport=w headport=e];
-n0772 [label="0772\nEstructura de datos"]
+n0772 [label="0772\nEstructura de datos" shape=box3d color="#c23616" style="filled" fillcolor="#ff6b6b" fontcolor=white penwidth=2]
 n0772 -> n0771[label="5" tailport=w headport=e];
 n0772 -> n0796[label="3" tailport=w headport=e];
 n0772 -> n0962[label="5" tailport=w headport=e];
-n0796 [label="0796\nLenguajes formales y de programacion"]
-n0796 -> n0770[label="4" tailport=w headport=e];
-n0796 -> n0795[label="2" tailport=w headport=e];
-n0796 -> n0960[label="5" tailport=w headport=e];
 n0771 [label="0771\nIntroduccion a la programacion y computacion 2"]
 n0771 -> n0107[label="10" tailport=w headport=e];
 n0771 -> n0770[label="4" tailport=w headport=e];
 n0771 -> n0795[label="2" tailport=w headport=e];
 n0771 -> n0960[label="5" tailport=w headport=e];
+n0796 [label="0796\nLenguajes formales y de programacion"]
+n0796 -> n0770[label="4" tailport=w headport=e];
+n0796 -> n0795[label="2" tailport=w headport=e];
+n0796 -> n0960[label="5" tailport=w headport=e];
 n0962 [label="0962\nMatematica computo 2"]
 n0962 -> n0770[label="4" tailport=w headport=e];
 n0962 -> n0795[label="2" tailport=w headport=e];
 n0962 -> n0960[label="5" tailport=w headport=e];
+n0107 [label="0107\nMatematica intermedia 1"]
+n0107 -> n0103[label="7" tailport=w headport=e];
 n0770 [label="0770\nIntroduccion a la programacion y computacion 1"]
 n0770 -> n0103[label="7" tailport=w headport=e];
 n0795 [label="0795\nLogica de sistemas"]
 n0795 -> n0103[label="7" tailport=w headport=e];
 n0960 [label="0960\nMatematica computo 1"]
 n0960 -> n0103[label="7" tailport=w headport=e];
-n0107 [label="0107\nMatematica intermedia 1"]
-n0107 -> n0103[label="7" tailport=w headport=e];
 n0103 [label="0103\nMatematica Basica 2"]
 n0103 -> n0101[label="7" tailport=w headport=e];
 n0101 [label="0101\nMatematica Basica 1"]

@@ -60,6 +60,14 @@ class AdjacencyList:
             aux = aux.siguiente
         print("no encontrado"+codigo)
     
+    def search(self, codigo):
+        aux = self.cabeza
+        while aux is not None:
+            if aux.codigo == codigo:
+                return aux
+            aux = aux.siguiente
+        return None
+    
     def insert(self, codigo, nombre, creditos):
         if not self.exists(codigo):
             new_list = List()

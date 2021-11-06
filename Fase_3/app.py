@@ -656,19 +656,16 @@ def verCursos():
 
 @app.route('/redCursos')
 def redCursos():
-    return render_template('user/redCursos.html', user="session['user']")
+    return render_template('user/redCursos.html', user=session['user'])
 
-@app.route('/viewRedCursos')
-def viewRedCursos():
-    return render_template('user/viewRedCursos.html', user="session['user']")
-
-
-@app.route('/pp')
-def pp():
+@app.route('/viewRedCursos/<string:codigo>')
+def viewRedCursos(codigo):
     loadGraph()
-    graph.generateMap("0773")
-    
-    return "ty"
+    if graph.search(codigo) is not None:
+        graph.generateMap(codigo)
+        return render_template('user/viewRedCursos.html', user=session['user'], grafico=True)
+    else:
+        return render_template('user/viewRedCursos.html', user=session['user'], grafico=False)
 
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
