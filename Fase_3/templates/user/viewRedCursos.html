@@ -1,0 +1,201 @@
+<!doctype html>
+<html class="no-js" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Red de cursos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/metisMenu.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/slicknav.min.css')}}">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <!-- others css -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/typography.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/default-css.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'assets/css/responsive.css')}}">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Yanone+Kaffeesatz:wght@500&display=swap" rel="stylesheet">
+    
+    <!-- modernizr css -->
+    <script src="{{url_for('static', filename = 'assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+</head>
+
+<body class="body-bg">
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- main wrapper start -->
+    <div class="horizontal-main-wrapper">
+        <!-- main header area start -->
+        <div class="mainheader-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <h1 class="text-primary" style="font-family: Lobster, serif; font-size: 30px;">Smart Class</h1>
+                    </div>
+                    <!-- profile info & task notification -->
+                    <div class="col-md-9 clearfix text-right">
+                        <div class="clearfix d-md-inline-block d-block">
+                            <div class="user-profile m-0">
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{user}} <i class="fa fa-angle-down"></i></h4>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main header area end -->
+        <!-- header area start -->
+        <div class="header-area header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-9  d-none d-lg-block">
+                        <div class="horizontal-menu">
+                            <nav>
+                                <ul id="nav_menu">
+                                    <li><a href="/usuario"><i class="ti-home"></i> <span>Inicio</span></a></li>
+                                    <li>
+                                        <a href="javascript:void(0)"><i class="fa fa-sticky-note-o"></i><span>Apuntes</span></a>
+                                        <ul class="submenu">
+                                            <li><a href="/verApuntes">Ver apuntes</a></li>
+                                            <li><a href="/addApunte">Realizar apuntes</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"><i class="ti-book"></i><span>Cursos</span></a>
+                                        <ul class="submenu">
+                                            <li><a href="/addCurso">Asignar cursos</a></li>
+                                            <li><a href="/verCursos">Cursos asignados</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="active"><a href="/redCursos"><i class="fa fa-sitemap"></i> <span>Red de cursos</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header area end -->
+        <!-- page title area end -->
+        <div class="main-content-inner">
+            
+                <!-- Bootstrap Grid start -->
+                <div class="col-12 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <br><br>
+                            <div style="text-align: center;">
+                                <h1 class="text-secondary" style="font-family: Lobster, serif; font-size: 32px;">Red de Cursos</h1>
+                            </div>
+                            <br><br>
+                            <!-- Start 6 column grid system -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" placeholder="Código de curso" style="font-family: 'Yanone Kaffeesatz', monospace; font-size: 20px;" id="titulo">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                
+                                    <button type="button" class="btn btn-info btn-lg btn-block" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 18px;" onclick="enviar()">Analizar</button>
+                                </div>
+                            </div>
+                            <br><br>
+                            <embed src="{{url_for("static", filename = 'reportes/CursosPensum.pdf')}}" type="application/pdf" width="100%" height="500px" />
+                            
+                        </div>
+                        <br><br><br><br><br>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- main content area end -->
+    </div>
+    <!-- main wrapper start -->
+    <script>
+        function enviar()
+        {
+            let curso = document.getElementById("curso").value;
+            let semestre = document.getElementById("semestre").value;
+
+            if( curso !== "Seleccionar curso" || semestre !== "Seleccionar semestre")
+            {
+                var objeto = {
+                    'curso': curso,
+                    'semestre': semestre
+                }
+                // console.log(objeto);
+                fetch('/addCursoEstudiante', 
+                { method: 'POST', body: JSON.stringify(objeto), headers:{ 'Content-Type': 'application/json'}}).then(res => res.json())
+                .catch(error => { 
+                    console.error('Error:', error)
+                    alert("Ocurrio un error")
+                })
+                .then(response =>{
+                    console.log('Success:', response);
+                    if(response.Mensaje == true)
+                    {
+                        const text = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <strong>Curso asignado con exito con éxito</strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span class="fa fa-times"></span>
+                                                </button>
+                                            </div>`;
+            
+                        const html = document.querySelector("#al").innerHTML;
+                        document.querySelector("#al").innerHTML = text + html;
+                    }
+                    setTimeout("redireccionar()", 900)
+                }) 
+            
+            }
+            else
+            {
+                const text = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    <strong>¡ Selecciones todos los campos !</strong>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span class="fa fa-times"></span>
+                                                    </button>
+                                                </div>`;
+                
+                const html = document.querySelector("#al").innerHTML;
+                document.querySelector("#al").innerHTML = text + html;
+            }
+        }
+
+        function redireccionar()
+        {
+            location.reload();
+        }
+    </script>
+    <!-- jquery latest version -->
+    <script src="{{url_for('static', filename = 'assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
+    <!-- bootstrap 4 js -->
+    <script src="{{url_for('static', filename = 'assets/js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'assets/js/metisMenu.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'assets/js/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'assets/js/jquery.slicknav.min.js')}}"></script>
+    <!-- others plugins -->
+    <script src="{{url_for('static', filename = 'assets/js/plugins.js')}}"></script>
+    <script src="{{url_for('static', filename = 'assets/js/scripts.js')}}"></script>
+</body>
+
+</html>
