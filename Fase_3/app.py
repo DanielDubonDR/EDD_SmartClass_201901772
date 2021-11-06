@@ -4,6 +4,7 @@ from Estructuras.AVL import AVL
 from Estructuras.Arbol_BPensum import ArbolB
 from Estructuras.tablaHash import tablaHash
 from Estructuras.listaApuntes import notesList
+from Estructuras.adjacencyList import AdjacencyList
 # from flask_cors import  CORS
 import json
 
@@ -13,6 +14,7 @@ arbol_BPensum = ArbolB()
 passwordMaestro = "D4t4_3structur3"
 passEstablecida = False
 hash_Table = tablaHash()
+graph = AdjacencyList()
 # arbol_AVL.generarClave(passwordMaestro)
 
 app = Flask(__name__)
@@ -67,6 +69,28 @@ def isEmpyArbol():
     else:
         return False
 
+def loadGraph():
+    if graph.isEmpy():
+        txt = arbol_BPensum.getData()
+        txt = txt[:-1]
+        txt = txt.split("#")
+        for elementos in txt:
+            aux = elementos.split("-")
+            codigo = aux[0]
+            nombre = aux[1]
+            creditos = aux[2]
+            graph.insert(codigo, nombre, creditos)
+        
+        for elementos in txt:
+            aux = elementos.split("-")
+            codigo = aux[0]
+            prerequisitos = aux[3]
+            if prerequisitos != "":
+                prerequisitos = prerequisitos.split(",")
+                for prerequisito in prerequisitos:
+                    graph.edge(codigo, prerequisito)
+
+    # graph.edge("0103","0101")
 # !-------------------------------------------------------------- API ---------------------------------------------------------------
 
 # ?_________________________________________________________ CARGAS MASIVAS __________________________________________________________
@@ -637,6 +661,14 @@ def redCursos():
 @app.route('/viewRedCursos')
 def viewRedCursos():
     return render_template('user/viewRedCursos.html', user="session['user']")
+
+
+@app.route('/pp')
+def pp():
+    loadGraph()
+    graph.generateMap("0773")
+    graph.getList()
+    return "ty"
 
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------

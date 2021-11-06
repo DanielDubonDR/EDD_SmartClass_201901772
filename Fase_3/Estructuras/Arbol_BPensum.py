@@ -273,7 +273,7 @@ class ArbolB:
             for i in range(pagina.size):
                 if pagina.getCodigo(i) is not None:
                     if pagina.getCodigo(i) != "":
-                        self.info += pagina.getCodigo(i)+"-"+pagina.getNombre(i)+"-"+pagina.getCreditos(i)+"-"+pagina.getPrerequisitos(i)+"#"
+                        self.info += pagina.getCodigo(i)+"-"+pagina.getNombre(i)+"-"+str(pagina.getCreditos(i))+"-"+pagina.getPrerequisitos(i)+"#"
 
             self._getData(pagina.getApuntador(0))
             self._getData(pagina.getApuntador(1))
