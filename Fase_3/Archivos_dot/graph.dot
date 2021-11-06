@@ -5,7 +5,21 @@ rankdir=RL;
 splines=false;
 node[shape=box3d color="#006266" style = "filled" fillcolor = "#00d2d3" penwidth=2 width=4.5]
 edge[color="#027575" penwidth=1.3 dir="back" arrowtail="vee"]; 
-n0772 [label="0772\nEstructura de datos" shape=box3d color="#c23616" style="filled" fillcolor="#ff6b6b" fontcolor=white penwidth=2]
+n0147 [label="0147\nFisica basica"]
+n0147 -> n0101[label="7" tailport=w headport=e];
+n0101 [label="0101\nMatematica Basica 1" shape=box3d color="#006266" style="filled" fillcolor="#A3CB38" fontcolor=white penwidth=2]
+n0770 [label="0770\nIntroduccion a la programacion y computacion 1"]
+n0770 -> n0103[label="7" tailport=w headport=e];
+n0103 [label="0103\nMatematica Basica 2"]
+n0103 -> n0101[label="7" tailport=w headport=e];
+n0781 [label="0781\nOrganizacion de lenguajes y compiladores 2"]
+n0781 -> n0777[label="4" tailport=w headport=e];
+n0781 -> n0772[label="5" tailport=w headport=e];
+n0777 [label="0777\nOrganizacion de lenguajes y compiladores 1"]
+n0777 -> n0771[label="5" tailport=w headport=e];
+n0777 -> n0796[label="3" tailport=w headport=e];
+n0777 -> n0962[label="5" tailport=w headport=e];
+n0772 [label="0772\nEstructura de datos"]
 n0772 -> n0771[label="5" tailport=w headport=e];
 n0772 -> n0796[label="3" tailport=w headport=e];
 n0772 -> n0962[label="5" tailport=w headport=e];
@@ -24,13 +38,123 @@ n0962 -> n0795[label="2" tailport=w headport=e];
 n0962 -> n0960[label="5" tailport=w headport=e];
 n0107 [label="0107\nMatematica intermedia 1"]
 n0107 -> n0103[label="7" tailport=w headport=e];
-n0770 [label="0770\nIntroduccion a la programacion y computacion 1"]
-n0770 -> n0103[label="7" tailport=w headport=e];
 n0795 [label="0795\nLogica de sistemas"]
 n0795 -> n0103[label="7" tailport=w headport=e];
 n0960 [label="0960\nMatematica computo 1"]
 n0960 -> n0103[label="7" tailport=w headport=e];
-n0103 [label="0103\nMatematica Basica 2"]
-n0103 -> n0101[label="7" tailport=w headport=e];
-n0101 [label="0101\nMatematica Basica 1"]
+n0008 [label="0008\nIdioma tecnico 2"]
+n0008 -> n0006[label="2" tailport=w headport=e];
+n0006 [label="0006\nIdioma tecnico 1" shape=box3d color="#006266" style="filled" fillcolor="#A3CB38" fontcolor=white penwidth=2]
+n0017 [label="0017\nSocial Humanistica 1" shape=box3d color="#006266" style="filled" fillcolor="#A3CB38" fontcolor=white penwidth=2]
+n0039 [label="0039\nDeportes 1" shape=box3d color="#006266" style="filled" fillcolor="#A3CB38" fontcolor=white penwidth=2]
+n0005 [label="0005\nTecnicas de estudio y de investigacion" shape=box3d color="#006266" style="filled" fillcolor="#A3CB38" fontcolor=white penwidth=2]
+n0009 [label="0009\nIdioma tecnico 3"]
+n0009 -> n0008[label="2" tailport=w headport=e];
+n0011 [label="0011\nIdioma tecnico 4"]
+n0011 -> n0009[label="10" tailport=w headport=e];
+n0014 [label="0014\nEconomia"]
+n0014 -> n0732[label="5" tailport=w headport=e];
+n0732 [label="0732\nEstadistica 1"]
+n0732 -> n0107[label="10" tailport=w headport=e];
+n0732 -> n0005[label="3" tailport=w headport=e];
+n0018 [label="0018\nFilosofia de la ciencia"]
+n0018 -> n0019[label="4" tailport=w headport=e];
+n0019 [label="0019\nSocial Humanistica 2"]
+n0019 -> n0017[label="4" tailport=w headport=e];
+n0112 [label="0112\nMatematica intermedia 2"]
+n0112 -> n0107[label="10" tailport=w headport=e];
+n0114 [label="0114\nMatematica intermedia 3"]
+n0114 -> n0107[label="10" tailport=w headport=e];
+n0116 [label="0116\nMatematica aplicada 3"]
+n0116 -> n0112[label="5" tailport=w headport=e];
+n0116 -> n0114[label="5" tailport=w headport=e];
+n0118 [label="0118\nMatematica aplicada 1"]
+n0118 -> n0112[label="5" tailport=w headport=e];
+n0118 -> n0114[label="5" tailport=w headport=e];
+n0281 [label="0281\nSistemas operativos 1"]
+n0281 -> n0781[label="5" tailport=w headport=e];
+n0281 -> n0778[label="5" tailport=w headport=e];
+n0778 [label="0778\nArquitectura de computadores y ensambladores 1"]
+n0778 -> n0796[label="3" tailport=w headport=e];
+n0778 -> n0964[label="3" tailport=w headport=e];
+n0964 [label="0964\nOrganizacion computacional"]
+n0964 -> n0152[label="6" tailport=w headport=e];
+n0964 -> n0771[label="5" tailport=w headport=e];
+n0964 -> n0962[label="5" tailport=w headport=e];
+n0152 [label="0152\nFisica 2"]
+n0152 -> n0107[label="10" tailport=w headport=e];
+n0152 -> n0150[label="10" tailport=w headport=e];
+n0150 [label="0150\nFisica 1"]
+n0150 -> n0103[label="7" tailport=w headport=e];
+n0150 -> n0147[label="5" tailport=w headport=e];
+n0348 [label="0348\nQuimica General 1" shape=box3d color="#006266" style="filled" fillcolor="#A3CB38" fontcolor=white penwidth=2]
+n0724 [label="0724\nTeoria de sistemas 2"]
+n0724 -> n0722[label="5" tailport=w headport=e];
+n0724 -> n0601[label="5" tailport=w headport=e];
+n0724 -> n0736[label="4" tailport=w headport=e];
+n0722 [label="0722\nTeoria de sistemas 1"]
+n0722 -> n0732[label="5" tailport=w headport=e];
+n0722 -> n0772[label="5" tailport=w headport=e];
+n0722 -> n0116[label="5" tailport=w headport=e];
+n0722 -> n0118[label="6" tailport=w headport=e];
+n0601 [label="0601\nInvestigacion de operaciones 1"]
+n0601 -> n0771[label="5" tailport=w headport=e];
+n0601 -> n0732[label="5" tailport=w headport=e];
+n0736 [label="0736\nAnalisis probabilistico"]
+n0736 -> n0732[label="5" tailport=w headport=e];
+n0283 [label="0283\nAnalisis y diseño de sistemas 1"]
+n0283 -> n0774[label="5" tailport=w headport=e];
+n0774 [label="0774\nSistemas de bases de datos 1"]
+n0774 -> n0773[label="4" tailport=w headport=e];
+n0773 [label="0773\nManejo e implementacion de archivos"]
+n0773 -> n0772[label="5" tailport=w headport=e];
+n0773 -> n0796[label="3" tailport=w headport=e];
+n0285 [label="0285\nSistemas operativos 2"]
+n0285 -> n0281[label="5" tailport=w headport=e];
+n0603 [label="0603\nInvestigacion de operaciones 2"]
+n0603 -> n0601[label="5" tailport=w headport=e];
+n0720 [label="0720\nModelacion y simulacion 2"]
+n0720 -> n0729[label="5" tailport=w headport=e];
+n0729 [label="0729\nModelacion y simulacion 1"]
+n0729 -> n0724[label="5" tailport=w headport=e];
+n0729 -> n0603[label="5" tailport=w headport=e];
+n0775 [label="0775\nSistemas de bases de datos 2"]
+n0775 -> n0281[label="5" tailport=w headport=e];
+n0775 -> n0774[label="5" tailport=w headport=e];
+n0779 [label="0779\nArquitectura de computadores y ensambladores 2"]
+n0779 -> n0778[label="5" tailport=w headport=e];
+n0780 [label="0780\nSoftware avanzado"]
+n0780 -> n0785[label="5" tailport=w headport=e];
+n0785 [label="0785\nAnalisis y diseño de sistemas 2"]
+n0785 -> n0283[label="5" tailport=w headport=e];
+n0799 [label="0799\nSeminario de investigacion"]
+n0799 -> n0798[label="3" tailport=w headport=e];
+n0798 [label="0798\nSeminario de sistemas 2"]
+n0798 -> n0797[label="3" tailport=w headport=e];
+n0797 [label="0797\nSeminario de sistemas 1"]
+n0797 -> n0724[label="5" tailport=w headport=e];
+n0975 [label="0975\nRedes de computadoras 2"]
+n0975 -> n0970[label="4" tailport=w headport=e];
+n0970 [label="0970\nRedes de computadoras 1"]
+n0970 -> n0773[label="4" tailport=w headport=e];
+n0970 -> n0778[label="5" tailport=w headport=e];
+n0786 [label="0786\nSistemas organizacionales y gerenciales 1"]
+n0786 -> n0283[label="5" tailport=w headport=e];
+n0786 -> n0722[label="5" tailport=w headport=e];
+n0787 [label="0787\nSistemas organizacionales y gerenciales 2"]
+n0787 -> n0786[label="4" tailport=w headport=e];
+n0972 [label="0972\nSistemas organizacionales y gerenciales 1"]
+n0972 -> n0781[label="5" tailport=w headport=e];
+n0972 -> n0775[label="4" tailport=w headport=e];
+n0972 -> n0724[label="5" tailport=w headport=e];
+n2009 [label="2009\nPractica final"]
+n2009 -> n2036[label="0" tailport=w headport=e];
+n2036 [label="2036\nPractica intermedia"]
+n2036 -> n0778[label="5" tailport=w headport=e];
+n2036 -> n0777[label="4" tailport=w headport=e];
+n2036 -> n0773[label="4" tailport=w headport=e];
+n2036 -> n2025[label="0" tailport=w headport=e];
+n2025 [label="2025\nPractica inicial"]
+n2025 -> n0103[label="7" tailport=w headport=e];
+n2025 -> n0770[label="4" tailport=w headport=e];
 }

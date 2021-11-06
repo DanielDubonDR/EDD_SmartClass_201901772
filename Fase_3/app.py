@@ -667,6 +667,15 @@ def viewRedCursos(codigo):
     else:
         return render_template('user/viewRedCursos.html', user=session['user'], grafico=False)
 
+@app.route('/reportePensumPre')
+def reportePensumPre():
+    if arbol_BPensum.raiz is None:
+        return render_template('admin/reportePensum.html', user=session['user'], grafico=True)
+    else:
+        loadGraph()
+        graph.generateRed()
+        return render_template('admin/reportePensum.html', user=session['user'], grafico=False)
+
 
 # ^------------------------------------------------------- ENCRIPTACION -------------------------------------------------------------
 

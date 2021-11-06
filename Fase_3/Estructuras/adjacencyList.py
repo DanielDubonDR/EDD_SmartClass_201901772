@@ -127,6 +127,35 @@ edge[color="#027575" penwidth=1.3 dir="back" arrowtail="vee"]; """
         # print(self.string)
         self.eliminarDuplicados()
     
+    def generateRed(self):
+        self.string = """
+digraph G {
+rankdir=RL;
+splines=false;
+node[shape=box3d color="#006266" style = "filled" fillcolor = "#00d2d3" penwidth=2 width=4.5]
+edge[color="#027575" penwidth=1.3 dir="back" arrowtail="vee"]; """
+        aux = self.cabeza
+        while aux is not None:
+            lista = [self.getNode(aux.codigo)]
+            while lista:
+                nodeActual = lista.pop(0)
+                
+                # print(nodeActual.codigo)
+                
+                sucesores = self.getListList(nodeActual.codigo)
+                if sucesores:
+                    self.string += "\nn"+str(nodeActual.codigo)+" [label=\""+str(nodeActual.codigo)+"\\n"+str(nodeActual.nombre)+"\"]"
+                    for items in sucesores:
+                        self.string += "\nn"+str(nodeActual.codigo)+" -> n"+str(items.codigo)+"[label=\""+str(items.creditos)+"\" tailport=w headport=e];"
+                    lista.extend(sucesores)
+                else: 
+                    self.string += "\nn"+str(nodeActual.codigo)+" [label=\""+str(nodeActual.codigo)+"\\n"+str(nodeActual.nombre)+"\" shape=box3d color=\"#006266\" style=\"filled\" fillcolor=\"#A3CB38\" fontcolor=white penwidth=2]"
+
+            aux = aux.siguiente
+        self.string += "\n}"
+        # print(self.string)
+        self.eliminarDuplicados()
+    
     def eliminarDuplicados(self):
         lineSeen = set()
         aux = self.string
