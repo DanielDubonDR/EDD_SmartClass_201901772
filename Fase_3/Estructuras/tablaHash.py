@@ -112,17 +112,19 @@ class tablaHash:
     # *node0 [label = " <f0>201901772|<f1>201901772|<f2> 201901772 |<f5>201901772|<f6>201901772" height=3];
 
     def generateTable(self):
+        self.auxstring = ""
         self.string += "\t\t\n\nnode0 [label = \""
         for i in range(self.size):
             if self.hash_list[i] is not None:
                 self.string += "<f"+str(i)+">"+str(self.hash_list[i].carnet)+"|"
             elif self.hash_list[i] is None:
-                self.string += " | "
-        if self.hash_list[-1] is None:
-            self.string = self.string[:-3]
-        else:
-            self.string = self.string[:-1]
+                self.string += "<f"+str(i)+"> |"
+            self.auxstring += "\na"+str(i)+"[label=\""+str(i)+" \"shape=plain fillcolor=white fontcolor=black fontsize=18]"
+            self.auxstring += "\na"+str(i)+" -> node0:f"+str(i)+" [dir=none color=white]"
+        
+        self.string = self.string[:-1]
         self.string += "\" height="+str(self.size-1)+"];"
+        self.string += self.auxstring
     
     def generateNodos(self):
         for i in range(self.size):

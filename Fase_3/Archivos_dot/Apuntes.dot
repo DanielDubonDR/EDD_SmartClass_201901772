@@ -3,26 +3,80 @@ digraph G {
         rankdir=LR;
         node [shape=record color="#c23616" style = "filled" fillcolor = "#ff6b6b" fontcolor=white penwidth=2.5 width = 2.2];		
 
-node0 [label = " | <f1>201210811| |  |  |  |  | <f7>222222222| |  |  |  | <f12>111111111|<f13>201000244|<f14>201901772|<f15>201999999|<f16>201183728" height=16];		
+node0 [label = "<f0> |<f1>201000244|<f2>201922222|<f3>201933333|<f4>201210811|<f5>201944444|<f6> |<f7> |<f8> |<f9> |<f10> |<f11> |<f12> |<f13>201988888|<f14>201183728|<f15>201999999|<f16> |<f17> |<f18> |<f19> |<f20> |<f21>201901772|<f22>201911111" height=22];
+a0[label="0 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a0 -> node0:f0 [dir=none color=white]
+a1[label="1 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a1 -> node0:f1 [dir=none color=white]
+a2[label="2 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a2 -> node0:f2 [dir=none color=white]
+a3[label="3 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a3 -> node0:f3 [dir=none color=white]
+a4[label="4 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a4 -> node0:f4 [dir=none color=white]
+a5[label="5 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a5 -> node0:f5 [dir=none color=white]
+a6[label="6 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a6 -> node0:f6 [dir=none color=white]
+a7[label="7 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a7 -> node0:f7 [dir=none color=white]
+a8[label="8 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a8 -> node0:f8 [dir=none color=white]
+a9[label="9 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a9 -> node0:f9 [dir=none color=white]
+a10[label="10 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a10 -> node0:f10 [dir=none color=white]
+a11[label="11 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a11 -> node0:f11 [dir=none color=white]
+a12[label="12 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a12 -> node0:f12 [dir=none color=white]
+a13[label="13 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a13 -> node0:f13 [dir=none color=white]
+a14[label="14 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a14 -> node0:f14 [dir=none color=white]
+a15[label="15 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a15 -> node0:f15 [dir=none color=white]
+a16[label="16 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a16 -> node0:f16 [dir=none color=white]
+a17[label="17 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a17 -> node0:f17 [dir=none color=white]
+a18[label="18 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a18 -> node0:f18 [dir=none color=white]
+a19[label="19 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a19 -> node0:f19 [dir=none color=white]
+a20[label="20 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a20 -> node0:f20 [dir=none color=white]
+a21[label="21 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a21 -> node0:f21 [dir=none color=white]
+a22[label="22 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a22 -> node0:f22 [dir=none color=white]		
 node [shape=note color="#01a3a4" width = 2 height=0.7 style = filled fillcolor = "#00d2d3" fontcolor=black penwidth=2];		
-node11 [label = "pendientes"];		
-node12 [label = "block chain"];		
-node13 [label = "tabla hash"];		
-node71 [label = "fffff"];		
-node121 [label = "aaaaaaaa"];		
-node131 [label = "tareas pendientes"];		
-node141 [label = "Hola"];		
-node151 [label = "asdf"];		
-node161 [label = "Lab edd -18/10"];		
-node162 [label = "resumen primer parcial -fisica2"];		
+node11 [label = "tareas pendientes"];		
+node21 [label = "qqq"];		
+node31 [label = "ggg"];		
+node41 [label = "pendientes"];		
+node42 [label = "block chain"];		
+node43 [label = "tabla hash"];		
+node51 [label = "bbb"];		
+node131 [label = "tyyyyyy"];		
+node141 [label = "Lab edd -18/10"];		
+node142 [label = "resumen primer parcial -fisica2"];		
+node151 [label = "a"];		
+node211 [label = "hola"];		
+node212 [label = "adios"];		
+node221 [label = "fff"];		
 node0:f1 -> node11		
-node11 -> node12		
-node12 -> node13		
-node0:f7 -> node71		
-node0:f12 -> node121		
+node0:f2 -> node21		
+node0:f3 -> node31		
+node0:f4 -> node41		
+node41 -> node42		
+node42 -> node43		
+node0:f5 -> node51		
 node0:f13 -> node131		
 node0:f14 -> node141		
+node141 -> node142		
 node0:f15 -> node151		
-node0:f16 -> node161		
-node161 -> node162
+node0:f21 -> node211		
+node211 -> node212		
+node0:f22 -> node221
 }
