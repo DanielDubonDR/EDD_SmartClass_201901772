@@ -542,7 +542,10 @@ def reporteApuntes():
         hash_Table.generarReporte()
         return render_template('admin/reporteApuntes.html', table=False)
 
-# TODO: implementar asignar cursos y ver cursos asignados
+@app.route('/onBuilding')
+def onBuilding():
+    return render_template('admin/build.html')
+
 
 # ?__________________________________________________________ USER  ________________________________________________________________
 
