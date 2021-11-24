@@ -3,7 +3,7 @@ digraph G {
         rankdir=LR;
         node [shape=record color="#c23616" style = "filled" fillcolor = "#ff6b6b" fontcolor=white penwidth=2.5 width = 2.2];		
 
-node0 [label = "<f0> |<f1>201000244|<f2>201922222|<f3>201933333|<f4>201210811|<f5>201944444|<f6> |<f7> |<f8> |<f9> |<f10> |<f11> |<f12> |<f13>201988888|<f14>201183728|<f15>201999999|<f16> |<f17> |<f18> |<f19> |<f20> |<f21>201901772|<f22>201911111" height=22];
+node0 [label = "<f0> |<f1>201818908|<f2>201115140|<f3> |<f4> |<f5>201537627|<f6> |<f7>201375524|<f8>201500866|<f9>201933753|<f10>201183728|<f11>201131811|<f12> |<f13>201255643|<f14> |<f15> |<f16>201428558|<f17> |<f18>201646518|<f19> |<f20>201389879|<f21> |<f22>201509061|<f23>201173540|<f24>201309890|<f25>201350393|<f26>201210811|<f27> |<f28> |<f29> |<f30>201774497|<f31> |<f32>201327675|<f33> |<f34> |<f35> |<f36> |<f37> |<f38> |<f39> |<f40> |<f41> |<f42> |<f43>201000244|<f44>201145786|<f45> |<f46> |<f47>201947729|<f48> |<f49>201359507|<f50>201489697|<f51> |<f52>201698163|<f53> |<f54>201790782|<f55>201803912|<f56>201954202|<f57>201766242|<f58>201043689|<f59> |<f60> |<f61> |<f62>201476680|<f63>201991578|<f64>201816850|<f65>201374369|<f66> |<f67> |<f68>201412244|<f69> |<f70> |<f71>201661519|<f72>201234795|<f73>201740604|<f74> |<f75> |<f76>201315898|<f77>201709702|<f78> |<f79>201402462|<f80> |<f81> |<f82> |<f83>201594265|<f84>201068965|<f85>201643353|<f86>201511649|<f87> |<f88>201582352|<f89>201232485|<f90> |<f91> |<f92> |<f93> |<f94> |<f95> |<f96>201635991|<f97> |<f98>201897987|<f99>201704168|<f100> " height=100];
 a0[label="0 "shape=plain fillcolor=white fontcolor=black fontsize=18]
 a0 -> node0:f0 [dir=none color=white]
 a1[label="1 "shape=plain fillcolor=white fontcolor=black fontsize=18]
@@ -49,34 +49,614 @@ a20 -> node0:f20 [dir=none color=white]
 a21[label="21 "shape=plain fillcolor=white fontcolor=black fontsize=18]
 a21 -> node0:f21 [dir=none color=white]
 a22[label="22 "shape=plain fillcolor=white fontcolor=black fontsize=18]
-a22 -> node0:f22 [dir=none color=white]		
+a22 -> node0:f22 [dir=none color=white]
+a23[label="23 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a23 -> node0:f23 [dir=none color=white]
+a24[label="24 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a24 -> node0:f24 [dir=none color=white]
+a25[label="25 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a25 -> node0:f25 [dir=none color=white]
+a26[label="26 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a26 -> node0:f26 [dir=none color=white]
+a27[label="27 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a27 -> node0:f27 [dir=none color=white]
+a28[label="28 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a28 -> node0:f28 [dir=none color=white]
+a29[label="29 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a29 -> node0:f29 [dir=none color=white]
+a30[label="30 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a30 -> node0:f30 [dir=none color=white]
+a31[label="31 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a31 -> node0:f31 [dir=none color=white]
+a32[label="32 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a32 -> node0:f32 [dir=none color=white]
+a33[label="33 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a33 -> node0:f33 [dir=none color=white]
+a34[label="34 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a34 -> node0:f34 [dir=none color=white]
+a35[label="35 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a35 -> node0:f35 [dir=none color=white]
+a36[label="36 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a36 -> node0:f36 [dir=none color=white]
+a37[label="37 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a37 -> node0:f37 [dir=none color=white]
+a38[label="38 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a38 -> node0:f38 [dir=none color=white]
+a39[label="39 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a39 -> node0:f39 [dir=none color=white]
+a40[label="40 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a40 -> node0:f40 [dir=none color=white]
+a41[label="41 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a41 -> node0:f41 [dir=none color=white]
+a42[label="42 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a42 -> node0:f42 [dir=none color=white]
+a43[label="43 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a43 -> node0:f43 [dir=none color=white]
+a44[label="44 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a44 -> node0:f44 [dir=none color=white]
+a45[label="45 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a45 -> node0:f45 [dir=none color=white]
+a46[label="46 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a46 -> node0:f46 [dir=none color=white]
+a47[label="47 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a47 -> node0:f47 [dir=none color=white]
+a48[label="48 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a48 -> node0:f48 [dir=none color=white]
+a49[label="49 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a49 -> node0:f49 [dir=none color=white]
+a50[label="50 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a50 -> node0:f50 [dir=none color=white]
+a51[label="51 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a51 -> node0:f51 [dir=none color=white]
+a52[label="52 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a52 -> node0:f52 [dir=none color=white]
+a53[label="53 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a53 -> node0:f53 [dir=none color=white]
+a54[label="54 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a54 -> node0:f54 [dir=none color=white]
+a55[label="55 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a55 -> node0:f55 [dir=none color=white]
+a56[label="56 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a56 -> node0:f56 [dir=none color=white]
+a57[label="57 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a57 -> node0:f57 [dir=none color=white]
+a58[label="58 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a58 -> node0:f58 [dir=none color=white]
+a59[label="59 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a59 -> node0:f59 [dir=none color=white]
+a60[label="60 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a60 -> node0:f60 [dir=none color=white]
+a61[label="61 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a61 -> node0:f61 [dir=none color=white]
+a62[label="62 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a62 -> node0:f62 [dir=none color=white]
+a63[label="63 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a63 -> node0:f63 [dir=none color=white]
+a64[label="64 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a64 -> node0:f64 [dir=none color=white]
+a65[label="65 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a65 -> node0:f65 [dir=none color=white]
+a66[label="66 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a66 -> node0:f66 [dir=none color=white]
+a67[label="67 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a67 -> node0:f67 [dir=none color=white]
+a68[label="68 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a68 -> node0:f68 [dir=none color=white]
+a69[label="69 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a69 -> node0:f69 [dir=none color=white]
+a70[label="70 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a70 -> node0:f70 [dir=none color=white]
+a71[label="71 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a71 -> node0:f71 [dir=none color=white]
+a72[label="72 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a72 -> node0:f72 [dir=none color=white]
+a73[label="73 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a73 -> node0:f73 [dir=none color=white]
+a74[label="74 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a74 -> node0:f74 [dir=none color=white]
+a75[label="75 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a75 -> node0:f75 [dir=none color=white]
+a76[label="76 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a76 -> node0:f76 [dir=none color=white]
+a77[label="77 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a77 -> node0:f77 [dir=none color=white]
+a78[label="78 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a78 -> node0:f78 [dir=none color=white]
+a79[label="79 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a79 -> node0:f79 [dir=none color=white]
+a80[label="80 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a80 -> node0:f80 [dir=none color=white]
+a81[label="81 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a81 -> node0:f81 [dir=none color=white]
+a82[label="82 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a82 -> node0:f82 [dir=none color=white]
+a83[label="83 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a83 -> node0:f83 [dir=none color=white]
+a84[label="84 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a84 -> node0:f84 [dir=none color=white]
+a85[label="85 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a85 -> node0:f85 [dir=none color=white]
+a86[label="86 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a86 -> node0:f86 [dir=none color=white]
+a87[label="87 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a87 -> node0:f87 [dir=none color=white]
+a88[label="88 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a88 -> node0:f88 [dir=none color=white]
+a89[label="89 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a89 -> node0:f89 [dir=none color=white]
+a90[label="90 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a90 -> node0:f90 [dir=none color=white]
+a91[label="91 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a91 -> node0:f91 [dir=none color=white]
+a92[label="92 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a92 -> node0:f92 [dir=none color=white]
+a93[label="93 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a93 -> node0:f93 [dir=none color=white]
+a94[label="94 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a94 -> node0:f94 [dir=none color=white]
+a95[label="95 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a95 -> node0:f95 [dir=none color=white]
+a96[label="96 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a96 -> node0:f96 [dir=none color=white]
+a97[label="97 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a97 -> node0:f97 [dir=none color=white]
+a98[label="98 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a98 -> node0:f98 [dir=none color=white]
+a99[label="99 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a99 -> node0:f99 [dir=none color=white]
+a100[label="100 "shape=plain fillcolor=white fontcolor=black fontsize=18]
+a100 -> node0:f100 [dir=none color=white]		
 node [shape=note color="#01a3a4" width = 2 height=0.7 style = filled fillcolor = "#00d2d3" fontcolor=black penwidth=2];		
-node11 [label = "tareas pendientes"];		
-node21 [label = "qqq"];		
-node31 [label = "ggg"];		
-node41 [label = "pendientes"];		
-node42 [label = "block chain"];		
-node43 [label = "tabla hash"];		
-node51 [label = "bbb"];		
-node131 [label = "tyyyyyy"];		
-node141 [label = "Lab edd -18/10"];		
-node142 [label = "resumen primer parcial -fisica2"];		
-node151 [label = "a"];		
-node211 [label = "hola"];		
-node212 [label = "adios"];		
-node221 [label = "fff"];		
+node11 [label = "Apunte 0"];		
+node12 [label = "Apunte 1"];		
+node13 [label = "Apunte 2"];		
+node21 [label = "Apunte 0"];		
+node22 [label = "Apunte 1"];		
+node23 [label = "Apunte 2"];		
+node24 [label = "Apunte 3"];		
+node51 [label = "Apunte 0"];		
+node52 [label = "Apunte 1"];		
+node53 [label = "Apunte 2"];		
+node54 [label = "Apunte 3"];		
+node55 [label = "Apunte 4"];		
+node56 [label = "Apunte 5"];		
+node57 [label = "Apunte 6"];		
+node71 [label = "Apunte 0"];		
+node72 [label = "Apunte 1"];		
+node73 [label = "Apunte 2"];		
+node74 [label = "Apunte 3"];		
+node75 [label = "Apunte 4"];		
+node76 [label = "Apunte 5"];		
+node77 [label = "Apunte 6"];		
+node78 [label = "Apunte 7"];		
+node79 [label = "Apunte 8"];		
+node81 [label = "Apunte 0"];		
+node82 [label = "Apunte 1"];		
+node83 [label = "Apunte 2"];		
+node84 [label = "Apunte 3"];		
+node85 [label = "Apunte 4"];		
+node86 [label = "Apunte 5"];		
+node87 [label = "Apunte 6"];		
+node88 [label = "Apunte 7"];		
+node91 [label = "Apunte 0"];		
+node92 [label = "Apunte 1"];		
+node93 [label = "Apunte 2"];		
+node94 [label = "Apunte 3"];		
+node95 [label = "Apunte 4"];		
+node96 [label = "Apunte 5"];		
+node97 [label = "Apunte 6"];		
+node98 [label = "Apunte 7"];		
+node101 [label = "Apunte 0"];		
+node102 [label = "Apunte 1"];		
+node103 [label = "Apunte 2"];		
+node104 [label = "Apunte 3"];		
+node111 [label = "Apunte 0"];		
+node112 [label = "Apunte 1"];		
+node131 [label = "Apunte 0"];		
+node132 [label = "Apunte 1"];		
+node161 [label = "Apunte 0"];		
+node162 [label = "Apunte 1"];		
+node181 [label = "Apunte 0"];		
+node182 [label = "Apunte 1"];		
+node183 [label = "Apunte 2"];		
+node184 [label = "Apunte 3"];		
+node185 [label = "Apunte 4"];		
+node186 [label = "Apunte 5"];		
+node187 [label = "Apunte 6"];		
+node201 [label = "Apunte 0"];		
+node202 [label = "Apunte 1"];		
+node203 [label = "Apunte 2"];		
+node204 [label = "Apunte 3"];		
+node221 [label = "Apunte 0"];		
+node231 [label = "Apunte 0"];		
+node232 [label = "Apunte 1"];		
+node233 [label = "Apunte 2"];		
+node234 [label = "Apunte 3"];		
+node241 [label = "Apunte 0"];		
+node242 [label = "Apunte 1"];		
+node243 [label = "Apunte 2"];		
+node244 [label = "Apunte 3"];		
+node245 [label = "Apunte 4"];		
+node246 [label = "Apunte 5"];		
+node247 [label = "Apunte 6"];		
+node248 [label = "Apunte 7"];		
+node249 [label = "Apunte 8"];		
+node251 [label = "Apunte 0"];		
+node261 [label = "Apunte 0"];		
+node262 [label = "Apunte 1"];		
+node263 [label = "Apunte 2"];		
+node264 [label = "Apunte 3"];		
+node265 [label = "Apunte 4"];		
+node301 [label = "Apunte 0"];		
+node302 [label = "Apunte 1"];		
+node303 [label = "Apunte 2"];		
+node304 [label = "Apunte 3"];		
+node305 [label = "Apunte 4"];		
+node306 [label = "Apunte 5"];		
+node307 [label = "Apunte 6"];		
+node308 [label = "Apunte 7"];		
+node321 [label = "Apunte 0"];		
+node322 [label = "Apunte 1"];		
+node323 [label = "Apunte 2"];		
+node324 [label = "Apunte 3"];		
+node325 [label = "Apunte 4"];		
+node431 [label = "Apunte 0"];		
+node432 [label = "Apunte 1"];		
+node433 [label = "Apunte 2"];		
+node434 [label = "Apunte 3"];		
+node435 [label = "Apunte 4"];		
+node436 [label = "Apunte 5"];		
+node437 [label = "Apunte 6"];		
+node441 [label = "Apunte 0"];		
+node442 [label = "Apunte 1"];		
+node471 [label = "Apunte 0"];		
+node472 [label = "Apunte 1"];		
+node473 [label = "Apunte 2"];		
+node474 [label = "Apunte 3"];		
+node475 [label = "Apunte 4"];		
+node476 [label = "Apunte 5"];		
+node491 [label = "Apunte 0"];		
+node501 [label = "Apunte 0"];		
+node502 [label = "Apunte 1"];		
+node503 [label = "Apunte 2"];		
+node504 [label = "Apunte 3"];		
+node505 [label = "Apunte 4"];		
+node521 [label = "Apunte 0"];		
+node522 [label = "Apunte 1"];		
+node541 [label = "Apunte 0"];		
+node542 [label = "Apunte 1"];		
+node551 [label = "Apunte 0"];		
+node552 [label = "Apunte 1"];		
+node553 [label = "Apunte 2"];		
+node554 [label = "Apunte 3"];		
+node555 [label = "Apunte 4"];		
+node561 [label = "Apunte 0"];		
+node562 [label = "Apunte 1"];		
+node571 [label = "Apunte 0"];		
+node572 [label = "Apunte 1"];		
+node573 [label = "Apunte 2"];		
+node581 [label = "Apunte 0"];		
+node582 [label = "Apunte 1"];		
+node583 [label = "Apunte 2"];		
+node584 [label = "Apunte 3"];		
+node585 [label = "Apunte 4"];		
+node586 [label = "Apunte 5"];		
+node621 [label = "Apunte 0"];		
+node622 [label = "Apunte 1"];		
+node631 [label = "Apunte 0"];		
+node632 [label = "Apunte 1"];		
+node633 [label = "Apunte 2"];		
+node634 [label = "Apunte 3"];		
+node635 [label = "Apunte 4"];		
+node636 [label = "Apunte 5"];		
+node641 [label = "Apunte 0"];		
+node651 [label = "Apunte 0"];		
+node652 [label = "Apunte 1"];		
+node653 [label = "Apunte 2"];		
+node654 [label = "Apunte 3"];		
+node655 [label = "Apunte 4"];		
+node656 [label = "Apunte 5"];		
+node657 [label = "Apunte 6"];		
+node658 [label = "Apunte 7"];		
+node659 [label = "Apunte 8"];		
+node681 [label = "Apunte 0"];		
+node682 [label = "Apunte 1"];		
+node683 [label = "Apunte 2"];		
+node684 [label = "Apunte 3"];		
+node711 [label = "Apunte 0"];		
+node721 [label = "Apunte 0"];		
+node722 [label = "Apunte 1"];		
+node723 [label = "Apunte 2"];		
+node724 [label = "Apunte 3"];		
+node725 [label = "Apunte 4"];		
+node726 [label = "Apunte 5"];		
+node731 [label = "Apunte 0"];		
+node732 [label = "Apunte 1"];		
+node733 [label = "Apunte 2"];		
+node734 [label = "Apunte 3"];		
+node735 [label = "Apunte 4"];		
+node736 [label = "Apunte 5"];		
+node737 [label = "Apunte 6"];		
+node738 [label = "Apunte 7"];		
+node761 [label = "Apunte 0"];		
+node762 [label = "Apunte 1"];		
+node763 [label = "Apunte 2"];		
+node764 [label = "Apunte 3"];		
+node765 [label = "Apunte 4"];		
+node766 [label = "Apunte 5"];		
+node767 [label = "Apunte 6"];		
+node771 [label = "Apunte 0"];		
+node772 [label = "Apunte 1"];		
+node773 [label = "Apunte 2"];		
+node774 [label = "Apunte 3"];		
+node775 [label = "Apunte 4"];		
+node776 [label = "Apunte 5"];		
+node777 [label = "Apunte 6"];		
+node778 [label = "Apunte 7"];		
+node791 [label = "Apunte 0"];		
+node792 [label = "Apunte 1"];		
+node793 [label = "Apunte 2"];		
+node794 [label = "Apunte 3"];		
+node795 [label = "Apunte 4"];		
+node796 [label = "Apunte 5"];		
+node831 [label = "Apunte 0"];		
+node832 [label = "Apunte 1"];		
+node841 [label = "Apunte 0"];		
+node851 [label = "Apunte 0"];		
+node852 [label = "Apunte 1"];		
+node853 [label = "Apunte 2"];		
+node854 [label = "Apunte 3"];		
+node861 [label = "Apunte 0"];		
+node862 [label = "Apunte 1"];		
+node863 [label = "Apunte 2"];		
+node864 [label = "Apunte 3"];		
+node865 [label = "Apunte 4"];		
+node866 [label = "Apunte 5"];		
+node867 [label = "Apunte 6"];		
+node868 [label = "Apunte 7"];		
+node881 [label = "Apunte 0"];		
+node882 [label = "Apunte 1"];		
+node891 [label = "Apunte 0"];		
+node892 [label = "Apunte 1"];		
+node893 [label = "Apunte 2"];		
+node894 [label = "Apunte 3"];		
+node895 [label = "Apunte 4"];		
+node896 [label = "Apunte 5"];		
+node961 [label = "Apunte 0"];		
+node962 [label = "Apunte 1"];		
+node963 [label = "Apunte 2"];		
+node964 [label = "Apunte 3"];		
+node965 [label = "Apunte 4"];		
+node966 [label = "Apunte 5"];		
+node967 [label = "Apunte 6"];		
+node968 [label = "Apunte 7"];		
+node981 [label = "Apunte 0"];		
+node982 [label = "Apunte 1"];		
+node991 [label = "Apunte 0"];		
 node0:f1 -> node11		
+node11 -> node12		
+node12 -> node13		
 node0:f2 -> node21		
-node0:f3 -> node31		
-node0:f4 -> node41		
-node41 -> node42		
-node42 -> node43		
+node21 -> node22		
+node22 -> node23		
+node23 -> node24		
 node0:f5 -> node51		
+node51 -> node52		
+node52 -> node53		
+node53 -> node54		
+node54 -> node55		
+node55 -> node56		
+node56 -> node57		
+node0:f7 -> node71		
+node71 -> node72		
+node72 -> node73		
+node73 -> node74		
+node74 -> node75		
+node75 -> node76		
+node76 -> node77		
+node77 -> node78		
+node78 -> node79		
+node0:f8 -> node81		
+node81 -> node82		
+node82 -> node83		
+node83 -> node84		
+node84 -> node85		
+node85 -> node86		
+node86 -> node87		
+node87 -> node88		
+node0:f9 -> node91		
+node91 -> node92		
+node92 -> node93		
+node93 -> node94		
+node94 -> node95		
+node95 -> node96		
+node96 -> node97		
+node97 -> node98		
+node0:f10 -> node101		
+node101 -> node102		
+node102 -> node103		
+node103 -> node104		
+node0:f11 -> node111		
+node111 -> node112		
 node0:f13 -> node131		
-node0:f14 -> node141		
-node141 -> node142		
-node0:f15 -> node151		
-node0:f21 -> node211		
-node211 -> node212		
-node0:f22 -> node221
+node131 -> node132		
+node0:f16 -> node161		
+node161 -> node162		
+node0:f18 -> node181		
+node181 -> node182		
+node182 -> node183		
+node183 -> node184		
+node184 -> node185		
+node185 -> node186		
+node186 -> node187		
+node0:f20 -> node201		
+node201 -> node202		
+node202 -> node203		
+node203 -> node204		
+node0:f22 -> node221		
+node0:f23 -> node231		
+node231 -> node232		
+node232 -> node233		
+node233 -> node234		
+node0:f24 -> node241		
+node241 -> node242		
+node242 -> node243		
+node243 -> node244		
+node244 -> node245		
+node245 -> node246		
+node246 -> node247		
+node247 -> node248		
+node248 -> node249		
+node0:f25 -> node251		
+node0:f26 -> node261		
+node261 -> node262		
+node262 -> node263		
+node263 -> node264		
+node264 -> node265		
+node0:f30 -> node301		
+node301 -> node302		
+node302 -> node303		
+node303 -> node304		
+node304 -> node305		
+node305 -> node306		
+node306 -> node307		
+node307 -> node308		
+node0:f32 -> node321		
+node321 -> node322		
+node322 -> node323		
+node323 -> node324		
+node324 -> node325		
+node0:f43 -> node431		
+node431 -> node432		
+node432 -> node433		
+node433 -> node434		
+node434 -> node435		
+node435 -> node436		
+node436 -> node437		
+node0:f44 -> node441		
+node441 -> node442		
+node0:f47 -> node471		
+node471 -> node472		
+node472 -> node473		
+node473 -> node474		
+node474 -> node475		
+node475 -> node476		
+node0:f49 -> node491		
+node0:f50 -> node501		
+node501 -> node502		
+node502 -> node503		
+node503 -> node504		
+node504 -> node505		
+node0:f52 -> node521		
+node521 -> node522		
+node0:f54 -> node541		
+node541 -> node542		
+node0:f55 -> node551		
+node551 -> node552		
+node552 -> node553		
+node553 -> node554		
+node554 -> node555		
+node0:f56 -> node561		
+node561 -> node562		
+node0:f57 -> node571		
+node571 -> node572		
+node572 -> node573		
+node0:f58 -> node581		
+node581 -> node582		
+node582 -> node583		
+node583 -> node584		
+node584 -> node585		
+node585 -> node586		
+node0:f62 -> node621		
+node621 -> node622		
+node0:f63 -> node631		
+node631 -> node632		
+node632 -> node633		
+node633 -> node634		
+node634 -> node635		
+node635 -> node636		
+node0:f64 -> node641		
+node0:f65 -> node651		
+node651 -> node652		
+node652 -> node653		
+node653 -> node654		
+node654 -> node655		
+node655 -> node656		
+node656 -> node657		
+node657 -> node658		
+node658 -> node659		
+node0:f68 -> node681		
+node681 -> node682		
+node682 -> node683		
+node683 -> node684		
+node0:f71 -> node711		
+node0:f72 -> node721		
+node721 -> node722		
+node722 -> node723		
+node723 -> node724		
+node724 -> node725		
+node725 -> node726		
+node0:f73 -> node731		
+node731 -> node732		
+node732 -> node733		
+node733 -> node734		
+node734 -> node735		
+node735 -> node736		
+node736 -> node737		
+node737 -> node738		
+node0:f76 -> node761		
+node761 -> node762		
+node762 -> node763		
+node763 -> node764		
+node764 -> node765		
+node765 -> node766		
+node766 -> node767		
+node0:f77 -> node771		
+node771 -> node772		
+node772 -> node773		
+node773 -> node774		
+node774 -> node775		
+node775 -> node776		
+node776 -> node777		
+node777 -> node778		
+node0:f79 -> node791		
+node791 -> node792		
+node792 -> node793		
+node793 -> node794		
+node794 -> node795		
+node795 -> node796		
+node0:f83 -> node831		
+node831 -> node832		
+node0:f84 -> node841		
+node0:f85 -> node851		
+node851 -> node852		
+node852 -> node853		
+node853 -> node854		
+node0:f86 -> node861		
+node861 -> node862		
+node862 -> node863		
+node863 -> node864		
+node864 -> node865		
+node865 -> node866		
+node866 -> node867		
+node867 -> node868		
+node0:f88 -> node881		
+node881 -> node882		
+node0:f89 -> node891		
+node891 -> node892		
+node892 -> node893		
+node893 -> node894		
+node894 -> node895		
+node895 -> node896		
+node0:f96 -> node961		
+node961 -> node962		
+node962 -> node963		
+node963 -> node964		
+node964 -> node965		
+node965 -> node966		
+node966 -> node967		
+node967 -> node968		
+node0:f98 -> node981		
+node981 -> node982		
+node0:f99 -> node991
 }

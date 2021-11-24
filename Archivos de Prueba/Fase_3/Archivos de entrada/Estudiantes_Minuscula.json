@@ -1,0 +1,754 @@
+{
+    "estudiantes": [
+	{
+		"carnet" : "201183728",
+		"DPI" : "2050740201006",
+		"nombre" : "Alvin Huckett",
+		"carrera" : "Ingenieria Quimica",
+		"password" : "DGHS2Xi",
+		"creditos" : 222,
+		"edad" :   20,
+		"correo" : "AlvinHuckett_60@outlook.org"
+	},
+	{
+		"carnet" : "201000244",
+		"DPI" : "5970926381748",
+		"nombre" : "Nertie Laurenzi",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "198yxel",
+		"creditos" : 139,
+		"edad" :   19,
+		"correo" : "NertieLaurenzi.75@hotmail.es"
+	},
+	{
+		"carnet" : "201210811",
+		"DPI" : "8795758881448",
+		"nombre" : "Lamont Barthrup",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "j60uy9",
+		"creditos" : 53,
+		"edad" :   25,
+		"correo" : "LamontBarthrup_34@outlook.org"
+	},
+	{
+		"carnet" : "201315898",
+		"DPI" : "5531711621404",
+		"nombre" : "Bernadette Pescud",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "TXz6b",
+		"creditos" : 190,
+		"edad" :   28,
+		"correo" : "BernadettePescud.10@outlook.com"
+	},
+	{
+		"carnet" : "201582352",
+		"DPI" : "4172564417242",
+		"nombre" : "Bobina Delacroux",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "m6ILxd",
+		"creditos" : 113,
+		"edad" :   23,
+		"correo" : "BobinaDelacroux_46@hotmail.com"
+	},
+	{
+		"carnet" : "201115140",
+		"DPI" : "8429519350118",
+		"nombre" : "Pebrook Gircke",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "Ysgy3Vt",
+		"creditos" : 172,
+		"edad" :   19,
+		"correo" : "PebrookGircke93@undefined.org"
+	},
+	{
+		"carnet" : "201350393",
+		"DPI" : "9029374304090",
+		"nombre" : "Laurie Tumilty",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "UKazTS0",
+		"creditos" : 124,
+		"edad" :   20,
+		"correo" : "LaurieTumilty58@undefined.com"
+	},
+	{
+		"carnet" : "201698163",
+		"DPI" : "8010354636352",
+		"nombre" : "Barn Killingbeck",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "38KWHL",
+		"creditos" : 130,
+		"edad" :   20,
+		"correo" : "BarnKillingbeck33@gmail.org"
+	},
+	{
+		"carnet" : "201402462",
+		"DPI" : "3594915493584",
+		"nombre" : "Joscelin Fewings",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "tF7ZroZ",
+		"creditos" : 202,
+		"edad" :   25,
+		"correo" : "JoscelinFewings_56@outlook.es"
+	},
+	{
+		"carnet" : "201643353",
+		"DPI" : "9692561360208",
+		"nombre" : "Llywellyn Woodnutt",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "ui708GE",
+		"creditos" : 44,
+		"edad" :   27,
+		"correo" : "LlywellynWoodnutt_83@gmail.es"
+	},
+	{
+		"carnet" : "201043689",
+		"DPI" : "0714796787404",
+		"nombre" : "Ardene Benediktovich",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "muiPC17",
+		"creditos" : 13,
+		"edad" :   23,
+		"correo" : "ArdeneBenediktovich72@outlook.org"
+	},
+	{
+		"carnet" : "201489697",
+		"DPI" : "3310894947855",
+		"nombre" : "Judye Rossborough",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "k9oGtrw",
+		"creditos" : 3,
+		"edad" :   26,
+		"correo" : "JudyeRossborough_49@yahoo.com"
+	},
+	{
+		"carnet" : "201818908",
+		"DPI" : "2689202578134",
+		"nombre" : "Wilbur Alberts",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "SSeRj8d",
+		"creditos" : 64,
+		"edad" :   18,
+		"correo" : "WilburAlberts45@hotmail.org"
+	},
+	{
+		"carnet" : "201816850",
+		"DPI" : "0154497044345",
+		"nombre" : "Emili Palleske",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "17x8L",
+		"creditos" : 28,
+		"edad" :   21,
+		"correo" : "EmiliPalleske.89@gmail.com"
+	},
+	{
+		"carnet" : "201232485",
+		"DPI" : "3762365704505",
+		"nombre" : "Vivian Currer",
+		"carrera" : "Ingenieria Quimica",
+		"password" : "xe7yeho",
+		"creditos" : 218,
+		"edad" :   28,
+		"correo" : "VivianCurrer_25@outlook.org"
+	},
+	{
+		"carnet" : "201131811",
+		"DPI" : "3347258005328",
+		"nombre" : "Eloise Trevarthen",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "B8FP4",
+		"creditos" : 201,
+		"edad" :   22,
+		"correo" : "EloiseTrevarthen91@hotmail.es"
+	},
+	{
+		"carnet" : "201476680",
+		"DPI" : "4293824642888",
+		"nombre" : "Kim Westphal",
+		"carrera" : "Ingenieria Quimica",
+		"password" : "qtry5",
+		"creditos" : 159,
+		"edad" :   19,
+		"correo" : "KimWestphal38@yahoo.com"
+	},
+	{
+		"carnet" : "201511649",
+		"DPI" : "5648266954532",
+		"nombre" : "Aylmar Raubenheimer",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "76816q",
+		"creditos" : 163,
+		"edad" :   23,
+		"correo" : "AylmarRaubenheimer.27@hotmail.es"
+	},
+	{
+		"carnet" : "201255643",
+		"DPI" : "7672150791181",
+		"nombre" : "Alvin Huckett",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "g4X4Ak",
+		"creditos" : 65,
+		"edad" :   29,
+		"correo" : "AlvinHuckett_63@undefined.org"
+	},
+	{
+		"carnet" : "201947729",
+		"DPI" : "1430797138430",
+		"nombre" : "Camila Dibbert",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "b4wdeP",
+		"creditos" : 188,
+		"edad" :   21,
+		"correo" : "CamilaDibbert.81@gmail.com"
+	},
+	{
+		"carnet" : "201173540",
+		"DPI" : "3235002226847",
+		"nombre" : "Alvin Huckett",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "ITrpSM0",
+		"creditos" : 104,
+		"edad" :   22,
+		"correo" : "AlvinHuckett_65@outlook.org"
+	},
+	{
+		"carnet" : "201704168",
+		"DPI" : "3379162068993",
+		"nombre" : "Tim Goldspink",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "Cmg7g",
+		"creditos" : 137,
+		"edad" :   19,
+		"correo" : "TimGoldspink.71@aol.com"
+	},
+	{
+		"carnet" : "201661519",
+		"DPI" : "9302712249273",
+		"nombre" : "Harvey Darbyshire",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "Asv30",
+		"creditos" : 55,
+		"edad" :   26,
+		"correo" : "HarveyDarbyshire_63@gmail.com"
+	},
+	{
+		"carnet" : "201309890",
+		"DPI" : "6364119505269",
+		"nombre" : "Grayce Poltone",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "bCp3F57",
+		"creditos" : 133,
+		"edad" :   18,
+		"correo" : "GraycePoltone_20@hotmail.es"
+	},
+	{
+		"carnet" : "201740604",
+		"DPI" : "2625352358554",
+		"nombre" : "Llywellyn Woodnutt",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "Bk8jU",
+		"creditos" : 3,
+		"edad" :   19,
+		"correo" : "LlywellynWoodnutt.46@gmail.org"
+	},
+	{
+		"carnet" : "201646518",
+		"DPI" : "8696013129504",
+		"nombre" : "Aylmar Raubenheimer",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "3j9MHF",
+		"creditos" : 192,
+		"edad" :   22,
+		"correo" : "AylmarRaubenheimer31@aol.com"
+	},
+	{
+		"carnet" : "201766242",
+		"DPI" : "3780452896411",
+		"nombre" : "Franky Viney",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "UC1hKp",
+		"creditos" : 164,
+		"edad" :   20,
+		"correo" : "FrankyViney72@aol.com"
+	},
+	{
+		"carnet" : "201537627",
+		"DPI" : "6000394094296",
+		"nombre" : "Aylmar Raubenheimer",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "82MID7",
+		"creditos" : 3,
+		"edad" :   24,
+		"correo" : "AylmarRaubenheimer82@undefined.com"
+	},
+	{
+		"carnet" : "201327675",
+		"DPI" : "5005953751371",
+		"nombre" : "Lamont Barthrup",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "CAt1n",
+		"creditos" : 171,
+		"edad" :   20,
+		"correo" : "LamontBarthrup.75@hotmail.org"
+	},
+	{
+		"carnet" : "201897987",
+		"DPI" : "2193345266141",
+		"nombre" : "Michelle Glanister",
+		"carrera" : "Ingenieria Quimica",
+		"password" : "8cIUD",
+		"creditos" : 226,
+		"edad" :   25,
+		"correo" : "MichelleGlanister.13@aol.org"
+	},
+	{
+		"carnet" : "201500866",
+		"DPI" : "7040168688236",
+		"nombre" : "Claybourne Nelmes",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "4xCS04",
+		"creditos" : 121,
+		"edad" :   19,
+		"correo" : "ClaybourneNelmes_2@aol.com"
+	},
+	{
+		"carnet" : "201359507",
+		"DPI" : "6474775706799",
+		"nombre" : "Olly Brunelleschi",
+		"carrera" : "Ingenieria Quimica",
+		"password" : "rdjy6j",
+		"creditos" : 52,
+		"edad" :   22,
+		"correo" : "OllyBrunelleschi_86@aol.com"
+	},
+	{
+		"carnet" : "201954202",
+		"DPI" : "2496399691941",
+		"nombre" : "Eloise Trevarthen",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "6RNgz",
+		"creditos" : 196,
+		"edad" :   29,
+		"correo" : "EloiseTrevarthen.4@undefined.org"
+	},
+	{
+		"carnet" : "201412244",
+		"DPI" : "3239472177167",
+		"nombre" : "Eba Keitley",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "BRdQj",
+		"creditos" : 238,
+		"edad" :   22,
+		"correo" : "EbaKeitley73@undefined.com"
+	},
+	{
+		"carnet" : "201234795",
+		"DPI" : "9082300809939",
+		"nombre" : "Wilbur Alberts",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "0oXnv",
+		"creditos" : 80,
+		"edad" :   29,
+		"correo" : "WilburAlberts_86@yahoo.com"
+	},
+	{
+		"carnet" : "201594265",
+		"DPI" : "2831630574772",
+		"nombre" : "Ardene Benediktovich",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "15Asd",
+		"creditos" : 242,
+		"edad" :   26,
+		"correo" : "ArdeneBenediktovich_57@hotmail.org"
+	},
+	{
+		"carnet" : "201790782",
+		"DPI" : "3168522176927",
+		"nombre" : "Claybourne Nelmes",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "d70Vi",
+		"creditos" : 0,
+		"edad" :   22,
+		"correo" : "ClaybourneNelmes_82@aol.com"
+	},
+	{
+		"carnet" : "201374369",
+		"DPI" : "8311431297185",
+		"nombre" : "Lionel Messi",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "cVzaR8",
+		"creditos" : 93,
+		"edad" :   20,
+		"correo" : "LionelMessi.17@aol.es"
+	},
+	{
+		"carnet" : "201709702",
+		"DPI" : "4245428187625",
+		"nombre" : "Dillon Blandamere",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "3f5qj",
+		"creditos" : 84,
+		"edad" :   20,
+		"correo" : "DillonBlandamere_33@undefined.com"
+	},
+	{
+		"carnet" : "201635991",
+		"DPI" : "2702608963916",
+		"nombre" : "Boycie Langlais",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "vCGgb2",
+		"creditos" : 113,
+		"edad" :   29,
+		"correo" : "BoycieLanglais24@aol.es"
+	},
+	{
+		"carnet" : "201389879",
+		"DPI" : "1332692632257",
+		"nombre" : "Darn Studdal",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "r80ja",
+		"creditos" : 244,
+		"edad" :   23,
+		"correo" : "DarnStuddal88@gmail.com"
+	},
+	{
+		"carnet" : "201375524",
+		"DPI" : "3164173770900",
+		"nombre" : "Tim Goldspink",
+		"carrera" : "Ingenieria Quimica",
+		"password" : "Nu96Sq3",
+		"creditos" : 1,
+		"edad" :   20,
+		"correo" : "TimGoldspink_27@yahoo.es"
+	},
+	{
+		"carnet" : "201428558",
+		"DPI" : "8783633019549",
+		"nombre" : "Llywellyn Woodnutt",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "qWlnP7",
+		"creditos" : 5,
+		"edad" :   24,
+		"correo" : "LlywellynWoodnutt.12@gmail.es"
+	},
+	{
+		"carnet" : "201933753",
+		"DPI" : "6467642780621",
+		"nombre" : "Bobina Delacroux",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "8DGPFmN",
+		"creditos" : 147,
+		"edad" :   25,
+		"correo" : "BobinaDelacroux_64@gmail.com"
+	},
+	{
+		"carnet" : "201774497",
+		"DPI" : "6327689577005",
+		"nombre" : "Llywellyn Woodnutt",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "RN1Dgbd",
+		"creditos" : 90,
+		"edad" :   26,
+		"correo" : "LlywellynWoodnutt_44@aol.org"
+	},
+	{
+		"carnet" : "201145786",
+		"DPI" : "4820546644233",
+		"nombre" : "Harvey Darbyshire",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "uJW2Q",
+		"creditos" : 88,
+		"edad" :   22,
+		"correo" : "HarveyDarbyshire.56@outlook.com"
+	},
+	{
+		"carnet" : "201509061",
+		"DPI" : "3761268073554",
+		"nombre" : "Tim Goldspink",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "DPx0LQ0",
+		"creditos" : 108,
+		"edad" :   23,
+		"correo" : "TimGoldspink.36@aol.com"
+	},
+	{
+		"carnet" : "201068965",
+		"DPI" : "7207003476187",
+		"nombre" : "Tim Goldspink",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "MF4vc6",
+		"creditos" : 112,
+		"edad" :   26,
+		"correo" : "TimGoldspink.1@yahoo.org"
+	},
+	{
+		"carnet" : "201991578",
+		"DPI" : "7437219208336",
+		"nombre" : "Olly Brunelleschi",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "H1xi3",
+		"creditos" : 102,
+		"edad" :   29,
+		"correo" : "OllyBrunelleschi.78@yahoo.org"
+	},
+	{
+		"carnet" : "201803912",
+		"DPI" : "3995410773680",
+		"nombre" : "Emili Palleske",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "ODYgI",
+		"creditos" : 205,
+		"edad" :   26,
+		"correo" : "EmiliPalleske.68@gmail.com"
+	},
+	{
+		"carnet" : "201921767",
+		"DPI" : "5042024988582",
+		"nombre" : "Consolata Reskelly",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "cBP1bt7",
+		"creditos" : 200,
+		"edad" :   27,
+		"correo" : "ConsolataReskelly.30@undefined.com"
+	},
+	{
+		"carnet" : "201157605",
+		"DPI" : "2503385887437",
+		"nombre" : "Alonzo Seagrove",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "92V6h",
+		"creditos" : 226,
+		"edad" :   22,
+		"correo" : "AlonzoSeagrove_35@undefined.org"
+	},
+	{
+		"carnet" : "201761573",
+		"DPI" : "5372214388411",
+		"nombre" : "Alonzo Seagrove",
+		"carrera" : "Ingenieria Quimica",
+		"password" : "24ldm",
+		"creditos" : 51,
+		"edad" :   22,
+		"correo" : "AlonzoSeagrove_54@hotmail.es"
+	},
+	{
+		"carnet" : "201825364",
+		"DPI" : "6772854332066",
+		"nombre" : "Phillis Syrie",
+		"carrera" : "Ingenieria Quimica",
+		"password" : "rU2QYr",
+		"creditos" : 111,
+		"edad" :   28,
+		"correo" : "PhillisSyrie_17@hotmail.es"
+	},
+	{
+		"carnet" : "201022466",
+		"DPI" : "0579054127201",
+		"nombre" : "Wash Sedgemore",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "1E8vp8",
+		"creditos" : 130,
+		"edad" :   29,
+		"correo" : "WashSedgemore_70@outlook.com"
+	},
+	{
+		"carnet" : "201006295",
+		"DPI" : "6483009710551",
+		"nombre" : "Roderigo Gomme",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "w1E8BW",
+		"creditos" : 23,
+		"edad" :   24,
+		"correo" : "RoderigoGomme_92@yahoo.org"
+	},
+	{
+		"carnet" : "201116100",
+		"DPI" : "7247421869888",
+		"nombre" : "Franky Viney",
+		"carrera" : "Ingenieria Quimica",
+		"password" : "5K0p7N",
+		"creditos" : 42,
+		"edad" :   26,
+		"correo" : "FrankyViney_42@hotmail.es"
+	},
+	{
+		"carnet" : "201773473",
+		"DPI" : "1563507262381",
+		"nombre" : "Krystal Crellin",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "3KgBk",
+		"creditos" : 88,
+		"edad" :   26,
+		"correo" : "KrystalCrellin.48@outlook.org"
+	},
+	{
+		"carnet" : "201119966",
+		"DPI" : "9030770152211",
+		"nombre" : "Michelle Glanister",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "J9Tq39",
+		"creditos" : 225,
+		"edad" :   23,
+		"correo" : "MichelleGlanister87@outlook.com"
+	},
+	{
+		"carnet" : "201669286",
+		"DPI" : "3126321523297",
+		"nombre" : "Tim Goldspink",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "QQNPe8",
+		"creditos" : 187,
+		"edad" :   21,
+		"correo" : "TimGoldspink_45@gmail.es"
+	},
+	{
+		"carnet" : "201147451",
+		"DPI" : "9093933675701",
+		"nombre" : "Ellerey Sherwyn",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "20H3Hx",
+		"creditos" : 80,
+		"edad" :   23,
+		"correo" : "EllereySherwyn.51@gmail.es"
+	},
+	{
+		"carnet" : "201864201",
+		"DPI" : "8208413026556",
+		"nombre" : "Claybourne Nelmes",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "69548z",
+		"creditos" : 25,
+		"edad" :   25,
+		"correo" : "ClaybourneNelmes.78@hotmail.com"
+	},
+	{
+		"carnet" : "201667272",
+		"DPI" : "9443025623424",
+		"nombre" : "Adriaens Timms",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "Pe8Ucp",
+		"creditos" : 237,
+		"edad" :   21,
+		"correo" : "AdriaensTimms43@aol.org"
+	},
+	{
+		"carnet" : "201668149",
+		"DPI" : "6435886693765",
+		"nombre" : "Harvey Darbyshire",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "u4jxe57",
+		"creditos" : 31,
+		"edad" :   27,
+		"correo" : "HarveyDarbyshire_31@gmail.org"
+	},
+	{
+		"carnet" : "201764124",
+		"DPI" : "6773833243077",
+		"nombre" : "Harvey Darbyshire",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "0DDF8",
+		"creditos" : 219,
+		"edad" :   21,
+		"correo" : "HarveyDarbyshire.59@gmail.es"
+	},
+	{
+		"carnet" : "201516603",
+		"DPI" : "4062043125856",
+		"nombre" : "Aylmar Raubenheimer",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "Sv4HFP",
+		"creditos" : 168,
+		"edad" :   19,
+		"correo" : "AylmarRaubenheimer.85@aol.com"
+	},
+	{
+		"carnet" : "201327079",
+		"DPI" : "8292286385716",
+		"nombre" : "Franky Viney",
+		"carrera" : "Ingenieria Industrial",
+		"password" : "GhhLi",
+		"creditos" : 179,
+		"edad" :   21,
+		"correo" : "FrankyViney.59@aol.es"
+	},
+	{
+		"carnet" : "201906670",
+		"DPI" : "2245119831085",
+		"nombre" : "Franky Viney",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "PCAanL",
+		"creditos" : 198,
+		"edad" :   23,
+		"correo" : "FrankyViney_49@yahoo.es"
+	},
+	{
+		"carnet" : "201461415",
+		"DPI" : "8579079230016",
+		"nombre" : "Roderigo Gomme",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "6GEfOg",
+		"creditos" : 113,
+		"edad" :   20,
+		"correo" : "RoderigoGomme_55@aol.org"
+	},
+	{
+		"carnet" : "201009015",
+		"DPI" : "1962623323417",
+		"nombre" : "Afton Hounson",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "PQvEC5",
+		"creditos" : 12,
+		"edad" :   23,
+		"correo" : "AftonHounson.43@aol.com"
+	},
+	{
+		"carnet" : "201137248",
+		"DPI" : "4264540703955",
+		"nombre" : "Eba Keitley",
+		"carrera" : "Ingenieria Mecanica",
+		"password" : "K8ZY0mI",
+		"creditos" : 35,
+		"edad" :   22,
+		"correo" : "EbaKeitley83@outlook.org"
+	},
+	{
+		"carnet" : "201339503",
+		"DPI" : "1169570189320",
+		"nombre" : "Drusilla Louca",
+		"carrera" : "Ingenieria Mecanica Industrial",
+		"password" : "xW0NS",
+		"creditos" : 41,
+		"edad" :   29,
+		"correo" : "DrusillaLouca1@outlook.com"
+	},
+	{
+		"carnet" : "201110247",
+		"DPI" : "7882408800987",
+		"nombre" : "Aylmar Raubenheimer",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "oKlY9O7",
+		"creditos" : 171,
+		"edad" :   19,
+		"correo" : "AylmarRaubenheimer_82@yahoo.org"
+	},
+	{
+		"carnet" : "201125580",
+		"DPI" : "1846903502498",
+		"nombre" : "Boycie Langlais",
+		"carrera" : "Ingenieria en Ciencias y Sistemas",
+		"password" : "MhBaUtl",
+		"creditos" : 190,
+		"edad" :   21,
+		"correo" : "BoycieLanglais.61@hotmail.com"
+	},
+	{
+		"carnet" : "201315288",
+		"DPI" : "7044319749868",
+		"nombre" : "Joscelin Fewings",
+		"carrera" : "Ingenieria Mecanica Electrica",
+		"password" : "3htilF",
+		"creditos" : 89,
+		"edad" :   27,
+		"correo" : "JoscelinFewings.27@yahoo.es"
+	}
+    ]
+}
